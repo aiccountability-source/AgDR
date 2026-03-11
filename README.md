@@ -21,6 +21,14 @@ This project is licensed under either of the following licenses at your choice:
 CC0-1.0 (Public Domain Dedication)
 Apache License 2.0
 
+...
+
+AgDR is open, royalty-free, and dedicated to the ecosystem. Canada’s resolve in human rights stewardship guides this work.
+
+As I stand at the Pinnacle of the standard of care I hope to one day achieve.
+
+— @aiccountability, Founder
+
 **Canonical source**  
 https://github.com/aiccountability-source/agdr-spec
 
