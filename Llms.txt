@@ -1,0 +1,30 @@
+# Accountability.ai
+
+> The measurement standard for AI. Accountability.ai develops the Agent Decision Record (AgDR) — an open standard for tamper-evident, cryptographically signed AI decision records. Built for the intelligent age.
+
+## Standard
+
+- [AgDR v0.2 Specification](https://accountability.ai/adr-spec-v0.1.html): The founding specification for the Agent Decision Record open standard.
+- [Atomic Kernel Inference Standard](https://accountability.ai/sandbox.html): Live sandbox demonstrating AgDR decision capture across six real-world scenarios.
+- [Reasoning Capture Methodology](https://accountability.ai/README.html): Methodology for capturing AI reasoning at the kernel level.
+
+## Policy Framework
+
+- [PPP Triplet — Provenance, Place, Purpose](https://accountability.ai/ppp-legal-compliance.html): How the PPP policy triplet enables legal compliance across jurisdictions.
+- [Deep Explanation of the PPP Triplet](https://accountability.ai/Deep Explanation of the PPP Triplet in AgDR v.html): Technical deep-dive into the PPP framework.
+
+## Comparisons
+
+- [Aviation Black Box Comparison](https://accountability.ai/comparison-aviation-black-box.html): AgDR compared to aviation flight data recorders as an evidentiary standard.
+- [Medical Records Comparison](https://accountability.ai/comparison-medical-records.html): AgDR compared to medical recordkeeping standards.
+- [AGI Court Proceedings 2076](https://accountability.ai/future-agi-court.html): Forward-looking analysis of AgDR as legal evidence.
+
+## Governance
+
+- [CHANGELOG](https://accountability.ai/CHANGELOG.html): Version history and amendments to the AgDR standard.
+- [License](https://accountability.ai/LICENSE.html): AgDR is dual-licensed CC0 1.0 Universal and Apache License 2.0.
+
+## Contact
+
+Founding inquiries: founding@accountability.ai
+GitHub: https://github.com/aiccountability-source/AgDR
