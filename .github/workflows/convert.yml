@@ -4,33 +4,47 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: write
+
 jobs:
   convert:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Pandoc
         run: sudo apt-get install -y pandoc
 
-      - name: Delete old HTML files
+      - name: Delete old converted HTML files
         run: |
           find . -maxdepth 1 -name "*.html" \
             ! -name "index.html" \
             ! -name "sandbox.html" \
+            ! -name "template.html" \
             -delete
+
+      - name: Copy template to Pandoc directory
+        run: |
+          mkdir -p /usr/share/pandoc/data/templates
+          cp "$GITHUB_WORKSPACE/template.html" /usr/share/pandoc/data/templates/template.html
 
       - name: Convert all MD to HTML
         run: |
-          mkdir -p /usr/share/pandoc/data/templates
-          cp template.html /usr/share/pandoc/data/templates/template.html
-          touch *.md
           for f in *.md; do
+            [ -f "$f" ] || continue
             TITLE=$(basename "${f%.md}" | tr '-' ' ')
-            pandoc "$f" -o "${f%.md}.html" \
-              --from markdown+fenced_code_blocks+backtick_code_blocks \
+            pandoc "$f" \
+              --from markdown+fenced_code_blocks+backtick_code_blocks+pipe_tables \
+              --to html5 \
               --template=template.html \
-              --metadata title="$TITLE"
+              --metadata title="$TITLE" \
+              --output "${f%.md}.html"
+            echo "Converted: $f -> ${f%.md}.html"
           done
 
       - name: Generate sitemap
@@ -40,19 +54,21 @@ jobs:
           echo '  <url><loc>https://accountability.ai/</loc><priority>1.0</priority></url>' >> sitemap.xml
           echo '  <url><loc>https://accountability.ai/sandbox.html</loc><priority>0.9</priority></url>' >> sitemap.xml
           for f in *.html; do
-            if [ "$f" != "index.html" ] && [ "$f" != "sandbox.html" ]; then
+            [ -f "$f" ] || continue
+            if [ "$f" != "index.html" ] && [ "$f" != "sandbox.html" ] && [ "$f" != "template.html" ]; then
               echo "  <url><loc>https://accountability.ai/${f}</loc><priority>0.7</priority></url>" >> sitemap.xml
             fi
           done
           echo '</urlset>' >> sitemap.xml
 
-      - name: Commit HTML and sitemap back to repo
+      - name: Commit and push HTML and sitemap
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add *.html sitemap.xml
-          git stash
-          git pull --rebase origin main
-          git stash pop
-          git commit -m "Auto-generated HTML and sitemap" || exit 0
-          git push
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Auto-generated HTML and sitemap [skip ci]"
+            git push origin main
+          fi
