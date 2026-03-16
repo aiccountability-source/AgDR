@@ -34,3 +34,12 @@ jobs:
             fi
           done
           echo '</urlset>' >> sitemap.xml
+
+      - name: Commit HTML and sitemap back to repo
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git pull --rebase origin main
+          git add *.html sitemap.xml
+          git commit -m "Auto-generated HTML and sitemap" || exit 0
+          git push
