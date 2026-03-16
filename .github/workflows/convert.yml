@@ -15,6 +15,7 @@ jobs:
 
       - name: Convert all MD to HTML
         run: |
+          touch *.md
           for f in *.md; do
             TITLE=$(basename "${f%.md}" | tr '-' ' ')
             pandoc "$f" -o "${f%.md}.html" \
