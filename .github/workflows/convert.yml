@@ -22,12 +22,14 @@ jobs:
 
       - name: Convert all MD to HTML
         run: |
+          mkdir -p /usr/share/pandoc/data/templates
+          cp template.html /usr/share/pandoc/data/templates/template.html
           touch *.md
           for f in *.md; do
             TITLE=$(basename "${f%.md}" | tr '-' ' ')
             pandoc "$f" -o "${f%.md}.html" \
               --from markdown+fenced_code_blocks+backtick_code_blocks \
-              --template=./template.html \
+              --template=template.html \
               --metadata title="$TITLE"
           done
 
