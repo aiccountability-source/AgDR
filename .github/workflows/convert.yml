@@ -18,8 +18,8 @@ jobs:
           for f in *.md; do
             TITLE=$(basename "${f%.md}" | tr '-' ' ')
             pandoc "$f" -o "${f%.md}.html" \
-              --metadata title="$TITLE" \
-              -H <(echo '<meta name="description" content="Agent Decision Record specification and AI accountability infrastructure. Accountability.ai — the measurement standard for AI.">')
+              --template=template.html \
+              --metadata title="$TITLE"
           done
 
       - name: Generate sitemap
