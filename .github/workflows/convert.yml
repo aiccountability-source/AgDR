@@ -1,11 +1,11 @@
-name: Convert MD to HTML and Deploy
+name: Convert MD to HTML and Generate Sitemap
 
 on:
   push:
     branches: [main]
 
 jobs:
-  convert-and-deploy:
+  convert:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,11 +34,3 @@ jobs:
             fi
           done
           echo '</urlset>' >> sitemap.xml
-
-      - name: Deploy to DoRoyal via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /public_html/
