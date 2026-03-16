@@ -1,49 +1,117 @@
-<h1 id="technical-note-on-coherence">Technical Note on Coherence</h1>
-<p><strong>AgDR v0.2 Technical Note</strong><br />
-Published March 2026</p>
-<h3 id="quantum-coherence-a-brief-explanation">Quantum Coherence – A
-Brief Explanation</h3>
-<p>Quantum coherence is a real physical phenomenon in which a quantum
-system maintains a fixed phase relationship between its possible states.
-This allows true superposition and interference effects that have no
-classical equivalent.</p>
-<p>When a quantum system interacts with its environment, this phase
-relationship is lost through decoherence — the beautiful quantum
-behaviour collapses into ordinary classical statistics.</p>
-<h3 id="what-agdr-actually-achieves">What AgDR Actually Achieves</h3>
-<p>The Atomic Kernel Inference (AKI) in AgDR v0.2 is <strong>classical
-computing</strong>. It uses standard CPU primitives
-(<code>local_irq_save</code>, <code>preempt_disable</code>, and atomic
-stores) to enforce one indivisible transaction at the exact inference
-point.</p>
-<p>We do not create quantum superposition, entanglement, or true quantum
-coherence. The 2.8 billion decision threshold is a practical memory and
-throughput limit on classical hardware — not a quantum threshold.</p>
-<h3 id="the-useful-metaphor">The Useful Metaphor</h3>
-<p>There is a powerful and accurate analogy worth keeping:</p>
-<p>By forcing the decision, the full reasoning trace, the PPP triplet,
-and the cryptographic signature to exist as one synchronized,
-indivisible unit, we create a form of <strong>informational
-coherence</strong>. The record cannot drift or leak. The decision and
-its proof remain perfectly locked together from the first instant.</p>
-<p>Beyond that atomic window, information leakage and post-facto
-reconstruction become possible — the digital equivalent of decoherence.
-By keeping everything inside the kernel transaction, we prevent that
-decay.</p>
-<p>This is the closest classical equivalent to preserving a protected
-state.</p>
-<h3 id="why-this-matters-for-the-mission">Why This Matters for the
-Mission</h3>
-<p>We did not need quantum hardware to achieve something profound.<br />
-By pushing classical atomicity to its practical limit, we created the
-first mathematically guaranteed contemporaneous record for autonomous
-agents.</p>
-<p>This classical breakthrough is already sufficient to change
-governance, liability, and trust at machine speed.</p>
-<p>It is the foundation upon which future quantum-ready systems can be
-built.</p>
-<p>We stand at the pinnacle of the standard of care that I wish to one
-day achieve.</p>
-<p><em>Part of the AgDR v0.2 foundational standard</em><br />
-Canonical source:
-https://github.com/aiccountability-source/agdr-spec</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agent Decision Record specification and AI accountability infrastructure. Accountability.ai — the measurement standard for AI.">
+  <title>technical note coherence | Accountability.ai</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    body { font-family: system-ui, sans-serif; }
+    .prose h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; color: #5eead4; }
+    .prose h2 { font-size: 1.75rem; font-weight: 600; margin-top: 2rem; margin-bottom: 0.75rem; color: #99f6e4; }
+    .prose h3 { font-size: 1.25rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem; color: #ccfbf1; }
+    .prose p { margin-bottom: 1rem; line-height: 1.75; }
+    .prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .prose ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+    .prose li { margin-bottom: 0.4rem; line-height: 1.7; }
+    .prose a { color: #5eead4; text-decoration: underline; }
+    .prose a:hover { color: #99f6e4; }
+    .prose code { background: #27272a; padding: 0.2rem 0.4rem; border-radius: 0.25rem; font-size: 0.9em; color: #5eead4; }
+    .prose pre { background: #18181b; padding: 1.25rem; border-radius: 0.75rem; overflow-x: auto; margin-bottom: 1rem; }
+    .prose pre code { background: none; padding: 0; }
+    .prose blockquote { border-left: 4px solid #0f766e; padding-left: 1rem; color: #a1a1aa; font-style: italic; margin-bottom: 1rem; }
+    .prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; }
+    .prose th { background: #18181b; padding: 0.75rem 1rem; text-align: left; color: #5eead4; border: 1px solid #3f3f46; }
+    .prose td { padding: 0.75rem 1rem; border: 1px solid #3f3f46; }
+    .prose tr:nth-child(even) { background: #18181b; }
+    .prose hr { border-color: #3f3f46; margin: 2rem 0; }
+  </style>
+</head>
+<body class="bg-zinc-950 text-white">
+
+  <!-- NAV -->
+  <nav style="background: linear-gradient(135deg, #0F766E 0%, #164E63 100%);" class="py-4 px-6">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <a href="/" class="text-xl font-bold tracking-tight">Accountability.ai</a>
+      <div class="flex gap-6 text-sm">
+        <a href="/" class="hover:text-teal-300 transition">Home</a>
+        <a href="/sandbox.html" class="hover:text-teal-300 transition">Sandbox</a>
+        <a href="https://github.com/aiccountability-source/AgDR" target="_blank" class="hover:text-teal-300 transition">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <article class="prose">
+      <h1 id="technical-note-on-coherence">Technical Note on
+      Coherence</h1>
+      <p><strong>AgDR v0.2 Technical Note</strong><br />
+      Published March 2026</p>
+      <h3 id="quantum-coherence-a-brief-explanation">Quantum Coherence –
+      A Brief Explanation</h3>
+      <p>Quantum coherence is a real physical phenomenon in which a
+      quantum system maintains a fixed phase relationship between its
+      possible states. This allows true superposition and interference
+      effects that have no classical equivalent.</p>
+      <p>When a quantum system interacts with its environment, this
+      phase relationship is lost through decoherence — the beautiful
+      quantum behaviour collapses into ordinary classical
+      statistics.</p>
+      <h3 id="what-agdr-actually-achieves">What AgDR Actually
+      Achieves</h3>
+      <p>The Atomic Kernel Inference (AKI) in AgDR v0.2 is
+      <strong>classical computing</strong>. It uses standard CPU
+      primitives (<code>local_irq_save</code>,
+      <code>preempt_disable</code>, and atomic stores) to enforce one
+      indivisible transaction at the exact inference point.</p>
+      <p>We do not create quantum superposition, entanglement, or true
+      quantum coherence. The 2.8 billion decision threshold is a
+      practical memory and throughput limit on classical hardware — not
+      a quantum threshold.</p>
+      <h3 id="the-useful-metaphor">The Useful Metaphor</h3>
+      <p>There is a powerful and accurate analogy worth keeping:</p>
+      <p>By forcing the decision, the full reasoning trace, the PPP
+      triplet, and the cryptographic signature to exist as one
+      synchronized, indivisible unit, we create a form of
+      <strong>informational coherence</strong>. The record cannot drift
+      or leak. The decision and its proof remain perfectly locked
+      together from the first instant.</p>
+      <p>Beyond that atomic window, information leakage and post-facto
+      reconstruction become possible — the digital equivalent of
+      decoherence. By keeping everything inside the kernel transaction,
+      we prevent that decay.</p>
+      <p>This is the closest classical equivalent to preserving a
+      protected state.</p>
+      <h3 id="why-this-matters-for-the-mission">Why This Matters for the
+      Mission</h3>
+      <p>We did not need quantum hardware to achieve something
+      profound.<br />
+      By pushing classical atomicity to its practical limit, we created
+      the first mathematically guaranteed contemporaneous record for
+      autonomous agents.</p>
+      <p>This classical breakthrough is already sufficient to change
+      governance, liability, and trust at machine speed.</p>
+      <p>It is the foundation upon which future quantum-ready systems
+      can be built.</p>
+      <p>We stand at the pinnacle of the standard of care that I wish to
+      one day achieve.</p>
+      <p><em>Part of the AgDR v0.2 foundational standard</em><br />
+      Canonical source:
+      https://github.com/aiccountability-source/agdr-spec</p>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-12 bg-black text-center text-zinc-400 text-sm">
+    The AgDR Standard is open, royalty-free, and dual-licensed:
+    <a href="https://creativecommons.org/publicdomain/zero/1.0/" class="text-teal-400 hover:text-teal-300">CC0 1.0 Universal</a> OR
+    <a href="https://www.apache.org/licenses/LICENSE-2.0" class="text-teal-400 hover:text-teal-300">Apache License 2.0</a> — your choice.
+    See full texts in the <a href="https://github.com/aiccountability-source/AgDR" class="text-teal-400 hover:text-teal-300">GitHub repo</a>.
+    © 2026 Accountability.ai
+  </footer>
+
+</body>
+</html>
