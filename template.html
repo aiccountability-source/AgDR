@@ -1,0 +1,8 @@
+- name: Convert all MD to HTML
+        run: |
+          for f in *.md; do
+            TITLE=$(basename "${f%.md}" | tr '-' ' ')
+            pandoc "$f" -o "${f%.md}.html" \
+              --template=template.html \
+              --metadata title="$TITLE"
+          done
