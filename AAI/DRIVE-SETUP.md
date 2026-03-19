@@ -119,7 +119,7 @@ or `rclone` with a service account credential.
 | accountability.ai | https://accountability.ai |
 | Live Sandbox | https://accountability.ai/sandbox.html |
 | GitHub Repo | https://github.com/aiccountability-source/AgDR |
-| Canonical Spec JSON | https://raw.githubusercontent.com/aiccountability-source/agdr-spec/main/specs/agdr-v0.2.json |
+| Canonical Spec JSON | https://raw.githubusercontent.com/aiccountability-source/AgDR/main/specs/agdr-v0.2.json |
 | Download ZIP | https://github.com/aiccountability-source/AgDR/archive/refs/heads/main.zip |
 | Contact | admin@accountability.ai |
 | Founding | founding@accountability.ai |

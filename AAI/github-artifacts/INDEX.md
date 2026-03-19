@@ -16,7 +16,7 @@ This folder contains copies of all canonical artifacts from the AgDR GitHub repo
 
 **Quick install:**
 ```bash
-curl -O https://raw.githubusercontent.com/aiccountability-source/agdr-spec/main/specs/agdr-v0.2.json
+curl -O https://raw.githubusercontent.com/aiccountability-source/AgDR/main/specs/agdr-v0.2.json
 ```
 
 ---
