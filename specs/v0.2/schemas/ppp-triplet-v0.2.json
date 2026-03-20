@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://accountability.ai/schemas/ppp-triplet-v0.2.json",
+      "title": "PPP Triplet",
+        "description": "The three-field policy triplet captured atomically at every AgDR inference instant. Policy = PPP (Provenance · Place · Purpose). The precise meaning of each P is of the beholder.",
+          "type": "object",
+            "required": ["provenance", "place", "purpose"],
+              "properties": {
+                  "provenance": {
+                        "type": "string",
+                              "minLength": 1,
+                                    "description": "Where we are today. Who is acting, on whose behalf, from what verified state. Meaning of the beholder."
+                                        },
+                                            "place": {
+                                                  "type": "string",
+                                                        "minLength": 1,
+                                                              "description": "Where we are going. The intended destination, target state, and regulatory boundary. Meaning of the beholder."
+                                                                  },
+                                                                      "purpose": {
+                                                                            "type": "string",
+                                                                                  "minLength": 1,
+                                                                                        "description": "Why we are going. The explicit intent, desired behaviour, and ethical anchor. Closed by Beauty, Truth & Wisdom. Meaning of the beholder."
+                                                                                            }
+                                                                                              },
+                                                                                                "additionalProperties": true,
+                                                                                                  "note": "additionalProperties: true — organizations may extend the triplet with domain-specific fields. The three core fields are mandatory."
+                                                                                                  }
