@@ -35,3 +35,10 @@ https://github.com/aiccountability-source/AgDR
 **Quick start**
 ```bash
 curl -O https://raw.githubusercontent.com/aiccountability-source/AgDR/main/specs/agdr-v0.2.json
+
+
+**Reference Implementation**
+
+[AgDR-FSv2.1](https://github.com/aiccountability-source/AgDR-FSv2.1) — Complete open-source v2.1 reference implementation featuring atomic AKI capture, Sparse Merkle Tree sensory spine, embedding deviation critic, Byzantine BFT consensus, zk-proofs, and multi-agent swarm orchestration.
+
+Live documentation: https://aiccountability-source.github.io/AgDR-FSv2.1/
