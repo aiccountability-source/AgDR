@@ -87,7 +87,7 @@ The standard only requires that your definition is captured verbatim and atomica
 
 **Do not over-engineer this.** One sentence per P is sufficient. The atomic capture is what matters — not the length of the prose.
 
-See [PPP Industry Templates](ppp-industry-templates.md) for ready-made definitions by sector.
+See [PPP Industry Templates](ppp-industry-templates.html) for ready-made definitions by sector.
 
 ---
 
@@ -130,7 +130,7 @@ foi = FOIEscalation(
 record = aki_capture(..., foi_escalation=foi)
 ```
 
-See [FOI Formal Definition](foi-formal-definition.md) for full duties and designation process.
+See [FOI Formal Definition](foi-formal-definition.html) for full duties and designation process.
 
 ---
 
@@ -153,7 +153,7 @@ assert result.tamper_free
 assert result.chain_intact
 ```
 
-See [Verification & Audit Procedure](verification-audit-procedure.md) for court-ready evidence packaging.
+See [Verification & Audit Procedure](verification-audit-procedure.html) for court-ready evidence packaging.
 
 ---
 
@@ -176,15 +176,15 @@ Every captured record provides:
 
 | Topic | Document |
 |---|---|
-| PPP by industry (banking, healthcare, government) | [ppp-industry-templates.md](ppp-industry-templates.md) |
-| FOI — what it is, how to designate one | [foi-formal-definition.md](foi-formal-definition.md) |
-| Human delta chain data structure | [human-delta-chain-spec.md](human-delta-chain-spec.md) |
-| Legal compliance mapping (Canada) | [ppp-legal-compliance.md](ppp-legal-compliance.md) |
-| EU AI Act mapping | [eu-ai-act-mapping.md](eu-ai-act-mapping.md) |
-| Verification and court evidence packaging | [verification-audit-procedure.md](verification-audit-procedure.md) |
-| Horizontal scaling beyond 2.85B decisions | [horizontal-scaling.md](horizontal-scaling.md) |
-| AKI formal mathematical definition | [aki-formal-definition.md](aki-formal-definition.md) |
-| TSX 100M stress test results | [tsx-stress-test.md](tsx-stress-test.md) |
+| PPP by industry (banking, healthcare, government) | [PPP Industry Templates](ppp-industry-templates.html) |
+| FOI — what it is, how to designate one | [FOI Formal Definition](foi-formal-definition.html) |
+| Human delta chain data structure | [Human Delta Chain Spec](human-delta-chain-spec.html) |
+| Legal compliance mapping (Canada) | [PPP Legal Compliance](ppp-legal-compliance.html) |
+| EU AI Act mapping | [EU AI Act Mapping](eu-ai-act-mapping.html) |
+| Verification and court evidence packaging | [Verification & Audit Procedure](verification-audit-procedure.html) |
+| Horizontal scaling beyond 2.85B decisions | [Horizontal Scaling](horizontal-scaling.html) |
+| AKI formal mathematical definition | [AKI Formal Definition](aki-formal-definition.html) |
+| TSX 100M stress test results | [TSX Stress Test](tsx-stress-test.html) |
 
 ---
 
