@@ -1,0 +1,22 @@
+{
+    "name": "AgDR v0.2 — Atomic Kernel Inference (AKI) Virtual Engine",
+    "image": "mcr.microsoft.com/devcontainers/python:3.12",
+    "features": {
+          "ghcr.io/devcontainers/features/python:1": {
+                  "version": "3.12"
+          }
+    },
+    "postCreateCommand": "pip install -e ./sdk/python && echo '✅ AgDR SDK installed! Spec is at ./specs/agdr-v0.2.json' && echo 'Run: python examples/aki_capture_demo.py'",
+    "customizations": {
+          "vscode": {
+                  "extensions": [
+                            "ms-python.python",
+                            "ms-python.vscode-pylance",
+                            "ms-toolsai.jupyter",
+                            "github.copilot"
+                  ]
+          }
+    },
+    "forwardPorts": [],
+    "remoteUser": "vscode"
+}
