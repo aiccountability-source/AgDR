@@ -72,6 +72,7 @@ jobs:
             pandoc "$f" \
               --from markdown+fenced_code_blocks+backtick_code_blocks+pipe_tables \
               --to html5 \
+              --wrap=none \
               --template=template.html \
               --data-dir=./templates \
               --metadata title="$TITLE" \
