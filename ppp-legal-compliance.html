@@ -1,227 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ppp legal
-compliance — AgDR v0.2 specification and AI accountability infrastructure. Accountability.ai — the open standard for autonomous AI decision records.">
-  <title>ppp legal compliance | Accountability.ai</title>
-  <link rel="canonical" href="https://accountability.ai/ppp legal
-compliance">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Accountability.ai">
-  <meta property="og:title" content="ppp legal
-compliance | Accountability.ai">
-  <meta property="og:description" content="ppp legal
-compliance — part of the AgDR v0.2 open standard for tamper-evident AI decision records.">
-
-  <style>
-    body { font-family: system-ui, -apple-system, sans-serif; }
-
-    /* Typography */
-    .prose h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; color: #5eead4; line-height: 1.2; }
-    .prose h2 { font-size: 1.75rem; font-weight: 600; margin-top: 2.5rem; margin-bottom: 0.75rem; color: #99f6e4; border-bottom: 1px solid #1f2937; padding-bottom: 0.4rem; }
-    .prose h3 { font-size: 1.2rem; font-weight: 600; margin-top: 1.75rem; margin-bottom: 0.5rem; color: #ccfbf1; }
-    .prose h4 { font-size: 1rem; font-weight: 600; margin-top: 1.25rem; margin-bottom: 0.4rem; color: #e4e4e7; }
-
-    /* Body text */
-    .prose p { margin-bottom: 1.1rem; line-height: 1.8; color: #d4d4d8; }
-    .prose > p:first-of-type { font-size: 1.1rem; color: #e4e4e7; }
-    .prose strong { color: #f4f4f5; font-weight: 600; }
-    .prose em { color: #a1a1aa; }
-
-    /* Lists */
-    .prose ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1.1rem; }
-    .prose ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1.1rem; }
-    .prose li { margin-bottom: 0.5rem; line-height: 1.75; color: #d4d4d8; }
-    .prose li strong { color: #f4f4f5; }
-
-    /* Links */
-    .prose a { color: #5eead4; text-decoration: underline; text-underline-offset: 2px; }
-    .prose a:hover { color: #99f6e4; }
-
-    /* Code */
-    .prose code { background: #27272a; padding: 0.15rem 0.4rem; border-radius: 0.25rem; font-size: 0.88em; color: #5eead4; border: 1px solid #3f3f46; }
-    .prose pre { background: #18181b; border: 1px solid #27272a; padding: 1.25rem; border-radius: 0.75rem; overflow-x: auto; margin-bottom: 1.25rem; }
-    .prose pre code { background: none; padding: 0; border: none; font-size: 0.875rem; line-height: 1.6; color: #e4e4e7; }
-
-    /* Blockquotes */
-    .prose blockquote { border-left: 4px solid #0f766e; padding: 0.75rem 1rem 0.75rem 1.25rem; color: #a1a1aa; font-style: italic; margin-bottom: 1.25rem; background: #18181b; border-radius: 0 0.5rem 0.5rem 0; }
-    .prose blockquote p { color: #a1a1aa; margin-bottom: 0; }
-
-    /* Tables */
-    .prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.75rem; font-size: 0.925rem; }
-    .prose th { background: #18181b; padding: 0.7rem 1rem; text-align: left; color: #5eead4; border: 1px solid #3f3f46; font-weight: 600; white-space: nowrap; }
-    .prose td { padding: 0.65rem 1rem; border: 1px solid #27272a; color: #d4d4d8; vertical-align: top; line-height: 1.6; }
-    .prose tr:nth-child(even) td { background: #18181b; }
-    .prose tr:hover td { background: #1f2937; }
-
-    /* HR */
-    .prose hr { border: none; border-top: 1px solid #27272a; margin: 2.5rem 0; }
-
-    /* Nav gradient */
-    .hero-bg { background: linear-gradient(150deg, #0d7377 0%, #14213d 60%, #0a0a0a 100%); }
-    nav.hero-bg { background: rgba(13,115,119,0.85) !important; backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPP Compliance | Statutory Authentication for AI</title>
+    <style>
+        :root { --teal: #2dd4bf; --bg: #050505; --text: #a1a1aa; --border: #1a1a1a; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: sans-serif; line-height: 1.6; }
+        nav { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+        header { padding: 10rem 2rem 4rem; max-width: 900px; margin: 0 auto; }
+        h1 { color: #fff; font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: -2px; line-height: 1; }
+        main { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 4rem 0; }
+        .pillar { border: 1px solid var(--border); padding: 2rem; background: #0a0a0a; border-top: 3px solid var(--teal); }
+        .pillar h3 { color: #fff; margin-top: 0; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+        .statute-ref { font-size: 0.7rem; color: #555; display: block; margin-top: 1rem; text-decoration: none; border-bottom: 1px solid #222; width: fit-content; }
+        
+        .sitemap { background: #080808; padding: 4rem 2rem; border-top: 1px solid var(--border); margin-top: 6rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto; }
+        .col a { display: block; color: #444; text-decoration: none; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        footer { text-align: center; padding: 2rem; font-size: 0.7rem; color: #333; }
+    </style>
 </head>
-<body class="bg-zinc-950 text-white">
+<body>
 
-  <!-- NAV -->
-  <nav class="hero-bg py-4 px-6 sticky top-0 z-50 shadow-lg">
-    <div class="max-w-5xl mx-auto flex items-center justify-between">
-      <a href="/" class="text-xl font-bold tracking-tight">Accountability.ai</a>
-      <div class="flex flex-wrap gap-5 text-sm font-medium">
-        <a href="/getting-started.html" class="hover:text-teal-200 transition">Get Started</a>
-        <a href="/ppp-pillars.html" class="hover:text-teal-200 transition">The Standard</a>
-        <a href="/ppp-legal-compliance.html" class="hover:text-teal-200 transition">Legal</a>
-        <a href="/sandbox.html" class="hover:text-teal-200 transition">Sandbox</a>
-        <a href="https://github.com/aiccountability-source/AgDR" target="_blank" rel="noopener" class="hover:text-teal-200 transition">GitHub</a>
-      </div>
-    </div>
-  </nav>
+    <nav>
+        <a href="/" style="color:#fff; text-decoration:none; font-weight:bold;">ACCOUNTABILITY.AI</a>
+        <span style="color:var(--teal); font-size:0.7rem; font-weight:bold; border:1px solid; padding:2px 8px;">PPP PROTOCOL</span>
+    </nav>
 
-  <!-- CONTENT -->
-  <main class="max-w-4xl mx-auto px-6 py-16">
-    <article class="prose">
-      <h1 id="how-the-ppp-triplet-enables-legal-compliance">How the PPP
-      Triplet Enables Legal Compliance</h1>
-      <p>The PPP triplet (Provenance · Place · Purpose) is the feature
-      that turns AgDR from a technical record into a compliance engine.
-      It does not create new law — it simply captures, at the exact
-      moment of inference, the minimum information needed to prove that
-      existing law was followed.</p>
-      <p>Because the triplet is recorded atomically by AKI (kernel
-      transaction, cryptographic signature, Merkle chain), the record
-      itself becomes admissible, non-repudiable evidence under current
-      Canadian law.</p>
-      <table>
-      <colgroup>
-      <col style="width: 8%" />
-      <col style="width: 32%" />
-      <col style="width: 40%" />
-      <col style="width: 19%" />
-      </colgroup>
-      <thead>
-      <tr class="header">
-      <th>PPP Element</th>
-      <th>What It Captures (verbatim, at inference instant)</th>
-      <th>Legal Compliance It Enables</th>
-      <th>Specific Canadian Law / Principle It Maps To</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr class="odd">
-      <td><strong>Provenance</strong></td>
-      <td>Origin, stakeholders, current state, “what’s in it for me”
-      context</td>
-      <td>Proves who decided, under what conditions, and that the record
-      is authentic from the first moment</td>
-      <td>Canada Evidence Act (reliability test, business records
-      exception)<br>CBCA s.122 (directors’ duty of care &amp;
-      loyalty)</td>
-      </tr>
-      <tr class="even">
-      <td><strong>Place</strong></td>
-      <td>Intended destination, target state, “what success looks like”
-      for stakeholders</td>
-      <td>Proves the decision was directed toward a lawful and intended
-      outcome, not arbitrary or reckless</td>
-      <td>CBCA fiduciary duty to act in the best interests of the
-      corporation and stakeholders<br>PHIPA / PIPEDA purpose
-      limitation</td>
-      </tr>
-      <tr class="odd">
-      <td><strong>Purpose</strong></td>
-      <td>Explicit reason, desired agent behaviour, “how” we get there,
-      closed by Beauty/Truth/Wisdom</td>
-      <td>Proves genuine intent and fiduciary motivation — the missing
-      link that courts have always required for machine decisions</td>
-      <td>CBCA s.122 (acting honestly and in good faith)<br>Common law
-      duty of care<br>Treasury Board / EU AI Act high-risk
-      alignment</td>
-      </tr>
-      </tbody>
-      </table>
-      <p><strong>The practical mechanism</strong><br />
-      At the “i” point, AKI forces the full PPP triplet + reasoning
-      trace + binary human delta chain into one indivisible transaction.
-      Any later change breaks the Merkle chain or signature. The record
-      is therefore presumed reliable under the Canada Evidence Act.
-      Escalation ends with the Fiduciary Office Intervener (FOI), so
-      existing corporate governance and board liability rules apply
-      directly.</p>
-      <p><strong>Result for boards and regulators</strong><br />
-      When asked “Did the agent act lawfully and with proper
-      oversight?”, the AgDR record answers with cryptographic proof of
-      who was accountable, what the intended outcome was, and why the
-      decision was made.</p>
-      <p>This is why we stand at the pinnacle of the standard of care
-      that I wish to one day achieve — where every autonomous agent
-      decision carries verifiable accountability as the expected,
-      fundamental duty of care owed to humanity.</p>
-      <p><em>Part of the AgDR v0.2 foundational standard</em><br />
-      Canonical source:
-      https://github.com/aiccountability-source/AgDR</p>
-    </article>
-  </main>
+    <header>
+        <h1>Statutory Identity.</h1>
+        <p>The PPP Triplet provides the metadata required to authenticate an electronic record under federal law.</p>
+    </header>
 
-  <!-- DOCUMENT NAVIGATION FOOTER -->
-  <section class="bg-zinc-900 border-t border-zinc-800 py-14">
-    <div class="max-w-5xl mx-auto px-6">
-      <h3 class="text-zinc-400 text-xs font-semibold tracking-widest uppercase mb-8">Continue Reading</h3>
-      <div class="grid md:grid-cols-4 gap-5">
-        <a href="/getting-started.html" class="bg-zinc-800 hover:bg-zinc-700 transition rounded-xl p-5 block">
-          <div class="text-teal-400 text-sm font-semibold mb-1">Get Started</div>
-          <p class="text-zinc-500 text-xs">SDK install, PPP definition, first capture</p>
-        </a>
-        <a href="/foi-formal-definition.html" class="bg-zinc-800 hover:bg-zinc-700 transition rounded-xl p-5 block">
-          <div class="text-zinc-300 text-sm font-semibold mb-1">FOI Definition</div>
-          <p class="text-zinc-500 text-xs">The terminal accountability role</p>
-        </a>
-        <a href="/human-delta-chain-spec.html" class="bg-zinc-800 hover:bg-zinc-700 transition rounded-xl p-5 block">
-          <div class="text-zinc-300 text-sm font-semibold mb-1">Delta Chain Spec</div>
-          <p class="text-zinc-500 text-xs">Human oversight data structure</p>
-        </a>
-        <a href="/verification-audit-procedure.html" class="bg-zinc-800 hover:bg-zinc-700 transition rounded-xl p-5 block">
-          <div class="text-zinc-300 text-sm font-semibold mb-1">Verification</div>
-          <p class="text-zinc-500 text-xs">Court-ready evidence packaging</p>
-        </a>
-        <a href="/ppp-industry-templates.html" class="bg-zinc-800 hover:bg-zinc-700 transition rounded-xl p-5 block">
-          <div class="text-zinc-300 text-sm font-semibold mb-1">Industry Templates</div>
-          <p class="text-zinc-500 text-xs">PPP definitions by sector</p>
-        </a>
-        <a href="/eu-ai-act-mapping.html" class="bg-zinc-800 hover:bg-zinc-700 transition rounded-xl p-5 block">
-          <div class="text-zinc-300 text-sm font-semibold mb-1">EU AI Act Mapping</div>
-          <p class="text-zinc-500 text-xs">Article-by-article compliance analysis</p>
-        </a>
-        <a href="/beauty-truth-wisdom.html" class="bg-zinc-800 hover:bg-zinc-700 transition rounded-xl p-5 block">
-          <div class="text-zinc-300 text-sm font-semibold mb-1">Beauty, Truth &amp; Wisdom</div>
-          <p class="text-zinc-500 text-xs">The Purpose pillar's closing principles</p>
-        </a>
-        <a href="/horizontal-scaling.html" class="bg-zinc-800 hover:bg-zinc-700 transition rounded-xl p-5 block">
-          <div class="text-zinc-300 text-sm font-semibold mb-1">Horizontal Scaling</div>
-          <p class="text-zinc-500 text-xs">Beyond 2.85B decisions per process</p>
-        </a>
-      </div>
-    </div>
-  </section>
+    <main>
+        <p>A record without a defined intent and author is mere data. For an AI inference to carry legal weight, it must satisfy the requirements of <strong>Authentication</strong> and <strong>Authority</strong>. The PPP Protocol (Purpose, Place, Person) is the technical enforcement of these statutory pillars.</p>
 
-  <!-- FOOTER -->
-  <footer class="py-10 bg-black text-center text-zinc-500 text-sm">
-    <p class="mb-2">
-      The AgDR Standard is open, royalty-free, and dual-licensed:
-      <a href="https://creativecommons.org/publicdomain/zero/1.0/" class="text-teal-500 hover:text-teal-400">CC0 1.0 Universal</a> OR
-      <a href="https://www.apache.org/licenses/LICENSE-2.0" class="text-teal-500 hover:text-teal-400">Apache License 2.0</a> — your choice.
-    </p>
-    <p>
-      <a href="https://github.com/aiccountability-source/AgDR" target="_blank" rel="noopener" class="text-teal-500 hover:text-teal-400">GitHub</a>
-      &nbsp;·&nbsp; © 2026 Accountability.ai
-    </p>
-  </footer>
+        <div class="pillar-grid">
+            <div class="pillar">
+                <h3>Purpose</h3>
+                <p>Ensures the intent of the record is clear at the moment of creation. This satisfies the context required for a Business Judgment defense.</p>
+            </div>
+            <div class="pillar">
+                <h3>Place</h3>
+                <p>Logs the specific compute node or hardware environment. Essential for proving System Integrity under CEA s.31.2.</p>
+            </div>
+            <div class="pillar">
+                <h3>Person</h3>
+                <p>Identifies the Fiduciary Officer or authorized agent. This maps to the Signature requirements of the 1890 Act.</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem;">
+            <h2>The Connection to Justice Canada</h2>
+            <p>By defining these three points before an inference begins, we ensure the resulting <strong>AgDR</strong> is not a post-hoc guess. It is a contemporaneous record that meets the highest evidentiary standards in Canada.</p>
+            <a href="https://laws-lois.justice.gc.ca/eng/acts/C-5/page-1.html" class="statute-ref">Canada Evidence Act: Authentication s.31.1 ↗</a>
+        </div>
+    </main>
+
+    <section class="sitemap">
+        <div class="grid">
+            <div class="col">
+                <h5>Heritage</h5>
+                <a href="/manifesto.html">The Manifesto</a>
+                <a href="/bills-of-exchange-mapping.html">1890/1893 Mapping</a>
+                <a href="/legal-glossary.html">Legal Glossary</a>
+            </div>
+            <div class="col">
+                <h5>Compliance</h5>
+                <a href="/ppp-legal-compliance.html" style="color:#fff; font-weight:bold;">PPP Compliance</a>
+                <a href="/cbca-fiduciary-mapping.html">CBCA s.122 Shield</a>
+                <a href="/agi-court-precedents.html">Court Precedents</a>
+            </div>
+            <div class="col">
+                <h5>The Tech</h5>
+                <a href="/getting-started.html">Initialize</a>
+                <a href="/aki-formal-definition.html">AKI Protocol</a>
+                <a href="/human-delta-chain.html">Delta Chain</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        OSHAWA, ONTARIO · CC0 1.0 UNIVERSAL
+    </footer>
 
 </body>
 </html>
