@@ -3,104 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The PPP Pillars | The AgDR Standard</title>
+    <title>The PPP Triplet | AgDR Standard Evolution</title>
     <style>
         :root { --teal: #2dd4bf; --bg: #050505; --text: #a1a1aa; --border: #1a1a1a; }
-        body { margin: 0; background: var(--bg); color: var(--text); font-family: sans-serif; line-height: 1.7; }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: sans-serif; line-height: 1.8; }
         nav { padding: 1.5rem 2rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-        header { padding: 10rem 2rem 4rem; max-width: 900px; margin: 0 auto; }
-        h1 { color: #fff; font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: -3px; line-height: 0.9; }
+        header { padding: 8rem 2rem 4rem; max-width: 950px; margin: 0 auto; }
+        h1 { color: #fff; font-size: 3.5rem; letter-spacing: -3px; line-height: 1; }
+        .spec-version { color: var(--teal); font-family: monospace; font-size: 0.75rem; letter-spacing: 2px; }
+
+        main { max-width: 950px; margin: 0 auto; padding: 2rem; }
+        .evolution-box { background: #0a0a0a; border: 1px solid var(--border); padding: 2.5rem; border-radius: 12px; margin-bottom: 5rem; }
+        .evolution-box h2 { color: #fff; font-size: 1.2rem; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
         
-        main { max-width: 900px; margin: 0 auto; padding: 2rem 2rem 8rem; }
-        .pillar-section { margin-bottom: 6rem; }
-        .pillar-head { display: flex; align-items: baseline; gap: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 2rem; }
-        .pillar-num { color: var(--teal); font-family: monospace; font-weight: bold; font-size: 1.5rem; }
-        h2 { color: #fff; margin: 0; font-size: 2rem; letter-spacing: -1px; }
-        
-        .spec-box { background: #0a0a0a; border: 1px solid var(--border); padding: 2rem; border-radius: 8px; margin-top: 2rem; }
-        .spec-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: #555; display: block; margin-bottom: 1rem; }
-        
-        .sitemap { background: #080808; padding: 6rem 2rem; border-top: 1px solid var(--border); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto; }
-        .col a { display: block; color: #444; text-decoration: none; font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .pillar-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-bottom: 4rem; }
+        .pillar { position: relative; padding-top: 2rem; }
+        .pillar::before { content: ""; position: absolute; top: 0; left: 0; width: 30px; height: 2px; background: var(--teal); }
+        .pillar h3 { color: #fff; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .beholder-text { font-style: italic; color: #64748b; font-size: 0.95rem; display: block; margin-top: 1rem; }
+
+        .logic-finality { border-top: 1px solid var(--border); padding-top: 4rem; margin-top: 4rem; }
+        blockquote { font-size: 1.5rem; color: #fff; border-left: 0; padding: 0; margin: 0; font-weight: 300; line-height: 1.4; }
+
         footer { text-align: center; padding: 4rem; font-size: 0.7rem; color: #333; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="/" style="color:#fff; text-decoration:none; font-weight:bold; letter-spacing:-1px;">ACCOUNTABILITY.AI</a>
-        <a href="/getting-started.html" style="color:var(--teal); text-decoration:none; font-size:0.75rem; font-weight:bold;">GET STARTED</a>
+        <a href="/" style="color:#fff; text-decoration:none; font-weight:bold;">ACCOUNTABILITY.AI</a>
+        <span style="font-family:monospace; font-size:0.7rem;">PROVIDENCE | PLACE | PURPOSE</span>
     </nav>
 
     <header>
-        <h1>The Three <br>Pillars.</h1>
-        <p style="font-size:1.25rem; margin-top:1.5rem;">The PPP Triplet is the minimum viable data required for a defensible AI inference.</p>
+        <span class="spec-version">AgDR Evolution: Heritage to Phoenix</span>
+        <h1>The PPP Triplet.</h1>
     </header>
 
     <main>
-        <section class="pillar-section">
-            <div class="pillar-head">
-                <span class="pillar-num">01</span>
-                <h2>Purpose</h2>
-            </div>
-            <p>Every inference begins with an intent. Purpose defines the "Why" and the closing principles—Beauty, Truth, and Wisdom. This is not metadata; it is a boundary condition for the kernel.</p>
-            <div class="spec-box">
-                <span class="spec-label">Statutory Anchor</span>
-                <p style="color:#eee; margin:0;">Satisfies the <strong>Business Judgment Rule</strong> by proving the decision was made on an informed, intentional basis.</p>
-            </div>
+        <section class="evolution-box">
+            <h2>Heritage of the Atomic Standard</h2>
+            <p>The <strong>Atomic Governance Decision Record (AgDR)</strong> has evolved from a documentation framework into a mechanical enforcement standard. While prior editions established the <em>logic</em> of the triplet, <strong>v1.8 Phoenix</strong> establishes the <em>force</em>. In the eye of the beholder, these three pillars represent the minimum viable proof of fiduciary care.</p>
         </section>
 
-        <section class="pillar-section">
-            <div class="pillar-head">
-                <span class="pillar-num">02</span>
-                <h2>Place</h2>
+        <div class="pillar-row">
+            <div class="pillar">
+                <h3>Providence</h3>
+                <p>The lineage of the intelligence. It tracks the provenance of the weights and data utilized in the inference, ensuring that the "beholder" can verify the integrity of the thought's origin.</p>
+                <span class="beholder-text">"Where was this born?"</span>
             </div>
-            <p>Place captures the hardware and regulatory jurisdiction of the compute node. It anchors the digital act to a physical territory.</p>
-            <div class="spec-box">
-                <span class="spec-label">Statutory Anchor</span>
-                <p style="color:#eee; margin:0;">Enforces <strong>CEA s.31.2 (System Integrity)</strong>. It proves the record-keeping system was functioning in a known, authorized environment.</p>
+            <div class="pillar">
+                <h3>Place</h3>
+                <p>The jurisdictional and situational context. It locks the inference to a specific legal boundary (e.g., Ontario Statutory Duty), ensuring the action is authorized for its specific location.</p>
+                <span class="beholder-text">"Where is this acting?"</span>
             </div>
-        </section>
+            <div class="pillar">
+                <h3>Purpose</h3>
+                <p>The teleological goal. Purpose is the subjective intent of the director translated into a machine-readable invariant. It prevents the model from diverging into unapproved objectives.</p>
+                <span class="beholder-text">"What is the goal?"</span>
+            </div>
+        </div>
 
-        <section class="pillar-section">
-            <div class="pillar-head">
-                <span class="pillar-num">03</span>
-                <h2>Person</h2>
-            </div>
-            <p>Person identifies the authorized agent or Fiduciary Officer. This is the cryptographic "hand" that signs the record into existence.</p>
-            <div class="spec-box">
-                <span class="spec-label">Statutory Anchor</span>
-                <p style="color:#eee; margin:0;">Maps to <strong>Bills of Exchange Act s.4 (Signature)</strong>. It ensures the inference is an unconditional, non-repudiable order.</p>
-            </div>
+        <section class="logic-finality">
+            <blockquote>
+                "The Triplet is the signature of the beholder. If the <strong>Providence</strong> is unknown, the <strong>Place</strong> is unauthorized, or the <strong>Purpose</strong> is obscured, the <strong>Aki Gate</strong> will trigger a Force Interrupt. This is the law of the machine."
+            </blockquote>
         </section>
     </main>
 
-    <section class="sitemap">
-        <div class="grid">
-            <div class="col">
-                <h5>The Standard</h5>
-                <a href="/ppp-pillars.html" style="color:#fff; font-weight:bold;">The Pillars</a>
-                <a href="/manifesto.html">The Manifesto</a>
-                <a href="/legal-glossary.html">Legal Glossary</a>
-            </div>
-            <div class="col">
-                <h5>Heritage</h5>
-                <a href="/bills-of-exchange-mapping.html">1890/1893 Mapping</a>
-                <a href="/cbca-fiduciary-mapping.html">CBCA s.122 Shield</a>
-                <a href="/ppp-legal-compliance.html">PPP Compliance</a>
-            </div>
-            <div class="col">
-                <h5>Technical</h5>
-                <a href="/getting-started.html">Initialize v1.8</a>
-                <a href="/aki-formal-definition.html">AKI Protocol</a>
-                <a href="/agi-court-precedents.html">Court of 2076</a>
-            </div>
-        </div>
-    </section>
-
     <footer>
-        OSHAWA, ONTARIO · CC0 1.0 UNIVERSAL
+        OSHAWA, ONTARIO · CC0 1.0 UNIVERSAL · FIDUCIARY STEWARDSHIP
     </footer>
 
 </body>
