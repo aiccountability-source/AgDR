@@ -26,7 +26,7 @@
   </script>
 
   <style>
-    :root { --teal: #2dd4bf; --bg: #050505; --card: #111; --text: #d4d4d8; --header-text: #fff; }
+    :root { --teal: #2dd4bf; --bg: #050505; --card: #111; --text: #a1a1aa; --header-text: #fff; --border: #1a1a1a; }
     * { box-sizing: border-box; scroll-behavior: smooth; }
     body { 
         margin: 0; background-color: var(--bg); color: var(--text); 
@@ -38,7 +38,7 @@
     nav { 
         position: sticky; top: 0; background: rgba(5,5,5,0.95); backdrop-filter: blur(16px);
         padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
-        border-bottom: 1px solid #1a1a1a; z-index: 100;
+        border-bottom: 1px solid var(--border); z-index: 100;
     }
     .brand { color: #fff; text-decoration: none; font-weight: 800; letter-spacing: -0.5px; }
     .badge { border: 1px solid var(--teal); color: var(--teal); padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; letter-spacing: 1.5px; font-weight: 900; }
@@ -90,8 +90,8 @@
         <span class="badge">CHARTER</span>
     </div>
     <div class="nav-links">
-      <a href="/ppp-pillars.html">THE STANDARD</a>
-      <a href="/sandbox.html">SANDBOX</a>
+      <a href="/ppp-pillars">THE STANDARD</a>
+      <a href="/sandbox">SANDBOX</a>
       <a href="https://github.com/aiccountability-source/AgDR" target="_blank">GITHUB</a>
     </div>
   </nav>
@@ -107,6 +107,8 @@
       <p>AgDR is an industrial standard. It specifies cryptographic algorithms, kernel primitives, and sub-microsecond latency floors. Technically, it is complete without philosophy. <strong>Humanly, it is not.</strong></p>
       
       <p>The <strong>Purpose</strong> pillar of the PPP triplet asks: <em>Why is this decision being made?</em> Technical answers — compliance, mandates, stakeholder interests — are logically correct but morally thin. Every governance failure in history has had a Purpose that passed a technical audit.</p>
+
+      
 
       <blockquote>
         "We stand at the Pinnacle of the standard of care we hope to one day achieve."
@@ -150,27 +152,27 @@
     <div class="sitemap-grid">
         <div class="sitemap-col">
             <h5>Core Standard</h5>
-            <a href="/getting-started.html">Get Started</a>
-            <a href="/ppp-pillars.html">PPP Pillars</a>
-            <a href="/aki-spec.html">AKI Protocol</a>
+            <a href="/getting-started">Get Started</a>
+            <a href="/ppp-pillars">PPP Pillars</a>
+            <a href="/aki-formal-definition">AKI Protocol</a>
         </div>
         <div class="sitemap-col">
             <h5>Accountability</h5>
-            <a href="/foi-definition.html">FOI Role</a>
-            <a href="/human-delta-chain.html">Delta Chain</a>
-            <a href="/verification.html">Verification</a>
+            <a href="/foi-formal-definition">FOI Role</a>
+            <a href="/human-delta-chain">Delta Chain</a>
+            <a href="/verification">Verification</a>
         </div>
         <div class="sitemap-col">
             <h5>Compliance</h5>
-            <a href="/legal-mapping.html">Section 31.1</a>
-            <a href="/eu-ai-act.html">EU AI Act</a>
-            <a href="/fiduciary-duty.html">Fiduciary Duty</a>
+            <a href="/legal-mapping">Section 31.1</a>
+            <a href="/eu-ai-act">EU AI Act</a>
+            <a href="/cbca-fiduciary">Fiduciary Duty</a>
         </div>
         <div class="sitemap-col">
             <h5>Engineering</h5>
-            <a href="/phoenix-1-8.html">Phoenix v1.8</a>
-            <a href="/scaling.html">Horizontal Scale</a>
-            <a href="/changelog.html">Changelog</a>
+            <a href="/phoenix-1-8">Phoenix v1.8</a>
+            <a href="/scaling">Horizontal Scale</a>
+            <a href="/changelog">Changelog</a>
         </div>
     </div>
   </section>
