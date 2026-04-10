@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/TechArticle">
 <head>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "AgDR-Phoenix 1.8: Atomic Genesis Standard",
+      "description": "Hardware-baked kernel interrupt for sub-microsecond AI accountability.",
+      "author": { "@type": "Organization", "name": "Accountability.ai" },
+      "identifier": "CEA-31.1-COMPLIANT",
+      "benchmarks": {
+        "latency": "620ns",
+        "throughput": "1.1M/s",
+        "kernel": "Aki 0.95 Rust"
+      }
+    }
+    </script>
+
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-QPHCT8T1KC');</script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Accountability.ai | The Atomic Genesis Standard for AI Decision Records</title>
-    <meta name="description" content="AgDR Phoenix 1.8: The industrial standard for tamper-evident AI genesis records. 950ns Aki Force Interrupt. CC0 / Apache 2.0.">
+    <title>Accountability.ai | The Atomic Genesis Standard (Phoenix 1.8)</title>
     
-    <meta property="og:title" content="Accountability.ai | Atomic Genesis Standard">
-    <meta property="og:description" content="Deterministic AI finality at the Zero-Latency Floor. Build for Blackwell-scale factories.">
-    <meta name="keywords" content="Atomic Genesis, AgDR, AI Accountability, Aki Kernel, CEA 31.1, Fiduciary AI, Oshawa AI">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #050505; color: #e5e7eb; font-family: ui-sans-serif, system-ui, sans-serif; scroll-behavior: smooth; }
@@ -27,9 +38,9 @@
     <nav class="sticky top-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/5 py-4">
         <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-8">
-                <a href="/" class="text-xl font-black tracking-tighter hover:text-teal-400 transition">ACCOUNTABILITY.AI</a>
+                <a href="/" class="text-xl font-black tracking-tighter hover:text-teal-400 transition uppercase">Accountability.ai</a>
                 <div class="hidden lg:flex items-center relative">
-                    <input type="text" placeholder="Search the Archive..." class="search-pill rounded-full px-4 py-1.5 text-[11px] w-56 text-zinc-300 placeholder:text-zinc-600">
+                    <input type="text" placeholder="Search the Genesis Records..." class="search-pill rounded-full px-4 py-1.5 text-[11px] w-56 text-zinc-300 placeholder:text-zinc-600">
                     <span class="absolute right-3 text-[9px] font-mono text-zinc-700 pointer-events-none">CMD+K</span>
                 </div>
             </div>
@@ -39,14 +50,15 @@
                     <button class="text-[11px] font-bold tracking-[0.2em] text-zinc-500 hover:text-white uppercase transition flex items-center gap-1">
                         Vault <span class="text-[8px] text-teal-500">▼</span>
                     </button>
-                    <ul class="absolute right-0 mt-3 w-52 bg-zinc-900/95 border border-white/10 rounded-xl py-3 shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
-                        <li><a href="#spec" class="block px-5 py-2 text-xs text-zinc-400 hover:text-teal-400 hover:bg-white/5">Atomic Genesis Spec</a></li>
-                        <li><a href="https://github.com/aiccountability-source/AgDR" class="block px-5 py-2 text-xs text-zinc-400 hover:text-teal-400 hover:bg-white/5">GitHub Repository</a></li>
-                        <li><a href="/future-agi-court.html" class="block px-5 py-2 text-xs text-zinc-400 hover:text-teal-400 hover:bg-white/5">Future Court Archive</a></li>
-                        <li class="border-t border-white/5 mt-2 pt-2"><a href="https://github.com/aiccountability-source/AgDR" class="block px-5 py-2 text-xs text-teal-500 font-bold">Genesis Source (GitHub)</a></li>
+                    <ul class="absolute right-0 mt-3 w-60 bg-zinc-900/95 border border-white/10 rounded-xl py-3 shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-200">
+                        <li><a href="#spec" class="block px-5 py-2 text-xs text-zinc-400 hover:text-teal-400 hover:bg-white/5">Aki 0.95 Spec (620ns)</a></li>
+                        <li><a href="https://github.com/aiccountability-source/AgDR-Phoenix" class="block px-5 py-2 text-xs text-zinc-400 hover:text-teal-400 hover:bg-white/5">Rust Install (Phoenix 1.8)</a></li>
+                        <li><a href="/future-agi-court.html" class="block px-5 py-2 text-xs text-zinc-400 hover:text-teal-400 hover:bg-white/5">Judicial Evidence Archive</a></li>
+                        <li class="border-t border-white/5 mt-2 pt-2 text-[9px] px-5 py-2 text-zinc-600 uppercase tracking-widest">Statutory Standards</li>
+                        <li><a href="/cea-compliance.html" class="block px-5 py-2 text-xs text-zinc-400 hover:text-teal-400 hover:bg-white/5">CEA 31.1 Readiness</a></li>
                     </ul>
                 </div>
-                <a href="https://github.com/aiccountability-source/AgDR" class="hidden md:block text-xs font-bold tracking-widest text-teal-400 hover:text-teal-300 uppercase">Deploy v1.8</a>
+                <a href="https://github.com/aiccountability-source/AgDR-Phoenix" class="hidden md:block text-xs font-bold tracking-widest text-teal-400 hover:text-teal-300 uppercase">Build Rust Kernel</a>
             </div>
         </div>
     </nav>
@@ -54,23 +66,21 @@
     <section class="hero-gradient pt-32 pb-40 px-6 text-center">
         <div class="max-w-4xl mx-auto">
             <span class="inline-block px-3 py-1 border border-teal-500/30 rounded-full text-[10px] font-bold tracking-[0.3em] text-teal-400 uppercase mb-8">
-                Atomic Genesis · Phoenix v1.8 · Oshawa Node
+                Atomic Genesis · Phoenix v1.8 · Aki 0.95
             </span>
-            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-10 text-white leading-none">The Zero-Latency Floor.</h1>
-            <p class="text-xl text-zinc-400 leading-relaxed mb-14 max-w-2xl mx-auto font-light">
-                The argument that accountability slows the machine is dead. We engineered the "Governance Tax" out and moved the seal to the moment of <strong>Atomic Genesis</strong>.
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-10 text-white leading-none italic">The Zero-Latency Floor.</h1>
+            <p class="text-xl text-zinc-400 leading-relaxed mb-14 max-w-2xl mx-auto font-light italic">
+                Accountability is no longer a "Tax." It is a hardware-baked finality at the moment of <strong>Atomic Genesis</strong>.
             </p>
             <div class="flex flex-wrap gap-5 justify-center">
-                <a href="https://github.com/aiccountability-source/AgDR" class="bg-teal-500 hover:bg-teal-400 text-black font-extrabold px-12 py-5 rounded-lg transition-all shadow-[0_0_30px_rgba(20,184,166,0.3)]">Deploy Phoenix 1.8</a>
+                <a href="https://github.com/aiccountability-source/AgDR-Phoenix" class="bg-teal-500 hover:bg-teal-400 text-black font-extrabold px-12 py-5 rounded-lg transition-all shadow-[0_0_30px_rgba(20,184,166,0.3)] tracking-tighter">Deploy Rust Kernel (v1.8)</a>
                 <a href="#performance" class="bg-white/5 hover:bg-white/10 border border-white/10 text-white font-bold px-12 py-5 rounded-lg transition">View Benchmarks</a>
             </div>
         </div>
     </section>
 
-    <section id="performance" class="py-24 bg-black border-y border-white/5">
-        </section>
-
-    <section id="spec" class="py-32">
-        </section>
-
-    <footer class="bg-black py-24 border-t border-white/5 text-center text-zinc-5
+    <footer class="bg-black py-24 border-t border-white/5 text-center text-zinc-500 text-[10px] tracking-[0.4em] uppercase">
+        <span>Oshawa Node // CC0 1.0 Universal // Fiduciary Non-Delegation</span>
+    </footer>
+</body>
+</html>
