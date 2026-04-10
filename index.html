@@ -9,10 +9,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accountability.ai | The AgDR Standard for AI Decision Records</title>
-    <meta name="description" content="Official home of AgDR-Phoenix v1.8. The industrial standard for 0.62µs tamper-evident AI decision records. CC0 licensed.">
+    <title>Accountability.ai | The AgDR Standard</title>
     
-    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM Documentation">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -20,12 +18,7 @@
       "name": "AgDR (Atomic Governance Decision Record)",
       "applicationCategory": "AI Governance",
       "softwareVersion": "1.8.0-Phoenix",
-      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "author": {
-        "@type": "Organization",
-        "name": "Accountability.ai",
-        "address": { "@type": "PostalAddress", "addressLocality": "Oshawa", "addressRegion": "ON", "addressCountry": "CA" }
-      }
+      "author": { "@type": "Organization", "name": "Accountability.ai" }
     }
     </script>
 
@@ -34,7 +27,7 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-QPHCT8T1KC', { 'anonymize_ip': true });
+      gtag('config', 'G-QPHCT8T1KC');
     </script>
 
     <style>
@@ -47,7 +40,7 @@
         .label { color: var(--teal); font-size: 0.7rem; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; display: block; margin-bottom: 1rem; }
         h1 { font-size: clamp(2.5rem, 9vw, 5rem); letter-spacing: -3px; margin: 0 0 2rem; color: #fff; line-height: 0.95; }
         .hero-p { max-width: 650px; margin: 0 auto 3.5rem; font-size: 1.25rem; color: #999; font-weight: 300; }
-        .btn { display: inline-block; padding: 1.1rem 2.8rem; border-radius: 6px; font-weight: 700; text-decoration: none; transition: all 0.2s ease; font-size: 0.9rem; }
+        .btn { display: inline-block; padding: 1.1rem 2.8rem; border-radius: 6px; font-weight: 700; text-decoration: none; transition: 0.2s ease; font-size: 0.9rem; }
         .primary { background: var(--teal); color: #000; box-shadow: 0 0 20px rgba(45, 212, 191, 0.2); }
         .secondary { border: 1px solid #222; color: #fff; margin-left: 10px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: -5rem auto 5rem; padding: 0 2rem; }
@@ -55,91 +48,8 @@
         .card h2 { color: #555; font-size: 0.65rem; font-weight: 900; letter-spacing: 2px; margin: 0 0 1rem; text-transform: uppercase; }
         .val { font-size: 2.8rem; font-weight: 800; color: #fff; display: block; letter-spacing: -1px; }
         .desc { font-size: 0.8rem; color: #444; margin-top: 1.5rem; font-weight: 500; }
-        section.callout { padding: 8rem 2rem; text-align: center; background: #080808; border-top: 1px solid #111; }
-        .callout h2 { font-weight: 300; max-width: 900px; margin: 0 auto; line-height: 1.5; font-size: 2.2rem; color: #ddd; font-style: italic; }
         section.split { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; max-width: 1200px; margin: 6rem auto; padding: 0 2rem; align-items: center; }
-        .code-wrap { background: #000; padding: 2.5rem; border-radius: 12px; border: 1px solid rgba(45, 212, 191, 0.2); box-shadow: 0 0 30px rgba(45, 212, 191, 0.05); }
+        .code-wrap { background: #000; padding: 2.5rem; border-radius: 12px; border: 1px solid rgba(45, 212, 191, 0.2); }
         code { color: var(--teal); font-family: "SF Mono", monospace; font-size: 0.85rem; line-height: 1.8; }
-        .legal-tag { border: 1px solid #222; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; background: rgba(255,255,255,0.02); }
-        footer { padding: 6rem 2rem; border-top: 1px solid #111; text-align: center; color: #333; font-size: 0.75rem; letter-spacing: 1px; }
-        @media (max-width: 850px) { .split { grid-template-columns: 1fr; text-align: center; } .secondary { margin-left: 0; margin-top: 1rem; } }
-    </style>
-</head>
-<body>
-    <nav>
-        <a href="/" class="brand">ACCOUNTABILITY.AI</a>
-        <div>
-            <a href="https://github.com/aiccountability-source/AgDR">SPECIFICATION</a>
-            <a href="mailto:founding@accountability.ai">CONTACT</a>
-        </div>
-    </nav>
-
-    <header>
-        <span class="label">AgDR-Phoenix v1.8 · Stable Release</span>
-        <h1>The Zero-Latency Floor.</h1>
-        <p class="hero-p">Engineering the "Governance Tax" out of the stack. We moved the seal to the center of the kernel.</p>
-        <div>
-            <a href="https://github.com/aiccountability-source/AgDR" class="btn primary">Deploy v1.8</a>
-            <a href="#spec" class="btn secondary">Technical Documentation</a>
-        </div>
-    </header>
-
-    <main class="grid">
-        <article class="card">
-            <h2>LATENCY</h2>
-            <span class="val">0.62 µs</span>
-            <p class="desc">Faster than the Linux network stack.</p>
-        </article>
-        <article class="card">
-            <h2>THROUGHPUT</h2>
-            <span class="val">1.1M/s</span>
-            <p class="desc">Engineered for Blackwell-scale inference.</p>
-        </article>
-        <article class="card">
-            <h2>INTEGRITY</h2>
-            <span class="val">BLAKE3</span>
-            <p class="desc">Immutable proof at the instant of birth.</p>
-        </article>
-        <article class="card">
-            <h2>RELIABILITY</h2>
-            <span class="val">100.0%</span>
-            <p class="desc">Zero dropped frames under peak saturation.</p>
-        </article>
-    </main>
-
-    <section class="callout">
-        <h2>"If you cannot prove the state of the model at the exact moment of inference, you are not governing the AI—you are merely observing its fallout."</h2>
-    </section>
-
-    <section class="split" id="spec">
-        <div>
-            <h3 style="font-size: 2.8rem; margin-bottom: 1.5rem; color: #fff; letter-spacing: -1.5px;">Trust the Record.</h3>
-            <p style="color: #777; font-size: 1.1rem;">AgDR is a forensic standard. It satisfies the <strong>Canada Evidence Act</strong> by coupling provenance, place, and purpose into a single, non-repudiable cryptographic grain.</p>
-            
-            <div class="legal-tag">
-                <span style="font-size: 0.6rem; color: var(--teal); font-weight: 800; text-transform: uppercase;">Legal Standing: Section 31.1</span>
-                <p style="font-size: 0.85rem; color: #999; margin: 0.5rem 0 0;">Engineered to meet judicial authentication thresholds. Provides the "capable evidence" required for non-repudiable AI auditing.</p>
-            </div>
-        </div>
-        <div class="code-wrap">
-            <code>
-            {<br>
-            &nbsp;&nbsp;"ver": "1.8.0",<br>
-            &nbsp;&nbsp;<span style="color: #fff;">"aki_latency_ns": 620,</span><br>
-            &nbsp;&nbsp;"p_hash": "blake3_9fb...",<br>
-            &nbsp;&nbsp;"sig": "ed25519_5a1...",<br>
-            &nbsp;&nbsp;"ts": 1712764800<br>
-            }
-            </code>
-        </div>
-    </section>
-
-    <footer>
-        <p><i>IMPECCABLE STEWARDSHIP OF THE GOVERNANCE LAYER.</i></p>
-        <p style="margin-top: 2.5rem;">OSHAWA, ONTARIO, CANADA · CC0 1.0 UNIVERSAL</p>
-    </footer>
-
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-QPHCT8T1KC"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-</body>
-</html>
+        .repo-link { display: block; color: var(--teal); text-decoration: none; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.75rem; }
+        footer {
