@@ -1,128 +1,111 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="https://schema.org/TechArticle">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Future AGI Court | The Final AgDR Audit</title>
+    <title>The Future AGI Court | Accountability.ai</title>
     
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPHCT8T1KC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QPHCT8T1KC', { 'anonymize_ip': true });
+    </script>
+
     <style>
         :root { 
-            --teal: #14b8a6; 
-            --obsidian: #0f172a; 
-            --bone: #f8fafc; 
+            --teal: #2dd4bf; 
+            --abyss: #050505; 
             --slate: #475569; 
-            --border: #cbd5e1; 
+            --text: #f1f5f9; 
+            --gold: #fbbf24;
         }
-        
+
         body { 
-            margin: 0; background-color: var(--bone); color: var(--obsidian); 
-            font-family: "Inter", -apple-system, sans-serif; 
-            line-height: 1.6; -webkit-font-smoothing: antialiased;
+            background-color: var(--abyss); 
+            color: var(--text); 
+            font-family: ui-sans-serif, system-ui, sans-serif; 
+            margin: 0; 
+            line-height: 1.6;
         }
 
-        /* Ceremonial Header */
-        nav { 
-            padding: 1.5rem 4rem; background: #fff; border-bottom: 2px solid var(--obsidian);
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .court-seal { font-weight: 900; letter-spacing: 2px; text-transform: uppercase; font-size: 0.7rem; color: var(--slate); }
-
-        header { 
-            padding: 10rem 4rem 5rem; max-width: 1200px; margin: 0 auto; 
-            border-bottom: 1px solid var(--border);
-        }
-        .date-marker { color: var(--teal); font-family: monospace; font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; display: block; }
-        h1 { font-size: clamp(3rem, 6vw, 5rem); letter-spacing: -0.05em; line-height: 0.9; margin: 0; font-weight: 800; }
-        .ceremony-sub { font-size: 1.25rem; color: var(--slate); margin-top: 1.5rem; font-weight: 300; max-width: 800px; }
-
-        main { max-width: 1200px; margin: 0 auto; padding: 4rem; }
-
-        /* The Forensic Gate - Optimized for "Fiduciary Shield" Weight */
-        .forensic-gate { 
-            background: var(--obsidian); color: #fff; padding: 4rem 5rem; 
-            border-radius: 4px; box-shadow: 0 40px 100px rgba(15, 23, 42, 0.15);
-            margin: 5rem 0; position: relative;
-            border-left: 4px solid var(--teal); /* Matches the 'Force' effect in your screenshot */
-        }
-        .forensic-gate h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; color: var(--teal); margin-bottom: 4rem; font-weight: 800; }
+        .container { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
         
-        .audit-line { 
-            font-family: "JetBrains Mono", monospace; 
-            font-size: 0.95rem; 
-            margin-bottom: 2.5rem; 
-            border-bottom: 1px solid #1e293b; 
-            padding-bottom: 1rem; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: flex-end;
-        }
-        .audit-line span { color: #94a3b8; max-width: 300px; }
-        .audit-line b { color: var(--teal); letter-spacing: 1px; font-weight: 800; }
-
-        /* Statutory Ceremony Layout */
-        .statutory-ceremony { 
-            display: grid; grid-template-columns: 1fr 1fr; gap: 8rem; margin-top: 6rem;
-        }
-        .statute-card h3 { font-size: 1.2rem; letter-spacing: -0.01em; border-bottom: 1px solid var(--obsidian); padding-bottom: 1rem; margin-bottom: 1.5rem; text-transform: uppercase; }
-        .statute-card p { color: var(--slate); font-size: 1.05rem; font-weight: 400; }
-
-        .fiduciary-conclusion { text-align: center; margin-top: 8rem; padding-bottom: 4rem; }
-        .verdict-stamp { 
-            display: inline-block; border: 4px solid var(--obsidian); padding: 1.5rem 4rem; 
-            font-weight: 900; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 12px; margin-bottom: 2rem;
+        nav { margin-bottom: 6rem; }
+        .back-link { 
+            color: var(--teal); 
+            text-decoration: none; 
+            font-family: monospace; 
+            font-size: 0.8rem; 
+            letter-spacing: 0.2em;
+            font-weight: bold;
         }
 
-        footer { text-align: center; padding: 6rem 4rem; border-top: 1px solid var(--border); font-size: 0.65rem; color: var(--slate); letter-spacing: 0.2em; text-transform: uppercase; }
+        header { margin-bottom: 8rem; }
+        .tag { color: var(--gold); font-family: monospace; font-size: 11px; letter-spacing: 0.6em; text-transform: uppercase; display: block; margin-bottom: 1.5rem; }
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; letter-spacing: -0.05em; margin: 0; line-height: 0.9; }
+        .abstract { font-size: 1.4rem; color: #94a3b8; margin-top: 2rem; font-weight: 300; }
+
+        .judicial-matrix { display: grid; gap: 4rem; margin-top: 6rem; }
+        
+        .principle { border-bottom: 1px solid #111; padding-bottom: 3rem; }
+        .principle h2 { color: #fff; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 1.5rem; }
+        .principle p { color: #94a3b8; font-size: 1.1rem; }
+
+        .stewardship-counter {
+            background: rgba(251, 191, 36, 0.03);
+            border: 1px solid rgba(251, 191, 36, 0.1);
+            padding: 2rem;
+            border-radius: 4px;
+            font-family: monospace;
+            text-align: center;
+            margin: 6rem 0;
+        }
+        .counter-val { display: block; font-size: 2rem; color: var(--gold); font-weight: bold; }
+
+        footer { border-top: 1px solid #111; padding: 4rem 0; margin-top: 8rem; color: #1e293b; font-family: monospace; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="court-seal">Forensic Archive // Node: Oshawa</div>
-        <div class="court-seal">Standard: AgDR v1.8 Phoenix</div>
-    </nav>
+    <div class="container">
+        <nav>
+            <a href="index.html" class="back-link">← MASTER_LEDGER</a>
+        </nav>
 
-    <header>
-        <span class="date-marker">AUDIT DATE: 2076.04.10</span>
-        <h1>The Future <br>AGI Court.</h1>
-        <p class="ceremony-sub">The deterministic finality of the Beholder’s Triplet. Beyond narrative, into forensic truth.</p>
-    </header>
+        <header>
+            <span class="tag">Judicial Horizon // 2026-2041</span>
+            <h1>Future AGI Court</h1>
+            <p class="abstract">Providing the evidentiary foundation for the era of recursive intelligence. A 15-year stewardship commitment to record integrity.</p>
+        </header>
 
-    <main>
-        <section>
-            <p style="font-size: 1.4rem; font-weight: 300; color: var(--slate); margin-bottom: 4rem; max-width: 900px;">
-                The Court of 2076 validates "what." By querying the <strong>T-0 Forensic Clock</strong>, the system verifies the intent captured in the 950ns window. If the seal remains unbroken, the fiduciary duty is discharged.
-            </p>
-            
-            <div class="forensic-gate">
-                <h2>Forensic Integrity Readout</h2>
-                <div class="audit-line"><span>Origin Verification [Truth]</span> <b>PROVIDENCE_SEALED</b></div>
-                <div class="audit-line"><span>Jurisdictional Boundary [Wisdom]</span> <b>PLACE_AUTHORIZED</b></div>
-                <div class="audit-line"><span>Intent Alignment [Beauty]</span> <b>PURPOSE_LOCKED</b></div>
-                <div class="audit-line"><span>Mechanical Enforcement</span> <b>950ns_FORCE_INTERRUPT_PASS</b></div>
+        <main class="judicial-matrix">
+            <div class="principle">
+                <h2>01. The Discovery Mandate</h2>
+                <p>Decisions made by autonomous systems today will be reviewed by the judicial bodies of tomorrow. AgDR ensures that the "intent" of an inference event remains discoverable 15 years after the kernel has gated.</p>
             </div>
-        </section>
 
-        <section class="statutory-ceremony">
-            <div class="statute-card">
-                <h3>The 1890 Precedent</h3>
-                <p>Just as the <strong>Bills of Exchange Act</strong> required an immutable signature to certify value, the 2076 Court views the <strong>Aki Seal</strong> as the modern evolution of irrevocable intent.</p>
+            <div class="principle">
+                <h2>02. Retroactive Accountability</h2>
+                <p>As AGI evolves, we must maintain a chain of custody for every foundational reasoning path. The AgDR Phoenix protocol provides the "Black Box" data required for retroactive legal discovery.</p>
             </div>
-            <div class="statute-card">
-                <h3>The 2026 Stewardship</h3>
-                <p>Under <strong>CBCA s.122</strong>, the Beholder implemented the Phoenix release to bridge the black-box gap. That stewardship now serves as the singular shield against algorithmic liability.</p>
+
+            <div class="stewardship-counter">
+                <span class="counter-val">5,475 DAYS</span>
+                <span style="color: #666; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;">Guaranteed Evidence Persistence Horizon</span>
             </div>
-        </section>
 
-        <div class="fiduciary-conclusion">
-            <div class="verdict-stamp">Innocent</div>
-            <p style="color: var(--slate); font-weight: 500; letter-spacing: 1px;">DUTY OF CARE VERIFIED // NO DRIFT DETECTED</p>
-        </div>
-    </main>
+            <div class="principle">
+                <h2>03. Moral Finality</h2>
+                <p>Accountability is not just a technical benchmark; it is a philosophical necessity. We build for a future where machines are held to the same evidentiary standards as the institutions that deploy them.</p>
+            </div>
+        </main>
 
-    <footer>
-        Oshawa, Ontario, Canada &bull; CC0 1.0 Universal &bull; Beauty Truth Wisdom
-    </footer>
+        <footer>
+            Genesis Glass Foundation // stewardship protocol // CC0 1.0 Universal // Apache 2.0
+        </footer>
+    </div>
 
 </body>
 </html>
