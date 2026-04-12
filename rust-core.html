@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Rust Core | AgDR-Phoenix v1.8 Reference</title>
+    <meta name="description" content="Technical reference for the agdr_core Rust crate. Build prerequisites, API documentation, and Atomic Kernel Inference implementation details.">
+    
+    <style>
+        :root { --teal: #2dd4bf; --bg: #050505; --card: #111; --text: #a1a1aa; --code: #141414; --border: #222; }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { 
+            margin: 0; background-color: var(--bg); color: var(--text); 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            line-height: 1.8; -webkit-font-smoothing: antialiased;
+        }
+
+        nav { 
+            position: sticky; top: 0; background: rgba(5,5,5,0.95); backdrop-filter: blur(16px);
+            padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #1a1a1a; z-index: 100;
+        }
+        .brand { color: #fff; text-decoration: none; font-weight: 800; letter-spacing: -0.5px; }
+        .badge { border: 1px solid var(--teal); color: var(--teal); padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; letter-spacing: 1.5px; font-weight: 900; }
+        .nav-links a { color: #666; text-decoration: none; font-size: 0.75rem; font-weight: 700; margin-left: 1.5rem; transition: 0.2s; }
+        .nav-links a:hover { color: var(--teal); }
+
+        header { 
+            padding: 8rem 1.5rem 3rem; text-align: left; max-width: 1000px; margin: 0 auto;
+            background: radial-gradient(circle at 0% 0%, #0f766e 0%, transparent 50%);
+        }
+        h1 { font-size: clamp(2.5rem, 7vw, 4rem); margin: 1.5rem 0; color: #fff; letter-spacing: -2px; line-height: 1; }
+        .lead { font-size: 1.25rem; color: #888; max-width: 750px; }
+
+        main { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+        h2 { font-size: 1.75rem; color: #fff; margin: 3rem 0 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
+        h3 { font-size: 1.25rem; color: #fff; margin: 2rem 0 1rem; }
+        
+        pre { background: var(--code); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); overflow-x: auto; color: #fff; font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.9rem; }
+        code { color: var(--teal); }
+        p code, li code { background: #0a0a0a; padding: 0.125rem 0.375rem; border-radius: 4px; color: var(--teal); font-size: 0.9em; }
+
+        .sync-badge { 
+            display: inline-flex; align-items: center; gap: 0.5rem; 
+            background: #0a0a0a; border: 1px solid var(--border); 
+            padding: 0.25rem 0.75rem; border-radius: 999px; 
+            font-size: 0.75rem; color: #666; margin: 1rem 0; 
+        }
+        .sync-badge svg { width: 12px; height: 12px; stroke: var(--teal); flex-shrink: 0; }
+        
+        .content-card { 
+            background: var(--card); border: 1px solid var(--border); 
+            border-radius: 12px; padding: 2rem; margin: 2rem 0; 
+        }
+        
+        .api-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .api-table th { text-align: left; padding: 0.75rem; border-bottom: 1px solid var(--border); color: #fff; font-weight: 600; }
+        .api-table td { padding: 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+        .api-table code { display: block; margin: 0.25rem 0; }
+        
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .feature-item { background: #0a0a0a; padding: 1rem; border-radius: 8px; border: 1px solid var(--border); }
+        .feature-item strong { color: #fff; display: block; margin-bottom: 0.25rem; }
+        
+        .source-link { 
+            color: var(--teal); text-decoration: none; font-weight: 600; 
+            display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;
+        }
+        .source-link:hover { text-decoration: underline; }
+        .source-link svg { width: 16px; height: 16px; fill: currentColor; }
+
+        .sitemap { background: #080808; border-top: 1px solid #111; padding: 6rem 1.5rem; }
+        .sitemap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 3rem; max-width: 1000px; margin: 0 auto; }
+        .sitemap-col h5 { color: var(--teal); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
+        .sitemap-col a { display: block; color: #555; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.8rem; transition: 0.2s; }
+        .sitemap-col a:hover { color: #fff; }
+        footer.legal { text-align: center; padding: 4rem 1.5rem; background: #000; color: #333; font-size: 0.7rem; letter-spacing: 1px; }
+
+        a:focus, button:focus { outline: 2px solid var(--teal); outline-offset: 2px; }
+        
+        @media (max-width: 640px) {
+            nav { padding: 1rem; flex-wrap: wrap; gap: 0.5rem; }
+            .nav-links { width: 100%; display: flex; justify-content: center; margin-top: 0.5rem; }
+            .nav-links a { margin: 0 0.75rem; }
+            header { padding: 6rem 1.5rem 2rem; }
+        }
+    </style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "AgDR-Phoenix Rust Core Reference",
+      "description": "Technical documentation for the agdr_core crate: API reference, build instructions, and Atomic Kernel Inference implementation details.",
+      "programmingLanguage": "Rust",
+      "codeRepository": "https://github.com/aiccountability-source/agdr-phoenix",
+      "softwareVersion": "1.8.0",
+      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "dateModified": "2026-04-12",
+      "author": {
+        "@type": "Organization",
+        "name": "Genesis Glass Foundation"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <nav>
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <a href="/" class="brand">ACCOUNTABILITY.AI</a>
+            <span class="badge">V1.8-PHOENIX</span>
+        </div>
+        <div class="nav-links">
+            <a href="/getting-started.html">GET STARTED</a>
+            <a href="/ppp-pillars.html">THE STANDARD</a>
+            <a href="https://github.com/aiccountability-source/agdr-phoenix" target="_blank" rel="noopener noreferrer">GITHUB</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>AgDR-Phoenix Rust Core</h1>
+        <p class="lead">Reference documentation for the agdr_core crate. Build prerequisites, public API, and Atomic Kernel Inference implementation details.</p>
+        <div class="sync-badge" itemprop="dateModified" content="2026-04-12">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M21 12a9 9 0 1 1-6.22-8.55M21 3v5h-5"/>
+            </svg>
+            Synced from GitHub: April 12, 2026
+        </div>
+    </header>
+
+    <main itemscope itemtype="https://schema.org/TechArticle">
+        
+        <section class="content-card" id="overview">
+            <h2 style="margin-top:0; color:#fff;">Core Architecture Overview</h2>
+            <p>The <code>agdr_core</code> crate implements the Atomic Kernel Inference (AKI) specification in safe Rust. It provides a zero-cost abstraction for cryptographically sealing AI decision records at the moment of inference.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <strong>Atomic Sealing</strong>
+                    <span style="color:#888; font-size:0.9rem;">BLAKE3 hashing and Ed25519 signing occur within a single, uninterruptible kernel boundary</span>
+                </div>
+                <div class="feature-item">
+                    <strong>PPP Triplet Binding</strong>
+                    <span style="color:#888; font-size:0.9rem;">Purpose, Place, and Person are cryptographically bound to each record at creation</span>
+                </div>
+                <div class="feature-item">
+                    <strong>Zero-Copy Design</strong>
+                    <span style="color:#888; font-size:0.9rem;">Minimizes memory allocations to achieve sub-microsecond latency</span>
+                </div>
+                <div class="feature-item">
+                    <strong>PyO3 Interoperability</strong>
+                    <span style="color:#888; font-size:0.9rem;">Seamless integration with Python via the agdr_python extension module</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-card" id="prerequisites">
+            <h2 style="color:#fff;">Build Prerequisites</h2>
+            <p>Ensure your development environment meets these requirements before building agdr_core:</p>
+            
+            <h3>Rust Toolchain</h3>
+            <pre><code># Required Rust version
+rustup install 1.75.0
+rustup default 1.75.0
+
+# Required components
+rustup component add rustfmt clippy</code></pre>
+            
+            <h3>Target Platform Support</h3>
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Target Triple</th>
+                        <th>Status</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>x86_64-unknown-linux-gnu</code></td>
+                        <td style="color:var(--teal);">Stable</td>
+                        <td>Primary production target</td>
+                    </tr>
+                    <tr>
+                        <td><code>aarch64-apple-darwin</code></td>
+                        <td style="color:var(--teal);">Stable</td>
+                        <td>Apple Silicon optimization enabled</td>
+                    </tr>
+                    <tr>
+                        <td><code>wasm32-unknown-unknown</code></td>
+                        <td style="color:#888;">Experimental</td>
+                        <td>WebAssembly demo builds only</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Cargo Features</h3>
+            <pre><code>[dependencies]
+agdr_core = { version = "0.0.2", features = ["pyo3", "bench"] }
+
+# Available features:
+# - "pyo3": Enable Python bindings via PyO3
+# - "bench": Include benchmarking utilities
+# - "simd": Enable architecture-specific SIMD optimizations (default)
+# - "audit": Include additional runtime checks for security auditing</code></pre>
+        </section>
+
+        <section class="content-card" id="api-reference">
+            <h2 style="color:#fff;">Public API Reference</h2>
+            <p>Core types and functions exported by the agdr_core crate:</p>
+            
+            <h3>Primary Types</h3>
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Purpose</th>
+                        <th>Key Methods</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>AgDR</code></td>
+                        <td>Main record builder and executor</td>
+                        <td>
+                            <code>new(purpose, place, person)</code><br>
+                            <code>seal(inference)</code><br>
+                            <code>verify(signature)</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>PPPTriplet</code></td>
+                        <td>Immutable binding of Purpose, Place, Person</td>
+                        <td>
+                            <code>from_strings(p, pl, pe)</code><br>
+                            <code>hash(&self) -> [u8; 32]</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>SealedRecord</code></td>
+                        <td>Fully sealed, immutable decision record</td>
+                        <td>
+                            <code>root_hash(&self)</code><br>
+                            <code>signature(&self)</code><br>
+                            <code>to_bytes(&self) -> Vec<u8></code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Atomic Kernel Inference Entry Point</h3>
+            <pre><code>use agdr_core::{AgDR, Purpose, Place, Person};
+
+// Initialize with PPP Triplet
+let record = AgDR::new(
+    Purpose::from("High-risk credit evaluation"),
+    Place::from("compute-node-alpha-east"),
+    Person::from("FOI-7702")
+);
+
+// Execute inference with atomic sealing
+let sealed = record.seal(|| {
+    // Your inference logic here
+    // Output is captured and hashed before release
+    model.predict(input_features)
+})?;
+
+// Record is now immutable and court-admissible
+assert_eq!(sealed.root_hash().len(), 32); // BLAKE3 output
+assert!(sealed.signature().is_valid());   // Ed25519 verification</code></pre>
+        </section>
+
+        <section class="content-card" id="performance">
+            <h2 style="color:#fff;">Performance Characteristics</h2>
+            <p>Measured on Apple M2, Rust 1.75, release mode with LTO enabled:</p>
+            
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Operation</th>
+                        <th>Median Latency</th>
+                        <th>99th Percentile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PPP Triplet initialization</td>
+                        <td style="color:var(--teal);">0.08 µs</td>
+                        <td>0.12 µs</td>
+                    </tr>
+                    <tr>
+                        <td>BLAKE3 hash computation</td>
+                        <td style="color:var(--teal);">0.09 µs</td>
+                        <td>0.15 µs</td>
+                    </tr>
+                    <tr>
+                        <td>Ed25519 signature generation</td>
+                        <td style="color:var(--teal);">0.18 µs</td>
+                        <td>0.24 µs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Full AKI seal (end-to-end)</strong></td>
+                        <td style="color:var(--teal); font-weight:700;">0.62 µs</td>
+                        <td>0.89 µs</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p style="margin-top:1rem; font-size:0.9rem; color:#888;">
+                Benchmark methodology: 10,000 iterations, warm cache, isolated CPU core. 
+                Full results available in <code>benchmarks/RESULTS.md</code> within the repository.
+            </p>
+        </section>
+
+        <section class="content-card" id="integration">
+            <h2 style="color:#fff;">Integration Patterns</h2>
+            
+            <h3>Embedding in a Rust Application</h3>
+            <pre><code>// Cargo.toml
+[dependencies]
+agdr_core = "0.0.2"
+
+// src/main.rs
+use agdr_core::{AgDR, Purpose, Place, Person};
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let record = AgDR::new(
+        Purpose::from("Fraud detection inference"),
+        Place::from("prod-cluster-us-west-2"),
+        Person::from("system-account-9901")
+    );
+    
+    let result = record.seal(|| {
+        // Your model inference here
+        fraud_model.evaluate(transaction_data)
+    })?;
+    
+    // Persist or transmit the sealed record
+    std::fs::write("record.bin", result.to_bytes())?;
+    Ok(())
+}</code></pre>
+            
+            <h3>Using via PyO3 Python Bindings</h3>
+            <pre><code># Install the Python extension
+pip install agdr-python
+
+# Use in Python
+from agdr import AgDR, Purpose, Place, Person
+
+record = AgDR(
+    purpose=Purpose("Loan approval decision"),
+    place=Place("inference-service-ca-central"),
+    person=Person("compliance-officer-4410")
+)
+
+sealed = record.seal(lambda: credit_model.predict(applicant_data))
+print(f"Record hash: {sealed.root_hash.hex()}")</code></pre>
+            
+            <p style="margin-top:1rem;">
+                <a href="https://github.com/aiccountability-source/agdr-phoenix/tree/main/src" 
+                   class="source-link" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.1 0 4.7-2.8 5.7-5.5 6 .5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+                    View source code within the GitHub repository
+                </a>
+            </p>
+        </section>
+
+        <section class="content-card" style="text-align:center; margin-top:3rem;">
+            <p style="margin:0 0 1.25rem; color:#888;">Proceed to implementation or review related specifications?</p>
+            <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+                <a href="/getting-started.html" class="btn-primary" style="background:var(--teal); color:#000; border:none; padding:0.75rem 1.5rem; border-radius:6px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">Return to Getting Started</a>
+                <a href="/aki-formal-definition.html" class="btn-secondary" style="border:1px solid var(--border); color:#888; padding:0.75rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.5rem;">Review AKI Specification</a>
+            </div>
+        </section>
+
+    </main>
+
+    <section class="sitemap">
+        <div class="sitemap-grid">
+            <div class="sitemap-col">
+                <h5>Architecture</h5>
+                <a href="/getting-started.html">Get Started</a>
+                <a href="/aki-formal-definition.html">AKI Specification</a>
+                <a href="/rust-core.html" style="color:#fff;">Rust Core</a>
+            </div>
+            <div class="sitemap-col">
+                <h5>Governance</h5>
+                <a href="/ppp-pillars.html">PPP Pillars</a>
+                <a href="/foi-formal-definition.html">FOI Definition</a>
+                <a href="/human-delta-chain-spec.html">Human Delta Chain</a>
+            </div>
+            <div class="sitemap-col">
+                <h5>Compliance</h5>
+                <a href="/legal-mapping.html">Section 31.1 Mapping</a>
+                <a href="/cbca-fiduciary.html">CBCA s.122</a>
+                <a href="/comparison-medical-records.html">Medical Records</a>
+            </div>
+            <div class="sitemap-col">
+                <h5>Resources</h5>
+                <a href="/documentation.html">Documentation</a>
+                <a href="/demo.html">Interactive Demo</a>
+                <a href="/benchmarks.html">Performance Benchmarks</a>
+                <a href="https://github.com/aiccountability-source/agdr-phoenix" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="legal">
+        OSHAWA, ONTARIO, CANADA. CC0 1.0 UNIVERSAL. OPEN SOURCE AI INFRASTRUCTURE.
+    </footer>
+
+</body>
+</html>
+
