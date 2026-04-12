@@ -1,348 +1,646 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+<html lang="en" itemscope itemtype="https://schema.org/TechArticle">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Rust Core | AgDR-Phoenix v1.8 Reference</title>
-    <meta name="description" content="Technical reference for the agdr_core Rust crate. Build prerequisites, API documentation, and Atomic Kernel Inference implementation details.">
-    
-    <style>
-        :root { --teal: #2dd4bf; --bg: #050505; --card: #111; --text: #a1a1aa; --code: #141414; --border: #222; }
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { 
-            margin: 0; background-color: var(--bg); color: var(--text); 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            line-height: 1.8; -webkit-font-smoothing: antialiased;
-        }
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-QPHCT8T1KC');</script>
 
-        nav { 
-            position: sticky; top: 0; background: rgba(5,5,5,0.95); backdrop-filter: blur(16px);
-            padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 1px solid #1a1a1a; z-index: 100;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <meta name="color-scheme" content="dark">
+  
+  <!-- Performance Hints -->
+  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  
+  <!-- SEO & GEO -->
+  <title>Rust Core Reference | AgDR-Phoenix v1.8 | accountability.ai</title>
+  <meta name="description" content="Technical reference for the agdr_core crate. Build prerequisites, API documentation, and Atomic Kernel Inference implementation details.">
+  <meta name="description" lang="fr" content="Documentation technique pour le crate agdr_core. Prérequis de build, API, et détails d'implémentation de l'Inférence de Noyau Atomique.">
+  
+  <!-- Canonical & Hreflang -->
+  <link rel="canonical" href="https://accountability.ai/rust-core.html"/>
+  <link rel="alternate" hreflang="en" href="https://accountability.ai/rust-core.html"/>
+  <!-- Note: Ensure /fr/rust-core.html is deployed for this tag to resolve correctly -->
+  <link rel="alternate" hreflang="fr" href="https://accountability.ai/fr/rust-core.html"/>
+  <link rel="alternate" hreflang="x-default" href="https://accountability.ai/rust-core.html"/>
+  
+  <!-- Geo Tags (ICBM, Region, Placename) -->
+  <meta name="geo.region" content="CA-ON">
+  <meta name="geo.placename" content="Oshawa">
+  <meta name="ICBM" content="43.8971, -78.8658">
+  
+  <!-- Open Graph & Twitter -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Accountability.ai">
+  <meta property="og:url" content="https://accountability.ai/rust-core.html">
+  <meta property="og:title" content="Rust Core Reference | AgDR-Phoenix v1.8">
+  <meta property="og:description" content="Technical reference for the agdr_core crate: API, build instructions, and Atomic Kernel Inference implementation.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_CA">
+  <!-- Add /images/rust-core-og.png to your asset folder for full social preview support -->
+  <meta property="og:image" content="https://accountability.ai/images/rust-core-og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="AgDR-Phoenix Rust Core Architecture Diagram">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rust Core Reference | AgDR-Phoenix v1.8">
+  <meta name="twitter:description" content="Technical reference for the agdr_core Rust crate. Build prerequisites, API documentation, and Atomic Kernel Inference implementation details.">
+  <meta name="twitter:image" content="https://accountability.ai/images/rust-core-og.png">
+  <meta name="twitter:image:alt" content="AgDR-Phoenix Rust Core Architecture Diagram">
+  
+  <!-- Schema.org: TechArticle + NGO + Breadcrumb -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "AgDR-Phoenix Rust Core Reference",
+        "description": "Technical documentation for the agdr_core crate: API reference, build instructions, and Atomic Kernel Inference implementation details.",
+        "articleSection": "Technical Documentation",
+        "programmingLanguage": "Rust",
+        "codeRepository": "https://github.com/aiccountability-source/agdr-phoenix",
+        "softwareVersion": "1.8.0",
+        "runtimePlatform": ["Linux x86_64", "macOS Apple Silicon", "WebAssembly (experimental)"],
+        "license": "https://creativecommons.org/publicdomain/zero/1.0/ OR https://www.apache.org/licenses/LICENSE-2.0",
+        "datePublished": "2026-04-12",
+        "dateModified": "2026-04-12",
+        "author": { "@type": "Person", "name": "Robert Muncaster" },
+        "publisher": { "@type": "Organization", "name": "Genesis Glass Foundation", "url": "https://accountability.ai" },
+        "keywords": ["AgDR","Rust","Atomic Kernel Inference","AKI","BLAKE3","Ed25519","PPP Triplet","court-admissible AI","Canada Evidence Act","CBCA fiduciary"],
+        "mainEntityOfPage": { "@type": "WebPage", "@id": "https://accountability.ai/rust-core.html" },
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": [".hero-title", ".hero-lead", ".plain-lead", ".stat-value"] }
+      },
+      {
+        "@type": "NGO",
+        "name": "Genesis Glass Foundation",
+        "alternateName": "Fondation Genèse Cristal",
+        "url": "https://accountability.ai",
+        "logo": { "@type": "ImageObject", "url": "https://accountability.ai/logo.png" },
+        "sameAs": ["https://github.com/aiccountability-source"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Oshawa",
+          "addressRegion": "ON",
+          "addressCountry": "CA",
+          "geo": { "@type": "GeoCoordinates", "latitude": "43.8971", "longitude": "-78.8658" }
         }
-        .brand { color: #fff; text-decoration: none; font-weight: 800; letter-spacing: -0.5px; }
-        .badge { border: 1px solid var(--teal); color: var(--teal); padding: 2px 8px; border-radius: 4px; font-size: 0.65rem; letter-spacing: 1.5px; font-weight: 900; }
-        .nav-links a { color: #666; text-decoration: none; font-size: 0.75rem; font-weight: 700; margin-left: 1.5rem; transition: 0.2s; }
-        .nav-links a:hover { color: var(--teal); }
-
-        header { 
-            padding: 8rem 1.5rem 3rem; text-align: left; max-width: 1000px; margin: 0 auto;
-            background: radial-gradient(circle at 0% 0%, #0f766e 0%, transparent 50%);
-        }
-        h1 { font-size: clamp(2.5rem, 7vw, 4rem); margin: 1.5rem 0; color: #fff; letter-spacing: -2px; line-height: 1; }
-        .lead { font-size: 1.25rem; color: #888; max-width: 750px; }
-
-        main { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem 4rem; }
-        h2 { font-size: 1.75rem; color: #fff; margin: 3rem 0 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; }
-        h3 { font-size: 1.25rem; color: #fff; margin: 2rem 0 1rem; }
-        
-        pre { background: var(--code); padding: 2rem; border-radius: 12px; border: 1px solid var(--border); overflow-x: auto; color: #fff; font-family: 'SFMono-Regular', Consolas, monospace; font-size: 0.9rem; }
-        code { color: var(--teal); }
-        p code, li code { background: #0a0a0a; padding: 0.125rem 0.375rem; border-radius: 4px; color: var(--teal); font-size: 0.9em; }
-
-        .sync-badge { 
-            display: inline-flex; align-items: center; gap: 0.5rem; 
-            background: #0a0a0a; border: 1px solid var(--border); 
-            padding: 0.25rem 0.75rem; border-radius: 999px; 
-            font-size: 0.75rem; color: #666; margin: 1rem 0; 
-        }
-        .sync-badge svg { width: 12px; height: 12px; stroke: var(--teal); flex-shrink: 0; }
-        
-        .content-card { 
-            background: var(--card); border: 1px solid var(--border); 
-            border-radius: 12px; padding: 2rem; margin: 2rem 0; 
-        }
-        
-        .api-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-        .api-table th { text-align: left; padding: 0.75rem; border-bottom: 1px solid var(--border); color: #fff; font-weight: 600; }
-        .api-table td { padding: 0.75rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-        .api-table code { display: block; margin: 0.25rem 0; }
-        
-        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-        .feature-item { background: #0a0a0a; padding: 1rem; border-radius: 8px; border: 1px solid var(--border); }
-        .feature-item strong { color: #fff; display: block; margin-bottom: 0.25rem; }
-        
-        .source-link { 
-            color: var(--teal); text-decoration: none; font-weight: 600; 
-            display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1rem;
-        }
-        .source-link:hover { text-decoration: underline; }
-        .source-link svg { width: 16px; height: 16px; fill: currentColor; }
-
-        .sitemap { background: #080808; border-top: 1px solid #111; padding: 6rem 1.5rem; }
-        .sitemap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 3rem; max-width: 1000px; margin: 0 auto; }
-        .sitemap-col h5 { color: var(--teal); font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
-        .sitemap-col a { display: block; color: #555; text-decoration: none; font-size: 0.85rem; margin-bottom: 0.8rem; transition: 0.2s; }
-        .sitemap-col a:hover { color: #fff; }
-        footer.legal { text-align: center; padding: 4rem 1.5rem; background: #000; color: #333; font-size: 0.7rem; letter-spacing: 1px; }
-
-        a:focus, button:focus { outline: 2px solid var(--teal); outline-offset: 2px; }
-        
-        @media (max-width: 640px) {
-            nav { padding: 1rem; flex-wrap: wrap; gap: 0.5rem; }
-            .nav-links { width: 100%; display: flex; justify-content: center; margin-top: 0.5rem; }
-            .nav-links a { margin: 0 0.75rem; }
-            header { padding: 6rem 1.5rem 2rem; }
-        }
-    </style>
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "TechArticle",
-      "headline": "AgDR-Phoenix Rust Core Reference",
-      "description": "Technical documentation for the agdr_core crate: API reference, build instructions, and Atomic Kernel Inference implementation details.",
-      "programmingLanguage": "Rust",
-      "codeRepository": "https://github.com/aiccountability-source/agdr-phoenix",
-      "softwareVersion": "1.8.0",
-      "license": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "dateModified": "2026-04-12",
-      "author": {
-        "@type": "Organization",
-        "name": "Genesis Glass Foundation"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://accountability.ai/" },
+          { "@type": "ListItem", "position": 2, "name": "Technical Documentation", "item": "https://accountability.ai/#spec" },
+          { "@type": "ListItem", "position": 3, "name": "Rust Core", "item": "https://accountability.ai/rust-core.html" }
+        ]
       }
+    ]
+  }
+  </script>
+  
+  <!-- GA4 + Consent Mode v2 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPHCT8T1KC"></script>
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
+    gtag('js',new Date());gtag('config','G-QPHCT8T1KC',{'anonymize_ip':true,'send_page_view':true});
+  </script>
+
+  <!-- Native CSS (Zero External Dependencies) -->
+  <style>
+    :root{--bg:#050505;--text:#e5e7eb;--text-dim:#a1a1aa;--text-muted:#71717a;--teal:#2dd4bf;--border:rgba(255,255,255,0.05);--card:rgba(255,255,255,0.03);--gradient:radial-gradient(circle at top,#0d7377 0%,#050505 70%);--header:#fff}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--teal)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    *:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+    
+    .skip-link{position:absolute;top:-100%;left:0;background:var(--teal);color:#000;padding:.75rem 1.5rem;z-index:100;font-weight:700;border-radius:0 0 .5rem 0}
+    .skip-link:focus{top:0}
+    
+    /* Navigation */
+    .site-nav{position:sticky;top:0;z-index:50;background:rgba(5,5,5,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:.75rem 0}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:#fff}
+    .nav-badge{border:1px solid var(--teal);color:var(--teal);padding:.125rem .5rem;border-radius:.25rem;font-size:.65rem;font-weight:900;letter-spacing:1.5px}
+    .nav-links{display:none;gap:1.5rem;font-size:.875rem;font-weight:500;color:var(--text-dim)}
+    .nav-links a:hover{color:var(--teal)}
+    .nav-search{position:relative;flex-shrink:0}
+    .nav-search input{background:#18181b;border:1px solid #27272a;border-radius:.5rem;padding:.5rem .75rem .5rem 2rem;color:#fff;font-size:.875rem;width:180px;transition:width .2s}
+    .nav-search input:focus{width:220px;border-color:var(--teal);outline:none}
+    .nav-search svg{position:absolute;left:.75rem;top:50%;transform:translateY(-50%);width:1rem;height:1rem;color:#6b7280;pointer-events:none}
+    @media(min-width:768px){.nav-links{display:flex}}
+    @media(max-width:640px){.nav-search input{width:40px;padding:.5rem;transition:width .2s}.nav-search input:focus{width:180px;padding:.5rem .75rem .5rem 2rem}}
+    
+    /* Breadcrumb */
+    .breadcrumb{max-width:1200px;margin:0 auto;padding:.5rem 1.5rem;font-size:.75rem;color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--teal)}
+    .breadcrumb ol{display:flex;gap:.25rem;list-style:none}
+    
+    /* Hero */
+    .hero{background:var(--gradient);padding:4rem 1.5rem 6rem;text-align:center}
+    .hero-content{max-width:800px;margin:0 auto}
+    .hero-badge{display:inline-block;background:rgba(45,212,191,.1);color:var(--teal);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem}
+    .hero-title{font-size:clamp(3rem,6vw,4.5rem);font-weight:700;letter-spacing:-.025em;line-height:1;margin:0 0 1.5rem;color:#fff}
+    .hero-lead{font-size:1.25rem;color:#d4d4d8;line-height:1.75;margin-bottom:2.5rem;max-width:600px;margin-left:auto;margin-right:auto}
+    .plain-lead{font-size:1.1rem;color:#fff;background:rgba(45,212,191,0.1);border-left:3px solid var(--teal);padding:1rem 1.5rem;border-radius:0 .5rem .5rem 0;margin:0 0 2.5rem;text-align:left}
+    .plain-lead strong{color:var(--teal)}
+    .sync-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,0.05);border:1px solid var(--border);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;color:#a1a1aa;margin-top:1rem}
+    .sync-badge svg{width:12px;height:12px;stroke:var(--teal);flex-shrink:0}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem}
+    .btn{display:inline-block;padding:1rem 2.5rem;border-radius:.5rem;font-weight:700;text-align:center;transition:all .2s;cursor:pointer;border:none;font-size:1rem;text-decoration:none}
+    .btn-primary{background:#14b8a6;color:#000}
+    .btn-primary:hover{background:var(--teal)}
+    .btn-secondary{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff}
+    .btn-secondary:hover{background:rgba(255,255,255,0.1)}
+    
+    /* Stats */
+    .stats-section{padding:5rem 1.5rem;background:#000}
+    .stats-grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:1rem;max-width:1200px;margin:0 auto}
+    @media(min-width:768px){.stats-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+    .stat-card{background:var(--card);border:1px solid rgba(45,212,191,0.1);border-radius:1rem;padding:1.5rem}
+    .stat-label{color:var(--teal);font-family:ui-monospace,monospace;font-size:.875rem;margin-bottom:.5rem}
+    .stat-value{font-size:1.875rem;font-weight:700;color:#fff}
+    .stat-desc{color:var(--text-dim);font-size:.75rem;margin-top:1rem}
+    
+    /* Ledger */
+    .ledger-section{padding:6rem 1.5rem;background:#09090b;border-top:1px solid var(--border)}
+    .ledger-grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:2.5rem;max-width:1200px;margin:0 auto}
+    @media(min-width:768px){.ledger-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    .ledger-column h2{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+    .ledger-links{display:flex;flex-direction:column;gap:1.5rem}
+    .matrix-link{border-left:1px solid rgba(255,255,255,0.05);padding-left:1rem;transition:all .2s}
+    .matrix-link:hover{border-left-color:var(--teal);transform:translateX(4px)}
+    .matrix-link a{display:block;font-size:1.125rem;font-weight:700;color:#fff;margin-bottom:.25rem}
+    .matrix-link a:hover{color:var(--teal)}
+    .matrix-link span{display:block;font-size:.75rem;color:var(--text-dim);font-family:ui-monospace,monospace}
+    
+    /* Main Content Layout + Sticky TOC */
+    .main-layout{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:2rem;padding:0 1.5rem 4rem}
+    @media(min-width:1024px){.main-layout{grid-template-columns:240px 1fr}}
+    
+    .toc{position:sticky;top:5rem;align-self:start;background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem}
+    .toc h3{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:1rem}
+    .toc ul{list-style:none;padding:0}
+    .toc li{margin-bottom:.5rem}
+    .toc a{color:var(--text-dim);font-size:.875rem;display:block;transition:color .2s;border-left:2px solid transparent;padding-left:.5rem}
+    .toc a:hover, .toc a:focus{color:var(--teal);border-left-color:var(--teal)}
+    
+    main h2{font-size:1.75rem;color:#fff;margin:3rem 0 1.25rem;border-bottom:1px solid var(--border);padding-bottom:.75rem}
+    main h3{font-size:1.25rem;color:#fff;margin:2rem 0 1rem}
+    
+    .content-card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:2rem;margin:2rem 0}
+    pre{background:#18181b;border:1px solid rgba(255,255,255,0.1);border-radius:1rem;padding:2rem;font-family:ui-monospace,monospace;font-size:.875rem;color:#5eead4;line-height:1.7;overflow-x:auto}
+    code{color:var(--teal)}
+    p code,li code{background:#0a0a0a;padding:.125rem .375rem;border-radius:4px;color:var(--teal);font-size:.9em}
+    
+    .api-table{width:100%;border-collapse:collapse;margin:1.5rem 0}
+    .api-table th{text-align:left;padding:.75rem;border-bottom:1px solid var(--border);color:#fff;font-weight:600}
+    .api-table td{padding:.75rem;border-bottom:1px solid var(--border);vertical-align:top}
+    .api-table code{display:block;margin:.25rem 0}
+    
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin:1.5rem 0}
+    .feature-item{background:rgba(255,255,255,0.03);padding:1rem;border-radius:8px;border:1px solid var(--border)}
+    .feature-item strong{color:#fff;display:block;margin-bottom:.25rem}
+    
+    .summary{background:rgba(45,212,191,0.08);border-left:3px solid var(--teal);padding:1rem 1.5rem;border-radius:0 .5rem .5rem 0;margin:1.5rem 0;font-size:.95rem;color:#d4d4d8;font-style:italic}
+    
+    details.explain{margin-top:1rem;background:rgba(255,255,255,0.02);border-radius:8px;overflow:hidden}
+    summary.explain-toggle{cursor:pointer;padding:0.75rem 1rem;color:var(--teal);font-weight:600;font-size:.85rem;user-select:none;list-style:none}
+    summary.explain-toggle::-webkit-details-marker{display:none}
+    summary.explain-toggle::before{content:'▶ ';display:inline-block;margin-right:0.5rem;transition:transform .2s}
+    details.explain[open] summary.explain-toggle::before{transform:rotate(90deg)}
+    details.explain[open] .annotation{padding:0 1rem 1rem;font-size:.9rem;color:var(--text-dim);border-top:1px solid var(--border);margin-top:0.5rem;padding-top:1rem}
+    
+    .source-link{color:var(--teal);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:.5rem;margin-top:1rem}
+    .source-link:hover{text-decoration:underline}
+    .source-link svg{width:16px;height:16px;fill:currentColor}
+    
+    .flowchart-container{background:#0a0a0a;border:1px solid var(--border);border-radius:1rem;padding:2rem;margin:2rem 0;text-align:center;overflow-x:auto}
+    .flowchart{display:inline-block;max-width:100%}
+    
+    .spec-section{padding:5rem 1.5rem;border-top:1px solid var(--border)}
+    .spec-grid{display:grid;grid-template-columns:repeat(1,minmax(0,1fr));gap:2.5rem;max-width:1200px;margin:0 auto;align-items:center}
+    @media(min-width:768px){.spec-grid{grid-template-columns:repeat(2,1fr)}}
+    .spec-content h3{font-size:2.25rem;font-weight:700;margin-bottom:1.5rem;color:#fff}
+    .spec-content p{color:var(--text-dim);font-size:1.125rem;margin-bottom:2rem;line-height:1.7}
+    .spec-highlight{padding:1rem;border-left:2px solid var(--teal);background:rgba(255,255,255,0.05)}
+    .spec-highlight .title{font-weight:700;color:#fff;display:block;margin-bottom:.25rem}
+    .spec-highlight .desc{font-size:.875rem;color:var(--text-dim)}
+    .spec-code{background:#18181b;border:1px solid rgba(255,255,255,0.1);border-radius:1rem;padding:2rem;font-family:ui-monospace,monospace;font-size:.875rem;color:#5eead4;line-height:1.7}
+    .spec-code .comment{color:#71717a}
+    .spec-code .key{color:#fff}
+    
+    /* Footer */
+    .site-footer{background:#000;border-top:1px solid var(--border);padding:4rem 1.5rem 3rem}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2.5rem}
+    .footer-col h5{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+    .footer-col ul{list-style:none;padding:0;margin:0}
+    .footer-col li{margin-bottom:.5rem}
+    .footer-col a{color:var(--text-dim);font-size:.875rem;display:block;transition:color .2s}
+    .footer-col a:hover{color:var(--teal)}
+    .footer-bottom{max-width:1200px;margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.75rem;color:var(--text-muted)}
+    .footer-bottom a{color:var(--teal)}
+    
+    #search-results{position:absolute;top:100%;right:0;left:0;background:#18181b;border:1px solid #27272a;border-radius:.5rem;margin-top:.25rem;max-height:300px;overflow-y:auto;z-index:60;display:none}
+    #search-results.show{display:block}
+    #search-results a{display:block;padding:.75rem 1rem;color:var(--text);font-size:.875rem;border-bottom:1px solid var(--border)}
+    #search-results a:hover{background:rgba(45,212,191,0.1);color:#fff}
+    #search-results .no-results{padding:1rem;color:var(--text-muted);font-size:.875rem}
+    
+    @media(max-width:600px){
+      .hero-title{font-size:2.5rem}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+      .toc{display:none} /* Hide TOC on mobile to save space */
     }
-    </script>
+  </style>
 </head>
+
 <body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-QPHCT8T1KC"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  <p class="sr-only">AgDR, Phoenix v1.8, Rust core, agdr_core crate, Atomic Kernel Inference, AKI, BLAKE3, Ed25519, PPP triplet, PyO3, court-admissible AI, Canada Evidence Act, CBCA fiduciary, Genesis Glass Foundation, AI governance, sub-microsecond latency, cryptographic sealing, zero-copy design, open source AI infrastructure</p>
+  
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <nav>
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <a href="/" class="brand">ACCOUNTABILITY.AI</a>
-            <span class="badge">V1.8-PHOENIX</span>
-        </div>
-        <div class="nav-links">
-            <a href="/getting-started.html">GET STARTED</a>
-            <a href="/ppp-pillars.html">THE STANDARD</a>
-            <a href="https://github.com/aiccountability-source/agdr-phoenix" target="_blank" rel="noopener noreferrer">GITHUB</a>
-        </div>
-    </nav>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">ACCOUNTABILITY.AI</a>
+      <span class="nav-badge">V1.8-PHOENIX</span>
+      
+      <div class="nav-links">
+        <a href="/getting-started.html">Get Started</a>
+        <a href="/ppp-pillars.html">The Standard</a>
+        <a href="/sandbox.html">Phoenix Demo</a>
+        <a href="https://github.com/aiccountability-source/agdr-phoenix" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
+      </div>
+      
+      <div class="nav-search" role="search">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="search" id="site-search" placeholder="Search docs..." aria-label="Search documentation" autocomplete="off">
+        <div id="search-results" role="listbox" aria-label="Search results"></div>
+      </div>
+    </div>
+  </nav>
+  
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/#spec" itemprop="item"><span itemprop="name">Technical Documentation</span></a>
+        <meta itemprop="position" content="2">
+      </li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
+        <span itemprop="name">Rust Core</span>
+        <meta itemprop="position" content="3">
+      </li>
+    </ol>
+  </nav>
 
-    <header>
-        <h1>AgDR-Phoenix Rust Core</h1>
-        <p class="lead">Reference documentation for the agdr_core crate. Build prerequisites, public API, and Atomic Kernel Inference implementation details.</p>
-        <div class="sync-badge" itemprop="dateModified" content="2026-04-12">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M21 12a9 9 0 1 1-6.22-8.55M21 3v5h-5"/>
-            </svg>
-            Synced from GitHub: April 12, 2026
-        </div>
-    </header>
+  <header class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">AgDR-Phoenix v1.8 · Open Source · ~6 min read</span>
+      <h1 class="hero-title">AgDR-Phoenix Rust Core</h1>
+      <p class="hero-lead">Reference documentation for the <code>agdr_core</code> crate. Build prerequisites, public API, and <abbr title="Atomic Kernel Inference">AKI</abbr> implementation details.</p>
+      
+      <p class="plain-lead">
+        <strong>In simple terms:</strong> This code seals every AI decision the moment it happens, like a flight recorder that cannot be erased. It happens in 0.62 microseconds, so it does not slow anything down. The standard is open source and stewarded by the <a href="/" style="color:var(--teal);text-decoration:underline">Genesis Glass Foundation</a>.
+      </p>
+      
+      <div class="hero-buttons">
+        <a href="/getting-started.html" class="btn btn-primary">Start Implementation</a>
+        <a href="/sandbox.html" class="btn btn-secondary">Try Interactive Demo</a>
+        <a href="#overview" class="btn btn-secondary">Jump to Architecture</a>
+      </div>
+      
+      <div class="sync-badge" itemprop="dateModified" content="2026-04-12">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M21 12a9 9 0 1 1-6.22-8.55M21 3v5h-5"/>
+        </svg>
+        Synced from GitHub: April 12, 2026
+      </div>
+    </div>
+  </header>
 
-    <main itemscope itemtype="https://schema.org/TechArticle">
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-label">LATENCY</div>
+        <div class="stat-value">0.62 µs</div>
+        <p class="stat-desc">Faster than network stack overhead.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">INTEGRITY</div>
+        <div class="stat-value">BLAKE3</div>
+        <p class="stat-desc"><abbr title="Cryptographic hashing algorithm designed for high speed">Tamper-proof</abbr> sealing at birth.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">THROUGHPUT</div>
+        <div class="stat-value">1.1M/s</div>
+        <p class="stat-desc">Built for high-volume inference pipelines.</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">LICENSE</div>
+        <div class="stat-value">CC0 / Apache</div>
+        <p class="stat-desc">Open source. No vendor lock-in. Free to audit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ledger-section">
+    <div class="ledger-grid">
+      <div class="ledger-column">
+        <h2>Mechanical Floor</h2>
+        <div class="ledger-links">
+          <div class="matrix-link"><a href="aki-95.html">AKI 0.95 Spec</a><span>950ns Atomic Kernel Force Gating</span></div>
+          <div class="matrix-link"><a href="agdr-spec.html">AgDR Protocol</a><span>Atomic Genesis Decision Record v1.8</span></div>
+          <div class="matrix-link"><a href="aki-formal-definition.html">Formal Definition</a><span>Epistemology of Kernel Finality</span></div>
+        </div>
+      </div>
+
+      <div class="ledger-column">
+        <h2>Statutory Teeth</h2>
+        <div class="ledger-links">
+          <div class="matrix-link"><a href="cea-compliance.html">CEA s.31.1 Admissibility</a><span><abbr title="Canada Evidence Act">Canada Evidence Act</abbr> Compliance</span></div>
+          <div class="matrix-link"><a href="cbca-fiduciary-mapping.html">CBCA s.122 Mapping</a><span><abbr title="Canada Business Corporations Act">CBCA</abbr> Fiduciary Duty</span></div>
+          <div class="matrix-link"><a href="bills-of-exchange-mapping.html">Bills of Exchange</a><span>Commercial Finality for Agents</span></div>
+        </div>
+      </div>
+
+      <div class="ledger-column">
+        <h2>Forensic Archive</h2>
+        <div class="ledger-links">
+          <div class="matrix-link"><a href="legal-glossary.html">Forensic Glossary</a><span>Chain of Definition Taxonomy</span></div>
+          <div class="matrix-link"><a href="future-agi-court.html">Judicial Future</a><span>15-Year Discovery Stewardship</span></div>
+          <div class="matrix-link"><a href="beauty-truth-wisdom.html">Purpose Framework</a><span>Philosophical Foundation</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spec-section">
+    <div class="spec-grid">
+      <div class="spec-content">
+        <h3>Trust the Record.</h3>
+        <p>The industry is no longer asking if forensic tracking is possible. They are cloning the standard to survive the shift.</p>
+        <div class="spec-highlight">
+          <span class="title">Provenance. Place. Purpose.</span>
+          <span class="desc">The <abbr title="Purpose, Place, Person">PPP Triplet</abbr> satisfies the Canada Evidence Act s.31.1.</span>
+        </div>
+      </div>
+      <div class="spec-code">
+        <span class="comment">// Atomic Kernel Payload</span><br>
+        {<br>
+        &nbsp;&nbsp;<span class="key">"version"</span>: "1.8.0",<br>
+        &nbsp;&nbsp;<span class="key">"aki_latency_ns"</span>: <span style="color:#fff">620</span>,<br>
+        &nbsp;&nbsp;<span class="key">"sig"</span>: "ed25519_...",<br>
+        &nbsp;&nbsp;<span class="key">"root"</span>: "blake3_..."<br>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content with Sticky TOC -->
+  <div class="main-layout">
+    <aside class="toc" aria-label="Table of Contents">
+      <h3>In This Page</h3>
+      <ul>
+        <li><a href="#overview">Architecture Overview</a></li>
+        <li><a href="#prerequisites">Build Prerequisites</a></li>
+        <li><a href="#api-reference">Public API</a></li>
+        <li><a href="#performance">Performance</a></li>
+        <li><a href="#integration">Integration</a></li>
+        <li><a href="#sealing-flow">Sealing Process</a></li>
+      </ul>
+    </aside>
+
+    <main id="main-content" itemscope itemtype="https://schema.org/TechArticle" role="doc-techarticle">
+      
+      <section class="content-card" id="overview">
+        <h2 style="margin-top:0; color:#fff;">Core Architecture Overview</h2>
+        <p>The <code>agdr_core</code> crate implements the <abbr title="Atomic Kernel Inference">AKI</abbr> specification in safe Rust. It provides a zero-cost abstraction for cryptographically sealing AI decision records at the moment of inference.</p>
         
-        <section class="content-card" id="overview">
-            <h2 style="margin-top:0; color:#fff;">Core Architecture Overview</h2>
-            <p>The <code>agdr_core</code> crate implements the Atomic Kernel Inference (AKI) specification in safe Rust. It provides a zero-cost abstraction for cryptographically sealing AI decision records at the moment of inference.</p>
-            
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <strong>Atomic Sealing</strong>
-                    <span style="color:#888; font-size:0.9rem;">BLAKE3 hashing and Ed25519 signing occur within a single, uninterruptible kernel boundary</span>
-                </div>
-                <div class="feature-item">
-                    <strong>PPP Triplet Binding</strong>
-                    <span style="color:#888; font-size:0.9rem;">Purpose, Place, and Person are cryptographically bound to each record at creation</span>
-                </div>
-                <div class="feature-item">
-                    <strong>Zero-Copy Design</strong>
-                    <span style="color:#888; font-size:0.9rem;">Minimizes memory allocations to achieve sub-microsecond latency</span>
-                </div>
-                <div class="feature-item">
-                    <strong>PyO3 Interoperability</strong>
-                    <span style="color:#888; font-size:0.9rem;">Seamless integration with Python via the agdr_python extension module</span>
-                </div>
-            </div>
-        </section>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <strong><abbr title="Ensures operations happen as a single unit">Atomic Sealing</abbr></strong>
+            <span style="color:#888; font-size:0.9rem;"><abbr title="Cryptographic hash function">BLAKE3</abbr> hashing and <abbr title="Edwards-curve Digital Signature Algorithm">Ed25519</abbr> signing occur within a single kernel boundary</span>
+          </div>
+          <div class="feature-item">
+            <strong>PPP Triplet Binding</strong>
+            <span style="color:#888; font-size:0.9rem;"><abbr title="Purpose, Place, Person">Purpose, Place, and Person</abbr> are cryptographically bound to each record</span>
+          </div>
+          <div class="feature-item">
+            <strong>Zero-Copy Design</strong>
+            <span style="color:#888; font-size:0.9rem;">Minimizes memory allocations to achieve sub-microsecond latency</span>
+          </div>
+          <div class="feature-item">
+            <strong>PyO3 Interoperability</strong>
+            <span style="color:#888; font-size:0.9rem;">Seamless integration with Python via the agdr_python extension</span>
+          </div>
+        </div>
+        
+        <p class="summary"><strong>Summary:</strong> The crate turns an AI decision into a permanent, sealed record instantly. It binds who, where, and why to the action, using high-speed cryptography that doesn't slow down your system.</p>
+      </section>
 
-        <section class="content-card" id="prerequisites">
-            <h2 style="color:#fff;">Build Prerequisites</h2>
-            <p>Ensure your development environment meets these requirements before building agdr_core:</p>
-            
-            <h3>Rust Toolchain</h3>
-            <pre><code># Required Rust version
+      <section class="content-card" id="prerequisites">
+        <h2 style="color:#fff;">Build Prerequisites</h2>
+        <p>Ensure your development environment meets these requirements before building agdr_core:</p>
+        
+        <h3>Rust Toolchain</h3>
+        <pre><code># Required Rust version
 rustup install 1.75.0
 rustup default 1.75.0
 
 # Required components
 rustup component add rustfmt clippy</code></pre>
-            
-            <h3>Target Platform Support</h3>
-            <table class="api-table">
-                <thead>
-                    <tr>
-                        <th>Target Triple</th>
-                        <th>Status</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>x86_64-unknown-linux-gnu</code></td>
-                        <td style="color:var(--teal);">Stable</td>
-                        <td>Primary production target</td>
-                    </tr>
-                    <tr>
-                        <td><code>aarch64-apple-darwin</code></td>
-                        <td style="color:var(--teal);">Stable</td>
-                        <td>Apple Silicon optimization enabled</td>
-                    </tr>
-                    <tr>
-                        <td><code>wasm32-unknown-unknown</code></td>
-                        <td style="color:#888;">Experimental</td>
-                        <td>WebAssembly demo builds only</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h3>Cargo Features</h3>
-            <pre><code>[dependencies]
-agdr_core = { version = "0.0.2", features = ["pyo3", "bench"] }
+        
+        <h3>Target Platform Support</h3>
+        <table class="api-table">
+          <thead><tr><th>Target Triple</th><th>Status</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><code>x86_64-unknown-linux-gnu</code></td><td style="color:var(--teal);">Stable</td><td>Primary production target</td></tr>
+            <tr><td><code>aarch64-apple-darwin</code></td><td style="color:var(--teal);">Stable</td><td>Apple Silicon optimization enabled</td></tr>
+            <tr><td><code>wasm32-unknown-unknown</code></td><td style="color:#888;">Experimental</td><td>WebAssembly demo builds only</td></tr>
+          </tbody>
+        </table>
+        
+        <p class="summary"><strong>Summary:</strong> Use Rust 1.75+ on Linux or Apple Silicon for production. WebAssembly is available for demos but not yet hardened.</p>
+      </section>
 
-# Available features:
-# - "pyo3": Enable Python bindings via PyO3
-# - "bench": Include benchmarking utilities
-# - "simd": Enable architecture-specific SIMD optimizations (default)
-# - "audit": Include additional runtime checks for security auditing</code></pre>
-        </section>
+      <section class="content-card" id="api-reference">
+        <h2 style="color:#fff;">Public API Reference</h2>
+        <p>Core types and functions exported by the agdr_core crate:</p>
+        
+        <h3>Primary Types</h3>
+        <table class="api-table">
+          <thead><tr><th>Type</th><th>Purpose</th><th>Key Methods</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><code>AgDR</code></td>
+              <td>Main record builder and executor</td>
+              <td><code>new(p, pl, pe)</code>, <code>seal(inference)</code>, <code>verify(sig)</code></td>
+            </tr>
+            <tr>
+              <td><code>PPPTriplet</code></td>
+              <td>Immutable binding of Purpose, Place, Person</td>
+              <td><code>from_strings(...)</code>, <code>hash(&self)</code></td>
+            </tr>
+            <tr>
+              <td><code>SealedRecord</code></td>
+              <td>Fully sealed, immutable decision record</td>
+              <td><code>root_hash()</code>, <code>signature()</code>, <code>to_bytes()</code></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3>Atomic Kernel Inference Entry Point</h3>
+        <details class="explain">
+          <summary class="explain-toggle">Explain this code</summary>
+          <div class="annotation">
+            This block shows how to create a new record with the three required context fields (Purpose, Place, Person). The <code>seal()</code> closure runs your model's prediction. Inside this closure, the output is hashed and signed <strong>before</strong> it is returned to your application. This means the model cannot return a result without it being permanently recorded.
+          </div>
+        </details>
+        <pre><code>use agdr_core::{AgDR, Purpose, Place, Person};
 
-        <section class="content-card" id="api-reference">
-            <h2 style="color:#fff;">Public API Reference</h2>
-            <p>Core types and functions exported by the agdr_core crate:</p>
-            
-            <h3>Primary Types</h3>
-            <table class="api-table">
-                <thead>
-                    <tr>
-                        <th>Type</th>
-                        <th>Purpose</th>
-                        <th>Key Methods</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>AgDR</code></td>
-                        <td>Main record builder and executor</td>
-                        <td>
-                            <code>new(purpose, place, person)</code><br>
-                            <code>seal(inference)</code><br>
-                            <code>verify(signature)</code>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>PPPTriplet</code></td>
-                        <td>Immutable binding of Purpose, Place, Person</td>
-                        <td>
-                            <code>from_strings(p, pl, pe)</code><br>
-                            <code>hash(&self) -> [u8; 32]</code>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><code>SealedRecord</code></td>
-                        <td>Fully sealed, immutable decision record</td>
-                        <td>
-                            <code>root_hash(&self)</code><br>
-                            <code>signature(&self)</code><br>
-                            <code>to_bytes(&self) -> Vec<u8></code>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <h3>Atomic Kernel Inference Entry Point</h3>
-            <pre><code>use agdr_core::{AgDR, Purpose, Place, Person};
-
-// Initialize with PPP Triplet
+// 1. Initialize with PPP Triplet
 let record = AgDR::new(
     Purpose::from("High-risk credit evaluation"),
     Place::from("compute-node-alpha-east"),
     Person::from("FOI-7702")
 );
 
-// Execute inference with atomic sealing
+// 2. Execute inference with atomic sealing
 let sealed = record.seal(|| {
     // Your inference logic here
-    // Output is captured and hashed before release
     model.predict(input_features)
 })?;
 
-// Record is now immutable and court-admissible
-assert_eq!(sealed.root_hash().len(), 32); // BLAKE3 output
-assert!(sealed.signature().is_valid());   // Ed25519 verification</code></pre>
-        </section>
+// 3. Result is immutable and court-admissible
+assert_eq!(sealed.root_hash().len(), 32);
+assert!(sealed.signature().is_valid());</code></pre>
+        
+        <p class="summary"><strong>Summary:</strong> You wrap your prediction code in <code>record.seal(|| ...)</code>. The library handles the cryptography; you just get a verified, sealed record back.</p>
+      </section>
 
-        <section class="content-card" id="performance">
-            <h2 style="color:#fff;">Performance Characteristics</h2>
-            <p>Measured on Apple M2, Rust 1.75, release mode with LTO enabled:</p>
-            
-            <table class="api-table">
-                <thead>
-                    <tr>
-                        <th>Operation</th>
-                        <th>Median Latency</th>
-                        <th>99th Percentile</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>PPP Triplet initialization</td>
-                        <td style="color:var(--teal);">0.08 µs</td>
-                        <td>0.12 µs</td>
-                    </tr>
-                    <tr>
-                        <td>BLAKE3 hash computation</td>
-                        <td style="color:var(--teal);">0.09 µs</td>
-                        <td>0.15 µs</td>
-                    </tr>
-                    <tr>
-                        <td>Ed25519 signature generation</td>
-                        <td style="color:var(--teal);">0.18 µs</td>
-                        <td>0.24 µs</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Full AKI seal (end-to-end)</strong></td>
-                        <td style="color:var(--teal); font-weight:700;">0.62 µs</td>
-                        <td>0.89 µs</td>
-                    </tr>
-                </tbody>
-            </table>
-            
-            <p style="margin-top:1rem; font-size:0.9rem; color:#888;">
-                Benchmark methodology: 10,000 iterations, warm cache, isolated CPU core. 
-                Full results available in <code>benchmarks/RESULTS.md</code> within the repository.
-            </p>
-        </section>
+      <!-- Visual Flowchart Section -->
+      <section id="sealing-flow">
+        <h2>The Atomic Sealing Process</h2>
+        <div class="flowchart-container">
+          <figure>
+            <figcaption style="margin-bottom:1rem;color:var(--text-dim);font-size:.9rem">Figure 1: Data flow from Inference to Sealed Record</figcaption>
+            <div class="flowchart" role="img" aria-label="Flowchart: Input Data enters the AgDR Kernel. It combines with Purpose, Place, and Person to form a Triplet. The Payload is hashed with BLAKE3. The Triplet Hash and Payload Hash are combined into a Root. The Root is signed with Ed25519 to produce the final Sealed Record.">
+              <svg width="600" height="320" viewBox="0 0 600 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Input -->
+                <rect x="10" y="120" width="100" height="80" rx="8" fill="#18181b" stroke="#5eead4" stroke-width="2"/>
+                <text x="60" y="160" fill="#e5e7eb" font-family="sans-serif" font-size="14" text-anchor="middle">Inference</text>
+                <text x="60" y="178" fill="#5eead4" font-family="monospace" font-size="12" text-anchor="middle">Input Data</text>
+                
+                <!-- Arrow 1 -->
+                <path d="M 110 160 L 150 160" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+                
+                <!-- AgDR Kernel -->
+                <rect x="160" y="40" width="280" height="240" rx="12" fill="#0a0a0a" stroke="#2dd4bf" stroke-width="2" stroke-dasharray="4 4"/>
+                <text x="300" y="70" fill="#2dd4bf" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle" letter-spacing="1">AGDR CORE KERNEL</text>
+                
+                <!-- PPP Box -->
+                <rect x="180" y="90" width="100" height="60" rx="6" fill="#141414" stroke="#a1a1aa" stroke-width="1"/>
+                <text x="230" y="120" fill="#a1a1aa" font-family="sans-serif" font-size="10" text-anchor="middle">PPP TRIPLET</text>
+                <text x="230" y="135" fill="#e5e7eb" font-family="monospace" font-size="10" text-anchor="middle">Purpose, Place, Person</text>
+                
+                <!-- Hash Box -->
+                <rect x="180" y="170" width="100" height="60" rx="6" fill="#141414" stroke="#a1a1aa" stroke-width="1"/>
+                <text x="230" y="205" fill="#a1a1aa" font-family="sans-serif" font-size="10" text-anchor="middle">BLAKE3 HASH</text>
+                <text x="230" y="220" fill="#e5e7eb" font-family="monospace" font-size="10" text-anchor="middle">Payload Digest</text>
+                
+                <!-- Combine Arrow -->
+                <path d="M 230 150 L 230 165" stroke="#a1a1aa" stroke-width="2"/>
+                
+                <!-- Root Hash -->
+                <circle cx="360" cy="160" r="30" fill="#141414" stroke="#2dd4bf" stroke-width="2"/>
+                <text x="360" y="160" fill="#fff" font-family="monospace" font-size="11" text-anchor="middle" dy="5">ROOT</text>
+                
+                <!-- Arrow 2 -->
+                <path d="M 285 160 L 325 160" stroke="#2dd4bf" stroke-width="2" marker-end="url(#arrow)"/>
+                <path d="M 230 200 L 350 180" stroke="#a1a1aa" stroke-width="2"/>
+                
+                <!-- Sign Box -->
+                <rect x="390" y="90" width="100" height="60" rx="6" fill="#141414" stroke="#a1a1aa" stroke-width="1"/>
+                <text x="440" y="120" fill="#a1a1aa" font-family="sans-serif" font-size="10" text-anchor="middle">ED25519 SIGN</text>
+                <text x="440" y="135" fill="#e5e7eb" font-family="monospace" font-size="10" text-anchor="middle">Private Key</text>
+                
+                <!-- Arrow 3 -->
+                <path d="M 440 150 L 440 185" stroke="#a1a1aa" stroke-width="2"/>
+                
+                <!-- Output -->
+                <rect x="500" y="120" width="80" height="80" rx="8" fill="#059669" stroke="#34d399" stroke-width="2"/>
+                <text x="540" y="160" fill="#fff" font-family="sans-serif" font-size="12" text-anchor="middle">SEALED</text>
+                <text x="540" y="178" fill="#fff" font-family="sans-serif" font-size="12" text-anchor="middle">RECORD</text>
+                <path d="M 495 160 L 495 160" stroke="#34d399" stroke-width="2" marker-end="url(#arrow)"/>
+                <path d="M 440 150 L 495 155" stroke="#34d399" stroke-width="2"/>
+                
+                <defs>
+                  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 0 L 10 5 L 0 10 z" fill="#5eead4" />
+                  </marker>
+                </defs>
+              </svg>
+            </figure>
+          </div>
+        </div>
+        <p class="summary"><strong>Summary:</strong> Input data enters the kernel. It is combined with Purpose, Place, and Person. The payload is hashed, then combined into a root hash, which is signed. The output is a sealed, immutable record.</p>
+      </section>
 
-        <section class="content-card" id="integration">
-            <h2 style="color:#fff;">Integration Patterns</h2>
-            
-            <h3>Embedding in a Rust Application</h3>
-            <pre><code>// Cargo.toml
+      <section class="content-card" id="performance">
+        <h2 style="color:#fff;">Performance Characteristics</h2>
+        <p>Measured on Apple M2, Rust 1.75, release mode with LTO enabled:</p>
+        
+        <table class="api-table">
+          <thead><tr><th>Operation</th><th>Median Latency</th><th>99th Percentile</th></tr></thead>
+          <tbody>
+            <tr><td>PPP Triplet initialization</td><td style="color:var(--teal);">0.08 µs</td><td>0.12 µs</td></tr>
+            <tr><td>BLAKE3 hash computation</td><td style="color:var(--teal);">0.09 µs</td><td>0.15 µs</td></tr>
+            <tr><td>Ed25519 signature generation</td><td style="color:var(--teal);">0.18 µs</td><td>0.24 µs</td></tr>
+            <tr><td><strong>Full AKI seal (end-to-end)</strong></td><td style="color:var(--teal); font-weight:700;">0.62 µs</td><td>0.89 µs</td></tr>
+          </tbody>
+        </table>
+        
+        <p style="margin-top:1rem; font-size:0.9rem; color:#888;">
+          Benchmark methodology: 10,000 iterations, warm cache, isolated CPU core. 
+          Full results available in <code>benchmarks/RESULTS.md</code> within the repository.
+        </p>
+      </section>
+
+      <section class="content-card" id="integration">
+        <h2 style="color:#fff;">Integration Patterns</h2>
+        
+        <h3>Embedding in a Rust Application</h3>
+        <pre><code>// Cargo.toml
 [dependencies]
-agdr_core = "0.0.2"
-
-// src/main.rs
-use agdr_core::{AgDR, Purpose, Place, Person};
-
-fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let record = AgDR::new(
-        Purpose::from("Fraud detection inference"),
-        Place::from("prod-cluster-us-west-2"),
-        Person::from("system-account-9901")
-    );
-    
-    let result = record.seal(|| {
-        // Your model inference here
-        fraud_model.evaluate(transaction_data)
-    })?;
-    
-    // Persist or transmit the sealed record
-    std::fs::write("record.bin", result.to_bytes())?;
-    Ok(())
-}</code></pre>
-            
-            <h3>Using via PyO3 Python Bindings</h3>
-            <pre><code># Install the Python extension
+agdr_core = "0.0.2"</code></pre>
+        
+        <h3>Using via PyO3 Python Bindings</h3>
+        <details class="explain">
+          <summary class="explain-toggle">Explain this code</summary>
+          <div class="annotation">
+            This example uses the Python wrapper <code>agdr</code>. You create an <code>AgDR</code> object with the required context, then call <code>.seal()</code> with your prediction logic. The result contains the cryptographic proof.
+          </div>
+        </details>
+        <pre><code># Install the Python extension
 pip install agdr-python
 
 # Use in Python
@@ -356,60 +654,138 @@ record = AgDR(
 
 sealed = record.seal(lambda: credit_model.predict(applicant_data))
 print(f"Record hash: {sealed.root_hash.hex()}")</code></pre>
-            
-            <p style="margin-top:1rem;">
-                <a href="https://github.com/aiccountability-source/agdr-phoenix/tree/main/src" 
-                   class="source-link" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.1 0 4.7-2.8 5.7-5.5 6 .5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
-                    View source code within the GitHub repository
-                </a>
-            </p>
-        </section>
+        
+        <p style="margin-top:1rem;">
+          <a href="https://github.com/aiccountability-source/agdr-phoenix/tree/main/src" 
+             class="source-link" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2 0 1.9 1.2 1.9 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.6.2 2.8 0 3.2.9.8 1.3 1.9 1.3 3.1 0 4.7-2.8 5.7-5.5 6 .5.4.9 1 .9 2.2v3.3c0 .3.1.7.8.6A12 12 0 0 0 12 .3"/></svg>
+            View source code within the GitHub repository
+          </a>
+        </p>
+      </section>
 
-        <section class="content-card" style="text-align:center; margin-top:3rem;">
-            <p style="margin:0 0 1.25rem; color:#888;">Proceed to implementation or review related specifications?</p>
-            <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-                <a href="/getting-started.html" class="btn-primary" style="background:var(--teal); color:#000; border:none; padding:0.75rem 1.5rem; border-radius:6px; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem;">Return to Getting Started</a>
-                <a href="/aki-formal-definition.html" class="btn-secondary" style="border:1px solid var(--border); color:#888; padding:0.75rem 1.5rem; border-radius:6px; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; gap:0.5rem;">Review AKI Specification</a>
-            </div>
-        </section>
+      <section class="content-card" style="text-align:center; margin-top:3rem;">
+        <p style="margin:0 0 1.25rem; color:#888;">Proceed to implementation or review related specifications?</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="/getting-started.html" class="btn btn-primary">Return to Getting Started</a>
+          <a href="/aki-formal-definition.html" class="btn btn-secondary">Review AKI Specification</a>
+        </div>
+      </section>
 
     </main>
+  </div>
 
-    <section class="sitemap">
-        <div class="sitemap-grid">
-            <div class="sitemap-col">
-                <h5>Architecture</h5>
-                <a href="/getting-started.html">Get Started</a>
-                <a href="/aki-formal-definition.html">AKI Specification</a>
-                <a href="/rust-core.html" style="color:#fff;">Rust Core</a>
-            </div>
-            <div class="sitemap-col">
-                <h5>Governance</h5>
-                <a href="/ppp-pillars.html">PPP Pillars</a>
-                <a href="/foi-formal-definition.html">FOI Definition</a>
-                <a href="/human-delta-chain-spec.html">Human Delta Chain</a>
-            </div>
-            <div class="sitemap-col">
-                <h5>Compliance</h5>
-                <a href="/legal-mapping.html">Section 31.1 Mapping</a>
-                <a href="/cbca-fiduciary.html">CBCA s.122</a>
-                <a href="/comparison-medical-records.html">Medical Records</a>
-            </div>
-            <div class="sitemap-col">
-                <h5>Resources</h5>
-                <a href="/documentation.html">Documentation</a>
-                <a href="/demo.html">Interactive Demo</a>
-                <a href="/benchmarks.html">Performance Benchmarks</a>
-                <a href="https://github.com/aiccountability-source/agdr-phoenix" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="legal">
-        OSHAWA, ONTARIO, CANADA. CC0 1.0 UNIVERSAL. OPEN SOURCE AI INFRASTRUCTURE.
-    </footer>
-
-</body>
-</html>
-
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Heritage</h5>
+        <ul>
+          <li><a href="/manifesto.html">The Manifesto</a></li>
+          <li><a href="/bills-of-exchange-mapping.html">1890/1893 Mapping</a></li>
+          <li><a href="/legal-glossary.html">Legal Glossary</a></li>
+          <li><a href="/future-agi-court.html">Court in 2076</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Compliance</h5>
+        <ul>
+          <li><a href="/cea-compliance.html">CEA s.31.1</a></li>
+          <li><a href="/cbca-fiduciary-mapping.html">CBCA s.122</a></li>
+          <li><a href="/eu-ai-act-mapping.html">EU AI Act</a></li>
+          <li><a href="/foi-formal-definition.html">FOI Role</a></li>
+          <li><a href="/verification-audit-procedure.html">Verification</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Architecture</h5>
+        <ul>
+          <li><a href="/getting-started.html">Initialize v1.8</a></li>
+          <li><a href="/aki-formal-definition.html">AKI Protocol</a></li>
+          <li><a href="/agdr-spec.html">AgDR Specification</a></li>
+          <li><a href="/rust-core.html" style="color:#fff">Rust Core</a></li>
+          <li><a href="/horizontal-scaling.html">Horizontal Scaling</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="/sandbox.html">Interactive Sandbox</a></li>
+          <li><a href="/tsx-stress-test.html">TSX Stress Test</a></li>
+          <li><a href="/comparison-aviation-black-box.html">Aviation Comparison</a></li>
+          <li><a href="/CHANGELOG.html">Changelog</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>Don't trust the machine. Don't even trust us. <strong>Trust the record.</strong></p>
+      <p>
+        <a href="mailto:founding@accountability.ai">founding@accountability.ai</a> · 
+        Stewarded by <a href="https://accountability.ai">GENESIS GLASS FOUNDATION / FONDATION GENÈSE CRISTAL</a> · 
+        Dual-licensed: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> OR <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>
+      </p>
+    </div>
+  </footer>
+  
+  <script>
+    const searchIndex = [
+      {title:"Get Started",url:"/getting-started.html",desc:"Start here: what AgDR is, why it matters, and how to use it"},
+      {title:"Phoenix Demo",url:"/sandbox.html",desc:"Try atomic accountability in your browser, no install needed"},
+      {title:"PPP Pillars",url:"/ppp-pillars.html",desc:"Purpose, Place, Person: the three things that make a record trustworthy"},
+      {title:"AKI Definition",url:"/aki-formal-definition.html",desc:"The math behind sealing an AI decision in 0.62 microseconds"},
+      {title:"AgDR Protocol",url:"/agdr-spec.html",desc:"Full specification of the Atomic Genesis Decision Record format"},
+      {title:"CEA Compliance",url:"/cea-compliance.html",desc:"How AgDR meets Canada Evidence Act requirements for electronic records"},
+      {title:"CBCA Fiduciary",url:"/cbca-fiduciary-mapping.html",desc:"How directors can use AgDR to meet their legal duty of care"},
+      {title:"EU AI Act",url:"/eu-ai-act-mapping.html",desc:"Mapping AgDR to high-risk AI system requirements in Europe"},
+      {title:"FOI Role",url:"/foi-formal-definition.html",desc:"Who is accountable when an AI system makes a decision about you"},
+      {title:"Verification",url:"/verification-audit-procedure.html",desc:"How to check that a sealed record has not been altered"},
+      {title:"TSX Stress Test",url:"/tsx-stress-test.html",desc:"Proof that AgDR handles 100 million decisions without dropping a record"},
+      {title:"Horizontal Scaling",url:"/horizontal-scaling.html",desc:"How to deploy AgDR across many servers while keeping records linked"},
+      {title:"Human Delta Chain",url:"/human-delta-chain-spec.html",desc:"When a human must review or override an AI decision, and how that is recorded"},
+      {title:"Purpose Framework",url:"/beauty-truth-wisdom.html",desc:"Why accountability needs more than rules: beauty, truth, and wisdom as guides"},
+      {title:"Aviation Black Box",url:"/comparison-aviation-black-box.html",desc:"Like a flight recorder: AgDR makes AI decisions traceable and unchangeable"},
+      {title:"Medical Records",url:"/comparison-medical-records.html",desc:"Like a patient chart: AgDR creates a permanent, auditable history of AI decisions"},
+      {title:"AGI Court Precedents",url:"/agi-court-precedents.html",desc:"Legal cases that show why verifiable records matter for AI"},
+      {title:"Court in 2076",url:"/future-agi-court.html",desc:"How today's accountability standards prepare for AI systems decades from now"},
+      {title:"Rust Core",url:"/rust-core.html",desc:"Technical reference for developers building with the agdr_core crate"},
+      {title:"Technical Details",url:"/technical-details.html",desc:"Architecture decisions and design tradeoffs behind AgDR-Phoenix"}
+    ];
+    
+    const searchInput = document.getElementById('site-search');
+    const searchResults = document.getElementById('search-results');
+    
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      if(query.length < 2) {
+        searchResults.classList.remove('show');
+        searchResults.innerHTML = '';
+        return;
+      }
+      
+      const results = searchIndex.filter(item => 
+        item.title.toLowerCase().includes(query) || 
+        item.desc.toLowerCase().includes(query) ||
+        item.url.toLowerCase().includes(query)
+      ).slice(0, 8);
+      
+      if(results.length === 0) {
+        searchResults.innerHTML = '<div class="no-results">No results found. Try simpler terms like "flight recorder" or "court record".</div>';
+      } else {
+        searchResults.innerHTML = results.map(r => 
+          '<a href="'+r.url+'" role="option"><strong>'+r.title+'</strong><br><small style="color:#6b7280">'+r.desc+'</small></a>'
+        ).join('');
+      }
+      searchResults.classList.add('show');
+    });
+    
+    document.addEventListener('click', (e) => {
+      if(!e.target.closest('.nav-search')) {
+        searchResults.classList.remove('show');
+      }
+    });
+    
+    searchInput.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape') {
+        searchResults.classList.remove('show');
+        searchInput.blur();
+      }
