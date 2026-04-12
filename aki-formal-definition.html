@@ -1,326 +1,522 @@
 <!DOCTYPE html>
-<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+<html lang="en" data-theme="dark">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-QPHCT8T1KC');</script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Formal definition of Atomic Kernel Inference (AKI): the cryptographic invariant ensuring every AI decision output is atomically bound to its accountable context." />
+  <title>AKI — Formal Definition | accountability.ai</title>
   
-  <!-- Optimized Title (59 chars, keyword-first) -->
-  <title>AKI Formal Definition | Atomic Kernel Inference | AgDR v1.8</title>
-  
-  <!-- English meta description -->
-  <meta name="description" content="Atomic Kernel Inference (AKI): The zero-latency enforcement layer for AgDR. BLAKE3+Ed25519 sealing, PPP triplet binding, court-admissible by design.">
-  
-  <!-- French meta description -->
-  <meta name="description" lang="fr" content="Inférence de Noyau Atomique (AKI) : La couche d'application zéro-latence pour AgDR. Scellement BLAKE3+Ed25519, liaison triplet PPP, admissible en cour.">
-  
-  <!-- Hreflang for bilingual SEO -->
-  <link rel="alternate" hreflang="en" href="https://accountability.ai/aki-formal-definition.html"/>
-  <link rel="alternate" hreflang="fr" href="https://accountability.ai/fr/aki-formal-definition.html"/>
-  <link rel="alternate" hreflang="x-default" href="https://accountability.ai/aki-formal-definition.html"/>
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://accountability.ai/aki-formal-definition.html"/>
-  
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Accountability.ai">
-  <meta property="og:url" content="https://accountability.ai/aki-formal-definition.html">
-  <meta property="og:title" content="AKI Formal Definition | Atomic Kernel Inference | AgDR v1.8">
-  <meta property="og:description" content="Atomic Kernel Inference (AKI): The zero-latency enforcement layer for AgDR. BLAKE3+Ed25519 sealing, PPP triplet binding.">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="fr_CA">
-  
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AKI Formal Definition | Atomic Kernel Inference | AgDR v1.8">
-  <meta name="twitter:description" content="Atomic Kernel Inference (AKI): The zero-latency enforcement layer for AgDR. BLAKE3+Ed25519 sealing, PPP triplet binding.">
-  
-  <!-- Schema.org: TechArticle + BreadcrumbList -->
+  <!-- Native Schema.org Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
-    "headline": "AKI Formal Definition | Atomic Kernel Inference | AgDR v1.8",
-    "description": "Atomic Kernel Inference (AKI): The zero-latency enforcement layer for AgDR. BLAKE3+Ed25519 sealing, PPP triplet binding, court-admissible by design.",
-    "author": { "@type": "Person", "name": "Robert Muncaster" },
+    "name": "AKI — Atomic Kernel Inference: Formal Definition",
+    "description": "The cryptographic invariant ensuring every AI decision output is atomically bound to its accountable context.",
+    "author": {
+      "@type": "Person",
+      "name": "Robert Muncaster",
+      "url": "https://www.accountability.ai"
+    },
     "publisher": {
       "@type": "Organization",
-      "name": "GENESIS GLASS FOUNDATION",
-      "alternateName": "FONDATION GENÈSE CRISTAL",
-      "url": "https://accountability.ai",
-      "sameAs": ["https://github.com/aiccountability-source"],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Oshawa",
-        "addressRegion": "ON",
-        "addressCountry": "CA"
+      "name": "accountability.ai",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.accountability.ai/logo.svg"
       }
     },
     "datePublished": "2026-04-12",
-    "dateModified": "2026-04-12",
-    "license": "https://creativecommons.org/publicdomain/zero/1.0/ OR https://www.apache.org/licenses/LICENSE-2.0",
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://accountability.ai/aki-formal-definition.html" },
-    "articleSection": "Technical Specification",
-    "keywords": ["AKI", "Atomic Kernel Inference", "AgDR", "BLAKE3", "Ed25519", "PPP triplet", "AI accountability", "zero-latency", "court-admissible"]
+    "inLanguage": "en-US",
+    "license": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "about": {
+      "@type": "DefinedTerm",
+      "name": "Atomic Kernel Inference",
+      "termCode": "AKI",
+      "description": "A cryptographic invariant requiring atomic commitment to an AgDR record as a prerequisite for any inference output.",
+      "inDefinedTermSet": {
+        "@type": "DefinedTermSet",
+        "name": "AgDR Standard",
+        "url": "https://www.accountability.ai/agdr"
+      }
+    },
+    "mainEntity": {
+      "@type": "MathematicalExpression",
+      "expression": "AKI(i) = { commit(AgDR(PPP, Trace, Delta)) ⇔ output(Result) }"
+    }
   }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://accountability.ai/" },
-      { "@type": "ListItem", "position": 2, "name": "AKI Definition", "item": "https://accountability.ai/aki-formal-definition.html" }
-    ]
-  }
-  </script>
-  
-  <!-- GA4 + Consent Mode v2 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPHCT8T1KC"></script>
-  <script>
-    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-    gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
-    gtag('js',new Date());gtag('config','G-QPHCT8T1KC',{'anonymize_ip':true,'send_page_view':true});
   </script>
 
-  <!-- Native CSS (zero external dependencies) -->
+  <!-- Zero-Dependency Dark Theme + Accessible Base Styles -->
   <style>
-    :root{--teal:#2dd4bf;--bg:#050505;--text:#a1a1aa;--text-muted:#71717a;--header:#fff;--border:#1a1a1a;--card:#0a0a0a;--code-bg:#0f0f11;--gradient:radial-gradient(circle at 100% 0%,#134e4a 0%,transparent 50%)}
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.8;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none;transition:color .2s}
-    a:hover{color:var(--teal)}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    *:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
-    
-    /* Skip link */
-    .skip-link{position:absolute;top:-100%;left:0;background:var(--teal);color:#000;padding:.75rem 1.5rem;z-index:100;font-weight:700;border-radius:0 0 .5rem 0}
-    .skip-link:focus{top:0}
-    
-    /* Navigation */
-    .site-nav{position:sticky;top:0;z-index:50;background:rgba(5,5,5,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:.75rem 0}
-    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
-    .nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:#fff}
-    .nav-badge{border:1px solid var(--teal);color:var(--teal);padding:.125rem .5rem;border-radius:.25rem;font-size:.65rem;font-weight:900;letter-spacing:1.5px}
-    .nav-links{display:none;gap:1.5rem;font-size:.875rem;font-weight:600;color:var(--text-dim)}
-    .nav-links a:hover{color:var(--teal)}
-    @media(min-width:768px){.nav-links{display:flex}}
-    
-    /* Breadcrumb */
-    .breadcrumb{max-width:1200px;margin:0 auto;padding:.5rem 1.5rem;font-size:.75rem;color:var(--text-muted)}
-    .breadcrumb a:hover{color:var(--teal)}
-    .breadcrumb ol{display:flex;gap:.25rem;list-style:none}
-    
-    /* Header */
-    header{padding:8rem 1.5rem 4rem;max-width:1000px;margin:0 auto;background:var(--gradient)}
-    .label{color:var(--teal);font-size:.7rem;font-weight:900;letter-spacing:5px;text-transform:uppercase}
-    h1{font-size:clamp(2.5rem,7vw,4rem);margin:1.5rem 0;color:var(--header);letter-spacing:-2px;line-height:1}
-    .lead{font-size:1.25rem;color:#888;max-width:750px;font-weight:300}
-    
-    /* Main */
-    main{max-width:1000px;margin:0 auto;padding:0 1.5rem 6rem}
-    h2{font-size:1.75rem;color:var(--header);margin:4rem 0 1.5rem;letter-spacing:-.5px;border-bottom:1px solid var(--border);padding-bottom:1rem}
-    h3{font-size:1.1rem;color:var(--header);margin-top:2.5rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
-    p{margin-bottom:1.25rem}
-    strong{color:var(--header)}
-    
-    /* Spec Block */
-    .spec-block{background:var(--code-bg);border:1px solid var(--border);padding:1.5rem;border-radius:.75rem;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem;color:#5eead4;overflow-x:auto;margin:1.5rem 0;line-height:1.6}
-    
-    /* Table */
-    .table-wrap{overflow-x:auto;margin:2rem 0;border:1px solid var(--border);border-radius:.75rem}
-    table{width:100%;border-collapse:collapse;font-size:.875rem}
-    th{text-align:left;padding:1rem;color:var(--text-muted);background:#111;border-bottom:1px solid var(--border)}
-    td{padding:1rem;border-bottom:1px solid var(--border);vertical-align:top}
-    tr td:first-child{font-weight:600;color:var(--header);width:30%}
-    
-    /* CTA Section */
-    .cta-section{margin-top:4rem;text-align:center;padding:2rem;background:var(--card);border:1px solid var(--border);border-radius:1rem}
-    .cta-section p{margin-bottom:1rem;color:var(--text-muted)}
-    .cta-buttons{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
-    .btn{display:inline-block;padding:.875rem 2rem;border-radius:.5rem;font-weight:600;text-align:center;transition:all .2s;cursor:pointer;border:none;font-size:1rem}
-    .btn-primary{background:var(--teal);color:#000}
-    .btn-primary:hover{background:#14b8a6}
-    .btn-secondary{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff}
-    .btn-secondary:hover{background:rgba(255,255,255,0.1)}
-    
-    /* Footer Sitemap */
-    .site-footer{background:#080808;border-top:1px solid var(--border);padding:4rem 1.5rem 3rem}
-    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2.5rem}
-    .footer-col h5{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
-    .footer-col ul{list-style:none;padding:0;margin:0}
-    .footer-col li{margin-bottom:.5rem}
-    .footer-col a{color:var(--text-dim);font-size:.875rem;display:block;transition:color .2s}
-    .footer-col a:hover{color:var(--teal)}
-    .footer-bottom{max-width:1200px;margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.75rem;color:var(--text-muted)}
-    .footer-bottom a{color:var(--teal)}
-    
-    @media(max-width:600px){
-      h1{font-size:2.5rem}
-      .nav-links{display:none}
-      .footer-grid{grid-template-columns:repeat(2,1fr)}
-      .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+    :root {
+      /* Dark theme palette — CSS variables only */
+      --bg: #0f0f12;
+      --surface: #1a1a20;
+      --surface-2: #23232b;
+      --text: #e6e6f0;
+      --text-dim: #a0a0b0;
+      --accent: #7c9cff;
+      --accent-2: #9f7cff;
+      --border: #2a2a35;
+      --focus: #ffcc66;
+      --code-bg: #15151a;
+      --code-text: #d4d4e0;
+      --success: #5dd491;
+      --warning: #ffaa55;
+      
+      /* Typography */
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      
+      /* Spacing & layout */
+      --container-max: 72rem;
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 1rem;
+      --space-4: 1.5rem;
+      --space-5: 2rem;
+      --space-6: 3rem;
+      --radius: 0.5rem;
+      --shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
+
+    /* Base reset & accessibility */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      font-size: 1.05rem;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    
+    /* Focus visibility — WCAG 2.2 AA */
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Layout */
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: var(--space-4);
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: var(--space-4) 0;
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+    
+    .brand-logo {
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      color: var(--bg);
+      font-size: 0.9rem;
+    }
+
+    main {
+      padding: var(--space-6) 0;
+    }
+
+    /* Typography */
+    h1 {
+      font-size: 2.25rem;
+      line-height: 1.2;
+      margin-bottom: var(--space-3);
+      background: linear-gradient(90deg, var(--text), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      margin: var(--space-5) 0 var(--space-3);
+      color: var(--text);
+      border-left: 3px solid var(--accent);
+      padding-left: var(--space-3);
+    }
+    
+    p { margin-bottom: var(--space-3); color: var(--text-dim); }
+    
+    .lead {
+      font-size: 1.15rem;
+      color: var(--text);
+      margin-bottom: var(--space-4);
+    }
+
+    /* Code blocks */
+    pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: var(--space-4);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      margin: var(--space-4) 0;
+    }
+    
+    code {
+      font-family: var(--font-mono);
+      background: var(--surface-2);
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.95em;
+    }
+    
+    pre code {
+      background: none;
+      padding: 0;
+    }
+
+    /* Definition card */
+    .definition-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-4);
+      margin: var(--space-4) 0;
+      box-shadow: var(--shadow);
+    }
+    
+    .invariant {
+      font-family: var(--font-mono);
+      font-size: 1.1rem;
+      text-align: center;
+      padding: var(--space-3);
+      background: var(--code-bg);
+      border-radius: var(--radius);
+      border-left: 3px solid var(--accent);
+      margin: var(--space-3) 0;
+    }
+
+    /* Principles list */
+    .principles {
+      display: grid;
+      gap: var(--space-3);
+      margin: var(--space-4) 0;
+    }
+    
+    .principle {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-3);
+      align-items: start;
+    }
+    
+    .principle-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--surface-2);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-4) 0;
+      background: var(--surface);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    
+    th, td {
+      padding: var(--space-3);
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    th {
+      background: var(--surface-2);
+      font-weight: 600;
+      color: var(--text);
+    }
+    
+    tr:last-child td { border-bottom: none; }
+
+    /* Quote */
+    blockquote {
+      border-left: 3px solid var(--accent-2);
+      padding: var(--space-3) var(--space-4);
+      margin: var(--space-4) 0;
+      background: var(--surface);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      font-style: italic;
+      color: var(--text-dim);
+    }
+
+    /* Navigation */
+    nav[aria-label="Documentation"] {
+      margin: var(--space-5) 0;
+      padding: var(--space-3);
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+    
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      list-style: none;
+    }
+    
+    nav a {
+      color: var(--accent);
+      text-decoration: none;
+      padding: var(--space-1) var(--space-2);
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+    
+    nav a:hover, nav a:focus {
+      background: var(--surface-2);
+      color: var(--text);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: var(--space-4) 0;
+      margin-top: var(--space-6);
+      color: var(--text-dim);
+      font-size: 0.95rem;
+    }
+    
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      h1 { font-size: 1.85rem; }
+      .container { padding: var(--space-3); }
+      main { padding: var(--space-4) 0; }
+      .principle { grid-template-columns: 1fr; }
+      .principle-icon { margin: 0 auto; }
+    }
+
+    /* Skip link for accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent);
+      color: var(--bg);
+      padding: var(--space-2) var(--space-3);
+      z-index: 100;
+      border-radius: 0 0 var(--radius) 0;
+    }
+    .skip-link:focus { top: 0; }
   </style>
 </head>
-
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-QPHCT8T1KC"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <a href="#main" class="skip-link">Skip to main content</a>
   
-  <!-- Semantic keywords for SEO (screen-reader only) -->
-  <p class="sr-only">AKI, Atomic Kernel Inference, AgDR v1.8, BLAKE3, Ed25519, PPP triplet, AI accountability, zero-latency, court-admissible, cryptographic sealing, Merkle tree, Rust, Phoenix kernel</p>
-  
-  <!-- Skip link -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-
-  <!-- Navigation -->
-  <nav class="site-nav" aria-label="Primary">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo">ACCOUNTABILITY.AI</a>
-      <span class="nav-badge">ATOMIC-KERNEL</span>
-      <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/getting-started.html">Get Started</a>
-        <a href="/ppp-pillars.html">PPP Pillars</a>
-        <a href="/sandbox.html">Phoenix Demo</a>
-        <a href="https://github.com/aiccountability-source/AgDR" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
-      </div>
-    </div>
-  </nav>
-  
-  <!-- Breadcrumb -->
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
-        <meta itemprop="position" content="1">
-      </li>
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" aria-current="page">
-        <span itemprop="name">AKI Definition</span>
-        <meta itemprop="position" content="2">
-      </li>
-    </ol>
-  </nav>
-
-  <!-- Header -->
   <header>
-    <span class="label">AgDR Core Spec v1.8</span>
-    <h1>AKI Definition.</h1>
-    <p class="lead">Atomic Kernel Inference (AKI) is the technical primitive that binds model weights to regulatory intent. It ensures that an inference cannot exist unless its accountability record is successfully committed to the chain.</p>
+    <div class="container">
+      <a href="/" class="brand" aria-label="accountability.ai home">
+        <span class="brand-logo" aria-hidden="true">A</span>
+        <span>accountability.ai</span>
+      </a>
+    </div>
   </header>
 
-  <!-- Main Content -->
-  <main id="main-content">
-    <h2>The Atomic Commitment</h2>
-    <p>In standard AI deployments, logging is an asynchronous side-effect. In AKI, the record is the prerequisite. If the kernel cannot sign the <strong>AgDR package</strong>, the inference result is discarded before it reaches the user or system API.</p>
+  <main id="main" class="container" role="main">
+    
+    <!-- Breadcrumb navigation -->
+    <nav aria-label="Breadcrumb" style="margin-bottom: var(--space-4);">
+      <ol style="display:flex; gap:var(--space-2); list-style:none; color:var(--text-dim); font-size:0.95rem;">
+        <li><a href="/" style="color:var(--accent); text-decoration:none;">Home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/docs" style="color:var(--accent); text-decoration:none;">Documentation</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page">AKI Formal Definition</li>
+      </ol>
+    </nav>
 
-    <h3>The Formal Invariant</h3>
-    <div class="spec-block">
-      AKI(i) = {<br>
-      &nbsp;&nbsp;commit(AgDR(PPP, Trace, Delta)) ⇔ output(Result)<br>
-      }
-    </div>
-    <p>This mathematical invariant guarantees that no "phantom decisions" can occur. Every outcome in a production environment is mathematically provable back to its input parameters and human oversight chain.</p>
+    <h1>AKI — Atomic Kernel Inference<br><span style="font-size:1.25rem; font-weight:400; color:var(--text-dim); display:block; margin-top:var(--space-2);">Formal Definition</span></h1>
+    
+    <p class="lead">The cryptographic invariant ensuring every AI decision output is atomically bound to its accountable context—making provability a prerequisite, not an afterthought.</p>
 
-    <h3>Kernel-Level Requirements</h3>
-    <div class="table-wrap">
+    <!-- Documentation navigation -->
+    <nav aria-label="Documentation">
+      <ul>
+        <li><a href="/agdr">← AgDR Standard</a></li>
+        <li><a href="/aki-performance">AKI Performance →</a></li>
+        <li><a href="/phoenix-sdk">Phoenix SDK</a></li>
+        <li><a href="/compliance">Compliance</a></li>
+      </ul>
+    </nav>
+
+    <!-- Core invariant -->
+    <section aria-labelledby="invariant-heading">
+      <h2 id="invariant-heading">The Formal Invariant</h2>
+      <div class="definition-card">
+        <div class="invariant" aria-label="AKI mathematical expression">
+          AKI(i) = { commit(AgDR(PPP, Trace, Delta)) ⇔ output(Result) }
+        </div>
+        <p><strong>Interpretation</strong>: For any inference instance <code>i</code>, the cryptographic commitment to an AgDR package is logically equivalent to the emission of a result. No commitment → no output.</p>
+      </div>
+    </section>
+
+    <!-- Core principles -->
+    <section aria-labelledby="principles-heading">
+      <h2 id="principles-heading">Core Principles</h2>
+      <div class="principles">
+        <div class="principle">
+          <span class="principle-icon" aria-hidden="true">🔐</span>
+          <div>
+            <strong>Atomic Commitment</strong>
+            <p>Cryptographic sealing of the decision record is a gatekeeper—not a side-effect. The kernel cannot emit output without first committing to context.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <span class="principle-icon" aria-hidden="true">🚫</span>
+          <div>
+            <strong>No Phantom Decisions</strong>
+            <p>If the kernel cannot sign the AgDR package (due to policy, integrity, or oversight failure), the inference result is discarded before reaching any API boundary.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <span class="principle-icon" aria-hidden="true">🧭</span>
+          <div>
+            <strong>Provenance by Construction</strong>
+            <p>Every production outcome is mathematically traceable to its input parameters, execution environment, and human oversight chain—by design, not by audit.</p>
+          </div>
+        </div>
+        <div class="principle">
+          <span class="principle-icon" aria-hidden="true">🧩</span>
+          <div>
+            <strong>Contextual Integrity</strong>
+            <p>The PPP triplet (Principal, Purpose, Permission) binds each decision to accountable authority, ensuring decisions cannot be decoupled from their normative context.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AgDR components -->
+    <section aria-labelledby="components-heading">
+      <h2 id="components-heading">AgDR Package Components</h2>
       <table>
         <thead>
           <tr>
-            <th>Layer</th>
-            <th>AgDR v1.8 Implementation</th>
+            <th>Component</th>
+            <th>Role in AKI</th>
+            <th>Accountability Function</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Hashing</td>
-            <td>BLAKE3 (Parallelizable, performance-optimized for high-frequency trading).</td>
+            <td><code>PPP</code></td>
+            <td>Principal • Purpose • Permission</td>
+            <td>Establishes who authorized the decision, for what end, under which constraints</td>
           </tr>
           <tr>
-            <td>Signing</td>
-            <td>Ed25519 (Deterministic, hardware-security-module compatible).</td>
+            <td><code>Trace</code></td>
+            <td>Execution path + environmental snapshot</td>
+            <td>Enables deterministic replay and forensic verification of inference conditions</td>
           </tr>
           <tr>
-            <td>Commitment</td>
-            <td>Merkle Tree (O(log n) verification for massive decision volumes).</td>
+            <td><code>Delta</code></td>
+            <td>State change representation</td>
+            <td>Quantifies the decision's impact, enabling impact-proportional oversight</td>
+          </tr>
+          <tr>
+            <td><code>commit()</code></td>
+            <td>Cryptographic sealing operation</td>
+            <td>Creates an immutable, verifiable binding between context and output</td>
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
 
-    <h3>Performance Impact</h3>
-    <p>AKI is designed for zero-latency overhead. By utilizing Rust's memory safety and parallel BLAKE3 processing, the overhead for a decision record is typically <strong>&lt; 400 microseconds</strong>, making it suitable for real-time critical infrastructure.</p>
+    <!-- Implementation notes -->
+    <section aria-labelledby="implementation-heading">
+      <h2 id="implementation-heading">Implementation Notes</h2>
+      <p>The AKI invariant is enforced at the kernel boundary. Reference implementations prioritize:</p>
+      <ul style="margin: var(--space-3) 0 var(--space-3) var(--space-4); color: var(--text-dim);">
+        <li><strong>Memory safety</strong>: Rust-based kernel with zero-cost abstractions</li>
+        <li><strong>Deterministic cryptography</strong>: Ed25519 signatures, BLAKE3 hashing</li>
+        <li><strong>Verifiable scaling</strong>: Merkle tree commitments for O(log n) audit</li>
+        <li><strong>Interoperability</strong>: PyO3 bindings for Python integration without sacrificing guarantees</li>
+      </ul>
+      <p><em>Performance characteristics and benchmarking methodology are documented separately to preserve the timelessness of this formal definition.</em></p>
+    </section>
 
-    <!-- Call to Action -->
-    <div class="cta-section">
-      <p>Ready to integrate AKI into your system?</p>
-      <div class="cta-buttons">
-        <a href="/getting-started.html" class="btn btn-primary">Get Started with SDK</a>
-        <a href="/sandbox.html" class="btn btn-secondary">Try Phoenix Demo</a>
-        <a href="/aki-95.html" class="btn btn-secondary">AKI 0.95 Spec</a>
-      </div>
-    </div>
+    <!-- Key quote -->
+    <blockquote>
+      "In standard AI deployments, logging is an asynchronous side-effect. In AKI, the record is the prerequisite."
+    </blockquote>
+
+    <!-- See also -->
+    <section aria-labelledby="see-also-heading" style="margin-top: var(--space-6);">
+      <h2 id="see-also-heading">See Also</h2>
+      <ul style="margin-left: var(--space-4); color: var(--text-dim);">
+        <li><a href="/agdr/spec" style="color:var(--accent);">AgDR v1.8 Specification</a></li>
+        <li><a href="/aki-performance" style="color:var(--accent);">AKI Performance Benchmarks</a></li>
+        <li><a href="/phoenix-sdk" style="color:var(--accent);">Phoenix SDK Documentation</a></li>
+        <li><a href="/compliance/cea-31-1" style="color:var(--accent);">CEA s.31.1 Compliance Guide</a></li>
+      </ul>
+    </section>
+
   </main>
 
-  <!-- Footer with Full Sitemap -->
-  <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h5>Architecture</h5>
-        <ul>
-          <li><a href="/getting-started.html">Initialize v1.8</a></li>
-          <li><a href="/aki-formal-definition.html" style="color:var(--teal);font-weight:600">AKI Specification</a></li>
-          <li><a href="/agdr-spec.html">AgDR Protocol</a></li>
-          <li><a href="/horizontal-scaling.html">Horizontal Scaling</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Governance</h5>
-        <ul>
-          <li><a href="/ppp-pillars.html">PPP Pillars</a></li>
-          <li><a href="/human-delta-chain-spec.html">Human Delta Chain</a></li>
-          <li><a href="/foi-formal-definition.html">FOI Role</a></li>
-          <li><a href="/beauty-truth-wisdom.html">Purpose Framework</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Legal Discovery</h5>
-        <ul>
-          <li><a href="/cea-compliance.html">CEA s.31.1</a></li>
-          <li><a href="/cbca-fiduciary-mapping.html">CBCA s.122</a></li>
-          <li><a href="/eu-ai-act-mapping.html">EU AI Act</a></li>
-          <li><a href="/verification-audit-procedure.html">Verification</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Resources</h5>
-        <ul>
-          <li><a href="/sandbox.html">Interactive Sandbox</a></li>
-          <li><a href="/tsx-stress-test.html">TSX Stress Test</a></li>
-          <li><a href="/comparison-aviation-black-box.html">Aviation Comparison</a></li>
-          <li><a href="/CHANGELOG.html">Changelog</a></li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="footer-bottom">
-      <p>OSHAWA, ONTARIO, CANADA · CC0 1.0 UNIVERSAL · KERNEL-LEVEL INTEGRITY</p>
+  <footer>
+    <div class="container">
       <p>
-        Stewarded by <a href="https://accountability.ai">GENESIS GLASS FOUNDATION / FONDATION GENÈSE CRISTAL</a> · 
-        Dual-licensed: <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a> OR <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>
+        © <time datetime="2026">2026</time> accountability.ai • 
+        <a href="/license">CC BY-SA 4.0</a> • 
+        <a href="/genesis-glass">Genesis Glass Foundation</a>
+      </p>
+      <p style="margin-top: var(--space-2); font-size: 0.9rem;">
+        This definition is part of the AgDR open standard. Contribute via <a href="https://github.com/accountability-ai/agdr">GitHub</a>.
       </p>
     </div>
   </footer>
+
+  <!-- Optional: lightweight theme persistence (zero external deps) -->
+  <script>
+    // Minimal: respect system preference, allow override via data attribute
+    (function() {
+      const root = document.documentElement;
+      const stored = localStorage.getItem('theme');
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'light') root.setAttribute('data-theme', 'light');
+      else if (!stored && !systemDark) root.setAttribute('data-theme', 'light');
+    })();
+  </script>
 </body>
 </html>
 
