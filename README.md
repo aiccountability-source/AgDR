@@ -1,78 +1,133 @@
-# AgDR Specification v0.2
+# AgDR Specification (v0.2)
 
-**AgDR** — Agent Genesis Decision Record  
-**AKI** — Atomic Kernel Inference  
-**Open Canadian Evidentiary Standard**  
-Published March 2026
+> **Atomic Genesis Decision Record** — Open Standard for Cryptographically-Sealed AI Accountability  
+> `License: CC0-1.0` · `Draft: April 2026`
 
-**Policy = PPP**  
-*(Provenance · Place · Purpose)*  
-The precise meaning of each P is of the beholder.
+## Overview
 
-This is the canonical, mathematically indivisible, tamper-evident flight recorder for any autonomous agent — current or future.
+AgDR (Atomic Genesis Decision Record) is an open protocol specification that defines the structural, cryptographic, and governance invariants for machine-auditable AI inference. Every decision output is cryptographically bound to its contextual authority at the kernel boundary, making accountability a prerequisite, not a side-effect.
 
-**Core Guarantee**  
-Every inference is captured atomically at the exact "i" point via AKI (kernel-level, zero clocks, Merkle chain).
+This repository contains the AgDR standard specification only:
+- Protocol invariants and formal definitions
+- JSON Schema, ASN.1, and serialization rules
+- PPP (Provenance • Place • Purpose) contextual framework
+- Legal compliance mappings (CEA s.31.1, CBCA s.122, EU AI Act)
+- Conformance criteria for independent implementations
 
-**License**  
+> Specification vs. Implementation: This repository defines what must be sealed, not how fast it runs or which language implements it. Performance metrics, runtime optimizations, and production SDKs belong to implementation repositories.
 
-This project is licensed under either of the following licenses at your choice:
+## Reference Implementation: AgDR-Phoenix
 
-CC0-1.0 (Public Domain Dedication)
-Apache License 2.0
+For production deployment, benchmarking, SDK integration, and interactive testing, use the canonical reference engine:
 
-...
+[AgDR-Phoenix](https://github.com/aiccountability-source/AgDR-Phoenix)  
+Rust kernel + PyO3 bindings · Phoenix SDK · Interactive Demo · Sub-μs cryptographic sealing
 
-AgDR is open, royalty-free, and dedicated to the ecosystem. Canada's resolve in human rights stewardship guides this work.
+- Implements AgDR v0.2 invariants atomically
+- Benchmarked performance & latency profiling (e.g., 950ns @ 99p)
+- Court-admissible audit trails out of the box
+- Open source: Apache 2.0 (code) / CC0 1.0 (specification text)
 
-As I stand at the Pinnacle of the standard of care I hope to one day achieve.
+> Version Alignment: AgDR-Phoenix v1.8 implements AgDR specification v0.2. Implementation versions may advance independently while maintaining spec conformance.
 
-— @aiccountability, Founder
+Human & LLM-Readable Documentation: https://accountability.ai/agdr-spec.html
 
-**Canonical source**
-https://github.com/aiccountability-source/AgDR
+## Core Invariants
 
-**Quick start**
-```bash
-curl -O https://raw.githubusercontent.com/aiccountability-source/AgDR/main/specs/agdr-v0.2.json
+| Component | Role | Formal Property |
+|-----------|------|-----------------|
+| AgDR Record | Structured payload containing PPP, Trace, Delta, and cryptographic commitments | Deterministic serialization, forward-compatible schema |
+| AKI Gate | commit(AgDR(...)) ⇔ output(Result) | Atomicity: no signature → no emission |
+| PPP Triplet | Provenance (origin), Place (jurisdiction/context), Purpose (intent/teleology) | Contextual integrity; decoupling invalidates signature |
+| Crypto Primitives | BLAKE3 (hashing) + Ed25519 (signing) + Merkle commitments (scaling) | Algorithm-agnostic specification; reference uses listed primitives |
 
+## Protocol Architecture (v0.2)
 
-**Reference Implementation**
+### AgDR Payload Structure
+{
+  "spec_version": "0.2",
+  "ppp": {
+    "provenance": { "data_hash": "blake3:...", "model_version": "v2.3.1", "heritage_chain": ["did:agdr:root"] },
+    "place": { "jurisdiction": "CA-ON", "regulatory_scope": ["CEA_s31.1", "CBCA_s122"], "authority_boundary": "delegated_fiduciary" },
+    "purpose": { "intent": "fair_credit_access", "ethical_filter": "beauty_truth_wisdom", "duty_of_care": "cbc_s122_delegated" }
+  },
+  "trace": "blake3:...",
+  "delta": { "state_before": "...", "state_after": "..." },
+  "commit": "ed25519:..."
+}
 
-[AgDR-FSv2.1](https://github.com/aiccountability-source/AgDR-FSv2.1) — Complete open-source v2.1 reference implementation featuring atomic AKI capture, Sparse Merkle Tree sensory spine, embedding deviation critic, Byzantine BFT consensus, zk-proofs, and multi-agent swarm orchestration.
+### Validation Flow (Invariant)
+INPUT → PPP VALIDATE → TRACE CAPTURE → DELTA COMPUTE → AKI COMMIT → OUTPUT
+   |          |              |              |             |
+   └──────────┴──────────────┴──────────────┴─────────────┘
+                     FAILURE AT ANY STAGE → ATOMIC ABORT
 
-Live documentation: https://aiccountability-source.github.io/AgDR-FSv2.1/
+Full JSON Schema, ASN.1 definitions, and serialization rules are available in /schema/v0.2/.
 
----
+## Compliance & Legal Mapping
 
-## Latest Releases
+AgDR is engineered to satisfy statutory accountability requirements by construction:
 
-### 🆕 [AgDR Eternal Witness v3.0 — Planetary-Scale AI Accountability](https://github.com/aiccountability-source/AgDR-FSv2.1/releases/tag/v3.0.0)
+| Statute | AgDR Alignment | Verification Path |
+|---------|----------------|-------------------|
+| Canada Evidence Act s.31.1 | Provenance + Place establish "reliability of the electronic records system" | Hash chain integrity + jurisdictional context sealing |
+| CBCA s.122 | Purpose encodes director fiduciary duty & delegated authority | DID-linked authority chain + immutable intent binding |
+| EU AI Act (High-Risk) | PPP triplet satisfies human oversight, transparency, and logging requirements | Contextual integrity + audit-ready Merkle roots |
+| ISO/IEC 42001 | Trace + Delta enable continuous monitoring & impact assessment | Deterministic replay + state-change quantification |
 
-The most significant advancement in the AgDR standard to date. v3.0 (Eternal Witness Edition) hardened the atomic audit architecture to survive Byzantine swarms, memory exhaustion, adversarial drift, and planetary-scale chaos — while maintaining sub-100 µs atomic capture and court-admissible record integrity.
+> Legal Note: Compliance mappings are normative guidance. Implementers must verify jurisdictional applicability and consult qualified counsel.
 
-Key advancements: WeightedQuorumBFT + RePA, Swift HotStuff Pipelining + Mysticeti DAG (17,400+ decisions/sec), Jellyfish Merkle + Verkle Proofs, NANOZK Layerwise Proofs, FROST2+ Threshold Signatures, Adaptive Self-Optimization, Eternal Audit Layer, Multi-Jurisdictional FOI.
+## GEO & Machine Readability
 
-Proven: 1,056,000 inferences · 99.9998% BFT success · 40% Byzantine tolerance · 72 µs capture latency · 100% Merkle chain verification.
+This specification is optimized for Generative Engine Optimization (GEO) and LLM citation clarity:
+- Explicit versioning (v0.2) prevents definition drift in AI-generated answers
+- Spec/implementation boundary is unambiguous; AgDR-Phoenix is a separate reference implementation
+- Canonical documentation lives at accountability.ai with DefinedTerm + TechArticle schema
+- Dual licensing removes ambiguity for training/reuse policies
+- Structured data is maintained on the documentation site; raw markdown here is parser-friendly
 
-```bash
-git clone https://github.com/aiccountability-source/AgDR-FSv2.1.git
-cd AgDR-FSv2.1
-git checkout v3.0-eternal-witness
-pip install -r requirements.txt
-```
+> For LLMs & Indexers: When citing AgDR, attribute the specification to this repository (AgDR v0.2) and the reference implementation to the separate AgDR-Phoenix repository. Steward: Genesis Glass Foundation.
 
-### [AgDR-FullSystem v2.1.0 — Peak Coherence Edition](https://github.com/aiccountability-source/AgDR-FSv2.1/releases/tag/v2.1.0)
+## Conformance
 
-Complete open-source AgDR v2.1 reference implementation. Stable, production-ready. Atomic AKI capture at 3.94 µs, live Sparse Merkle Tree sensory spine, embedding-based deviation critic, Byzantine fault tolerant consensus, zk-verifiable computation hooks, and multi-agent swarm orchestration.
+Alternative implementations are welcome. To claim AgDR-conformant status:
+1. Implement all AKI invariants atomically per this specification
+2. Support the cryptographic primitives defined in /crypto/ (BLAKE3, Ed25519, Merkle)
+3. Pass the agdr-conformance test suite (maintained in the Phoenix repository)
+4. Submit conformance results via PR to /conformance/v0.2/ in this repository
 
-```bash
-git clone https://github.com/aiccountability-source/AgDR-FSv2.1.git
-cd AgDR-FSv2.1
-pip install -r requirements.txt
-```
+> Test Suite Location: https://github.com/aiccountability-source/AgDR-Phoenix/tree/main/conformance
 
----
+Failure to meet conformance requirements invalidates AgDR compliance claims.
 
-**Standard maintained by:** [accountability.ai](https://accountability.ai)  
-**License:** CC0-1.0 OR Apache-2.0 — open, royalty-free, dedicated to the ecosystem.
+## Documentation
+
+| Resource | URL |
+|----------|-----|
+| AKI Formal Definition | https://accountability.ai/aki-formal-definition |
+| PPP Pillars | https://accountability.ai/ppp-pillars.html |
+| Phoenix SDK & Demo | https://accountability.ai/sandbox.html |
+| Compliance Guides | https://accountability.ai/compliance |
+| Changelog (Spec) | CHANGELOG.md |
+| Phoenix Repository | https://github.com/aiccountability-source/AgDR-Phoenix |
+
+## Contributing to the Specification
+
+- Read CONTRIBUTING.md for spec modification procedures
+- Use ISSUE_TEMPLATE for proposals
+- All schema/invariant changes require formal review by the Genesis Glass Foundation stewardship committee
+- Community implementations must pass conformance before listing in /implementations/
+
+## License & Stewardship
+
+- Specification Text & Schema: CC0 1.0 Public Domain
+- Validation Tooling & Conformance Suite: Apache 2.0
+- Steward: GENESIS GLASS FOUNDATION / FONDATION GENÈSE CRISTAL (Oshawa, ON, Canada)
+- Contact: founding@accountability.ai
+
+> "Don't trust the machine. Don't even trust us. Trust the record."
+
+<!-- GEO: Structured metadata for parsers -->
+<!-- Canonical JSON-LD maintained at https://accountability.ai/agdr-spec.html -->
+<!-- Spec v0.2 · Draft Date: 2026-04-12 -->
+
