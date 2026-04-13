@@ -15,7 +15,7 @@
   <title>AKI Formal Definition | accountability.ai</title>
   
   <!-- English meta description -->
-  <meta name="description" content="Atomic Kernel Inference (AKI): the cryptographic invariant ensuring every AI decision output is atomically bound to its accountable context. AgDR v1.8 standard.">
+  <meta name="description" content="Atomic Kernel Inference (AKI): the cryptographic invariant ensuring every AI decision output is atomically bound to its accountable context. AgDR standard, Phoenix v1.8.0 implementation.">
   
   <!-- Hreflang for bilingual SEO -->
   <link rel="alternate" hreflang="en" href="https://accountability.ai/aki-formal-definition"/>
@@ -253,10 +253,10 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
-      <span class="hero-badge">AgDR-Phoenix v1.8 · April 2026</span>
+      <span class="hero-badge">AgDR-Phoenix v1.8.0, April 2026</span>
       <h1 class="hero-title">Atomic Kernel Inference</h1>
       <p class="hero-lead">
-        The cryptographic invariant ensuring every AI decision output is atomically bound to its accountable context—making provability a prerequisite, not an afterthought.
+        The cryptographic invariant ensuring every AI decision output is atomically bound to its accountable context, making provability a prerequisite, not an afterthought.
       </p>
       <div class="hero-buttons">
         <a href="/agdr-spec.html" class="btn btn-secondary">← AgDR Protocol</a>
@@ -276,8 +276,9 @@
           <div class="invariant-box">
             AKI(i) = { commit(AgDR(PPP, Trace, Delta)) ⇔ output(Result) }
           </div>
-          <p><strong>Interpretation</strong>: For any inference instance <code>i</code>, the cryptographic commitment to an AgDR package is logically equivalent to the emission of a result. No commitment → no output.</p>
-          <p>This invariant is enforced at the kernel boundary. It is not a logging policy—it is a type-level guarantee.</p>
+          <p><strong>Interpretation</strong>: For any inference instance <code>i</code>, the cryptographic commitment to an AgDR package is logically equivalent to the emission of a result. No commitment, no output.</p>
+          <p>This invariant is enforced at the kernel boundary. It is not a logging policy. It is a type-level guarantee.</p>
+          <p style="margin-top:1rem;font-size:.875rem;color:var(--text-muted);border-top:1px solid var(--border);padding-top:1rem"><strong>Note on provenance</strong>: Phoenix v1.8.0 is the first implementation to enforce atomic provenance binding per the AgDR specification. Earlier versions capture context metadata but do not satisfy the PPP Triplet atomicity requirement.</p>
         </div>
 
         <div class="content-card" style="margin-top:2rem">
@@ -287,7 +288,7 @@
               <span class="principle-icon" aria-hidden="true">🔐</span>
               <div>
                 <strong>Atomic Commitment</strong>
-                <p>Cryptographic sealing is a gatekeeper—not a side-effect. The kernel cannot emit output without first committing to context.</p>
+                <p>Cryptographic sealing is a gatekeeper, not a side-effect. The kernel cannot emit output without first committing to context.</p>
               </div>
             </div>
             <div class="principle-item">
@@ -301,7 +302,7 @@
               <span class="principle-icon" aria-hidden="true">🧭</span>
               <div>
                 <strong>Provenance by Construction</strong>
-                <p>Every outcome is mathematically traceable to its inputs, execution environment, and oversight chain—by design.</p>
+                <p>Every outcome is mathematically traceable to its inputs, execution environment, and oversight chain, by design.</p>
               </div>
             </div>
             <div class="principle-item">
@@ -320,7 +321,7 @@
         <div class="content-card">
           <h3>AgDR Package Components</h3>
           <div class="code-block">
-<span class="comment">// AgDR v1.8 Payload Structure</span><br>
+<span class="comment">// AgDR Payload Structure</span><br>
 {<br>
 &nbsp;&nbsp;<span class="key">"ppp"</span>: {<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"principal"</span>: "did:accountability:...",<br>
@@ -343,6 +344,7 @@
             <li><strong>Deterministic cryptography</strong>: Ed25519 signatures, BLAKE3 hashing</li>
             <li><strong>Verifiable scaling</strong>: Merkle tree commitments for O(log n) audit</li>
             <li><strong>Interoperability</strong>: PyO3 bindings for Python integration</li>
+            <li><strong>Tamper-resistant timing</strong>: CLOCK_MONOTONIC_RAW for inference timestamps</li>
           </ul>
           <p style="margin-top:1rem;font-size:.875rem;color:var(--text-muted)"><em>Performance characteristics are documented separately to preserve the timelessness of this formal definition.</em></p>
         </div>
