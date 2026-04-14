@@ -7,7 +7,7 @@
     <loc>https://accountability.ai/index.html</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>>
+    <priority>1.0</priority>
   </url>
 
   <!-- 🚀 Core Entry Points (Priority 0.9) -->
@@ -169,7 +169,7 @@
   </url>
   <url>
     <loc>https://accountability.ai/horizontal-scaling.html</loc>
-    <lastmod>2026-04-12</changefreq>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -257,5 +257,5 @@
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
   </url>
-</urlset>
 
+</urlset>
