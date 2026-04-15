@@ -95,7 +95,7 @@
       "@type": "HowToStep",
       "position": 1,
       "name": "Install the AgDR Kernel",
-      "text": "Add agdr_core to your Cargo.toml or clone the agdr-phoenix repository."
+      "text": "Add agdr-aki to your Cargo.toml or clone the agdr-phoenix repository."
     },{
       "@type": "HowToStep",
       "position": 2,
@@ -109,7 +109,7 @@
     }],
     "programmingLanguage": "Rust",
     "softwareVersion": "1.8.0",
-    "codeRepository": "https://github.com/aiccountability-source/agdr-phoenix",
+    "codeRepository": "https://github.com/aiccountability-source/AgDR-Phoenix",
     "dateModified": "2026-04-12"
   }
   </script>
@@ -235,7 +235,7 @@
         <a href="/#ledger">Forensic Ledger</a>
         <a href="/#spec">Specification</a>
         <a href="/sandbox.html">Phoenix Demo</a>
-        <a href="https://github.com/aiccountability-source/agdr-phoenix" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
+        <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
       </div>
       
       <!-- Search Bar -->
@@ -272,7 +272,7 @@
       <div class="hero-buttons">
         <a href="#step-01" class="btn btn-primary">Begin Implementation</a>
         <a href="/sandbox.html" class="btn btn-secondary">Try Interactive Demo</a>
-        <a href="/rust-core.html" class="btn btn-secondary">View Rust Core API</a>
+        <a href="https://crates.io/crates/agdr-aki" class="btn btn-secondary" target="_blank" rel="noopener">View on crates.io</a>
       </div>
     </div>
   </section>
@@ -290,19 +290,18 @@
         <div style="margin:1.5rem 0;padding:1rem;background:#18181b;border-radius:.75rem;border:1px solid var(--border)">
           <strong style="color:#fff;display:block;margin-bottom:.5rem">Option A: Via Cargo (Published Crate)</strong>
           <pre><code>[dependencies]
-agdr_core = "0.0.2"  # v1.8 Phoenix Release</code></pre>
-          <small style="color:var(--text-muted)">Note: If the crate is not yet published on crates.io, use Option B below.</small>
+agdr-aki = "1.8"</code></pre>
         </div>
 
         <div style="margin:1.5rem 0;padding:1rem;background:#18181b;border-left:3px solid var(--teal);border-radius:0 .75rem .75rem 0">
           <strong style="color:#fff;display:block;margin-bottom:.5rem">Option B: Build from Source (Reference Implementation)</strong>
           <p style="margin:0 0 .75rem;color:var(--text-dim);font-size:.9rem">Clone the AgDR-Phoenix SDK — the canonical Rust and PyO3 implementation of AgDR v1.8:</p>
-          <pre><code>git clone https://github.com/aiccountability-source/agdr-phoenix.git
-cd agdr-phoenix
+          <pre><code>git clone https://github.com/aiccountability-source/AgDR-Phoenix.git
+cd AgDR-Phoenix
 cargo build --release</code></pre>
           <small style="color:var(--text-muted);display:block;margin-top:.75rem">
             Requires Rust 1.75 or later. 
-            <a href="/rust-core.html" style="color:var(--teal);text-decoration:none">View complete build prerequisites</a>
+            <a href="https://github.com/aiccountability-source/AgDR-Phoenix#installation" style="color:var(--teal);text-decoration:none" target="_blank" rel="noopener">View complete build prerequisites</a>
           </small>
         </div>
       </section>
@@ -312,12 +311,12 @@ cargo build --release</code></pre>
         <span class="step-num" itemprop="position">Step 02</span>
         <h3 itemprop="name">Define the PPP Triplet</h3>
         <p itemprop="text">Every inference must be preceded by a Purpose, Place, and Person triplet. This is the cryptographic handshake for accountability.</p>
-        <pre><code>use agdr_core::{AgDR, Purpose, Place, Person};
+        <pre><code>use agdr_aki::{AgDR, Provenance, Place, Purpose};
 
 let record = AgDR::new(
-    Purpose::from("High-risk credit evaluation"),
+    Provenance::from("High-risk credit evaluation"),
     Place::from("Compute-Node-Alpha-East"),
-    Person::from("FOI-7702") 
+    Purpose::from("FOI-7702")
 );</code></pre>
         <p style="margin-top:1rem;color:var(--text-dim);font-size:.9rem">
           The PPP Triplet binds contextual metadata to each record at creation, satisfying the Provenance, Place, Purpose requirement for legal admissibility under Canada Evidence Act section 31.1.
@@ -343,7 +342,7 @@ println!("Signature: {}", output.signature());</code></pre>
       <section class="verification-box">
         <strong>Verify Your Installation</strong>
         <p style="margin:.5rem 0 1rem;color:var(--text-dim)">Confirm your environment is correctly configured:</p>
-        <pre><code>cargo test --package agdr_core -- aki_basic_inference --nocapture</code></pre>
+        <pre><code>cargo test --package agdr_aki -- aki_basic_inference --nocapture</code></pre>
         <small>Expected output: <code style="color:var(--teal)">test result: ok. 1 passed; 0 failed</code></small>
       </section>
 
@@ -352,9 +351,9 @@ println!("Signature: {}", output.signature());</code></pre>
         <h3 style="color:#fff;margin-bottom:1rem">Next Steps</h3>
         <p style="color:var(--text-dim);margin-bottom:1.5rem">Continue your AgDR integration journey:</p>
         <div class="next-steps">
-          <a href="/rust-core.html" class="btn btn-primary">Review Rust Core API</a>
+          <a href="https://crates.io/crates/agdr-aki" class="btn btn-primary" target="_blank" rel="noopener">View on crates.io</a>
           <a href="/sandbox.html" class="btn btn-secondary">Try Interactive Demo</a>
-          <a href="https://github.com/aiccountability-source/agdr-phoenix" target="_blank" rel="noopener" class="btn btn-secondary">View Source on GitHub</a>
+          <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" class="btn btn-secondary">View Source on GitHub</a>
         </div>
       </section>
 
@@ -438,7 +437,7 @@ println!("Signature: {}", output.signature());</code></pre>
       {title:"Medical Records",url:"/comparison-medical-records.html",desc:"Comparison to healthcare documentation"},
       {title:"AGI Court Precedents",url:"/agi-court-precedents.html",desc:"Legal precedents for AI accountability"},
       {title:"Court in 2076",url:"/future-agi-court.html",desc:"Long-term judicial stewardship vision"},
-      {title:"Rust Core API",url:"/rust-core.html",desc:"agdr_core crate reference and build guide"}
+      {title:"Rust Core API",url:"https://crates.io/crates/agdr-aki",desc:"agdr-aki crate reference and build guide"}
     ];
     
     const searchInput = document.getElementById('site-search');
