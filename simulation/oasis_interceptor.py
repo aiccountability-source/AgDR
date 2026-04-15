@@ -36,12 +36,12 @@ class AgDRRecord:
       decision_id: str
       timestamp: str
       provenance: str        # PPP: Who / from where
-    place: str             # PPP: Where decision propagates
-    purpose: str           # PPP: Why this decision is made
-    payload: dict[str, Any]
-    signature: str = ""
-    merkle_root: str = ""
-    committed: bool = False
+      place: str             # PPP: Where decision propagates
+      purpose: str           # PPP: Why this decision is made
+      payload: dict[str, Any]
+      signature: str = ""
+      merkle_root: str = ""
+      committed: bool = False
 
     def compute_merkle(self) -> str:
               """Compute a deterministic Merkle hash over canonical fields."""
