@@ -293,8 +293,17 @@
 agdr-aki = "1.8"</code></pre>
         </div>
 
+        <div style="margin:1.5rem 0;padding:1rem;background:#18181b;border-radius:.75rem;border:1px solid var(--teal)">
+          <strong style="color:var(--teal)">Option B: Python via PyPI</strong>
+          <pre style="margin:.75rem 0 0"><code>pip install agdr-aki</code></pre>
+          <p style="margin:.5rem 0 0;font-size:.85rem;color:var(--text-muted)">
+            Requires Python 3.10+. Prebuilt wheels for Windows x64 (Python 3.12+). Other platforms build from source — requires Rust toolchain.
+            <a href="https://pypi.org/project/agdr-aki/" target="_blank" rel="noopener" style="color:var(--teal);text-decoration:none">View on PyPI</a>
+          </p>
+        </div>
+
         <div style="margin:1.5rem 0;padding:1rem;background:#18181b;border-left:3px solid var(--teal);border-radius:0 .75rem .75rem 0">
-          <strong style="color:#fff;display:block;margin-bottom:.5rem">Option B: Build from Source (Reference Implementation)</strong>
+          <strong style="color:#fff;display:block;margin-bottom:.5rem">Option C: Build from Source (Reference Implementation)</strong>
           <p style="margin:0 0 .75rem;color:var(--text-dim);font-size:.9rem">Clone the AgDR-Phoenix SDK — the canonical Rust and PyO3 implementation of AgDR v1.8:</p>
           <pre><code>git clone https://github.com/aiccountability-source/AgDR-Phoenix.git
 cd AgDR-Phoenix
@@ -352,6 +361,7 @@ println!("Signature: {}", output.signature());</code></pre>
         <p style="color:var(--text-dim);margin-bottom:1.5rem">Continue your AgDR integration journey:</p>
         <div class="next-steps">
           <a href="https://crates.io/crates/agdr-aki" class="btn btn-primary" target="_blank" rel="noopener">View on crates.io</a>
+          <a href="https://pypi.org/project/agdr-aki/" class="btn btn-secondary" target="_blank" rel="noopener">View on PyPI</a>
           <a href="/sandbox.html" class="btn btn-secondary">Try Interactive Demo</a>
           <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" class="btn btn-secondary">View Source on GitHub</a>
         </div>
