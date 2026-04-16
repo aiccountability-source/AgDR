@@ -18,9 +18,8 @@
   
   <!-- Canonical & Hreflang -->
   <link rel="canonical" href="https://accountability.ai/technical-details">
-  <link rel="alternate" hreflang="en" href="https://accountability.ai/technical-details"">
-  <link rel="alternate" hreflang="fr-CA" href="https://accountability.ai/fr/technical-details"">
-  <link rel="alternate" hreflang="x-default" href="https://accountability.ai/technical-details"">
+  <link rel="alternate" hreflang="en" href="https://accountability.ai/technical-details">
+  <link rel="alternate" hreflang="x-default" href="https://accountability.ai/technical-details">
   
   <!-- Open Graph & Twitter -->
   <meta property="og:type" content="article">
@@ -163,9 +162,9 @@
       
       <div class="nav-links">
         <a href="/">Home</a>
-        <a href="/getting-started"">Get Started</a>
-        <a href="/ppp-pillars"">PPP Pillars</a>
-        <a href="/sandbox"">Phoenix Demo</a>
+        <a href="/getting-started">Get Started</a>
+        <a href="/ppp-pillars">PPP Pillars</a>
+        <a href="/sandbox">Phoenix Demo</a>
         <a href="https://github.com/aiccountability-source/AgDR" target="_blank" rel="noopener noreferrer" style="color:var(--teal)">GitHub</a>
       </div>
       
@@ -179,13 +178,7 @@
            data-lang="en"
            title="English">EN</a>
         <span class="sr-only">|</span>
-        <a href="/fr/technical-details"" 
-           hreflang="fr-CA" 
-           lang="fr"
-           class="lang-link"
-           data-lang="fr"
-           title="Français (Canada)">FR</a>
-      </div>
+        </div>
     </div>
   </nav>
   
@@ -216,7 +209,7 @@
   <main id="main-content" class="prose">
     <p><strong>Current State — April 2026</strong></p>
     
-    <p>The legacy designation <strong>ADR</strong> (Agent Decision Record) v0.1 is deprecated. The current standard is <strong>AgDR v1.8</strong> (Atomic Genesis Decision Record) with the enforcement layer <strong>Atomic Kernel Inference (AKI)</strong>. Full specification: <a href="https://accountability.ai/agdr-spec"">accountability.ai AgDR Protocol</a>.</p>
+    <p>The legacy designation <strong>ADR</strong> (Agent Decision Record) v0.1 is deprecated. The current standard is <strong>AgDR v1.8</strong> (Atomic Genesis Decision Record) with the enforcement layer <strong>Atomic Kernel Inference (AKI)</strong>. Full specification: <a href="https://accountability.ai/agdr-spec">accountability.ai AgDR Protocol</a>.</p>
     
     <h2 id="core-architecture">Core Architecture</h2>
     
@@ -265,7 +258,7 @@
 }</code></pre>
     
     <div class="callout">
-      <p>Every AgDR record is cryptographically bound to its inference context, PPP Triplet, and Human Delta Chain. Tampering with any component invalidates the BLAKE3 hash and Ed25519 signature, providing mathematical proof of integrity. Reference: <a href="https://accountability.ai/aki-formal-definition"">accountability.ai AKI Formal Definition</a>.</p>
+      <p>Every AgDR record is cryptographically bound to its inference context, PPP Triplet, and Human Delta Chain. Tampering with any component invalidates the BLAKE3 hash and Ed25519 signature, providing mathematical proof of integrity. Reference: <a href="https://accountability.ai/aki-formal-definition">accountability.ai AKI Formal Definition</a>.</p>
     </div>
     
     <h2 id="cryptographic-components">Cryptographic Components</h2>
@@ -285,25 +278,25 @@
             <td>Record Hash</td>
             <td>BLAKE3-256</td>
             <td>Content integrity verification; collision-resistant fingerprint</td>
-            <td><a href="https://accountability.ai/agdr-spec#blake3"">accountability.ai spec</a></td>
+            <td><a href="https://accountability.ai/agdr-spec#blake3">accountability.ai spec</a></td>
           </tr>
           <tr>
             <td>Signature</td>
             <td>Ed25519</td>
             <td>Authenticity and non-repudiation; public-key verification</td>
-            <td><a href="https://accountability.ai/agdr-spec#ed25519"">accountability.ai spec</a></td>
+            <td><a href="https://accountability.ai/agdr-spec#ed25519">accountability.ai spec</a></td>
           </tr>
           <tr>
             <td>Chain Integrity</td>
             <td>Forward-secret Merkle</td>
             <td>Temporal ordering and tamper-evidence across records</td>
-            <td><a href="https://accountability.ai/agdr-spec#merkle"">accountability.ai spec</a></td>
+            <td><a href="https://accountability.ai/agdr-spec#merkle">accountability.ai spec</a></td>
           </tr>
           <tr>
             <td>Key Management</td>
             <td>Hardware enclave (SGX/SEV)</td>
             <td>Secure private key storage; isolation from host OS</td>
-            <td><a href="https://accountability.ai/getting-started#security"">accountability.ai guide</a></td>
+            <td><a href="https://accountability.ai/getting-started#security">accountability.ai guide</a></td>
           </tr>
         </tbody>
       </table>
@@ -320,7 +313,7 @@
       <li><strong>Human Delta Integration:</strong> Interventions are cryptographically bound to the original decision, preserving audit trail completeness</li>
     </ol>
     
-    <p>Full statutory mapping: <a href="https://accountability.ai/cea-compliance"">accountability.ai CEA s.31.1 Compliance</a>.</p>
+    <p>Full statutory mapping: <a href="https://accountability.ai/cea-compliance">accountability.ai CEA s.31.1 Compliance</a>.</p>
     
     <!-- Call to Action -->
     <div class="cta-section">
@@ -378,41 +371,41 @@
       <div class="footer-col">
         <h5>Core Standard</h5>
         <ul>
-          <li><a href="/getting-started"">Get Started</a></li>
-          <li><a href="/sandbox"">Phoenix Demo</a></li>
-          <li><a href="/ppp-pillars"">PPP Pillars</a></li>
-          <li><a href="/aki-formal-definition"">AKI Definition</a></li>
-          <li><a href="/agdr-spec"">AgDR Protocol</a></li>
+          <li><a href="/getting-started">Get Started</a></li>
+          <li><a href="/sandbox">Phoenix Demo</a></li>
+          <li><a href="/ppp-pillars">PPP Pillars</a></li>
+          <li><a href="/aki-formal-definition">AKI Definition</a></li>
+          <li><a href="/agdr-spec">AgDR Protocol</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Legal and Compliance</h5>
         <ul>
-          <li><a href="/cea-compliance"">CEA s.31.1</a></li>
-          <li><a href="/cbca-fiduciary-mapping"">CBCA s.122</a></li>
-          <li><a href="/eu-ai-act-mapping"">EU AI Act</a></li>
-          <li><a href="/foi-formal-definition"">FOI Role</a></li>
-          <li><a href="/verification-audit-procedure"">Verification</a></li>
+          <li><a href="/cea-compliance">CEA s.31.1</a></li>
+          <li><a href="/cbca-fiduciary-mapping">CBCA s.122</a></li>
+          <li><a href="/eu-ai-act-mapping">EU AI Act</a></li>
+          <li><a href="/foi-formal-definition">FOI Role</a></li>
+          <li><a href="/verification-audit-procedure">Verification</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Engineering</h5>
         <ul>
-          <li><a href="/tsx-stress-test"">TSX Stress Test</a></li>
-          <li><a href="/horizontal-scaling"">Horizontal Scaling</a></li>
-          <li><a href="/aki-95"">AKI 0.95 Spec</a></li>
-          <li><a href="/human-delta-chain-spec"">Human Delta Chain</a></li>
-          <li><a href="/CHANGELOG"">Changelog</a></li>
+          <li><a href="/tsx-stress-test">TSX Stress Test</a></li>
+          <li><a href="/horizontal-scaling">Horizontal Scaling</a></li>
+          <li><a href="/aki-95">AKI 0.95 Spec</a></li>
+          <li><a href="/human-delta-chain-spec">Human Delta Chain</a></li>
+          <li><a href="/CHANGELOG">Changelog</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Evidence and Vision</h5>
         <ul>
-          <li><a href="/comparison-aviation-black-box"">Aviation Black Box</a></li>
-          <li><a href="/comparison-medical-records"">Medical Records</a></li>
-          <li><a href="/agi-court-precedents"">AGI Court Precedents</a></li>
-          <li><a href="/future-agi-court"">Court in 2076</a></li>
-          <li><a href="/beauty-truth-wisdom"">Purpose Framework</a></li>
+          <li><a href="/comparison-aviation-black-box">Aviation Black Box</a></li>
+          <li><a href="/comparison-medical-records">Medical Records</a></li>
+          <li><a href="/agi-court-precedents">AGI Court Precedents</a></li>
+          <li><a href="/future-agi-court">Court in 2076</a></li>
+          <li><a href="/beauty-truth-wisdom">Purpose Framework</a></li>
         </ul>
       </div>
     </div>
@@ -428,4 +421,7 @@
   </footer>
 </body>
 </html>
+
+
+
 
