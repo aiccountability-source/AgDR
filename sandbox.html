@@ -1,208 +1,188 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
 <head>
-  <!-- GA4 + Consent Mode v2 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPHCT8T1KC"></script>
-  <script>
-    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-    gtag('consent','default',{'ad_storage':'denied','analytics_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':500});
-    gtag('js',new Date());gtag('config','G-QPHCT8T1KC',{'anonymize_ip':true,'send_page_view':true});
-  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-QPHCT8T1KC');</script>
+  <!-- End Google Tag Manager -->
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#0d7377">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  
-  <title>Phoenix v1.8 Sandbox — Atomic AI Accountability Demo | Accountability.ai</title>
+
+  <title>Phoenix v1.8 Sandbox: Atomic AI Accountability Demo | accountability.ai</title>
+
   <meta name="description" content="Interactive Phoenix v1.8 demo: 620ns AKI latency, BLAKE3+Ed25519 sealing, PPP triplet capture, legal admissibility. Try atomic AI accountability live.">
-  <meta name="description" lang="fr" content="Démo interactive Phoenix v1.8 : latence AKI 620ns, scellement BLAKE3+Ed25519, capture triplet PPP, admissibilité légale. Essayez la responsabilité IA atomique en direct.">
-  
-  <link rel="canonical" href="https://accountability.ai/sandbox">
-  <link rel="alternate" hreflang="en" href="https://accountability.ai/sandbox""/>
-  <link rel="alternate" hreflang="x-default" href="https://accountability.ai/sandbox""/>
-  
-  <!-- Open Graph -->
+
+  <link rel="canonical" href="https://accountability.ai/sandbox" />
+  <link rel="alternate" hreflang="en" href="https://accountability.ai/sandbox" />
+  <link rel="alternate" hreflang="x-default" href="https://accountability.ai/sandbox" />
+
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Accountability.ai">
-  <meta property="og:url" content="https://accountability.ai/sandbox.html">
-  <meta property="og:title" content="Phoenix v1.8 Sandbox — Atomic AI Accountability Demo">
+  <meta property="og:url" content="https://accountability.ai/sandbox">
+  <meta property="og:title" content="Phoenix v1.8 Sandbox: Atomic AI Accountability Demo">
   <meta property="og:description" content="620ns AKI latency, BLAKE3+Ed25519 sealing, PPP triplet capture, legal admissibility. Try live.">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_CA">
-  
-  <!-- Twitter -->
+
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Phoenix v1.8 Sandbox — Atomic AI Accountability Demo">
+  <meta name="twitter:title" content="Phoenix v1.8 Sandbox: Atomic AI Accountability Demo">
   <meta name="twitter:description" content="Interactive Phoenix v1.8 demo: atomic AI accountability with 620ns latency. Try live.">
-  
-  
-  <!-- Schema.org: SoftwareApplication + FAQ + Breadcrumb -->
+
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Phoenix v1.8 Sandbox","applicationCategory":"DeveloperApplication","description":"Interactive demonstration of Phoenix v1.8 atomic kernel inference: 620ns AKI latency, BLAKE3+Ed25519 sealing, PPP triplet capture, legal admissibility.","url":"https://accountability.ai/sandbox.html","author":{"@type":"Organization","name":"GENESIS GLASS FOUNDATION","alternateName":"FONDATION GENÈSE CRISTAL","url":"https://accountability.ai"},"license":"https://creativecommons.org/publicdomain/zero/1.0/ OR https://www.apache.org/licenses/LICENSE-2.0","operatingSystem":"Web browser","softwareVersion":"1.8.0","featureList":["Atomic Kernel Inference","BLAKE3+Ed25519 Sealing","PPP Triplet Capture","Forward-Secret Merkle Chaining","Legal Admissibility Mapping","Multi-Axis Coherence Scoring"]}
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Phoenix v1.8 Sandbox","applicationCategory":"DeveloperApplication","description":"Interactive demonstration of Phoenix v1.8 atomic kernel inference: 620ns AKI latency, BLAKE3+Ed25519 sealing, PPP triplet capture, legal admissibility.","url":"https://accountability.ai/sandbox","author":{"@type":"Organization","name":"GENESIS GLASS FOUNDATION","alternateName":"FONDATION GENESE CRISTAL","url":"https://accountability.ai"},"license":"https://creativecommons.org/publicdomain/zero/1.0/ OR https://www.apache.org/licenses/LICENSE-2.0","operatingSystem":"Web browser","softwareVersion":"1.8.0","featureList":["Atomic Kernel Inference","BLAKE3+Ed25519 Sealing","PPP Triplet Capture","Forward-Secret Merkle Chaining","Legal Admissibility Mapping","Multi-Axis Coherence Scoring"]}
   </script>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Phoenix v1.8?","acceptedAnswer":{"@type":"Answer","text":"Phoenix v1.8 is the reference implementation of the AgDR standard, achieving 620ns atomic kernel inference with BLAKE3+Ed25519 cryptographic sealing and legal admissibility mapping."}},{"@type":"Question","name":"Is this demo production-ready?","acceptedAnswer":{"@type":"Answer","text":"This is a client-side simulation. Production Phoenix records are generated server-side with hardware-backed signing. Use the SDK to generate real court-admissible records."}},{"@type":"Question","name":"What legal frameworks does Phoenix support?","acceptedAnswer":{"@type":"Answer","text":"Phoenix maps to Canada Evidence Act s.31.1, CBCA s.122 fiduciary duty, PIPEDA privacy principles, and EU AI Act high-risk system requirements."}}]}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://accountability.ai/"},{"@type":"ListItem","position":2,"name":"Sandbox","item":"https://accountability.ai/sandbox.html"}]}
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://accountability.ai/"},{"@type":"ListItem","position":2,"name":"Sandbox","item":"https://accountability.ai/sandbox"}]}
   </script>
 
-  <!-- Native CSS (zero external dependencies) -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+
   <style>
-    :root{--teal:#2dd4bf;--bg:#050505;--text:#a1a1aa;--header:#fff;--border:#1a1a1a;--card:#0a0a0a;--gradient:linear-gradient(150deg,#0d7377 0%,#14213d 60%,#0a0a0a 100%);--success:#059669;--warning:#d97706;--error:#dc2626}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+    :root{--teal:#2dd4bf;--bg:#050505;--text:#a1a1aa;--header:#fff;--border:#1a1a1a;--card:#0a0a0a;--gradient:linear-gradient(150deg,#0d7377 0%,#14213d 60%,#0a0a0a 100%);--success:#059669;--warning:#d97706;--error:#dc2626;--text-dim:#a1a1aa;--text-muted:#71717a}
+    *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none;transition:color .2s}a:hover{color:var(--teal)}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     *:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
-    
-    /* Skip link */
     .skip-link{position:absolute;top:-100%;left:0;background:var(--teal);color:#000;padding:.75rem 1.5rem;z-index:100;font-weight:700;border-radius:0 0 .5rem 0}
     .skip-link:focus{top:0}
-    
-    /* Nav */
-    nav{position:sticky;top:0;z-index:50;background:rgba(13,115,119,.85);backdrop-filter:blur(16px);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-    .brand{color:var(--header);font-weight:800;font-size:1.25rem;letter-spacing:-.025em}
-    .nav-links{display:flex;gap:1.5rem;font-size:.875rem;font-weight:600;color:#9ca3af}
-    .nav-links a:hover{color:var(--teal)}
-    @media(max-width:768px){.nav-links{display:none}}
-    
-    /* Breadcrumb */
-    .breadcrumb{max-width:1200px;margin:0 auto;padding:.75rem 2rem;font-size:.75rem;color:#6b7280}
+    .site-nav{position:sticky;top:0;z-index:50;background:rgba(13,115,119,.95);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);padding:.75rem 0}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:#fff}
+    .nav-links{display:none;gap:1.5rem;font-size:.875rem;font-weight:500;color:rgba(255,255,255,.75)}
+    .nav-links a:hover{color:#fff}
+    .nav-search{position:relative;flex-shrink:0}
+    .nav-search input{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.15);border-radius:.5rem;padding:.5rem .75rem .5rem 2rem;color:#fff;font-size:.875rem;width:180px;transition:width .2s}
+    .nav-search input::placeholder{color:rgba(255,255,255,.5)}
+    .nav-search input:focus{width:220px;border-color:var(--teal);outline:none}
+    .nav-search svg{position:absolute;left:.75rem;top:50%;transform:translateY(-50%);width:1rem;height:1rem;color:rgba(255,255,255,.5);pointer-events:none}
+    @media(min-width:768px){.nav-links{display:flex}}
+    @media(max-width:640px){.nav-search input{width:40px;padding:.5rem;transition:width .2s}.nav-search input:focus{width:180px;padding:.5rem .75rem .5rem 2rem}}
+    .breadcrumb{max-width:1200px;margin:0 auto;padding:.5rem 1.5rem;font-size:.75rem;color:var(--text-muted)}
     .breadcrumb a:hover{color:var(--teal)}
-    
-    /* Hero */
+    .breadcrumb ol{display:flex;gap:.25rem;list-style:none}
     .hero{background:var(--gradient);padding:4rem 2rem 3rem;text-align:center}
     .hero-badge{display:inline-block;background:rgba(45,212,191,.1);color:var(--teal);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem}
     .hero h1{font-size:clamp(2rem,5vw,3rem);color:var(--header);margin:0 0 1rem;letter-spacing:-.025em}
-    .hero p{max-width:600px;margin:0 auto;color:#d4d4d8;font-size:1.1rem}
-    
-    /* Version Toggle */
-    .version-toggle{max-width:1200px;margin:0 auto;padding:0 2rem 2rem;display:flex;gap:1rem;align-items:center;justify-content:center}
+    .hero p{max-width:600px;margin:.5rem auto 0;color:#d4d4d8;font-size:1.1rem}
+    .version-toggle{max-width:1200px;margin:0 auto;padding:2rem 2rem 1rem;display:flex;gap:1rem;align-items:center;justify-content:center;flex-wrap:wrap}
     .version-btn{padding:.5rem 1.5rem;border:none;border-radius:.5rem;cursor:pointer;font-weight:600;font-size:.875rem;transition:all .2s}
     .version-btn.active{background:var(--teal);color:#000}
-    .version-btn.inactive{background:#18181b;color:#a1a1aa}
-    .version-toggle p{color:#6b7280;font-size:.875rem;margin-top:.5rem}
-    
-    /* Main Grid */
+    .version-btn.inactive{background:#18181b;color:#a1a1aa;border:1px solid #27272a}
+    .version-toggle p{color:#6b7280;font-size:.875rem;width:100%;text-align:center}
     main{max-width:1200px;margin:0 auto;padding:0 2rem 4rem;display:grid;grid-template-columns:1fr;gap:2rem}
     @media(min-width:768px){main{grid-template-columns:1fr 1fr}}
-    
-    /* Panels */
     .panel{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem}
     .panel h2{color:var(--header);font-size:1.25rem;margin:0 0 1rem}
-    label{display:block;margin:0 0 .5rem;color:#d4d4d8;font-weight:600}
-    select,input{width:100%;padding:.75rem;background:#18181b;border:1px solid #27272a;border-radius:.5rem;color:#fff;font-size:1rem}
-    select:focus,input:focus{border-color:var(--teal);outline:none}
+    label{display:block;margin:0 0 .5rem;color:#d4d4d8;font-weight:600;font-size:.875rem}
+    select,input[type="text"]{width:100%;padding:.75rem;background:#18181b;border:1px solid #27272a;border-radius:.5rem;color:#fff;font-size:1rem;margin-bottom:1rem}
+    select:focus,input[type="text"]:focus{border-color:var(--teal);outline:none}
     .btn{width:100%;padding:.875rem;background:var(--teal);color:#000;font-weight:700;border:none;border-radius:.5rem;cursor:pointer;font-size:1rem;transition:background .2s}
     .btn:hover{background:#14b8a6}
-    
-    /* Output */
-    .output{background:#0f0f11;border:1px solid #27272a;border-radius:.5rem;padding:1rem;font-family:ui-monospace,monospace;font-size:.875rem;color:#5eead4;white-space:pre-wrap;min-height:200px;max-height:400px;overflow:auto}
-    
-    /* Merkle Chain */
-    .chain-viz{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin:1rem 0}
-    .chain-node{padding:.5rem 1rem;border-radius:.5rem;font-size:.875rem;font-weight:600}
-    .chain-node.genesis{background:var(--teal);color:#000}
-    .chain-node.current{background:var(--teal);color:#000;font-family:monospace}
-    .chain-node.block{background:#18181b;border:1px solid #27272a;font-family:monospace}
-    .chain-node.next{background:#0f0f11;border:1px dashed #27272a;color:#6b7280}
-    .chain-arrow{color:#6b7280}
-    
-    /* Metrics Grid */
-    .metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:1rem;margin:1rem 0}
-    .metric-card{background:#0f0f11;border:1px solid #27272a;border-radius:.5rem;padding:1rem;text-align:center}
-    .metric-value{color:var(--teal);font-size:1.5rem;font-weight:700;font-family:monospace}
-    .metric-label{color:#6b7280;font-size:.75rem;margin-top:.25rem}
-    
-    /* Compliance Grid */
-    .compliance-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1rem 0}
-    .compliance-item{display:flex;align-items:center;gap:.75rem;padding:.75rem;background:#064e3b;border:1px solid #059669;border-radius:.5rem}
-    .compliance-check{color:var(--teal);font-size:1.25rem;font-weight:700}
-    .compliance-title{color:#fff;font-weight:600;font-size:.875rem}
-    .compliance-desc{color:#6b7280;font-size:.75rem}
-    
-    /* Coherence Bars */
-    .coherence-item{margin:1rem 0}
+    .output{background:#080808;border:1px solid var(--border);border-radius:.5rem;padding:1rem;font-family:ui-monospace,monospace;font-size:.75rem;color:#5eead4;min-height:300px;white-space:pre-wrap;line-height:1.6;overflow-y:auto;max-height:500px}
+    .chain-viz{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;padding:1rem 0}
+    .chain-node{padding:.5rem 1rem;border-radius:.5rem;font-family:ui-monospace,monospace;font-size:.75rem;font-weight:700;border:1px solid}
+    .chain-node.genesis{background:rgba(99,102,241,.1);border-color:#6366f1;color:#a5b4fc}
+    .chain-node.block{background:rgba(45,212,191,.05);border-color:rgba(45,212,191,.3);color:var(--teal)}
+    .chain-node.current{background:rgba(45,212,191,.15);border-color:var(--teal);color:#fff}
+    .chain-node.next{background:#111;border-color:#333;color:#555}
+    .chain-arrow{color:#555;font-size:1.25rem}
+    .metrics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .metric-card{background:#080808;border:1px solid var(--border);border-radius:.75rem;padding:1rem;text-align:center}
+    .metric-value{font-size:1.5rem;font-weight:700;color:var(--teal);margin-bottom:.25rem}
+    .metric-label{font-size:.7rem;color:#555;text-transform:uppercase;letter-spacing:.05em}
+    .compliance-grid{display:grid;gap:.75rem}
+    .compliance-item{display:flex;align-items:center;gap:1rem;padding:.75rem;background:#080808;border:1px solid var(--border);border-radius:.5rem}
+    .compliance-check{color:var(--success);font-size:1.25rem;flex-shrink:0}
+    .compliance-title{color:#fff;font-weight:700;font-size:.875rem}
+    .compliance-desc{color:#555;font-size:.75rem}
+    .coherence-item{margin-bottom:1rem}
     .coherence-header{display:flex;justify-content:space-between;margin-bottom:.5rem}
-    .coherence-label{color:#a1a1aa;font-size:.875rem}
-    .coherence-value{color:var(--teal);font-weight:700;font-family:monospace}
-    .coherence-bar{background:#18181b;border-radius:.25rem;height:.5rem;overflow:hidden}
-    .coherence-fill{background:linear-gradient(90deg,var(--teal) 0%,#14b8a6 100%);height:100%;border-radius:.25rem;transition:width .3s}
-    .coherence-summary{margin-top:1rem;padding:.75rem;background:#064e3b;border:1px solid #059669;border-radius:.5rem}
-    .coherence-summary-text{color:var(--teal);font-weight:700;font-size:.875rem}
-    
-    /* Info Box */
-    .info{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem;margin-top:2rem}
-    .info h3{color:var(--teal);font-size:1.1rem;margin:0 0 .75rem}
-    .info p{margin:0 0 1rem;color:#a1a1aa}
-    .info a{color:var(--teal)}
-    
-    /* Related */
-    .related{background:#0a0a0a;border-top:1px solid var(--border);padding:3rem 2rem}
-    .related-inner{max-width:1200px;margin:0 auto}
-    .related h3{color:#6b7280;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:0 0 1.5rem}
-    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
-    .related-card{background:#18181b;border:1px solid var(--border);border-radius:.75rem;padding:1rem;display:block;transition:border-color .2s}
-    .related-card:hover{border-color:var(--teal)}
-    .related-card .title{color:var(--teal);font-size:.875rem;font-weight:600;margin:0 0 .25rem}
-    .related-card .desc{color:#6b7280;font-size:.75rem;margin:0}
-    
-    /* Footer */
-    footer{background:#000;border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;color:#52525b;font-size:.75rem}
-    footer a{color:var(--teal)}
-    
-    @media(max-width:600px){
-      .hero h1{font-size:2rem}
-      .panel{padding:1.25rem}
-      .metrics-grid{grid-template-columns:repeat(2,1fr)}
-    }
+    .coherence-label{color:#d4d4d8;font-size:.875rem}
+    .coherence-value{color:var(--teal);font-weight:700;font-size:.875rem}
+    .coherence-bar{background:#111;border-radius:9999px;height:8px;overflow:hidden}
+    .coherence-fill{height:100%;background:linear-gradient(to right,#0d7377,var(--teal));border-radius:9999px;transition:width .5s}
+    .coherence-summary{margin-top:1rem;padding:.75rem;background:#080808;border:1px solid var(--border);border-radius:.5rem}
+    .coherence-summary-text{color:#d4d4d8;font-size:.875rem}
+    .info{background:rgba(45,212,191,.05);border:1px solid rgba(45,212,191,.2);border-radius:1rem;padding:1.5rem}
+    .info h3{color:#fff;margin-bottom:.75rem}
+    .info p{color:#a1a1aa;font-size:.875rem;margin-bottom:.5rem}
+    .phoenix-only{display:none}
+    .site-footer{background:#000;border-top:1px solid rgba(255,255,255,.05);padding:4rem 1.5rem 3rem}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2.5rem}
+    .footer-col h5{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+    .footer-col ul{list-style:none;padding:0;margin:0}
+    .footer-col li{margin-bottom:.5rem}
+    .footer-col a{color:#a1a1aa;font-size:.875rem;display:block;transition:color .2s}
+    .footer-col a:hover{color:var(--teal)}
+    .footer-bottom{max-width:1200px;margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,.05);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.75rem;color:#71717a}
+    .footer-bottom a{color:var(--teal)}
+    #search-results{position:absolute;top:100%;right:0;left:0;background:#18181b;border:1px solid #27272a;border-radius:.5rem;margin-top:.25rem;max-height:300px;overflow-y:auto;z-index:60;display:none}
+    #search-results.show{display:block}
+    #search-results a{display:block;padding:.75rem 1rem;color:#e5e7eb;font-size:.875rem;border-bottom:1px solid rgba(255,255,255,.05)}
+    #search-results a:hover{background:rgba(45,212,191,.1);color:#fff}
+    #search-results .no-results{padding:1rem;color:#71717a;font-size:.875rem}
+    @media(max-width:600px){.metrics-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:repeat(2,1fr)}.footer-bottom{flex-direction:column;align-items:center;text-align:center}}
   </style>
 </head>
 <body>
-  <!-- Semantic keywords for SEO (screen-reader only) -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-QPHCT8T1KC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <p class="sr-only">Phoenix v1.8, AgDR sandbox, AI accountability demo, atomic kernel inference, AKI 620ns, BLAKE3, Ed25519, PPP triplet, Provenance Place Purpose, legal admissibility, Canada Evidence Act, CBCA fiduciary, forward-secret Merkle chain, coherence scoring</p>
-  
-  <!-- Skip link -->
+
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  
-  <!-- Nav -->
-  <nav aria-label="Primary">
+
+  <nav class="site-nav" aria-label="Primary">
     <div class="nav-inner">
-      <a href="/" class="brand">ACCOUNTABILITY.AI</a>
+      <a href="/" class="nav-logo">ACCOUNTABILITY.AI</a>
       <div class="nav-links">
         <a href="/getting-started">Get Started</a>
         <a href="/ppp-pillars">The Standard</a>
         <a href="/ppp-legal-compliance">Legal</a>
-        <a href="/sandbox"" aria-current="page">Sandbox</a>
+        <a href="/sandbox" aria-current="page">Sandbox</a>
         <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <!-- Search Bar -->
+      <div class="nav-search" role="search">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+        <input type="search" id="site-search" placeholder="Search docs..." aria-label="Search documentation" autocomplete="off">
+        <div id="search-results" role="listbox" aria-label="Search results"></div>
       </div>
     </div>
   </nav>
-  
-  <!-- Breadcrumb -->
+
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="/">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Phoenix v1.8 Sandbox</span>
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <li aria-hidden="true">/</li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">Sandbox</span>
+        <meta itemprop="position" content="2">
+      </li>
+    </ol>
   </nav>
-  
-  <!-- Hero -->
-  <header class="hero">
-    <span class="hero-badge">Phoenix v1.8 · April 2026</span>
-    <h1>Atomic AI Accountability Demo</h1>
-    <p>620ns AKI latency. BLAKE3+Ed25519 sealing. PPP triplet capture. Legal admissibility mapping. Try atomic AI accountability live in your browser.</p>
-  </header>
-  
-  <!-- Version Toggle -->
+
+  <section class="hero" id="main-content">
+    <span class="hero-badge">AGDR-PHOENIX V1.8 · INTERACTIVE DEMO</span>
+    <h1>Phoenix v1.8 Sandbox.</h1>
+    <p>Atomic AI accountability at 620ns. Configure a capture, run it, and see the full AgDR record.</p>
+  </section>
+
   <div class="version-toggle">
     <button class="version-btn active" id="phoenix-btn" onclick="switchVersion('phoenix')">Phoenix v1.8</button>
     <button class="version-btn inactive" id="legacy-btn" onclick="switchVersion('legacy')">Legacy v0.2</button>
     <p>Compare Phoenix v1.8 atomic capture with legacy format</p>
   </div>
-  
-  <!-- Main -->
-  <main id="main-content">
+
+  <main id="content">
     <!-- Configure Panel -->
     <section class="panel" aria-label="Configure Phoenix capture">
       <h2>Configure Capture</h2>
@@ -216,39 +196,38 @@
         <option>Custom</option>
       </select>
       <p id="domain-help" class="sr-only">Select the domain context for the Phoenix atomic capture demonstration</p>
-      
+
       <label for="context">Key Context</label>
       <input type="text" id="context" placeholder="e.g. Income $120k, Risk Level High" aria-describedby="context-help">
       <p id="context-help" class="sr-only">Optional context string to include in the generated Phoenix record</p>
-      
+
       <button class="btn" onclick="runPhoenixCapture()">Run Atomic Capture</button>
     </section>
-    
+
     <!-- Output Panel -->
     <section class="panel" aria-label="Phoenix atomic record output">
       <h2>Phoenix Atomic Record</h2>
-      <div class="output" id="output" role="log" aria-live="polite">Select domain and context, then click "Run Atomic Capture" to generate a Phoenix v1.8 record.</div>
+      <div class="output" id="output" role="log" aria-live="polite">Select domain and context, then click Run Atomic Capture to generate a Phoenix v1.8 record.</div>
     </section>
-    
+
     <!-- Merkle Chain Visualization (Phoenix only) -->
-    <section class="panel phoenix-only" aria-label="Merkle chain visualization" style="grid-column:1/-1;display:block">
+    <section class="panel phoenix-only" aria-label="Merkle chain visualization">
       <h2>Forward-Secret Merkle Chain</h2>
       <div class="chain-viz">
         <div class="chain-node genesis">Genesis</div>
-        <span class="chain-arrow">→</span>
+        <span class="chain-arrow">&#8594;</span>
         <div class="chain-node block">blk:fe69...</div>
-        <span class="chain-arrow">→</span>
+        <span class="chain-arrow">&#8594;</span>
         <div class="chain-node block">blk:a3c1...</div>
-        <span class="chain-arrow">→</span>
+        <span class="chain-arrow">&#8594;</span>
         <div class="chain-node current" id="current-block">blk:NEW</div>
-        <span class="chain-arrow">→</span>
+        <span class="chain-arrow">&#8594;</span>
         <div class="chain-node next">Next</div>
       </div>
-      <p style="color:#6b7280;font-size:.875rem;margin:0">Each block is cryptographically chained with BLAKE3. Forward secrecy ensures past records cannot be reconstructed from future keys.</p>
     </section>
-    
+
     <!-- Performance Metrics (Phoenix only) -->
-    <section class="panel phoenix-only" aria-label="Phoenix v1.8 performance metrics" style="grid-column:1/-1;display:block">
+    <section class="panel phoenix-only" aria-label="Phoenix performance metrics">
       <h2>Phoenix v1.8 Performance</h2>
       <div class="metrics-grid">
         <div class="metric-card">
@@ -277,34 +256,34 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Legal Compliance (Phoenix only) -->
-    <section class="panel phoenix-only" aria-label="Legal compliance status" style="grid-column:1/-1;display:block">
+    <section class="panel phoenix-only" aria-label="Legal admissibility status">
       <h2>Legal Admissibility Status</h2>
       <div class="compliance-grid">
         <div class="compliance-item">
-          <span class="compliance-check">✓</span>
+          <span class="compliance-check">&#10003;</span>
           <div>
             <div class="compliance-title">CEA s.31.1</div>
             <div class="compliance-desc">Canada Evidence Act Compliant</div>
           </div>
         </div>
         <div class="compliance-item">
-          <span class="compliance-check">✓</span>
+          <span class="compliance-check">&#10003;</span>
           <div>
             <div class="compliance-title">CBCA s.122</div>
             <div class="compliance-desc">Fiduciary Duty Mapped</div>
           </div>
         </div>
         <div class="compliance-item">
-          <span class="compliance-check">✓</span>
+          <span class="compliance-check">&#10003;</span>
           <div>
             <div class="compliance-title">PIPEDA</div>
             <div class="compliance-desc">Privacy Principles Met</div>
           </div>
         </div>
         <div class="compliance-item">
-          <span class="compliance-check">✓</span>
+          <span class="compliance-check">&#10003;</span>
           <div>
             <div class="compliance-title">EU AI Act</div>
             <div class="compliance-desc">High-Risk System Ready</div>
@@ -312,9 +291,9 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Coherence Scoring (Phoenix only) -->
-    <section class="panel phoenix-only" aria-label="Coherence analysis" style="grid-column:1/-1;display:block">
+    <section class="panel phoenix-only" aria-label="Multi-axis coherence scoring">
       <h2>Multi-Axis Coherence Scoring</h2>
       <div class="coherence-item">
         <div class="coherence-header">
@@ -338,68 +317,100 @@
         <div class="coherence-bar"><div class="coherence-fill" id="temporal-fill" style="width:91.8%"></div></div>
       </div>
       <div class="coherence-summary">
-        <div class="coherence-summary-text" id="coherence-summary">Overall Coherence: 91.9% — Above 85% threshold. Auto-proceed authorized.</div>
+        <div class="coherence-summary-text" id="coherence-summary">Overall Coherence: 91.9% - Above 85% threshold. Auto-proceed authorized.</div>
       </div>
     </section>
-    
+
     <!-- Info Box -->
     <div class="info" style="grid-column:1/-1">
       <h3>What this demo shows</h3>
-      <p>Phoenix v1.8 captures the complete PPP triplet — Provenance, Place, and Purpose — at the exact inference instant with 620ns latency. Each record is cryptographically sealed with BLAKE3 + Ed25519 and chained in a forward-secret Merkle tree for court-admissible accountability.</p>
+      <p>Phoenix v1.8 captures the complete PPP triplet (Provenance, Place, and Purpose) at the exact inference instant with 620ns latency. Each record is cryptographically sealed with BLAKE3 + Ed25519 and chained in a forward-secret Merkle tree for court-admissible accountability.</p>
       <p style="margin:0"><a href="/getting-started">Get Started with the SDK</a> to generate real production records.</p>
     </div>
   </main>
-  
-  <!-- Related -->
-  <section class="related" aria-label="Related documentation">
-    <div class="related-inner">
-      <h3>Continue Reading</h3>
-      <div class="related-grid">
-        <a href="/getting-started"" class="related-card"><div class="title">Get Started</div><p class="desc">SDK install, PPP definition, first capture</p></a>
-        <a href="/aki-formal-definition"" class="related-card"><div class="title">AKI Formal Definition</div><p class="desc">The mathematical definition</p></a>
-        <a href="/ppp-pillars"" class="related-card"><div class="title">PPP Pillars</div><p class="desc">Provenance, Place, Purpose</p></a>
-        <a href="/tsx-stress-test"" class="related-card"><div class="title">TSX Stress Test</div><p class="desc">100M decisions, 253K/sec</p></a>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Core Standard</h5>
+        <ul>
+          <li><a href="/getting-started">Get Started</a></li>
+          <li><a href="/sandbox" aria-current="page">Phoenix Demo</a></li>
+          <li><a href="/ppp-pillars">PPP Pillars</a></li>
+          <li><a href="/aki-formal-definition">AKI Definition</a></li>
+          <li><a href="/agdr-spec">AgDR Protocol</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal &amp; Compliance</h5>
+        <ul>
+          <li><a href="/cea-compliance">CEA s.31.1</a></li>
+          <li><a href="/cbca-fiduciary-mapping">CBCA s.122</a></li>
+          <li><a href="/eu-ai-act-mapping">EU AI Act</a></li>
+          <li><a href="/foi-formal-definition">FOI Role</a></li>
+          <li><a href="/verification-audit-procedure">Verification</a></li>
+          <li><a href="/fiduciary-duty-of-care">Fiduciary Duty</a></li>
+          <li><a href="/ppp-export-control">Export Control</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Engineering</h5>
+        <ul>
+          <li><a href="/tsx-stress-test">TSX Stress Test</a></li>
+          <li><a href="/horizontal-scaling">Horizontal Scaling</a></li>
+          <li><a href="/aki-95">AKI 0.95 Spec</a></li>
+          <li><a href="/human-delta-chain-spec">Human Delta Chain</a></li>
+          <li><a href="/CHANGELOG">Changelog</a></li>
+          <li><a href="/aki-capture-deep-explanation">AKI Deep Dive</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Evidence &amp; Vision</h5>
+        <ul>
+          <li><a href="/comparison-aviation-black-box">Aviation Black Box</a></li>
+          <li><a href="/comparison-medical-records">Medical Records</a></li>
+          <li><a href="/agi-court-precedents">AGI Court Precedents</a></li>
+          <li><a href="/future-agi-court">Court in 2076</a></li>
+          <li><a href="/beauty-truth-wisdom">Purpose Framework</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer>
-    <p>The AgDR Standard is open, royalty-free, and dual-licensed:
-      <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0 Universal</a> OR
-      <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a> — your choice.
-    </p>
-    <p>Stewarded by <a href="https://accountability.ai">GENESIS GLASS FOUNDATION / FONDATION GENÈSE CRISTAL</a> · &copy; 2026 Accountability.ai</p>
+    <div class="footer-bottom">
+      <p>Don't trust the machine. Don't even trust us. <strong>Trust the record.</strong></p>
+      <p>
+        <a href="mailto:founding@accountability.ai">founding@accountability.ai</a> &middot;
+        Stewarded by <a href="https://accountability.ai">GENESIS GLASS FOUNDATION / FONDATION GENESE CRISTAL</a> &middot;
+        Dual-licensed: <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0 1.0</a> OR <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache 2.0</a>
+      </p>
+    </div>
   </footer>
-  
   <script>
     // Version toggle
-    function switchVersion(ver){
+    function switchVersion(ver) {
       const phoenixOnly = document.querySelectorAll('.phoenix-only');
-      if(ver==='phoenix'){
+      if (ver === 'phoenix') {
         document.getElementById('phoenix-btn').classList.add('active');
         document.getElementById('phoenix-btn').classList.remove('inactive');
         document.getElementById('legacy-btn').classList.add('inactive');
         document.getElementById('legacy-btn').classList.remove('active');
-        phoenixOnly.forEach(el=>el.style.display='block');
-      }else{
+        phoenixOnly.forEach(el => el.style.display = 'block');
+      } else {
         document.getElementById('legacy-btn').classList.add('active');
         document.getElementById('legacy-btn').classList.remove('inactive');
         document.getElementById('phoenix-btn').classList.add('inactive');
         document.getElementById('phoenix-btn').classList.remove('active');
-        phoenixOnly.forEach(el=>el.style.display='none');
+        phoenixOnly.forEach(el => el.style.display = 'none');
       }
     }
-    
+
     // Phoenix v1.8 atomic capture simulation
-    function runPhoenixCapture(){
+    function runPhoenixCapture() {
       const domain = document.getElementById('domain').value;
       const context = document.getElementById('context').value || 'No context provided';
       const ts = new Date().toISOString();
-      
+
       // Generate simulated hashes
-      function generateHash(){return Array.from(crypto.getRandomValues(new Uint8Array(32))).map(b=>b.toString(16).padStart(2,'0')).join('');}
-      
+      function generateHash() { return Array.from(crypto.getRandomValues(new Uint8Array(32))).map(b => b.toString(16).padStart(2, '0')).join(''); }
+
       // Phoenix v1.8 record structure
       const phoenixRecord = {
         "agdr_version": "1.8.0",
@@ -412,17 +423,17 @@
         "ppp_triplet": {
           "provenance": {
             "origin": "Toronto-AI-Desk-01",
-            "stakeholders": [`${domain} Regulatory Body`, "End User", "System Operator"],
-            "chain_hash": "blake3:" + generateHash().slice(0,16)
+            "stakeholders": [domain + " Regulatory Body", "End User", "System Operator"],
+            "chain_hash": "blake3:" + generateHash().slice(0, 16)
           },
           "place": {
-            "execution_boundary": `${domain}-Policy-Engine`,
+            "execution_boundary": domain + "-Policy-Engine",
             "jurisdiction": "Canada-Federal",
             "compliance_flags": ["CEA-s31.1", "CBCA-s122", "PIPEDA"]
           },
           "purpose": {
             "tier_1_fiduciary": "public_interest",
-            "tier_2_context": domain.toLowerCase().replace(/\s+/g, "_"),
+            "tier_2_context": domain.toLowerCase().replace(/\s+/g, '_'),
             "tier_3_intent": context,
             "coherence_score": (Math.random() * (99 - 94) + 94).toFixed(2) + "%"
           }
@@ -441,8 +452,8 @@
           "total_inference_ns": 620
         },
         "integrity": {
-          "signature": "ed25519:" + generateHash().slice(0,16),
-          "merkle_root": "blake3:" + generateHash().slice(0,16),
+          "signature": "ed25519:" + generateHash().slice(0, 16),
+          "merkle_root": "blake3:" + generateHash().slice(0, 16),
           "chain_position": Math.floor(Math.random() * 1000000),
           "forward_secret": true
         },
@@ -458,40 +469,73 @@
           "retention_years": 15
         }
       };
-      
+
       // Update output
       document.getElementById('output').textContent = JSON.stringify(phoenixRecord, null, 2);
-      
+
       // Update Merkle chain visualization
-      document.getElementById('current-block').textContent = 'blk:' + generateHash().slice(0,6) + '...';
-      
+      document.getElementById('current-block').textContent = 'blk:' + generateHash().slice(0, 6) + '...';
+
       // Update coherence scores with realistic variation
       const semantic = (Math.random() * (97 - 92) + 92).toFixed(1);
       const normative = (Math.random() * (93 - 87) + 87).toFixed(1);
       const temporal = (Math.random() * (95 - 89) + 89).toFixed(1);
       const overall = ((parseFloat(semantic) + parseFloat(normative) + parseFloat(temporal)) / 3).toFixed(1);
-      
+
       document.getElementById('semantic-score').textContent = semantic + '%';
       document.getElementById('normative-score').textContent = normative + '%';
       document.getElementById('temporal-score').textContent = temporal + '%';
       document.getElementById('semantic-fill').style.width = semantic + '%';
       document.getElementById('normative-fill').style.width = normative + '%';
       document.getElementById('temporal-fill').style.width = temporal + '%';
-      
-      const summary = overall >= 85 
-        ? `Overall Coherence: ${overall}% — Above 85% threshold. Auto-proceed authorized.`
-        : `Overall Coherence: ${overall}% — Below 85% threshold. FOI review recommended.`;
+
+      const summary = overall >= 85
+        ? 'Overall Coherence: ' + overall + '% - Above 85% threshold. Auto-proceed authorized.'
+        : 'Overall Coherence: ' + overall + '% - Below 85% threshold. FOI review recommended.';
       document.getElementById('coherence-summary').textContent = summary;
+
+      // Show Phoenix-only sections
+      document.querySelectorAll('.phoenix-only').forEach(el => el.style.display = 'block');
     }
-    
-    // Initialize with Phoenix view
-    document.addEventListener('DOMContentLoaded', () => {
-      switchVersion('phoenix');
-    });
+
+    const searchIndex = [
+      {title:"Get Started",url:"/getting-started.html",desc:"SDK install, PPP definition, first capture"},
+      {title:"Phoenix Demo",url:"/sandbox.html",desc:"Interactive atomic accountability demo"},
+      {title:"PPP Pillars",url:"/ppp-pillars.html",desc:"Provenance, Place, Purpose framework"},
+      {title:"AKI Definition",url:"/aki-formal-definition.html",desc:"Mathematical definition of Atomic Kernel Inference"},
+      {title:"AgDR Protocol",url:"/agdr-spec.html",desc:"Atomic Genesis Decision Record specification"},
+      {title:"CEA Compliance",url:"/cea-compliance.html",desc:"Canada Evidence Act s.31.1 mapping"},
+      {title:"CBCA Fiduciary",url:"/cbca-fiduciary-mapping.html",desc:"Director fiduciary duty accountability"},
+      {title:"EU AI Act",url:"/eu-ai-act-mapping.html",desc:"High-risk AI system compliance"},
+      {title:"FOI Definition",url:"/foi-formal-definition.html",desc:"Fiduciary Office Intervener role"},
+      {title:"Verification",url:"/verification-audit-procedure.html",desc:"CLI and manual audit procedure"},
+      {title:"TSX Stress Test",url:"/tsx-stress-test.html",desc:"620ns latency benchmark on live TSX data"},
+      {title:"Horizontal Scaling",url:"/horizontal-scaling.html",desc:"Root Merkle Coordinator architecture"},
+      {title:"AKI 0.95 Spec",url:"/aki-95.html",desc:"Coherence threshold specification"},
+      {title:"Human Delta Chain",url:"/human-delta-chain-spec.html",desc:"Human intervention record format"},
+      {title:"Changelog",url:"/CHANGELOG.html",desc:"Version history for AgDR standard"},
+      {title:"Aviation Black Box",url:"/comparison-aviation-black-box.html",desc:"Black box analogy for AI accountability"},
+      {title:"Medical Records",url:"/comparison-medical-records.html",desc:"Medical record standard comparison"},
+      {title:"AGI Court Precedents",url:"/agi-court-precedents.html",desc:"Legal precedents for AGI accountability"},
+      {title:"Court in 2076",url:"/future-agi-court.html",desc:"Future legal landscape for AI"},
+      {title:"Purpose Framework",url:"/beauty-truth-wisdom.html",desc:"Philosophical foundation of accountability"},
+      {title:"Fiduciary Duty",url:"/fiduciary-duty-of-care.html",desc:"Fiduciary duty of care for AI systems"},
+      {title:"Export Control",url:"/ppp-export-control.html",desc:"PPP export control compliance"},
+      {title:"AKI Deep Dive",url:"/aki-capture-deep-explanation.html",desc:"Deep technical explanation of AKI capture"}
+    ];
+    const input = document.getElementById('site-search');
+    const results = document.getElementById('search-results');
+    if (input && results) {
+      input.addEventListener('input', () => {
+        const q = input.value.trim().toLowerCase();
+        if (!q) { results.classList.remove('show'); results.innerHTML = ''; return; }
+        const hits = searchIndex.filter(p => p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
+        if (!hits.length) { results.innerHTML = '<div class="no-results">No results found.</div>'; results.classList.add('show'); return; }
+        results.innerHTML = hits.map(p => '<a href="' + p.url + '"><strong>' + p.title + '</strong> - ' + p.desc + '</a>').join('');
+        results.classList.add('show');
+      });
+      document.addEventListener('click', e => { if (!e.target.closest('.nav-search')) { results.classList.remove('show'); } });
+    }
   </script>
 </body>
 </html>
-
-
-
-
