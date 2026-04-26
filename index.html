@@ -1,60 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" itemscope itemtype="https://schema.org/WebPage">
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  
   <title>AgDR: Open Standard for Court-Admissible AI Decision Records | Accountability.ai</title>
-  
-  <meta name="description" content="The Atomic Genesis Decision Record (AgDR) is the open standard for tamper-evident, court-admissible AI decision records. Compliant with the EU AI Act, NIST AI RMF, Canada Evidence Act, and existing fiduciary law. CC0 / Apache 2.0.">
-  
+  <meta name="description" content="The Atomic Genesis Decision Record (AgDR) is the open standard for tamper-evident, court-admissible AI decision records. Compliant with the EU AI Act, NIST AI RMF, and Canada Evidence Act. CC0 / Apache 2.0.">
   <link rel="canonical" href="https://accountability.ai/">
   
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Accountability.ai">
-  <meta property="og:url" content="https://accountability.ai/">
-  <meta property="og:title" content="AgDR: Open Standard for Court-Admissible AI Decision Records | Accountability.ai">
-  <meta property="og:description" content="The Atomic Genesis Decision Record (AgDR) is the open standard for tamper-evident, court-admissible AI decision records. CC0 / Apache 2.0.">
-  <meta property="og:locale" content="en_US">
-  
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AgDR: Open Standard for Court-Admissible AI Decision Records | Accountability.ai">
-  <meta name="twitter:description" content="The Atomic Genesis Decision Record (AgDR) is the open standard for tamper-evident, court-admissible AI decision records. CC0 / Apache 2.0.">
-  
-  <meta property="og:image" content="https://accountability.ai/social-preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:alt" content="AgDR: The Zero-Latency Floor. Court-admissible AI decision records.">
-
-  <meta name="twitter:image" content="https://accountability.ai/social-preview.png">
-  <meta name="twitter:image:alt" content="AgDR: The Zero-Latency Floor. Court-admissible AI decision records.">
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Accountability.ai",
-  "url": "https://accountability.ai",
-  "author": { "@type": "Person", "name": "Robert Muncaster" },
-  "publisher": {
-    "@type": "Organization",
-    "name": "GENESIS GLASS FOUNDATION",
-    "alternateName": "FONDATION GENÈSE CRISTAL",
-    "url": "https://accountability.ai",
-    "sameAs": ["https://github.com/aiccountability-source"],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Oshawa",
-      "addressRegion": "ON",
-      "addressCountry": "CA"
-    }
-  },
-  "license": "https://creativecommons.org/publicdomain/zero/1.0/ OR https://www.apache.org/licenses/LICENSE-2.0"
-}
-</script>
-
   <style>
     :root{--bg:#050505;--text:#e5e7eb;--text-dim:#d4d4d8;--text-muted:#ADADAD;--teal:#2dd4bf;--border:rgba(255,255,255,0.05);--card:rgba(255,255,255,0.03);--gradient:radial-gradient(circle at top,#0d7377 0%,#050505 70%)}
     *{box-sizing:border-box;margin:0;padding:0}
@@ -62,23 +14,171 @@
     body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
     a{color:inherit;text-decoration:none;transition:color .2s}
     a:hover{color:var(--teal)}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .skip-link{position:absolute;top:-100%;left:0;background:var(--teal);color:#000;padding:.75rem 1.5rem;z-index:100;font-weight:700;border-radius:0 0 .5rem 0}
-    .skip-link:focus{top:0}
     .site-nav{position:sticky;top:0;z-index:50;background:rgba(5,5,5,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:.75rem 0}
-    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
-    .nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:#fff}
-    .nav-links{display:none;gap:1.5rem;font-size:.875rem;font-weight:500;color:var(--text-dim)}
-    .nav-links a:hover{color:var(--teal)}
-    @media(min-width:768px){.nav-links{display:flex}}
-    .breadcrumb{max-width:1200px;margin:0 auto;padding:.5rem 1.5rem;font-size:.75rem;color:var(--text-muted)}
-    .breadcrumb a:hover{color:var(--teal)}
-    .breadcrumb ol{display:flex;gap:.25rem;list-style:none}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center}
+    .nav-logo{font-size:1.25rem;font-weight:700;color:#fff}
+    .nav-links{display:flex;gap:1.5rem;font-size:.875rem;font-weight:500}
     .hero{background:var(--gradient);padding:4rem 1.5rem 6rem;text-align:center}
     .hero-content{max-width:800px;margin:0 auto}
-    .hero-badge{display:inline-block;background:rgba(45,212,191,.1);color:var(--teal);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem}
-    .hero-title{font-size:clamp(3rem,6vw,4.5rem);font-weight:700;letter-spacing:-.025em;line-height:1;margin:0 0 1.5rem;color:#fff}
-    .hero-lead{font-size:1.25rem;color:#d4d4d8;line-height:1.75;margin-bottom:2.5rem;max-width:600px;margin-left:auto;margin-right:auto}
-    .hero-buttons{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
-    .btn{display:inline-block;padding:1rem 2.5rem;border-radius:.5rem;font-weight:700;text-align:center;transition:all .2s;cursor:pointer;border:none;font-size:1rem}
-    .
+    .hero-badge{display:inline-block;background:rgba(45,212,191,.1);color:var(--teal);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:700;text-transform:uppercase;margin-bottom:1rem}
+    .hero-title{font-size:clamp(3rem,6vw,4.5rem);font-weight:700;line-height:1;margin-bottom:1.5rem;color:#fff}
+    .hero-lead{font-size:1.25rem;color:#d4d4d8;margin-bottom:2.5rem}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:2rem}
+    .btn{padding:1rem 2.5rem;border-radius:.5rem;font-weight:700;transition:all .2s;display:inline-block}
+    .btn-primary{background:#14b8a6;color:#000}
+    .btn-secondary{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff}
+    .stats-section{padding:5rem 1.5rem;background:#000}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;max-width:1200px;margin:0 auto}
+    .stat-card{background:var(--card);border:1px solid rgba(45,212,191,0.1);border-radius:1rem;padding:1.5rem}
+    .stat-label{color:var(--teal);font-family:monospace;font-size:.875rem}
+    .stat-value{font-size:1.875rem;font-weight:700;color:#fff}
+    .ledger-section{padding:6rem 1.5rem;background:#09090b;border-top:1px solid var(--border)}
+    .ledger-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem;max-width:1200px;margin:0 auto}
+    .ledger-column h2{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:.5rem}
+    .matrix-link{border-left:1px solid rgba(255,255,255,0.05);padding-left:1rem;margin-bottom:1.5rem}
+    .matrix-link a{display:block;font-size:1.125rem;font-weight:700;color:#fff}
+    .matrix-link span{font-size:.75rem;color:var(--text-dim);font-family:monospace}
+    .spec-section{padding:5rem 1.5rem;border-top:1px solid var(--border)}
+    .spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2.5rem;max-width:1200px;margin:0 auto;align-items:center}
+    .spec-code{background:#18181b;border:1px solid rgba(255,255,255,0.1);border-radius:1rem;padding:2rem;font-family:monospace;color:#5eead4}
+    .faq-section{padding:5rem 1.5rem;background:#09090b;border-top:1px solid var(--border)}
+    .faq-container{max-width:800px;margin:0 auto}
+    .faq-item{background:var(--card);border:1px solid var(--border);border-radius:.75rem;margin-bottom:1rem;overflow:hidden}
+    .faq-question{padding:1.25rem 1.5rem;font-weight:600;color:#fff;cursor:pointer;list-style:none}
+    .faq-answer{padding:0 1.5rem 1.5rem;color:var(--text-dim)}
+    .site-footer{background:#000;padding:4rem 1.5rem;border-top:1px solid var(--border);text-align:center;font-size:.75rem;color:var(--text-muted)}
+  </style>
+</head>
+
+<body>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">ACCOUNTABILITY.AI</a>
+      <div class="nav-links">
+        <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank">GitHub</a>
+        <a href="/getting-started">Started</a>
+        <a href="/sandbox">Sandbox</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">AgDR-Phoenix v1.8 · April 2026</span>
+        <h1 class="hero-title">The Zero-Latency Floor.</h1>
+        <p class="hero-lead">The Atomic Genesis Decision Record (AgDR) is the open standard for court-admissible AI decision records. Sub-microsecond provenance tracking for forensic AI integrity.</p>
+        
+        <div class="hero-buttons">
+          <a href="/getting-started" class="btn btn-primary">Get Started</a>
+          <a href="/sandbox" class="btn btn-secondary">Try Phoenix Demo</a>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem;align-items:center">
+          <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank">
+            <img src="https://img.shields.io/badge/GitHub-AgDR--Phoenix-black?style=flat-square&logo=github&labelColor=27272a" alt="GitHub AgDR-Phoenix" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <a href="https://crates.io/crates/agdr-aki" target="_blank">
+            <img src="https://img.shields.io/crates/v/agdr-aki?style=flat-square&label=crates.io&color=F74C00&labelColor=27272a" alt="crates.io version" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <a href="https://pypi.org/project/agdr-aki/" target="_blank">
+            <img src="https://img.shields.io/pypi/v/agdr-aki?style=flat-square&label=PyPI:AKI&color=3775A9&labelColor=27272a" alt="PyPI version" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <a href="https://pypi.org/project/agdr-mantle/" target="_blank">
+            <img src="https://img.shields.io/pypi/v/agdr-mantle?style=flat-square&label=AgDR--Mantle:QPC&color=14b8a6&labelColor=27272a" alt="PyPI AgDR-Mantle" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <div style="display:flex;gap:0.5rem">
+            <span style="height:24px;display:inline-flex;align-items:center;padding:0 8px;background:#27272a;color:#5eead4;font-size:10px;font-family:monospace;border-radius:4px;border:1px solid rgba(45,212,191,0.2);font-weight:700;">QPC: ML-DSA</span>
+            <span style="height:24px;display:inline-flex;align-items:center;padding:0 8px;background:#27272a;color:#d4d4d8;font-size:10px;font-family:monospace;border-radius:4px;border:1px solid rgba(255,255,255,0.1);font-weight:700;">BONTLI_COMPRESSION</span>
+          </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">LATENCY</div>
+          <div class="stat-value">0.62 µs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">THROUGHPUT</div>
+          <div class="stat-value">1.1M/s</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">INTEGRITY</div>
+          <div class="stat-value">BLAKE3</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">RELIABILITY</div>
+          <div class="stat-value">100%</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ledger-section">
+      <div class="ledger-grid">
+        <div class="ledger-column">
+          <h2>Mechanical Floor</h2>
+          <div class="matrix-link"><a href="/aki-95">AKI 0.95 Spec</a><span>950ns Atomic Kernel Gating</span></div>
+          <div class="matrix-link"><a href="/agdr-spec">AgDR Protocol</a><span>v1.8 Standard</span></div>
+        </div>
+        <div class="ledger-column">
+          <h2>Statutory Teeth</h2>
+          <div class="matrix-link"><a href="/cea-compliance">CEA s.31.1 Admissibility</a><span>Canada Evidence Act</span></div>
+          <div class="matrix-link"><a href="/cbca-fiduciary-mapping">CBCA s.122 Mapping</a><span>Director Fiduciary Duty</span></div>
+        </div>
+        <div class="ledger-column">
+          <h2>Forensic Archive</h2>
+          <div class="matrix-link"><a href="/legal-glossary">Forensic Glossary</a><span>Chain of Definition</span></div>
+          <div class="matrix-link"><a href="/future-agi-court">Judicial Future</a><span>15-Year Stewardship</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="spec-section">
+      <div class="spec-grid">
+        <div class="spec-content">
+          <h3>Trust the Record.</h3>
+          <p>The AI accountability kernel is finding its audience. 955 clones in 11 days with zero marketing.</p>
+          <div style="margin-top:2rem">
+            <strong>Provenance:</strong> Who is acting, on whose behalf.<br>
+            <strong>Place:</strong> Where the decision is headed.<br>
+            <strong>Purpose:</strong> The explicit intent and ethical anchor.
+          </div>
+        </div>
+        <div class="spec-code">
+          {
+            "version": "1.8.2",
+            "aki_latency_ns": 620,
+            "sig": "ml-dsa_qpc...",
+            "root": "blake3_forest..."
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+      <div class="faq-container">
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">What is an AI decision record?</summary>
+            <div class="faq-answer">It is a permanent, tamper-proof log captured at the exact inference instant. Think of it as a flight data recorder for AI reasoning.</div>
+          </details>
+        </div>
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">Does this slow down innovation?</summary>
+            <div class="faq-answer">No. At 620 nanoseconds, it is faster than a network packet. It removes the governance friction that keeps institutional capital on the sidelines.</div>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 GENESIS GLASS FOUNDATION. Shared under CC0 / Apache 2.0.</p>
+    <p>Oshawa, ON.</p>
+  </footer>
+</body>
+</html>
