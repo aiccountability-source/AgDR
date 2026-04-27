@@ -35,9 +35,11 @@
     .ledger-section{padding:6rem 1.5rem;background:#09090b;border-top:1px solid var(--border)}
     .ledger-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2.5rem;max-width:1200px;margin:0 auto}
     .ledger-column h2{font-size:.75rem;color:var(--text-muted);text-transform:uppercase;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:.5rem}
-    .matrix-link{border-left:1px solid rgba(255,255,255,0.05);padding-left:1rem;margin-bottom:1.5rem}
-    .matrix-link a{display:block;font-size:1.125rem;font-weight:700;color:#fff}
-    .matrix-link span{font-size:.75rem;color:var(--text-dim);font-family:monospace}
+    .matrix-link{border-left:1px solid rgba(255,255,255,0.05);padding-left:1rem;margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center}
+    .matrix-link a{display:block;font-size:1.125rem;font-weight:700;color:#fff;flex:1}
+    .matrix-link span{font-size:.75rem;color:var(--text-dim);font-family:monospace;margin-right:1rem}
+    .matrix-link::after{content:'❯';color:var(--teal);font-size:1.25rem;transition:transform .2s}
+    .matrix-link:hover::after{transform:translateX(4px)}
     .spec-section{padding:5rem 1.5rem;border-top:1px solid var(--border)}
     .spec-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2.5rem;max-width:1200px;margin:0 auto;align-items:center}
     .spec-code{background:#18181b;border:1px solid rgba(255,255,255,0.1);border-radius:1rem;padding:2rem;font-family:monospace;color:#5eead4}
@@ -50,7 +52,14 @@
     details[open] .faq-question::after{transform:rotate(180deg)}
     .faq-answer{padding:0 1.5rem 1.5rem;color:var(--text-dim);max-height:0;overflow:hidden;transition:max-height .3s ease;opacity:0}
     details[open] .faq-answer{max-height:500px;opacity:1}
-    .site-footer{background:#000;padding:4rem 1.5rem;border-top:1px solid var(--border);text-align:center;font-size:.75rem;color:var(--text-muted)}
+    .site-footer{background:#000;padding:4rem 1.5rem;border-top:1px solid var(--border)}
+    .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:3rem;max-width:1200px;margin:0 auto;padding-bottom:2rem}
+    .footer-section h3{font-size:.75rem;color:var(--teal);font-weight:700;text-transform:uppercase;margin-bottom:1.5rem;letter-spacing:.1em}
+    .footer-section ul{list-style:none;padding:0;margin:0}
+    .footer-section li{margin-bottom:.75rem}
+    .footer-section a{font-size:.875rem;color:var(--text-dim);transition:color .2s}
+    .footer-section a:hover{color:var(--teal)}
+    .footer-bottom{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid var(--border);text-align:center;font-size:.75rem;color:var(--text-muted)}
   </style>
 </head>
 
@@ -205,8 +214,53 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2026 GENESIS GLASS FOUNDATION. Shared under CC0 / Apache 2.0.</p>
-    <p>Oshawa, ON.</p>
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Core Standard</h3>
+        <ul>
+          <li><a href="/getting-started">Get Started</a></li>
+          <li><a href="/sandbox">Phoenix Demo</a></li>
+          <li><a href="/ppp-pillars">PPP Pillars</a></li>
+          <li><a href="/aki-formal-definition">AKI Definition</a></li>
+          <li><a href="/agdr-spec">AgDR Protocol</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Legal & Compliance</h3>
+        <ul>
+          <li><a href="/cea-compliance">CEA s.31.1</a></li>
+          <li><a href="/cbca-fiduciary-mapping">CBCA s.122</a></li>
+          <li><a href="/eu-ai-act-mapping">EU AI Act</a></li>
+          <li><a href="/foi-formal-definition">FOI Role</a></li>
+          <li><a href="/verification-audit-procedure">Verification</a></li>
+          <li><a href="/fiduciary-duty-of-care">Fiduciary Duty</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Engineering</h3>
+        <ul>
+          <li><a href="/tsx-stress-test">TSX Stress Test</a></li>
+          <li><a href="/horizontal-scaling">Horizontal Scaling</a></li>
+          <li><a href="/aki-95">AKI 0.95 Spec</a></li>
+          <li><a href="/human-delta-chain-spec">Human Delta Chain</a></li>
+          <li><a href="/CHANGELOG">Changelog</a></li>
+          <li><a href="/aki-capture-deep-explanation">AKI Deep Dive</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Vision & Evidence</h3>
+        <ul>
+          <li><a href="/comparison-aviation-black-box">Aviation Black Box</a></li>
+          <li><a href="/comparison-medical-records">Medical Records</a></li>
+          <li><a href="/agi-court-precedents">AGI Court Precedents</a></li>
+          <li><a href="/future-agi-court">Court in 2076</a></li>
+          <li><a href="/beauty-truth-wisdom">Purpose Framework</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 <a href="https://genesis-glass-foundation.org" target="_blank">GENESIS GLASS FOUNDATION</a>. <strong>Open Standard.</strong> Shared under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a> / <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a>. Built in Oshawa, ON.</p>
+    </div>
   </footer>
 </body>
 </html>
