@@ -217,7 +217,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
+<url>
+    <loc>https://accountability.ai//reasoning-capture-methodology.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://accountability.ai/CHANGELOG</loc>
     <lastmod>2026-04-03</lastmod>
