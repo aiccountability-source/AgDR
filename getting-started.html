@@ -12,31 +12,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   
   <!-- Optimized Title -->
-  <title>Getting Started | Initialize AgDR v1.8 Phoenix | accountability.ai</title>
+  <title>Getting Started | Initialize AgDR-Phoenix v1.8.12 | accountability.ai</title>
   
   <!-- English meta description -->
-  <meta name="description" content="Deploy AgDR-Phoenix v1.8 in three steps. Install the Rust core, define the PPP Triplet, and commit your first atomic inference. Court-admissible by design.">
+  <meta name="description" content="Deploy AgDR-Phoenix v1.8.12 in three steps. Install the Rust core, define the PPP Triplet, and commit your first atomic inference. Court-admissible by design.">
   
   <!-- Hreflang for bilingual SEO -->
-  <link rel="alternate" hreflang="en" href="https://accountability.ai/getting-started""/>
-  <link rel="alternate" hreflang="x-default" href="https://accountability.ai/getting-started""/>
+  <link rel="alternate" hreflang="en" href="https://accountability.ai/getting-started"/>
+  <link rel="alternate" hreflang="x-default" href="https://accountability.ai/getting-started"/>
   
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://accountability.ai/getting-started""/>
+  <link rel="canonical" href="https://accountability.ai/getting-started"/>
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Accountability.ai">
   <meta property="og:url" content="https://accountability.ai/getting-started.html">
-  <meta property="og:title" content="Getting Started | Initialize AgDR v1.8 Phoenix">
-  <meta property="og:description" content="Deploy AgDR-Phoenix v1.8 in three steps. Install the Rust core, define the PPP Triplet, and commit your first atomic inference.">
+  <meta property="og:title" content="Getting Started | Initialize AgDR-Phoenix v1.8.12">
+  <meta property="og:description" content="Deploy AgDR-Phoenix v1.8.12 in three steps. Install the Rust core, define the PPP Triplet, and commit your first atomic inference.">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_CA">
   
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Getting Started | Initialize AgDR v1.8 Phoenix">
-  <meta name="twitter:description" content="Deploy AgDR-Phoenix v1.8 in three steps. Install the Rust core, define the PPP Triplet, and commit your first atomic inference.">
+  <meta name="twitter:title" content="Getting Started | Initialize AgDR-Phoenix v1.8.12">
+  <meta name="twitter:description" content="Deploy AgDR-Phoenix v1.8.12 in three steps. Install the Rust core, define the PPP Triplet, and commit your first atomic inference.">
   
   <!-- Schema.org: WebSite + BreadcrumbList + HowTo -->
   <script type="application/ld+json">
@@ -88,7 +89,7 @@
   {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    "name": "Initialize AgDR-Phoenix v1.8",
+    "name": "Initialize AgDR-Phoenix v1.8.12",
     "description": "Step-by-step guide to deploy the Atomic Governance Decision Record in your AI infrastructure.",
     "step": [{
       "@type": "HowToStep",
@@ -107,7 +108,7 @@
       "text": "Execute inference with atomic sealing via BLAKE3 hashing and Ed25519 signing."
     }],
     "programmingLanguage": "Rust",
-    "softwareVersion": "1.8.0",
+    "softwareVersion": "1.8.12",
     "codeRepository": "https://github.com/aiccountability-source/AgDR-Phoenix",
     "dateModified": "2026-04-12"
   }
@@ -211,7 +212,25 @@
       .next-steps{flex-direction:column}
       .next-steps .btn{width:100%;justify-content:center}
     }
-  </style>
+  
+    /* CSS-only dropdown for GitHub repos */
+    .dropdown{position:relative;display:inline-block}
+    .dropdown-toggle{cursor:pointer;color:var(--teal);font-size:.875rem;font-weight:500;display:inline-flex;align-items:center;gap:.25rem}
+    .dropdown-toggle::after{content:'▼';font-size:.6rem;opacity:.7}
+    .dropdown-menu{position:absolute;top:100%;right:0;background:#18181b;border:1px solid #27272a;border-radius:.5rem;padding:.5rem 0;margin-top:.25rem;min-width:220px;z-index:60;display:none;box-shadow:0 10px 30px rgba(0,0,0,.5)}
+    .dropdown:hover .dropdown-menu,.dropdown:focus-within .dropdown-menu{display:block}
+    .dropdown-menu a{display:block;padding:.5rem 1rem;color:var(--text-dim);font-size:.875rem;white-space:nowrap}
+    .dropdown-menu a:hover{background:rgba(45,212,191,.1);color:#fff}
+    .dropdown-menu .sep{border-top:1px solid var(--border);margin:.25rem 0}
+    .dropdown-menu small{display:block;padding:.25rem 1rem 0;color:var(--text-muted);font-size:.75rem}
+
+    /* Charter / legal callout blocks */
+    .charter-block{background:var(--card);border-left:3px solid var(--teal);border-radius:0 .75rem .75rem 0;padding:1.5rem 1.5rem 1.5rem 1.25rem;margin:1.5rem 0}
+    .charter-label{display:block;color:var(--teal);font-family:monospace;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.75rem}
+    .charter-block p{color:var(--text-dim);font-size:.9375rem;line-height:1.7;margin:0}
+    .charter-block a{color:var(--teal);text-decoration:underline;text-underline-offset:2px}
+    .legal-badge{display:inline-block;background:var(--teal);color:#000;padding:.5rem 1rem;border-radius:.5rem;font-size:.875rem;font-weight:700;margin-top:1rem}
+</style>
 </head>
 
 <body>
@@ -220,7 +239,7 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   <!-- Semantic keywords for SEO (screen-reader only) -->
-  <p class="sr-only">AgDR, Phoenix v1.8, AI accountability, atomic kernel inference, AKI, BLAKE3, Ed25519, PPP triplet, Provenance Place Purpose, court-admissible AI, Canada Evidence Act, CBCA fiduciary, Genesis Glass Foundation, AI governance, Rust SDK, getting started, implementation guide</p>
+  <p class="sr-only">AgDR, Phoenix v1.8.12, AI accountability, atomic kernel inference, AKI, BLAKE3, Ed25519, PPP triplet, Provenance Place Purpose, court-admissible AI, Canada Evidence Act, CBCA fiduciary, Genesis Glass Foundation, AI governance, Rust SDK, getting started, implementation guide</p>
   
   <!-- Skip link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -231,10 +250,30 @@
       <a href="/" class="nav-logo">ACCOUNTABILITY.AI</a>
       
       <div class="nav-links">
-        <a href="/#ledger">Forensic Ledger</a>
-        <a href="/#spec">Specification</a>
-        <a href="/sandbox">Phoenix Demo</a>
-        <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
+        <a href="/">Home</a>
+        <a href="/charter">Charter</a>
+        <div class="dropdown" role="navigation" aria-label="GitHub repositories">
+          <span class="dropdown-toggle" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">GitHub</span>
+          <div class="dropdown-menu" role="menu">
+            <a href="https://github.com/aiccountability-source/AgDR" target="_blank" rel="noopener" role="menuitem">aiccountability-source/AgDR</a>
+            <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" role="menuitem">aiccountability-source/AgDR-Phoenix</a>
+            <a href="https://github.com/aiccountability-source/AgDR-Mantle" target="_blank" rel="noopener" role="menuitem">aiccountability-source/AgDR-Mantle</a>
+          </div>
+        <div style="margin-top:2rem;padding:1.25rem 1.5rem;background:rgba(45,212,191,0.05);border:1px solid rgba(45,212,191,0.15);border-radius:.75rem;max-width:700px;margin-left:auto;margin-right:auto;text-align:left">
+          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:.75rem;font-family:ui-monospace,monospace">
+            <span style="color:var(--teal)">$</span> pip3 install agdr-aki &nbsp;&nbsp;<span style="color:var(--text-muted)"># Windows · Linux · macOS · ARM</span>
+          </p>
+          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:.75rem;font-family:ui-monospace,monospace">
+            <span style="color:var(--teal)">$</span> pip3 install agdr-mantle &nbsp;<span style="color:var(--text-muted)"># Post-quantum fortification layer</span>
+          </p>
+          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:0;font-family:ui-monospace,monospace">
+            <span style="color:var(--teal)">$</span> cargo add agdr-aki &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--text-muted)"># Rust core</span>
+          </p>
+          <p style="font-size:.75rem;color:var(--text-muted);margin-top:.75rem;margin-bottom:0">
+            Prebuilt wheels for Windows (x64), Linux (x86_64, aarch64), macOS (Intel, Apple Silicon), and ARM via piwheels. Nemoclaw Python harness. No Rust toolchain required for Python install. Royalty-free. CC0 / Apache 2.0.
+          </p>
+        </div>
+        </div>
       </div>
       
       <!-- Search Bar -->
@@ -247,32 +286,27 @@
   </nav>
   
   <!-- Breadcrumb -->
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
-        <meta itemprop="position" content="1">
-      </li>
-      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-        <span itemprop="name">Getting Started</span>
-        <meta itemprop="position" content="2">
-      </li>
-    </ol>
-  </nav>
+  
 
   <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
-      <span class="hero-badge">AgDR-Phoenix v1.8 · Implementation Guide</span>
+      <span class="hero-badge">AgDR-Phoenix v1.8.12 · Implementation Guide</span>
       <h1 class="hero-title">Initialize Accountability.</h1>
       <p class="hero-lead">
         Deploy the Atomic Governance Decision Record in three steps. Move from black-box inference to provable, court-admissible system integrity.
       </p>
       <div class="hero-buttons">
         <a href="#step-01" class="btn btn-primary">Begin Implementation</a>
-        <a href="/sandbox"" class="btn btn-secondary">Try Interactive Demo</a>
+        <span class="btn btn-secondary" style="cursor:default">Try Interactive Demo</span>
         <a href="https://crates.io/crates/agdr-aki" class="btn btn-secondary" target="_blank" rel="noopener">View on crates.io</a>
       </div>
+        <div style="margin-top:1.5rem;padding:1rem 1.5rem;background:var(--teal);border-radius:.75rem;max-width:700px;margin-left:auto;margin-right:auto;text-align:center;display:inline-block">
+          <p style="font-size:.875rem;color:#000;font-weight:600;margin:0;display:inline-flex;align-items:center;gap:.5rem">
+            <span>🇨🇦</span>
+            <span>Stewarded by <strong>Genesis Glass Foundation</strong> · Canada NFP Corp. No. 1779509-2 · <a href="/charter" style="color:#000;text-decoration:underline;font-weight:700">Articles of Incorporation →</a></span>
+          </p>
+        </div>
     </div>
   </section>
 
@@ -289,7 +323,7 @@
         <div style="margin:1.5rem 0;padding:1rem;background:#18181b;border-radius:.75rem;border:1px solid var(--border)">
           <strong style="color:#fff;display:block;margin-bottom:.5rem">Option A: Via Cargo (Published Crate)</strong>
           <pre><code>[dependencies]
-agdr-aki = "1.8"</code></pre>
+agdr-aki = "1.8.12"</code></pre>
         </div>
 
         <div style="margin:1.5rem 0;padding:1rem;background:#18181b;border-radius:.75rem;border:1px solid var(--teal)">
@@ -303,7 +337,7 @@ agdr-aki = "1.8"</code></pre>
 
         <div style="margin:1.5rem 0;padding:1rem;background:#18181b;border-left:3px solid var(--teal);border-radius:0 .75rem .75rem 0">
           <strong style="color:#fff;display:block;margin-bottom:.5rem">Option C: Build from Source (Reference Implementation)</strong>
-          <p style="margin:0 0 .75rem;color:var(--text-dim);font-size:.9rem">Clone the AgDR-Phoenix SDK, the canonical Rust and PyO3 implementation of AgDR v1.8:</p>
+          <p style="margin:0 0 .75rem;color:var(--text-dim);font-size:.9rem">Clone the AgDR-Phoenix SDK, the canonical Rust and PyO3 implementation of AgDR Protocol v0.2 (agdr-aki v1.8.12, agdr-mantle v1.1.5):</p>
           <pre><code>git clone https://github.com/aiccountability-source/AgDR-Phoenix.git
 cd AgDR-Phoenix
 cargo build --release</code></pre>
@@ -361,7 +395,7 @@ println!("Signature: {}", output.signature());</code></pre>
         <div class="next-steps">
           <a href="https://crates.io/crates/agdr-aki" class="btn btn-primary" target="_blank" rel="noopener">View on crates.io</a>
           <a href="https://pypi.org/project/agdr-aki/" class="btn btn-secondary" target="_blank" rel="noopener">View on PyPI</a>
-          <a href="/sandbox"" class="btn btn-secondary">Try Interactive Demo</a>
+          <span class="btn btn-secondary" style="cursor:default">Try Interactive Demo</span>
           <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" class="btn btn-secondary">View Source on GitHub</a>
         </div>
       </section>
@@ -373,47 +407,50 @@ println!("Signature: {}", output.signature());</code></pre>
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <h5>Core Standard</h5>
+        <h5>Navigate</h5>
         <ul>
-          <li><a href="/getting-started">Get Started</a></li>
-          <li><a href="/sandbox">Phoenix Demo</a></li>
-          <li><a href="/ppp-pillars">PPP Pillars</a></li>
-          <li><a href="/aki-formal-definition">AKI Definition</a></li>
-          <li><a href="/agdr-spec">AgDR Protocol</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/charter">Charter</a></li>
+          <li><a href="https://crates.io/crates/agdr-aki" target="_blank" rel="noopener">crates.io</a></li>
+          <li><a href="https://pypi.org/project/agdr-aki/" target="_blank" rel="noopener">PyPI</a></li>
+          <li><a href="https://www.piwheels.org/project/agdr-aki/" target="_blank" rel="noopener">piwheels</a></li>
+        </ul>
+
+      </div>      
+      <div class="footer-col">
+        <h5>Technical Specs</h5>
+        <ul>
+          <li><a href="/#agdr-spec">AgDR Protocol</a></li>
+          <li><a href="/#aki-formal-definition">AKI Definition</a></li>
+          <li><a href="/#aki-95">AKI 0.95 Spec</a></li>
+          <li><a href="/#technical-details">Architecture</a></li>
+          <li><a href="/#horizontal-scaling">Horizontal Scaling</a></li>
+          <li><a href="/#human-delta-chain-spec">Human Delta Chain</a></li>
+          <li><a href="/#tsx-stress-test">TSX Stress Test</a></li>
+          <li><a href="/#aki-capture-deep-explanation">AKI Deep Dive</a></li>
+          <li><a href="/#reasoning-capture-methodology">Reasoning Capture</a></li>
+          <li><a href="/#technical-note-coherence">Coherence Note</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Legal & Compliance</h5>
+        <h5>Source</h5>
         <ul>
-          <li><a href="/cea-compliance">CEA s.31.1</a></li>
-          <li><a href="/cbca-fiduciary-mapping">CBCA s.122</a></li>
-          <li><a href="/eu-ai-act-mapping">EU AI Act</a></li>
-          <li><a href="/foi-formal-definition">FOI Role</a></li>
-          <li><a href="/verification-audit-procedure">Verification</a></li>
+          <li><a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener">AgDR-Phoenix</a></li>
+          <li><a href="https://github.com/aiccountability-source/AgDR-Mantle" target="_blank" rel="noopener">AgDR-Mantle</a></li>
+          <li><a href="https://docs.rs/agdr-aki" target="_blank" rel="noopener">docs.rs (AKI)</a></li>
+          <li><a href="https://docs.rs/agdr-mantle" target="_blank" rel="noopener">docs.rs (Mantle)</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Engineering</h5>
+        <h5>Legal</h5>
         <ul>
-          <li><a href="/tsx-stress-test">TSX Stress Test</a></li>
-          <li><a href="/horizontal-scaling">Horizontal Scaling</a></li>
-          <li><a href="/aki-95">AKI 0.95 Spec</a></li>
-          <li><a href="/human-delta-chain-spec">Human Delta Chain</a></li>
-          <li><a href="/CHANGELOG">Changelog</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Evidence & Vision</h5>
-        <ul>
-          <li><a href="/comparison-aviation-black-box">Aviation Black Box</a></li>
-          <li><a href="/comparison-medical-records">Medical Records</a></li>
-          <li><a href="/agi-court-precedents">AGI Court Precedents</a></li>
-          <li><a href="/future-agi-court">Court in 2076</a></li>
-          <li><a href="/beauty-truth-wisdom">Purpose Framework</a></li>
+          <li><a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank" rel="noopener">CC0 1.0</a></li>
+          <li><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener">Apache 2.0</a></li>
+          <li><a href="/terms">Terms</a></li>
         </ul>
       </div>
     </div>
-    
+
     <div class="footer-bottom">
       <p>Don't trust the machine. Don't even trust us. <strong>Trust the record.</strong></p>
       <p>
@@ -428,25 +465,18 @@ println!("Signature: {}", output.signature());</code></pre>
   <script>
     // Simple client-side search (no backend required)
     const searchIndex = [
-      {title:"Get Started",url:"/getting-started.html",desc:"SDK install, PPP definition, first capture"},
-      {title:"Phoenix Demo",url:"/sandbox.html",desc:"Interactive atomic accountability demo"},
-      {title:"PPP Pillars",url:"/ppp-pillars.html",desc:"Provenance, Place, Purpose framework"},
-      {title:"AKI Definition",url:"/aki-formal-definition.html",desc:"Mathematical definition of Atomic Kernel Inference"},
-      {title:"AgDR Protocol",url:"/agdr-spec.html",desc:"Atomic Genesis Decision Record specification"},
-      {title:"CEA Compliance",url:"/cea-compliance.html",desc:"Canada Evidence Act s.31.1 mapping"},
-      {title:"CBCA Fiduciary",url:"/cbca-fiduciary-mapping.html",desc:"Director fiduciary duty accountability"},
-      {title:"EU AI Act",url:"/eu-ai-act-mapping.html",desc:"High-risk AI system compliance"},
-      {title:"FOI Role",url:"/foi-formal-definition.html",desc:"Fiduciary Office Intervener definition"},
-      {title:"Verification",url:"/verification-audit-procedure.html",desc:"Audit and verification procedures"},
-      {title:"TSX Stress Test",url:"/tsx-stress-test.html",desc:"100M decisions, 620ns latency proof"},
-      {title:"Horizontal Scaling",url:"/horizontal-scaling.html",desc:"Distributed AgDR deployment"},
-      {title:"Human Delta Chain",url:"/human-delta-chain-spec.html",desc:"Human-in-the-loop escalation protocol"},
-      {title:"Purpose Framework",url:"/beauty-truth-wisdom.html",desc:"Beauty, Truth, Wisdom as ethical filters"},
-      {title:"Aviation Black Box",url:"/comparison-aviation-black-box.html",desc:"Comparison to flight data recorders"},
-      {title:"Medical Records",url:"/comparison-medical-records.html",desc:"Comparison to healthcare documentation"},
-      {title:"AGI Court Precedents",url:"/agi-court-precedents.html",desc:"Legal precedents for AI accountability"},
-      {title:"Court in 2076",url:"/future-agi-court.html",desc:"Long-term judicial stewardship vision"},
-      {title:"Rust Core API",url:"https://crates.io/crates/agdr-aki",desc:"agdr-aki crate reference and build guide"}
+      {title:"Home",url:"/",desc:"AgDR-Phoenix forensic infrastructure"},
+      {title:"Getting Started",url:"/getting-started.html",desc:"SDK install, PPP definition, first capture"},
+      {title:"crates.io — agdr-aki",url:"https://crates.io/crates/agdr-aki",desc:"Rust crate reference and build guide"},
+      {title:"crates.io — agdr-mantle",url:"https://crates.io/crates/agdr-mantle",desc:"Post-quantum fortification crate"},
+      {title:"PyPI — agdr-aki",url:"https://pypi.org/project/agdr-aki/",desc:"Python package install"},
+      {title:"PyPI — agdr-mantle",url:"https://pypi.org/project/agdr-mantle/",desc:"Python post-quantum package"},
+      {title:"piwheels — agdr-aki",url:"https://www.piwheels.org/project/agdr-aki/",desc:"ARM wheel builds for Raspberry Pi"},
+      {title:"piwheels — agdr-mantle",url:"https://www.piwheels.org/project/agdr-mantle/",desc:"ARM wheel builds for Raspberry Pi"},
+      {title:"docs.rs — agdr-aki",url:"https://docs.rs/agdr-aki",desc:"Rust API documentation"},
+      {title:"docs.rs — agdr-mantle",url:"https://docs.rs/agdr-mantle",desc:"Rust API documentation"},
+      {title:"GitHub — AgDR-Phoenix",url:"https://github.com/aiccountability-source/AgDR-Phoenix",desc:"Source repository"},
+      {title:"GitHub — AgDR-Mantle",url:"https://github.com/aiccountability-source/AgDR-Mantle",desc:"Mantle source repository"}
     ];
     
     const searchInput = document.getElementById('site-search');
