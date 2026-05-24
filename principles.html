@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Principles & Lineage | accountability.ai</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Accountability.ai">
+  <meta property="og:url" content="https://accountability.ai/principles">
+  <meta property="og:title" content="Principles & Lineage — From Bletchley Park to Blake3">
+  <meta property="og:description" content="The foundational lineage of accountable computation. Alan Turing, the Bombe, and the continuity of verifiable systems stewarded by Genesis Glass Foundation.">
+  <meta property="og:image" content="https://accountability.ai/assets/og-image.png">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Principles & Lineage — accountability.ai">
+  <meta name="twitter:description" content="From Bletchley Park to Blake3. The foundational lineage of accountable computation.">
+  <meta name="twitter:image" content="https://accountability.ai/assets/og-image.png">
+
+  <meta name="description" content="The foundational principles of accountable computation. From Bletchley Park to Blake3. Stewarded by Genesis Glass Foundation.">
+  <link rel="canonical" href="https://accountability.ai/principles">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Principles and Lineage of Accountable Computation","author":{"@type":"Organization","name":"Genesis Glass Foundation"},"publisher":{"@type":"Organization","name":"Accountability.ai","logo":{"@type":"ImageObject","url":"https://accountability.ai/assets/ggf-logo.png"}},"datePublished":"2026-05-24","mainEntityOfPage":{"@type":"WebPage","@id":"https://accountability.ai/principles"},"about":[{"@type":"Thing","name":"Alan Turing"},{"@type":"Thing","name":"Bletchley Park"},{"@type":"Thing","name":"AI Accountability"}]}</script>
+
+  <style>
+    :root{--bg:#050505;--text:#e5e7eb;--text-dim:#a1a1aa;--text-muted:#71717a;--teal:#2dd4bf;--border:rgba(255,255,255,0.05);--card:rgba(255,255,255,0.03);--gradient:radial-gradient(circle at top,#0d7377 0%,#050505 70%)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--teal)}
+    *:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+    .skip-link{position:absolute;top:-100%;left:0;background:var(--teal);color:#000;padding:.75rem 1.5rem;z-index:100;font-weight:700;border-radius:0 0 .5rem 0}
+    .skip-link:focus{top:0}
+
+    .site-nav{position:sticky;top:0;z-index:50;background:rgba(5,5,5,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:.75rem 0}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:#fff}
+    .nav-links{display:none;gap:1.5rem;font-size:.875rem;font-weight:500;color:var(--text-dim)}
+    .nav-links a:hover{color:var(--teal)}
+    @media(min-width:768px){.nav-links{display:flex}}
+
+    .breadcrumbs{max-width:1200px;margin:0 auto;padding:1.5rem 1.5rem 0;font-size:.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em}
+    .breadcrumbs a{color:var(--text-dim)}
+    .breadcrumbs a:hover{color:var(--teal)}
+    .breadcrumbs span{color:var(--text-muted);margin:0 .5rem}
+
+    .hero{background:var(--gradient);padding:4rem 1.5rem 5rem;text-align:center}
+    .hero-content{max-width:800px;margin:0 auto}
+    .hero-badge{display:inline-block;background:rgba(45,212,191,.1);color:var(--teal);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem}
+    .hero-title{font-size:clamp(2.5rem,5vw,4rem);font-weight:700;letter-spacing:-.025em;line-height:1.1;margin:0 0 1.25rem;color:#fff}
+    .hero-lead{font-size:1.25rem;color:#d4d4d8;line-height:1.75;margin-bottom:2rem;max-width:700px;margin-left:auto;margin-right:auto}
+
+    .principle-section{padding:5rem 1.5rem;background:var(--bg);border-top:1px solid var(--border)}
+    .principle-content{max-width:65ch;margin:0 auto}
+    .principle-accent{width:80px;height:3px;background:linear-gradient(90deg,var(--teal),#14b8a6);border-radius:2px;margin-bottom:2.5rem}
+
+    .lineage{font-size:clamp(1.125rem,2vw,1.35rem);line-height:1.75;color:var(--text-dim);font-weight:400;margin-bottom:3rem}
+    .lineage p{margin:1.25rem 0}
+    .lineage strong{color:var(--teal);font-weight:600}
+
+    .attribution{margin:3rem 0;padding:2rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    .attribution p{font-size:1.0625rem;line-height:1.75;color:var(--text-dim);margin-bottom:1.5rem}
+    .attribution a{color:var(--teal);text-decoration:none;font-weight:600}
+    .attribution a:hover{text-decoration:underline;text-underline-offset:3px}
+
+    .stewardship{margin-top:3rem;color:var(--text-muted);font-size:1rem;line-height:1.75}
+    .stewardship p{margin-bottom:1rem}
+    .learn-more{margin-top:1.25rem;font-size:.9375rem}
+    .learn-more a{color:var(--teal);text-decoration:none;font-weight:500}
+    .learn-more a:hover{text-decoration:underline;text-underline-offset:3px}
+
+    .principle-meta{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;gap:2rem;flex-wrap:wrap}
+    .principle-meta span{font-size:.875rem;color:var(--text-muted);font-family:monospace}
+    .principle-meta strong{color:var(--text-dim);font-weight:600}
+
+    .site-footer{background:#000;border-top:1px solid var(--border);padding:4rem 1.5rem 3rem}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2.5rem}
+    .footer-col h5{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+    .footer-col ul{list-style:none;padding:0;margin:0}
+    .footer-col li{margin-bottom:.5rem}
+    .footer-col a{color:var(--text-dim);font-size:.875rem;display:block;transition:color .2s}
+    .footer-col a:hover{color:var(--teal)}
+    .footer-bottom{max-width:1200px;margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.75rem;color:var(--text-muted)}
+    .footer-bottom a{color:var(--teal)}
+    .footer-tagline{max-width:1200px;margin:0 auto 2.5rem;text-align:center}
+    .footer-tagline p{font-size:1.125rem;color:#fff;font-weight:600;margin-bottom:.5rem;letter-spacing:-0.01em}
+    .footer-tagline span{color:var(--text-muted);font-size:.875rem}
+
+    @media(max-width:768px){
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+      .principle-meta{gap:1rem}
+    }
+    @media(max-width:600px){
+      .hero-title{font-size:2.25rem}
+      .footer-grid{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">ACCOUNTABILITY.AI</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/principles" style="color:#fff;font-weight:700">Principles</a>
+        <a href="/charter">Charter</a>
+        <a href="/ledger">Forensic Ledger</a>
+        <a href="/spec">Specification</a>
+        <a href="/faq">FAQ</a>
+        <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a><span aria-hidden="true">/</span>Principles & Lineage
+  </nav>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">Foundational Lineage</span>
+        <h1 class="hero-title">On Principle and Lineage</h1>
+        <p class="hero-lead">
+          From Bletchley Park to Blake3. The continuity of accountable computation and the stewardship of verifiable systems.
+        </p>
+      </div>
+    </section>
+
+    <section class="principle-section">
+      <div class="principle-content">
+        <div class="principle-accent"></div>
+
+        <div class="lineage">
+          <p>Alan Turing showed that any machine can be audited. The Bombe proved that no cipher is beyond scrutiny. This is the origin of accountable computation. The <a href="https://aiethics.turing.ac.uk/" target="_blank" rel="noopener" style="color:var(--teal);font-weight:600">Alan Turing Institute</a> continues this work. Genesis Glass Foundation recognizes the same deep simplicity in their ethics framework. Accountability is not a layer added to AI. It is the ground beneath it. Traceability is not a feature. It is the prerequisite for trust.</p>
+        </div>
+
+        <div class="attribution">
+          <p>The principle of accountability is an end-to-end governing principle. Accountability entails that humans are answerable for the parts they play across the entire AI design, development, and deployment workflow. It also demands that the results of this work are traceable from start to finish. Designers and implementers should be held accountable for the decisions they make and the systems they build.</p>
+          <p><a href="https://aiethics.turing.ac.uk/" target="_blank" rel="noopener">The Alan Turing Institute AI Ethics Module</a></p>
+        </div>
+
+        <div class="stewardship">
+          <p>We stand in this lineage not for borrowed authority but for continuity. From Bletchley Park to Blake3, the insight remains unchanged. What can be computed can be verified. What can be verified must be answerable. This is the stewardship Genesis Glass Foundation was chartered to uphold.</p>
+          <p class="learn-more"><a href="https://www.bletchleypark.org.uk/our-story/" target="_blank" rel="noopener">Learn more of Bletchley Park</a></p>
+        </div>
+
+        <div class="principle-meta">
+          <span><strong>EU AI Act</strong> — Art. 14 / Art. 52</span>
+          <span><strong>NIST AI RMF</strong> — GOV-1.1 / GOV-5.1</span>
+          <span><strong>Canada Evidence Act</strong> — s.31.1</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-tagline">
+      <p>Evidentiary integrity. Chain of custody. Operational defensibility.</p>
+      <span>founding@accountability.ai · Stewarded by GENESIS GLASS FOUNDATION / FONDATION GENÈSE CRISTAL</span>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h5>Foundation</h5>
+        <ul>
+          <li><a href="/principles">Principles</a></li>
+          <li><a href="/charter">Charter</a></li>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Standard</h5>
+        <ul>
+          <li><a href="/spec">Specification</a></li>
+          <li><a href="/ledger">Forensic Ledger</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Distribution</h5>
+        <ul>
+          <li><a href="https://crates.io/crates/agdr-aki" target="_blank" rel="noopener">crates.io</a></li>
+          <li><a href="https://pypi.org/project/agdr-aki/" target="_blank" rel="noopener">PyPI</a></li>
+          <li><a href="https://www.piwheels.org/project/agdr-aki/" target="_blank" rel="noopener">piwheels</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Project</h5>
+        <ul>
+          <li><a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="/terms">License</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 <a href="https://genesis-glass-foundation.org" target="_blank">GENESIS GLASS FOUNDATION</a>. <strong>Open Standard.</strong> Shared under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a> OR <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a>. Built in Canada.</p>
+    </div>
+  </footer>
+</body>
+</html>
