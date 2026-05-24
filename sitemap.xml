@@ -40,6 +40,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://accountability.ai/principles</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://accountability.ai/aki-formal-definition</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
