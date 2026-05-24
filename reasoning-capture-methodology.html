@@ -3,31 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  
-  <title>Reasoning Capture Methodology v1.0 | accountability.ai</title>
+
+  <title>Reasoning Methodology | accountability.ai</title>
   <meta name="description" content="Evidentiary standards for AI decision records: contemporaneous, specific, verifiable reasoning. CC BY 4.0, March 2026.">
-  
+
   <link rel="alternate" hreflang="en" href="https://accountability.ai/reasoning-capture-methodology"/>
   <link rel="alternate" hreflang="x-default" href="https://accountability.ai/reasoning-capture-methodology"/>
   <link rel="canonical" href="https://accountability.ai/reasoning-capture-methodology"/>
-  
+
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Accountability.ai">
-  <meta property="og:url" content="https://accountability.ai/reasoning-capture-methodology.html">
-  <meta property="og:title" content="Reasoning Capture Methodology v1.0 | accountability.ai">
+  <meta property="og:url" content="https://accountability.ai/reasoning-capture-methodology">
+  <meta property="og:title" content="Reasoning Methodology | accountability.ai">
   <meta property="og:description" content="Evidentiary standards for AI decision records: contemporaneous, specific, verifiable reasoning.">
   <meta property="og:locale" content="en_US">
-  
+
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Reasoning Capture Methodology v1.0 | accountability.ai">
+  <meta name="twitter:title" content="Reasoning Methodology | accountability.ai">
   <meta name="twitter:description" content="Evidentiary standards for AI decision records: contemporaneous, specific, verifiable reasoning.">
-  
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "TechArticle",
     "name": "Reasoning Capture Methodology: Evidentiary Standards for AI Decision Records, Version 1.0",
-    "url": "https://accountability.ai/reasoning-capture-methodology.html",
+    "url": "https://accountability.ai/reasoning-capture-methodology",
     "author": { "@type": "Person", "name": "Robert Muncaster" },
     "publisher": {
       "@type": "Organization",
@@ -56,7 +56,7 @@
       "@type": "ListItem",
       "position": 2,
       "name": "Reasoning Capture Methodology",
-      "item": "https://accountability.ai/reasoning-capture-methodology.html"
+      "item": "https://accountability.ai/reasoning-capture-methodology"
     }]
   }
   </script>
@@ -125,13 +125,16 @@
     .mechanical-card p{font-size:0.875rem;color:var(--text-muted);line-height:1.6}
     .domain-list{display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem;margin:1.5rem 0}
     .domain-tag{background:rgba(45,212,191,0.08);border:1px solid rgba(45,212,191,0.2);border-radius:0.5rem;padding:0.5rem 0.75rem;font-size:0.875rem;color:var(--teal);text-align:center;font-weight:600}
+    .archive-note{font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem}
+    .archive-note a{color:var(--text-muted);text-decoration:underline}
+    .archive-note a:hover{color:var(--teal)}
     @media(max-width:600px){.hero-title{font-size:2.5rem}.content-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}.footer-bottom{flex-direction:column;align-items:center;text-align:center}.domain-list{grid-template-columns:1fr}}
   </style>
 </head>
 
 <body>
   <p class="sr-only">Reasoning Capture Methodology, evidentiary standards, AI decision records, chain-of-thought, SHAP, LIME, automated quality checks, severity scoring, CC BY 4.0, high-stakes AI, credit decisions, export control, clinical triage, hiring, Reg BI</p>
-  
+
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <nav class="site-nav" aria-label="Primary">
@@ -140,12 +143,12 @@
       <div class="nav-links">
         <a href="/#ledger">Forensic Ledger</a>
         <a href="/#spec">Specification</a>
-        <a href="/sandbox">Phoenix Demo</a>
+        <a href="/charter">Charter</a>
         <a href="https://github.com/aiccountability-source/AgDR" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
       </div>
     </div>
   </nav>
-  
+
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <ol itemscope itemtype="https://schema.org/BreadcrumbList">
       <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -161,14 +164,14 @@
 
   <section class="hero">
     <div class="hero-content">
-      <span class="hero-badge">CC BY 4.0 Public Draft · March 2026 · Archive.org Deposited</span>
+      <span class="hero-badge">CC BY 4.0 · March 2026 · Public Draft</span>
       <h1 class="hero-title">Reasoning Capture Methodology</h1>
       <p class="hero-lead">
         Evidentiary standards for AI decision records: contemporaneous, specific, verifiable reasoning.
       </p>
       <div class="hero-buttons">
         <a href="/agdr-spec" class="btn btn-secondary">← AgDR-Phoenix v1.8</a>
-        <a href="https://archive.org/download/reasoning-methodology-v1.0/reasoning-methodology-v1.0.pdf" class="btn btn-primary" target="_blank" rel="noopener">↓ PDF/A Archival</a>
+        <a href="/reasoning-methodology-v1.0.pdf" class="btn btn-primary">↓ Download PDF</a>
         <a href="/ppp-pillars" class="btn btn-secondary">PPP Pillars →</a>
       </div>
     </div>
@@ -176,12 +179,12 @@
 
   <main id="main-content" class="content-section">
     <div class="content-grid">
-      
+
       <div>
         <div class="content-card">
           <h3>Evidentiary Standard</h3>
           <p>Reasoning is not an afterthought. It is the <strong>primary forensic artifact</strong>. This methodology defines the minimum content required for AI decision records to satisfy evidentiary scrutiny in high-stakes domains.</p>
-          
+
           <div class="domain-list">
             <div class="domain-tag">Credit</div>
             <div class="domain-tag">Export Control</div>
@@ -194,17 +197,31 @@
             <span class="version-badge">Contemporaneous</span>
             <h4>Capture at Decision Time</h4>
             <p>Reasoning must be recorded at the exact instant of inference, not reconstructed afterward. Post-hoc explanations are opinions. Contemporaneous traces are evidence.</p>
-            <div class="code-block">
-<span class="comment">// Minimum evidentiary content</span><br>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem">
+              <div class="code-block" style="margin:0">
+<span class="comment">// First ADR capture · Feb 2026</span><br>
 {<br>
-&nbsp;&nbsp;<span class="key">"reasoning_record"</span>: {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"timestamp"</span>: "2026-03-15T09:23:47.620Z",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"model_version"</span>: "v2.3.1",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"input_hash"</span>: "blake3:...",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"reasoning_method"</span>: "chain-of-thought",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"severity_score"</span>: 4<br>
-&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;<span class="key">"adr_id"</span>: "adr_01j6q3k8z9x7y5w4",<br>
+&nbsp;&nbsp;<span class="key">"timestamp"</span>: "2026-02-18T14:23:15.123Z",<br>
+&nbsp;&nbsp;<span class="key">"agent_id"</span>: "export_screen_v4",<br>
+&nbsp;&nbsp;<span class="key">"decision_type"</span>: "export_eligibility",<br>
+&nbsp;&nbsp;<span class="key">"output"</span>: "DENIED · Entity List match 0.94",<br>
+&nbsp;&nbsp;<span class="key">"current_hash"</span>: "0x3d9b...c2e4"<br>
 }
+              </div>
+              <div class="code-block" style="margin:0">
+<span class="comment">// Production provenance</span><br>
+{<br>
+&nbsp;&nbsp;<span class="key">"crate"</span>: "agdr-aki",<br>
+&nbsp;&nbsp;<span class="key">"version"</span>: "v1.8.12",<br>
+&nbsp;&nbsp;<span class="key">"runtime"</span>: "Rust + PyO3",<br>
+&nbsp;&nbsp;<span class="key">"license"</span>: "Apache-2.0 or CC0-1.0",<br>
+&nbsp;&nbsp;<span class="key">"steward"</span>: "Genesis Glass Foundation",<br>
+&nbsp;&nbsp;<span class="key">"install_cargo"</span>: "cargo add agdr-aki",<br>
+&nbsp;&nbsp;<span class="key">"install_pip"</span>: "pip install agdr-aki",<br>
+&nbsp;&nbsp;<span class="key">"chain_integrity"</span>: "VERIFIED · TAMPER EVIDENT"<br>
+}
+              </div>
             </div>
           </div>
 
@@ -223,11 +240,11 @@
         <div class="content-card" style="margin-top:2rem">
           <h3>Automated Quality</h3>
           <p>Human review alone is insufficient at scale. The methodology mandates <strong>automated quality checks</strong> and <strong>severity scoring</strong> as structural requirements, not optional enhancements.</p>
-          
+
           <div class="quote-block">
             "A decision without verified reasoning is a liability without a defense. Severity scoring assigns evidentiary weight before the record leaves the kernel."
           </div>
-          
+
           <p style="margin-top:1rem;font-size:0.875rem;color:var(--text-muted)">
             <strong>Quality invariant</strong>: <code>VERIFY_REASONING → SCORE_SEVERITY → COMMIT_RECORD</code><br>
             Automated checks run before human review. The machine validates the machine.
@@ -239,27 +256,44 @@
         <div class="content-card">
           <h3>Verifiable Integrity</h3>
           <p>Long-term evidentiary value requires more than tamper-evidence. It requires <strong>cryptographic binding</strong> to the decision record and <strong>public deposit</strong> for institutional redundancy.</p>
-          
+
           <div class="deprecation-notice">
             <h4>⚠ Companion Standard Deprecated</h4>
             <p>ADR Specification v0.1, previously referenced as the companion container standard to this methodology, is <strong>archived, deprecated, and obsolete</strong> as of March 2026. Current implementations should reference <a href="/agdr-spec">AgDR-Phoenix v1.8</a> for the active container specification. This methodology remains authoritative for evidentiary content requirements.</p>
           </div>
 
           <div class="methodology-block">
-            <span class="version-badge">Archive.org</span>
-            <h4>Public Deposit</h4>
-            <p>Deposited under CC BY 4.0. The methodology is a permanent public record, not a proprietary specification. Archived March 2026.</p>
-            <div class="code-block">
-<span class="comment">// Archival metadata</span><br>
-{<br>
-&nbsp;&nbsp;<span class="key">"deposit"</span>: {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"archive_org"</span>: "reasoning-methodology-v1.0",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"date"</span>: "2026-03",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"license"</span>: "CC-BY-4.0",<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="key">"steward"</span>: "Genesis Glass Foundation / Fondation Genèse Cristal"<br>
-&nbsp;&nbsp;}<br>
+            <span class="version-badge">Public Deposit</span>
+            <h4>Permanent Record</h4>
+            <p>Deposited under CC BY 4.0. The methodology is a permanent public record, not a proprietary specification.</p>
+            <div class="code-block" style="margin-top:1.5rem">
+<span class="comment">// ProvenancePacket · wire format for tamper-evident chain</span><br>
+<span class="comment">// First uploaded to GitHub: March 11, 2026</span><br>
+<span class="comment">// schema: agdr.provenance.v1</span><br>
+<br>
+syntax = "proto3";<br>
+<br>
+package agdr.provenance.v1;<br>
+<br>
+import "google/protobuf/timestamp.proto";<br>
+<br>
+message ProvenancePacket {<br>
+&nbsp;&nbsp;string packet_id = 1;<br>
+&nbsp;&nbsp;uint64 sequence_number = 2;<br>
+&nbsp;&nbsp;bytes parent_hash = 3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// BLAKE3 of previous packet</span><br>
+&nbsp;&nbsp;google.protobuf.Timestamp emit_timestamp = 4;<br>
+&nbsp;&nbsp;bytes provenance_hash = 5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// origin of decision</span><br>
+&nbsp;&nbsp;bytes place_hash = 6;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// execution context</span><br>
+&nbsp;&nbsp;bytes purpose_hash = 7;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// alignment manifest</span><br>
+&nbsp;&nbsp;bytes decision_hash = 8;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// action fingerprint</span><br>
+&nbsp;&nbsp;bytes signature = 9;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Ed25519 or ECDSA over packet</span><br>
+&nbsp;&nbsp;optional bytes fec_parity = 10;&nbsp;&nbsp;<span class="comment">// for UDP dropless recovery</span><br>
+&nbsp;&nbsp;map&lt;string, bytes&gt; extensions = 99;<br>
 }
             </div>
+            <p class="archive-note">
+              Also deposited at <a href="https://archive.org/download/reasoning-methodology-v1.0/reasoning-methodology-v1.0.pdf" target="_blank" rel="noopener">archive.org</a> and Library and Archives Canada (March 2026).
+            </p>
           </div>
         </div>
 
@@ -275,7 +309,7 @@
 
         <div class="content-card" style="margin-top:2rem">
           <h3>Distinction from Logging</h3>
-          <p>Traditional ML logging captures <em>what happened</em>. Reasoning Capture Methodology captures <em>why it happened</em>—with specificity, at decision time, with automated quality verification.</p>
+          <p>Traditional ML logging captures <em>what happened</em>. Reasoning Capture Methodology captures <em>why it happened</em> · with specificity, at decision time, with automated quality verification.</p>
           <p style="margin-top:1rem;color:var(--text-muted);font-size:0.875rem">
             Structural monitoring verifies system health. Reasoning Capture verifies <strong>decision defensibility</strong>. Both are necessary. Neither substitutes for the other.
           </p>
@@ -308,7 +342,7 @@
         <h5>Core Standard</h5>
         <ul>
           <li><a href="/getting-started">Get Started</a></li>
-          <li><a href="/sandbox">Phoenix Demo</a></li>
+          <li><a href="/charter">Charter</a></li>
           <li><a href="/ppp-pillars">PPP Pillars</a></li>
           <li><a href="/aki-formal-definition">AKI Definition</a></li>
           <li><a href="/agdr-spec">AgDR Protocol</a></li>
