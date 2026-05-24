@@ -1,61 +1,287 @@
-<script>
-  let searchIndex = [];
-  let indexReady = false;
-
-  fetch('/search-index.json')
-    .then(r => r.json())
-    .then(data => {
-      searchIndex = data;
-      indexReady = true;
-    })
-    .catch(() => {
-      searchIndex = [];
-      indexReady = false;
-    });
-
-  const searchInput = document.getElementById('site-search');
-  const searchResults = document.getElementById('search-results');
-
-  function doSearch(query) {
-    const q = query.toLowerCase().trim();
-    if (q.length < 2) {
-      searchResults.classList.remove('show');
-      searchResults.innerHTML = '';
-      return;
-    }
-    if (!indexReady) {
-      searchResults.innerHTML = '<div class="no-results">Index loading…</div>';
-      searchResults.classList.add('show');
-      return;
-    }
-    const results = searchIndex.filter(item =>
-      item.title.toLowerCase().includes(q) ||
-      item.desc.toLowerCase().includes(q) ||
-      item.url.toLowerCase().includes(q)
-    ).slice(0, 8);
-
-    if (results.length === 0) {
-      searchResults.innerHTML = '<div class="no-results">No results found</div>';
-    } else {
-      searchResults.innerHTML = results.map(r =>
-        `<a href="${r.url}" role="option"><strong>${r.title}</strong><br><small style="color:#6b7280">${r.desc}</small></a>`
-      ).join('');
-    }
-    searchResults.classList.add('show');
+[
+  {
+    "title": "Control Deployment Roadmap",
+    "url": "/",
+    "desc": "Establish governance boundary. Pre-deployment risk assessment. Assign control ownership."
+  },
+  {
+    "title": "Evidentiary Substrate",
+    "url": "/",
+    "desc": "Provenance, Place, Purpose. Proto3 wire format. BLAKE3 + Ed25519 cryptographic sealing."
+  },
+  {
+    "title": "GEO Optimization",
+    "url": "/",
+    "desc": "AgDR-Phoenix v1.8. Court-admissible chain of custody for automated decision systems."
+  },
+  {
+    "title": "Liability Exposure Vectors",
+    "url": "/",
+    "desc": "Regulatory enforcement, bias and discrimination, director and officer exposure under CBCA s.122."
+  },
+  {
+    "title": "NIST AI Risk Management Framework",
+    "url": "/",
+    "desc": "US standard for AI governance. Mapped to AgDR control objectives GOV-1.1 through MEA-2.1."
+  },
+  {
+    "title": "OECD AI Principles",
+    "url": "/",
+    "desc": "Intergovernmental baseline for AI governance and cross-border regulatory coherence."
+  },
+  {
+    "title": "Performance Benchmarks",
+    "url": "/",
+    "desc": "0.62 µs latency. 1.1M+ per second throughput. BLAKE3 integrity. 100% PPP capture."
+  },
+  {
+    "title": "Changelog",
+    "url": "/CHANGELOG",
+    "desc": "Version history and release notes."
+  },
+  {
+    "title": "Contributing",
+    "url": "/CONTRIBUTING",
+    "desc": "Contribution guidelines and development workflow."
+  },
+  {
+    "title": "License Update",
+    "url": "/LICENSE-UPDATE",
+    "desc": "License update and dual-licensing policy. CC0 / Apache 2.0."
+  },
+  {
+    "title": "AgDR Protocol",
+    "url": "/agdr-spec",
+    "desc": "AgDR Protocol v1.8. Wire format, cryptographic bindings, verification procedures."
+  },
+  {
+    "title": "AGI Court Precedents",
+    "url": "/agi-court-precedents",
+    "desc": "Emerging jurisprudence on AI accountability and liability."
+  },
+  {
+    "title": "AKI 0.95 Specification",
+    "url": "/aki-95",
+    "desc": "AKI 0.95 performance specification. 620ns mean latency on x86_64 with TSX."
+  },
+  {
+    "title": "AKI Deep Dive",
+    "url": "/aki-capture-deep-explanation",
+    "desc": "Atomic capture mechanism, memory layout, cryptographic pipeline."
+  },
+  {
+    "title": "AKI Definition",
+    "url": "/aki-formal-definition",
+    "desc": "Atomic Kernel Inference mathematical specification. 950ns latency bound."
+  },
+  {
+    "title": "Analytics Consent",
+    "url": "/analytics-consent",
+    "desc": "Analytics and consent policy."
+  },
+  {
+    "title": "Beauty Truth Wisdom",
+    "url": "/beauty-truth-wisdom",
+    "desc": "Core values and philosophical foundations."
+  },
+  {
+    "title": "Bills of Exchange Mapping",
+    "url": "/bills-of-exchange-mapping",
+    "desc": "Commercial instrument alignment for AI-mediated transactions."
+  },
+  {
+    "title": "CBCA s.122 Fiduciary Mapping",
+    "url": "/cbca-fiduciary-mapping",
+    "desc": "Canada Business Corporations Act s.122 director duty mapping."
+  },
+  {
+    "title": "CBSA Mapping",
+    "url": "/cbsa-mapping",
+    "desc": "Canada Border Services Agency trade and border compliance."
+  },
+  {
+    "title": "CEA s.31.1 Admissibility",
+    "url": "/cea-compliance",
+    "desc": "Canada Evidence Act s.31.1 electronic record admissibility."
+  },
+  {
+    "title": "Charter",
+    "url": "/charter",
+    "desc": "Articles of Incorporation. Canada Not-for-profit Corp No. 1779509-2."
+  },
+  {
+    "title": "Aviation Black Box Comparison",
+    "url": "/comparison-aviation-black-box",
+    "desc": "Aviation flight data recorder comparison."
+  },
+  {
+    "title": "Medical Records Comparison",
+    "url": "/comparison-medical-records",
+    "desc": "Healthcare documentation standards applied to AI provenance."
+  },
+  {
+    "title": "CCD Chartered Donee",
+    "url": "/donee",
+    "desc": "Council of Canadians with Disabilities as chartered donee upon dissolution."
+  },
+  {
+    "title": "EU AI Act Mapping",
+    "url": "/eu-ai-act-mapping",
+    "desc": "EU AI Act Article 14, 52, 12 compliance mapping."
+  },
+  {
+    "title": "FAQ",
+    "url": "/faq",
+    "desc": "Frequently asked questions for stewards, regulators, and auditors."
+  },
+  {
+    "title": "FAQ: Does AgDR require post-quantum cryptography?",
+    "url": "/faq",
+    "desc": "Optional. Core uses Ed25519 + BLAKE3. AgDR-Mantle adds ML-DSA-65, sparse Merkle witnesses, and Brotli compression."
+  },
+  {
+    "title": "FAQ: How to install AgDR?",
+    "url": "/faq",
+    "desc": "pip3 install agdr-aki for Python. cargo add agdr-aki for Rust. Prebuilt wheels for all major platforms. No Rust toolchain required."
+  },
+  {
+    "title": "FAQ: Is AgDR compliant?",
+    "url": "/faq",
+    "desc": "Yes. EU AI Act Article 14, 52, 12. Canada Evidence Act s.31.1. NIST AI RMF GOV-1.1 through MEA-2.1."
+  },
+  {
+    "title": "FAQ: What is AgDR?",
+    "url": "/faq",
+    "desc": "Atomic Genesis Decision Record. Cryptographically sealed record of every AI inference capturing Provenance, Place, Purpose at sub-microsecond latency."
+  },
+  {
+    "title": "FAQ: What is Genesis Glass Foundation?",
+    "url": "/faq",
+    "desc": "Canada Not-for-profit Corporation No. 1779509-2. Steward of the AgDR open standard under CC0 / Apache 2.0."
+  },
+  {
+    "title": "FAQ: What platforms are supported?",
+    "url": "/faq",
+    "desc": "Windows x64, Linux x86_64 and aarch64, macOS Intel and Apple Silicon, ARMv6l/ARMv7l via piwheels. Python 3.9 through 3.14."
+  },
+  {
+    "title": "Fiduciary Duty of Care",
+    "url": "/fiduciary-duty-of-care",
+    "desc": "Director fiduciary duty of care under Canadian corporate law."
+  },
+  {
+    "title": "FOI Role Definition",
+    "url": "/foi-formal-definition",
+    "desc": "Fiduciary Office Intervener role in governance and dispute resolution."
+  },
+  {
+    "title": "Court in 2076",
+    "url": "/future-agi-court",
+    "desc": "15-year judicial stewardship vision."
+  },
+  {
+    "title": "GEO Optimization",
+    "url": "/geo-optimization",
+    "desc": "Geographic and search engine optimization."
+  },
+  {
+    "title": "Get Started",
+    "url": "/getting-started",
+    "desc": "Installation guide. Prebuilt wheels for Windows, Linux, macOS, ARM."
+  },
+  {
+    "title": "Horizontal Scaling",
+    "url": "/horizontal-scaling",
+    "desc": "Distributed deployment patterns. 1.1M packets per second per node."
+  },
+  {
+    "title": "Human Delta Chain",
+    "url": "/human-delta-chain-spec",
+    "desc": "Human-in-the-loop escalation protocol for contested decisions."
+  },
+  {
+    "title": "Legal Glossary",
+    "url": "/legal-glossary",
+    "desc": "Forensic glossary of terms and definitions."
+  },
+  {
+    "title": "Statutory matrix across EU AI Act, CEA, CBCA, and NIST.",
+    "url": "/legal-mapping",
+    "desc": "Statutory matrix across EU AI Act, CEA, CBCA, and NIST."
+  },
+  {
+    "title": "Humankind Roots Spec",
+    "url": "/manifesto",
+    "desc": "Genesis Glass Foundation founding principles and humankind roots specification."
+  },
+  {
+    "title": "Export Control",
+    "url": "/ppp-export-control",
+    "desc": "Dual-use technology export control classification."
+  },
+  {
+    "title": "Industry-specific PPP implementation templates.",
+    "url": "/ppp-industry-templates",
+    "desc": "Industry-specific PPP implementation templates."
+  },
+  {
+    "title": "Legal Compliance",
+    "url": "/ppp-legal-compliance",
+    "desc": "Legal compliance mapping for PPP framework."
+  },
+  {
+    "title": "PPP Pillars",
+    "url": "/ppp-pillars",
+    "desc": "PPP triplet framework. Provenance, Place, Purpose."
+  },
+  {
+    "title": "Principles",
+    "url": "/principles",
+    "desc": "Foundational principles of AI accountability and provenance."
+  },
+  {
+    "title": "Purpose",
+    "url": "/purpose",
+    "desc": "Genesis Glass Foundation purpose and organizational mandate."
+  },
+  {
+    "title": "Reasoning Capture",
+    "url": "/reasoning-capture-methodology",
+    "desc": "Chain-of-thought provenance for transformer and rule-based systems."
+  },
+  {
+    "title": "Rust Core",
+    "url": "/rust-core",
+    "desc": "Rust core implementation. MSRV 1.75.0. Cross-platform compilation."
+  },
+  {
+    "title": "AgDR-AKI Demo",
+    "url": "/sandbox",
+    "desc": "Interactive AgDR-AKI demonstration environment."
+  },
+  {
+    "title": "Technical Architecture",
+    "url": "/technical-details",
+    "desc": "System design, deployment patterns, integration guides."
+  },
+  {
+    "title": "Coherence Technical Note",
+    "url": "/technical-note-coherence",
+    "desc": "Causal consistency across distributed AgDR nodes."
+  },
+  {
+    "title": "Terms",
+    "url": "/terms",
+    "desc": "Terms of use and legal disclaimers."
+  },
+  {
+    "title": "TSX Stress Test",
+    "url": "/tsx-stress-test",
+    "desc": "100 million decisions, 620 nanoseconds each. Independent verification."
+  },
+  {
+    "title": "Verification Audit Procedure",
+    "url": "/verification-audit-procedure",
+    "desc": "Independent verification and audit procedures for AgDR deployments."
   }
-
-  searchInput.addEventListener('input', (e) => doSearch(e.target.value));
-
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.nav-search')) {
-      searchResults.classList.remove('show');
-    }
-  });
-
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      searchResults.classList.remove('show');
-      searchInput.blur();
-    }
-  });
-</script>
+]
