@@ -1,1 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointed Donee — Council of Canadians with Disabilities | Genesis Glass Foundation / Fondation Genèse Cristal</title>
+  <meta name="description" content="The Council of Canadians with Disabilities, founded 1976, is the appointed donee of the Genesis Glass Foundation / Fondation Genèse Cristal. A luminous history of human rights advocacy.">
+  <link rel="canonical" href="https://accountability.ai/donee">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Appointed Donee — Council of Canadians with Disabilities",
+    "url": "https://accountability.ai/donee",
+    "description": "The Council of Canadians with Disabilities, founded 1976, is the appointed donee of the Genesis Glass Foundation / Fondation Genèse Cristal.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Council of Canadians with Disabilities",
+      "alternateName": "CCD",
+      "foundingDate": "1976",
+      "url": "https://www.ccdonline.ca",
+      "description": "A national human rights organization of people with disabilities working for an inclusive and accessible Canada."
+    },
+    "isPartOf": {
+      "@type": "Organization",
+      "name": "Genesis Glass Foundation / Fondation Genèse Cristal",
+      "url": "https://accountability.ai/charter"
+    }
+  }
+  </script>
 
+  <style>
+    :root {
+      --void: #07070a;
+      --ink: #0f0f14;
+      --parchment: #e8e6e1;
+      --gold: #d4af37;
+      --gold-dim: #8a7029;
+      --amber: #ffb000;
+      --crimson: #8b0000;
+      --glass: rgba(212, 175, 55, 0.03);
+      --glow: rgba(212, 175, 55, 0.15);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    html {
+      scroll-behavior: smooth;
+      background: var(--void);
+      color: var(--parchment);
+      font-family: "Georgia", "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    body {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at 50% 0%, #14141f 0%, var(--void) 60%);
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 4vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(7,7,10,0.95) 0%, rgba(7,7,10,0.6) 60%, transparent 100%);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-brand {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-brand:hover { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--parchment);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--gold);
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      padding: 6rem 4vw 0;
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      opacity: 0.6;
+    }
+
+    .breadcrumbs ol {
+      list-style: none;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .breadcrumbs li:not(:last-child)::after {
+      content: '/';
+      margin-left: 0.5rem;
+      opacity: 0.4;
+    }
+
+    .breadcrumbs a {
+      color: var(--gold-dim);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--gold);
+    }
+
+    .breadcrumbs [aria-current="page"] {
+      color: var(--parchment);
+      opacity: 0.8;
+    }
+
+    /* Hero — The Glowing Light */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 4vw;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--glow) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: breathe 6s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 200%;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      opacity: 0.3;
+      filter: blur(1px);
+      animation: ray 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+    }
+
+    @keyframes ray {
+      0%, 100% { opacity: 0.1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-dim);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.3s forwards;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--parchment);
+      text-shadow: 
+        0 0 20px rgba(212, 175, 55, 0.3),
+        0 0 60px rgba(212, 175, 55, 0.1),
+        0 0 100px rgba(212, 175, 55, 0.05);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.6s forwards;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 1s ease 0.9s forwards;
+      text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    }
+
+    .hero-meta {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      opacity: 0;
+      animation: fadeUp 1s ease 1.2s forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Decorative particles */
+    .particles {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0;
+      animation: float 10s ease-in-out infinite;
+    }
+
+    .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 20%; top: 60%; animation-delay: 2s; }
+    .particle:nth-child(3) { left: 35%; top: 30%; animation-delay: 4s; }
+    .particle:nth-child(4) { left: 50%; top: 80%; animation-delay: 1s; }
+    .particle:nth-child(5) { left: 65%; top: 40%; animation-delay: 3s; }
+    .particle:nth-child(6) { left: 80%; top: 70%; animation-delay: 5s; }
+    .particle:nth-child(7) { left: 90%; top: 25%; animation-delay: 7s; }
+    .particle:nth-child(8) { left: 15%; top: 85%; animation-delay: 6s; }
+
+    @keyframes float {
+      0%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+      50% { opacity: 0.6; transform: translateY(-30px) scale(1.5); }
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 4vw;
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    section h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 400;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, var(--gold), transparent);
+    }
+
+    section p {
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+      opacity: 0.85;
+    }
+
+    .charter-connection {
+      background: linear-gradient(to bottom, transparent, var(--glass) 20%, var(--glass) 80%, transparent);
+      border-left: 1px solid rgba(212, 175, 55, 0.2);
+      padding-left: 3rem;
+      margin: 4rem auto;
+    }
+
+    .charter-connection p {
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      opacity: 0.9;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold-dim), var(--gold), var(--gold-dim));
+      opacity: 0.4;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 3rem;
+      padding-left: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 0.5rem;
+      width: 9px;
+      height: 9px;
+      background: var(--void);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      transform: translateX(-4px);
+      box-shadow: 0 0 10px var(--glow);
+    }
+
+    .timeline-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item p {
+      font-size: 0.95rem;
+      opacity: 0.75;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      gap: 2rem;
+      max-width: 900px;
+    }
+
+    blockquote {
+      border-left: 2px solid rgba(212, 175, 55, 0.3);
+      padding-left: 1.5rem;
+      margin: 0;
+      font-style: italic;
+      opacity: 0.8;
+    }
+
+    blockquote footer {
+      margin-top: 0.75rem;
+      font-style: normal;
+      font-size: 0.85rem;
+      color: var(--gold-dim);
+    }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 6rem 4vw;
+      background: radial-gradient(ellipse at center, rgba(212, 175, 55, 0.03) 0%, transparent 70%);
+    }
+
+    .cta-section h2 {
+      display: block;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-section h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .cta-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 2rem;
+      border: 1px solid var(--gold-dim);
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-link::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(to right, transparent, var(--glow), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .cta-link:hover {
+      border-color: var(--gold);
+      box-shadow: 0 0 20px var(--glow);
+    }
+
+    .cta-link:hover::before {
+      left: 100%;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(212, 175, 55, 0.1);
+      padding: 3rem 4vw;
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.5;
+      letter-spacing: 0.05em;
+    }
+
+    footer .maple {
+      color: var(--crimson);
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 0.7rem; }
+      .charter-connection { padding-left: 1.5rem; }
+      .timeline { padding-left: 1rem; }
+      .timeline-item { padding-left: 1rem; }
+      .breadcrumbs { padding-top: 5rem; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Print */
+    @media print {
+      body { background: white; color: black; }
+      .hero::before, .hero::after, .particles { display: none; }
+      .hero h1 { text-shadow: none; color: black; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="nav-brand">Accountability.ai</a>
+    <ul class="nav-links">
+      <li><a href="/charter">Charter</a></li>
+      <li><a href="/">Home</a></li>
+    </ul>
+  </nav>
+
+  <nav aria-label="Breadcrumb" class="breadcrumbs">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/charter">Charter</a></li>
+      <li aria-current="page">Donee</li>
+    </ol>
+  </nav>
+
+  <header class="hero">
+    <div class="particles">
+      <div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+      <div class="particle"></div><div class="particle"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-label">Appointed Donee</p>
+      <h1>Council of Canadians with Disabilities</h1>
+      <p class="hero-subtitle">Stewards of Dignity Since 1976</p>
+      <p class="hero-meta">Genesis Glass Foundation / Fondation Genèse Cristal · Canada Not-for-profit Corporation No. 1779509-2</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="charter-connection">
+      <h2>The Charter Bond</h2>
+      <p>Per the Articles of Incorporation of Genesis Glass Foundation / Fondation Genèse Cristal, all residual assets upon dissolution or liquidation are directed to the Council of Canadians with Disabilities. This ensures that the Foundation's mission, creating verifiable digital infrastructure that serves human dignity, ultimately flows to the organization that has fought longest and most consistently for the equality of persons with disabilities in Canada.</p>
+    </section>
+
+    <section>
+      <h2>A Light Kindled in 1976</h2>
+      <p>In 1976, provincial disability organizations banded together to create the Coalition of Provincial Organizations of the Handicapped, COPOH, now known as the Council of Canadians with Disabilities. It was a radical act of self-determination: people with disabilities speaking for themselves, rejecting the charity and medical models that had defined them as objects of pity or patients to be cured.</p>
+      <p>CCD is a national human rights organization of people with all disabilities, championing an inclusive and accessible Canada where people with disabilities have full realization of their human rights, as described in the UN Convention on the Rights of Persons with Disabilities.</p>
+    </section>
+
+    <section>
+      <h2>Human Rights Guidance</h2>
+      <p>CCD's litigation focuses on the human rights of persons with disabilities. Through interventions and test-case litigation, they use both the Canadian Charter of Rights and Freedoms and human rights legislation to change laws, policies, and systems.</p>
+      <p>Their Disability Justice Litigation Initiative, comprised of human rights lawyers and people with lived disability experience, selects cases with the broadest possible impact. They do not represent individuals; they represent the principle that disability rights are human rights.</p>
+    </section>
+
+    <section>
+      <h2>Milestones on the Road</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>1976 · Founding</strong>
+          <p>COPOH is formed from provincial disability groups across Canada, creating the first national, consumer-led disability rights movement.</p>
+        </div>
+        <div class="timeline-item">
+          <strong>1981 · The Charter Victory</strong>
+          <p>After being told disability was "too vague" to include in the Canadian Charter of Rights and Freedoms, CCD organizes demonstrations on Parliament Hill. On January 28, 1981, the government reverses its position. Disability is enshrined as a protected ground under Section 15.</p>
+        </div>
+        <div class="timeline-item">
+          <strong>1982 · Constitutional Protection</strong>
+          <p>The Charter of Rights and Freedoms comes into force, giving CCD a constitutional instrument to challenge discrimination.</p>
+        </div>
+        <div class="timeline-item">
+          <strong>2007 · CCD v. Via Rail</strong>
+          <p>The Supreme Court of Canada sides with CCD in a landmark challenge against the purchase of inaccessible railway cars, affirming that equality requires proactive accommodation.</p>
+        </div>
+        <div class="timeline-item">
+          <strong>2010 · UN CRPD Ratification</strong>
+          <p>CCD representatives accompany Canadian officials to the United Nations as Canada ratifies the Convention on the Rights of Persons with Disabilities.</p>
+        </div>
+        <div class="timeline-item">
+          <strong>2024 · 48 Years Strong</strong>
+          <p>CCD marks 48 years of continuous advocacy and enters its march toward 50, still litigating, still educating, still building an accessible Canada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <h2>Voices of the Movement</h2>
+      <blockquote>
+        <p>"Inclusion of disability under the Canadian Human Rights Act was no easy matter: and it was a pivotal moment in the history of our movement. The Charter is a significant and valuable tool in the struggle for equality rights."</p>
+        <footer>Michael Huck, former CCD Chairperson</footer>
+      </blockquote>
+      <blockquote>
+        <p>"Over the years it has been my honour to serve CCD as its legal counsel. I have seen CCD challenged aggressively and not back down. I have seen CCD threatened and subjected to financial duress, but carry on regardless. Without the vision, courage and determination CCD has demonstrated over the last 30 years Canadians with disabilities would have few if any of the rights they currently enjoy."</p>
+        <footer>David Baker, lawyer</footer>
+      </blockquote>
+      <blockquote>
+        <p>"CCD has been instrumental in convening meeting places where people with disabilities and other experts have been able to have important discussions, sharing insights, brainstorming and strategizing around how to secure the citizenship, human rights and well-being of people with disabilities."</p>
+        <footer>Cam Crawford, Roeher Institute</footer>
+      </blockquote>
+    </section>
+
+    <section class="cta-section">
+      <h2>Learn More</h2>
+      <p>The Council of Canadians with Disabilities continues its work as a national voice for disability rights and human dignity in Canada.</p>
+      <a href="https://www.ccdonline.ca" class="cta-link" target="_blank" rel="noopener noreferrer">Visit ccdonline.ca</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="maple">&#x1F341;</div>
+    <p>Genesis Glass Foundation / Fondation Genèse Cristal · Established March 23, 2026</p>
+    <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.6;">Beauty · Truth · Wisdom</p>
+  </footer>
+
+</body>
+</html>
