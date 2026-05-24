@@ -11,4 +11,5 @@ Policy: https://accountability.ai/security-policy
 Hiring: https://accountability.ai/careers
 
 # Canonical URL: https://accountability.ai/.well-known/security.txt
-# Steward: Genesis Glass Foundation (Canada Not-for-profit Corporation No. 1779509-2)
+# Steward: Genesis Glass Foundation
+Fondation Genèse Cristal (Canada Not-for-profit Corporation No. 1779509-2)
