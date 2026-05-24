@@ -25,39 +25,99 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "name": "Reasoning Capture Methodology: Evidentiary Standards for AI Decision Records, Version 1.0",
-    "url": "https://accountability.ai/reasoning-capture-methodology",
-    "author": { "@type": "Person", "name": "Robert Muncaster" },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Genesis Glass Foundation / Fondation Genèse Cristal",
-      "url": "https://accountability.ai"
-    },
-    "about": {
-      "@type": "DefinedTerm",
-      "name": "Reasoning Capture",
-      "description": "Contemporaneous, specific, verifiable reasoning standards for high-stakes AI decisions"
-    },
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "isPartOf": { "@type": "WebSite", "name": "Accountability.ai", "url": "https://accountability.ai" }
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://accountability.ai/"
-    },{
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Reasoning Capture Methodology",
-      "item": "https://accountability.ai/reasoning-capture-methodology"
-    }]
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://accountability.ai/#website",
+        "url": "https://accountability.ai",
+        "name": "Accountability.ai",
+        "publisher": { "@id": "https://accountability.ai/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://accountability.ai/#organization",
+        "name": "Genesis Glass Foundation / Fondation Genèse Cristal",
+        "alternateName": "Genesis Glass Foundation",
+        "url": "https://accountability.ai",
+        "email": "founding@accountability.ai",
+        "sameAs": [
+          "https://github.com/aiccountability-source",
+          "https://crates.io/crates/agdr-aki",
+          "https://pypi.org/project/agdr-aki/",
+          "https://www.piwheels.org/project/agdr-aki/",
+          "https://www.ic.gc.ca/app/scr/cc/CorporationsCanada/fdrlCrpDtls.html?corpId=1779509-2"
+        ],
+        "founder": { "@id": "https://accountability.ai/#person" },
+        "knowsAbout": [
+          "AI Governance",
+          "Provenance Systems",
+          "Ed25519 Cryptography",
+          "Agent Decision Records",
+          "LLM Accountability"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://accountability.ai/#person",
+        "name": "Robert Muncaster",
+        "jobTitle": "Founder and Executive Director",
+        "worksFor": { "@id": "https://accountability.ai/#organization" },
+        "sameAs": [
+          "https://github.com/aiccountability-source"
+        ]
+      },
+      {
+        "@type": "TechArticle",
+        "@id": "https://accountability.ai/reasoning-capture-methodology#article",
+        "name": "Reasoning Capture Methodology: Evidentiary Standards for AI Decision Records, Version 1.0",
+        "url": "https://accountability.ai/reasoning-capture-methodology",
+        "author": { "@id": "https://accountability.ai/#person" },
+        "publisher": { "@id": "https://accountability.ai/#organization" },
+        "about": {
+          "@type": "DefinedTerm",
+          "name": "Reasoning Capture",
+          "description": "Contemporaneous, specific, verifiable reasoning standards for high-stakes AI decisions"
+        },
+        "license": "https://creativecommons.org/licenses/by/4.0/",
+        "isPartOf": { "@id": "https://accountability.ai/#website" },
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-05-24",
+        "inLanguage": "en",
+        "encodingFormat": "text/html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://accountability.ai/" },
+          { "@type": "ListItem", "position": 2, "name": "Reasoning Capture Methodology", "item": "https://accountability.ai/reasoning-capture-methodology" }
+        ]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://accountability.ai/#agdr-aki",
+        "name": "AgDR-AKI",
+        "softwareVersion": "1.8.12",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Linux, macOS, Windows",
+        "programmingLanguage": ["Rust", "Python"],
+        "author": { "@id": "https://accountability.ai/#organization" },
+        "downloadUrl": "https://crates.io/crates/agdr-aki",
+        "installUrl": "https://pypi.org/project/agdr-aki/",
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "featureList": [
+          "Cryptographically-sealed AI decision records",
+          "Provenance tracking via PPP Triplet",
+          "HumanDeltaChain for oversight",
+          "Tamper-evident chain integrity",
+          "Court-admissible inference logging"
+        ],
+        "sameAs": [
+          "https://crates.io/crates/agdr-aki",
+          "https://pypi.org/project/agdr-aki/",
+          "https://docs.rs/agdr-aki/1.8.12"
+        ]
+      }
+    ]
   }
   </script>
 
@@ -130,6 +190,8 @@
     .archive-note a:hover{color:var(--teal)}
     @media(max-width:600px){.hero-title{font-size:2.5rem}.content-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:repeat(2,1fr)}.footer-bottom{flex-direction:column;align-items:center;text-align:center}.domain-list{grid-template-columns:1fr}}
   </style>
+  <link rel="provenance" href="https://github.com/aiccountability-source/AgDR-Phoenix/attestations/slsa.provenance">
+  <link rel="help" href="/.well-known/security.txt">
 </head>
 
 <body>
