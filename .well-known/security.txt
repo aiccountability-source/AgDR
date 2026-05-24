@@ -1,1 +1,14 @@
+# Genesis Glass Foundation / Fondation Genèse Cristal
+# accountability.ai
+# Last updated: 2026-05-24
 
+Contact: founding@accountability.ai
+Contact: mailto:founding@accountability.ai
+Expires: 2027-05-24T00:00:00.000Z
+Encryption: https://accountability.ai/pgp-key.txt
+Acknowledgments: https://accountability.ai/security-hall-of-fame
+Policy: https://accountability.ai/security-policy
+Hiring: https://accountability.ai/careers
+
+# Canonical URL: https://accountability.ai/.well-known/security.txt
+# Steward: Genesis Glass Foundation (Canada Not-for-profit Corporation No. 1779509-2)
