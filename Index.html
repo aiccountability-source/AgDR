@@ -28,7 +28,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Accountability.ai","url":"https://accountability.ai","potentialAction":{"@type":"SearchAction","target":"https://accountability.ai/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 
   <style>
-    :root{--bg:#050505;--text:#e5e7eb;--text-dim:#a1a1aa;--text-muted:#71717a;--teal:#2dd4bf;--border:rgba(255,255,255,0.05);--card:rgba(255,255,255,0.03);--gradient:radial-gradient(circle at top,#0d7377 0%,#050505 70%)}
+    :root{--bg:#050505;--text:#e5e7eb;--text-dim:#a1a1aa;--text-muted:#9ca3af;--teal:#2dd4bf;--border:rgba(255,255,255,0.05);--card:rgba(255,255,255,0.03);--gradient:radial-gradient(circle at top,#0d7377 0%,#050505 70%)}
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
@@ -170,7 +170,7 @@
 
     .site-footer{background:#000;border-top:1px solid var(--border);padding:4rem 1.5rem 3rem}
     .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2.5rem}
-    .footer-col h5{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+    .footer-col .footer-heading{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
     .footer-col ul{list-style:none;padding:0;margin:0}
     .footer-col li{margin-bottom:.5rem}
     .footer-col a{color:var(--text-dim);font-size:.875rem;display:block;transition:color .2s}
@@ -203,8 +203,9 @@
     /* Accessibility: links in text blocks must not rely on color alone */
     p a, li a, .principle-text a, .charter-block a, .step-card p a, .verification-box a, details p a{text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(45,212,191,0.4)}
     p a:hover, li a:hover, .principle-text a:hover, .charter-block a:hover, .step-card p a:hover, .verification-box a:hover, details p a:hover{text-decoration-color:var(--teal)}
-    .nav-links a, .nav-logo, .role-card a, .matrix-link a, .resource-card, .footer-col a, .btn, .skip-link, .hero-buttons a, .next-steps a, .pillar-card a, .critical-item a, .timeline-item a, .blackbox-container a{text-decoration:none}
+    .nav-links a, .nav-logo, .role-card a, .matrix-link a, .resource-card, .footer-col a, .footer-col .footer-heading, .btn, .skip-link, .hero-buttons a, .next-steps a, .pillar-card a, .critical-item a, .timeline-item a, .blackbox-container a{text-decoration:none}
 </style>
+
 
 <base target="_blank">
 </head>
@@ -242,7 +243,7 @@
         </p>
         <div class="hero-buttons">
           <a href="/getting-started" class="btn btn-primary">View Implementation</a>
-          <span class="btn btn-secondary" style="cursor:default">Evaluate in Sandbox</span>
+          <a href="/sandbox" class="btn btn-secondary">Evaluate in Sandbox</a>
         </div>
         <div style="margin-top:2rem;padding:1.25rem 1.5rem;background:rgba(45,212,191,0.05);border:1px solid rgba(45,212,191,0.15);border-radius:.75rem;max-width:700px;margin-left:auto;margin-right:auto;text-align:left">
           <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:.75rem;font-family:ui-monospace,monospace">
@@ -773,7 +774,7 @@ message ProvenancePacket {
 
 <div class="footer-grid">
   <div class="footer-col">
-    <h5>Core Standard</h5>
+    <p class="footer-heading">Core Standard</p>
     <ul>
       <li><a href="/getting-started">Get Started</a></li>
       <li><a href="/sandbox">AgDR-AKI Demo</a></li>
@@ -786,7 +787,7 @@ message ProvenancePacket {
     </ul>
   </div>
   <div class="footer-col">
-    <h5>Legal &amp; Compliance</h5>
+    <p class="footer-heading">Legal &amp; Compliance</p>
     <ul>
       <li><a href="/cea-compliance">CEA s.31.1</a></li>
       <li><a href="/cbca-fiduciary-mapping">CBCA s.122</a></li>
@@ -799,7 +800,7 @@ message ProvenancePacket {
     </ul>
   </div>
   <div class="footer-col">
-    <h5>Engineering</h5>
+    <p class="footer-heading">Engineering</p>
     <ul>
       <li><a href="/tsx-stress-test">TSX Stress Test</a></li>
       <li><a href="/horizontal-scaling">Horizontal Scaling</a></li>
@@ -811,7 +812,7 @@ message ProvenancePacket {
     </ul>
   </div>
   <div class="footer-col">
-    <h5>Vision &amp; Evidence</h5>
+    <p class="footer-heading">Vision &amp; Evidence</p>
     <ul>
       <li><a href="/comparison-aviation-black-box">Aviation Black Box</a></li>
       <li><a href="/comparison-medical-records">Medical Records</a></li>
@@ -822,7 +823,7 @@ message ProvenancePacket {
     </ul>
   </div>
   <div class="footer-col">
-    <h5>Not for Profit</h5>
+    <p class="footer-heading">Not for Profit</p>
     <ul>
       <li><a href="/charter">Charter</a></li>
       <li><a href="/donee">CCD Chartered Donee</a></li>
@@ -839,35 +840,48 @@ message ProvenancePacket {
 
 <script>
   const searchIndex = [
+    {title:"Accountability.ai",url:"/",desc:"AgDR-Phoenix v1.8. Court-admissible chain of custody for AI inference"},
     {title:"Get Started",url:"/getting-started",desc:"SDK install, PPP definition, first capture"},
     {title:"Phoenix Demo",url:"/sandbox",desc:"Interactive atomic accountability demo"},
     {title:"PPP Pillars",url:"/ppp-pillars",desc:"Provenance, Place, Purpose framework"},
     {title:"AKI Definition",url:"/aki-formal-definition",desc:"Mathematical definition of Atomic Kernel Inference"},
+    {title:"AKI 0.95 Spec",url:"/aki-95",desc:"950-nanosecond atomic kernel gating performance specification"},
+    {title:"AKI Deep Dive",url:"/aki-capture-deep-explanation",desc:"Atomic capture mechanism, memory layout, cryptographic pipeline"},
     {title:"AgDR Protocol",url:"/agdr-spec",desc:"Atomic Genesis Decision Record specification"},
+    {title:"Reasoning Capture",url:"/reasoning-capture-methodology",desc:"Chain-of-thought provenance for transformer and rule-based systems"},
     {title:"CEA Compliance",url:"/cea-compliance",desc:"Canada Evidence Act s.31.1 mapping"},
     {title:"CBCA Fiduciary",url:"/cbca-fiduciary-mapping",desc:"Director fiduciary duty accountability"},
     {title:"EU AI Act",url:"/eu-ai-act-mapping",desc:"High-risk AI system compliance"},
     {title:"CBSA Mapping",url:"/cbsa-mapping",desc:"Canada Border Services Agency alignment"},
+    {title:"Legal Mapping",url:"/legal-mapping",desc:"Statutory matrix across EU AI Act, CEA, CBCA, and NIST"},
+    {title:"Legal Compliance",url:"/ppp-legal-compliance",desc:"Statutory compliance framework"},
+    {title:"Export Control",url:"/ppp-export-control",desc:"Dual-use technology compliance"},
+    {title:"Industry Templates",url:"/ppp-industry-templates",desc:"Industry-specific PPP implementation templates"},
     {title:"FOI Role",url:"/foi-formal-definition",desc:"Fiduciary Office Intervener definition"},
+    {title:"Fiduciary Duty of Care",url:"/fiduciary-duty-of-care",desc:"Director fiduciary duty of care under Canadian corporate law"},
     {title:"Verification",url:"/verification-audit-procedure",desc:"Audit and verification procedures"},
     {title:"TSX Stress Test",url:"/tsx-stress-test",desc:"100M decisions, 620ns latency proof"},
     {title:"Horizontal Scaling",url:"/horizontal-scaling",desc:"Distributed AgDR deployment"},
     {title:"Human Delta Chain",url:"/human-delta-chain-spec",desc:"Human-in-the-loop escalation protocol"},
+    {title:"Technical Details",url:"/technical-details",desc:"System architecture and design"},
+    {title:"Rust Core",url:"/rust-core",desc:"Rust implementation details"},
+    {title:"Rust Core API",url:"https://crates.io/crates/agdr-aki",desc:"agdr-aki crate reference and build guide"},
+    {title:"Coherence Note",url:"/technical-note-coherence",desc:"Technical coherence documentation"},
+    {title:"Manifesto",url:"/manifesto",desc:"Project mission and values"},
+    {title:"Principles",url:"/principles",desc:"Foundational principles of AI accountability and provenance"},
+    {title:"Purpose",url:"/purpose",desc:"Genesis Glass Foundation organizational purpose and mandate"},
     {title:"Purpose Framework",url:"/beauty-truth-wisdom",desc:"Beauty, Truth, Wisdom as ethical filters"},
     {title:"Aviation Black Box",url:"/comparison-aviation-black-box",desc:"Comparison to flight data recorders"},
     {title:"Medical Records",url:"/comparison-medical-records",desc:"Comparison to healthcare documentation"},
     {title:"AGI Court Precedents",url:"/agi-court-precedents",desc:"Legal precedents for AI accountability"},
     {title:"Court in 2076",url:"/future-agi-court",desc:"Long-term judicial stewardship vision"},
-    {title:"Rust Core API",url:"https://crates.io/crates/agdr-aki",desc:"agdr-aki crate reference and build guide"},
-    {title:"Technical Details",url:"/technical-details",desc:"System architecture and design"},
-    {title:"Rust Core",url:"/rust-core",desc:"Rust implementation details"},
-    {title:"Manifesto",url:"/manifesto",desc:"Project mission and values"},
-    {title:"Export Control",url:"/ppp-export-control",desc:"Dual-use technology compliance"},
-    {title:"Legal Compliance",url:"/ppp-legal-compliance",desc:"Statutory compliance framework"},
-    {title:"Coherence Note",url:"/technical-note-coherence",desc:"Technical coherence documentation"},
     {title:"Bills of Exchange",url:"/bills-of-exchange-mapping",desc:"Commercial instrument alignment"},
+    {title:"Charter",url:"/charter",desc:"Articles of Incorporation. Canada Not-for-profit Corp No. 1779509-2"},
+    {title:"Donee",url:"/donee",desc:"Council of Canadians with Disabilities as dissolution beneficiary"},
+    {title:"Legal Glossary",url:"/legal-glossary",desc:"Forensic glossary of terms and definitions"},
     {title:"GEO Optimization",url:"/geo-optimization",desc:"Generative engine optimization"},
     {title:"Analytics Consent",url:"/analytics-consent",desc:"Privacy and consent management"},
+    {title:"Changelog",url:"/CHANGELOG",desc:"Version history and release notes"},
     {title:"Contributing",url:"/CONTRIBUTING",desc:"Community contribution guidelines"},
     {title:"License Update",url:"/LICENSE-UPDATE",desc:"Licensing changes and updates"},
     {title:"Terms",url:"/terms",desc:"Terms of service"}
