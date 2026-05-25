@@ -45,6 +45,8 @@
     .nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:#fff}
     .nav-links{display:none;gap:1.5rem;font-size:.875rem;font-weight:500;color:var(--text-dim)}
     .nav-links a:hover{color:var(--teal)}
+    .nav-links .nav-cta{display:inline-flex;align-items:center;justify-content:center;padding:.375rem 1rem;border:1px solid rgba(45,212,191,0.35);border-radius:9999px;color:var(--teal);font-size:.875rem;font-weight:500;transition:all .2s;line-height:1}
+    .nav-links .nav-cta:hover{background:rgba(45,212,191,0.12);border-color:var(--teal);color:#fff;box-shadow:0 0 12px rgba(45,212,191,0.15)}
     .nav-search{position:relative;flex-shrink:0}
     .nav-search input{background:#18181b;border:1px solid #27272a;border-radius:.5rem;padding:.5rem .75rem .5rem 2rem;color:#fff;font-size:.875rem;width:180px;transition:width .2s}
     .nav-search input:focus{width:220px;border-color:var(--teal);outline:none}
@@ -222,7 +224,7 @@
         <a href="/spec">Specification</a>
         <a href="/sandbox" style="color:#fff;font-weight:700">Phoenix Demo</a>
         <a href="/faq">FAQ</a>
-        <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
+        <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" class="nav-cta">GitHub</a>
       </div>
 
       <div class="nav-search" role="search">
@@ -245,22 +247,34 @@
           <a href="/getting-started" class="btn btn-primary">View Implementation</a>
           <a href="/sandbox" class="btn btn-secondary">Evaluate in Sandbox</a>
         </div>
-        <div style="margin-top:2rem;padding:1.25rem 1.5rem;background:rgba(45,212,191,0.05);border:1px solid rgba(45,212,191,0.15);border-radius:.75rem;max-width:700px;margin-left:auto;margin-right:auto;text-align:left">
-          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:.75rem;font-family:ui-monospace,monospace">
-            <span style="color:var(--teal)">$</span> pip3 install agdr-aki &nbsp;&nbsp;<span style="color:var(--text-muted)"># Windows · Linux · macOS · ARM</span>
-          </p>
-          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:.75rem;font-family:ui-monospace,monospace">
-            <span style="color:var(--teal)">$</span> pip3 install agdr-mantle &nbsp;<span style="color:var(--text-muted)"># Post-quantum fortification layer</span>
-          </p>
-          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:0;font-family:ui-monospace,monospace">
-            <span style="color:var(--teal)">$</span> cargo add agdr-aki &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--text-muted)"># Rust core</span>
-          </p>
-          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:0;font-family:ui-monospace,monospace">
-            <span style="color:var(--teal)">$</span> cargo add agdr-mantle &nbsp;&nbsp;<span style="color:var(--text-muted)"># Rust post-quantum layer</span>
-          </p>
-          <p style="font-size:.75rem;color:var(--text-muted);margin-top:.75rem;margin-bottom:0">
-            Prebuilt wheels for Windows (x64), Linux (x86_64, aarch64), macOS (Intel, Apple Silicon), and ARM via piwheels. Nemoclaw Python harness. No Rust toolchain required for Python install. Royalty-free. CC0 / Apache 2.0.
-          </p>
+        <div style="margin-top:2rem;max-width:700px;margin-left:auto;margin-right:auto;text-align:left">
+          <details style="background:rgba(45,212,191,0.05);border:1px solid rgba(45,212,191,0.15);border-radius:.75rem;overflow:hidden">
+            <summary style="padding:1rem 1.5rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-family:ui-monospace,monospace;font-size:.875rem;color:var(--text-dim)">
+              <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap"><span style="color:var(--teal)">$</span> pip3 install agdr-aki <span style="color:var(--text-muted)"># Windows · Linux · macOS · ARM</span></span>
+              <span style="flex-shrink:0;color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase">Install SDK</span>
+            </summary>
+            <div style="padding:0 1.5rem 1.25rem">
+              <div class="cmd-line" style="display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border)">
+                <code style="font-family:ui-monospace,monospace;font-size:.8125rem;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">pip3 install agdr-aki</code>
+                <button class="copy-btn" data-cmd="pip3 install agdr-aki" style="flex-shrink:0;background:transparent;border:1px solid rgba(45,212,191,0.25);color:var(--teal);padding:.25rem .6rem;border-radius:.375rem;font-size:.6875rem;font-weight:600;cursor:pointer;transition:all .2s" type="button">Copy</button>
+              </div>
+              <div class="cmd-line" style="display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border)">
+                <code style="font-family:ui-monospace,monospace;font-size:.8125rem;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">pip3 install agdr-mantle</code>
+                <button class="copy-btn" data-cmd="pip3 install agdr-mantle" style="flex-shrink:0;background:transparent;border:1px solid rgba(45,212,191,0.25);color:var(--teal);padding:.25rem .6rem;border-radius:.375rem;font-size:.6875rem;font-weight:600;cursor:pointer;transition:all .2s" type="button">Copy</button>
+              </div>
+              <div class="cmd-line" style="display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border)">
+                <code style="font-family:ui-monospace,monospace;font-size:.8125rem;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">cargo add agdr-aki</code>
+                <button class="copy-btn" data-cmd="cargo add agdr-aki" style="flex-shrink:0;background:transparent;border:1px solid rgba(45,212,191,0.25);color:var(--teal);padding:.25rem .6rem;border-radius:.375rem;font-size:.6875rem;font-weight:600;cursor:pointer;transition:all .2s" type="button">Copy</button>
+              </div>
+              <div class="cmd-line" style="display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.5rem 0;border-bottom:1px solid var(--border)">
+                <code style="font-family:ui-monospace,monospace;font-size:.8125rem;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">cargo add agdr-mantle</code>
+                <button class="copy-btn" data-cmd="cargo add agdr-mantle" style="flex-shrink:0;background:transparent;border:1px solid rgba(45,212,191,0.25);color:var(--teal);padding:.25rem .6rem;border-radius:.375rem;font-size:.6875rem;font-weight:600;cursor:pointer;transition:all .2s" type="button">Copy</button>
+              </div>
+              <p style="font-size:.75rem;color:var(--text-muted);margin-top:.75rem;margin-bottom:0;line-height:1.6">
+                Prebuilt wheels for Windows (x64), Linux (x86_64, aarch64), macOS (Intel, Apple Silicon), and ARM via piwheels. Nemoclaw Python harness. No Rust toolchain required for Python install. Royalty-free. CC0 / Apache 2.0.
+              </p>
+            </div>
+          </details>
         </div>
 
         <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:1.5rem">
@@ -926,6 +940,25 @@ message ProvenancePacket {
       searchResults.classList.remove('show');
       searchInput.blur();
     }
+  });
+
+  document.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const cmd = btn.getAttribute('data-cmd');
+      navigator.clipboard.writeText(cmd).then(() => {
+        btn.textContent = 'Copied';
+        btn.style.background = 'rgba(45,212,191,0.15)';
+        btn.style.borderColor = 'var(--teal)';
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.style.background = 'transparent';
+          btn.style.borderColor = 'rgba(45,212,191,0.25)';
+        }, 1500);
+      }).catch(() => {
+        btn.textContent = 'Failed';
+        setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+      });
+    });
   });
 </script>
 </body>
