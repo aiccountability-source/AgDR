@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>AgDR-Phoenix v1.8 Forensic Infrastructure for AI Inference | accountability.ai</title>
 
-  <!-- Open Graph / Twitter Card -->
+  <!-- Open Graph / Twitter Card ->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Accountability.ai">
   <meta property="og:url" content="https://accountability.ai/">
@@ -205,7 +205,6 @@
     p a:hover, li a:hover, .principle-text a:hover, .charter-block a:hover, .step-card p a:hover, .verification-box a:hover, details p a:hover{text-decoration-color:var(--teal)}
     .nav-links a, .nav-logo, .role-card a, .matrix-link a, .resource-card, .footer-col a, .btn, .skip-link, .hero-buttons a, .next-steps a, .pillar-card a, .critical-item a, .timeline-item a, .blackbox-container a{text-decoration:none}
 </style>
-
 <base target="_blank">
 </head>
 
@@ -219,7 +218,7 @@
       <div class="nav-links">
         <a href="/ledger">Forensic Ledger</a>
         <a href="/spec">Specification</a>
-        <a href="/sandbox" style="color:#fff;font-weight:700">Phoenix Demo</a>
+        <span style="color:#fff;font-weight:700">Phoenix Demo</span>
         <a href="/faq">FAQ</a>
         <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
       </div>
@@ -253,9 +252,6 @@
           </p>
           <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:0;font-family:ui-monospace,monospace">
             <span style="color:var(--teal)">$</span> cargo add agdr-aki &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--text-muted)"># Rust core</span>
-          </p>
-          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:0;font-family:ui-monospace,monospace">
-            <span style="color:var(--teal)">$</span> cargo add agdr-mantle &nbsp;&nbsp;<span style="color:var(--text-muted)"># Rust post-quantum layer</span>
           </p>
           <p style="font-size:.75rem;color:var(--text-muted);margin-top:.75rem;margin-bottom:0">
             Prebuilt wheels for Windows (x64), Linux (x86_64, aarch64), macOS (Intel, Apple Silicon), and ARM via piwheels. Nemoclaw Python harness. No Rust toolchain required for Python install. Royalty-free. CC0 / Apache 2.0.
@@ -299,12 +295,12 @@
         <div class="role-card">
           <h3>Chief Information Security Officer</h3>
           <p>Assess evidentiary substrate, chain-of-custody integrity, and D&O liability exposure under emerging AI fiduciary standards.</p>
-          <a href="/verification-audit-procedure">Audit Procedures <span aria-hidden="true"></span></a>
+          <span style="color:var(--teal);font-weight:600">Audit Procedures</span>
         </div>
         <div class="role-card">
           <h3>General Counsel & Compliance</h3>
           <p>Statutory mapping for EU AI Act, Canada Evidence Act, and CBCA fiduciary duty. Court-admissible record formats.</p>
-          <a href="/legal-mapping">Statutory Matrix <span aria-hidden="true"></span></a>
+          <span style="color:var(--teal);font-weight:600">Statutory Matrix</span>
         </div>
         <div class="role-card">
           <h3>Platform Engineering</h3>
@@ -338,7 +334,23 @@
 
     
 
-    
+    <section class="blackbox-section">
+      <div class="blackbox-header">
+        <h2>Unquantified Liability in Opaque Systems</h2>
+        <p>Complex machine learning models operate as evidentiary black boxes. Without atomic capture of training data, decision logic, and output impact, organizations cannot satisfy discovery requirements or establish defensible audit trails.</p>
+      </div>
+      <div class="blackbox-container">
+        <div class="blackbox-overlay">
+          <h3>Opaque System</h3>
+          <p>Hover to decompose</p>
+        </div>
+        <div class="blackbox-layers">
+          <div class="bb-layer">Training Data</div>
+          <div class="bb-layer">Decision Logic</div>
+          <div class="bb-layer">Output Impact</div>
+        </div>
+      </div>
+    </section>
 
     <section class="stats-section">
       <div class="section-header" style="margin-bottom:3rem"><h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem;color:#fff;letter-spacing:-0.02em">Performance Benchmarks</h2><p style="color:var(--text-dim);font-size:1.125rem;max-width:650px;line-height:1.6">Verified under independent TSX stress test conditions.</p></div>
@@ -366,11 +378,11 @@
       <div class="ledger-grid">
         <div class="ledger-column">
           <h2>Mechanical Floor</h2>
-          <div class="matrix-link"><a href="/principles">Principles</a><span>950ns Atomic Kernel Gating</span></div>
+          <div class="matrix-link"><a href="/Principles">Principles</a><span>950ns Atomic Kernel Gating</span></div>
           <div class="matrix-link"><a href="/aki-95">AKI 0.95 Spec</a><span>950ns Atomic Kernel Gating</span></div>
           <div class="matrix-link"><a href="/agdr-spec">AgDR Protocol</a><span>v1.8 Standard</span></div>
           <div class="matrix-link"><a href="/technical-details">Technical Architecture</a><span>System Design</span></div>
-          <div class="matrix-link"><a href="/rust-core">Rust Core</a><span>Systems Implementation</span></div>
+          <div class="matrix-link"><a href="/rust-core">Rust Core</span><span>Systems Implementation</span></div>
           <div class="matrix-link"><a href="/aki-capture-deep-explanation">Atomic Kernel Inference</a><span>950ns Atomic Kernel Gating</span></div>
         </div>
         <div class="ledger-column">
@@ -378,18 +390,18 @@
           <div class="matrix-link"><a href="/cea-compliance">CEA s.31.1 Admissibility</a><span>Canada Evidence Act</span></div>
           <div class="matrix-link"><a href="/cbca-fiduciary-mapping">CBCA s.122 Mapping</a><span>Director Fiduciary Duty</span></div>
           <div class="matrix-link"><a href="/eu-ai-act-mapping">EU AI Act Mapping</a><span>High-Risk Systems</span></div>
-          <div class="matrix-link"><a href="/cbsa-mapping">CBSA Mapping</a><span>Border &amp; Trade</span></div>
-          <div class="matrix-link"><a href="/ppp-legal-compliance">Legal Compliance</a><span>PPP Framework</span></div>
-          <div class="matrix-link"><a href="/ppp-export-control">Export Control</a><span>Dual-Use Technology</span></div>
+          <div class="matrix-link"><a href="/cbsa-mapping">CBSA Mapping</span><span>Border &amp; Trade</span></div>
+          <div class="matrix-link"><a href="/ppp-legal-compliance">Legal Compliance</span><span>PPP Framework</span></div>
+          <div class="matrix-link"><a href="/ppp-export-control">Export Control</span><span>Dual-Use Technology</span></div>
         </div>
         <div class="ledger-column">
           <h2>Forensic Archive</h2>
           <div class="matrix-link"><a href="/manifesto">Foundation</a><span>950ns Atomic Kernel Gating</span></div>
-          <div class="matrix-link"><a href="/legal-glossary">Forensic Glossary</a><span>Chain of Definition</span></div>
+          <div class="matrix-link"><a href="/legal-glossary">Forensic Glospillars-secsary</a><span>Chain of Definition</span></div>
           <div class="matrix-link"><a href="/future-agi-court">Judicial Future</a><span>15-Year Stewardship</span></div>
           <div class="matrix-link"><a href="/agi-court-precedents">AGI Court Precedents</a><span>Emerging Jurisprudence</span></div>
           <div class="matrix-link"><a href="/comparison-aviation-black-box">Aviation Black Box</a><span>Comparative Standard</span></div>
-          <div class="matrix-link"><a href="/ppp-industry-templates">Industry Templates</a><span>PPP Framework</span></div>
+          <div class="matrix-link"><a href="/ppp-industry-templates">Atomic Kernel Inference</a><span>950ns Atomic Kernel Gating</span></div>
         </div>
       </div>
     </section>
@@ -754,7 +766,7 @@ message ProvenancePacket {
         <details style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem;margin-bottom:1rem" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
           <summary style="font-weight:700;color:#fff;cursor:pointer;list-style:none;font-size:1.125rem" itemprop="name">Does AgDR require post-quantum cryptography?</summary>
           <div style="margin-top:1rem;color:var(--text-dim);line-height:1.7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <p itemprop="text">Post-quantum fortification is optional. The core AgDR-AKI crate uses Ed25519 + BLAKE3, which is sufficient for current evidentiary standards. For sovereign or long-term archival requirements, install <code style="background:rgba(45,212,191,0.1);padding:.125rem .375rem;border-radius:4px;color:var(--teal);font-family:ui-monospace,monospace">pip3 install agdr-mantle</code> to add ML-DSA-65 (FIPS 204) signatures, sparse Merkle tree witnesses, and Brotli compression without altering the hot-path latency.</p>
+            <p itemprop="text">Post-quantum fortification, AgDR-Manlte introduces ML-DSA, Brotli Compression, Self Learning, Agent Swarm Management, Nemoclaw Plugin, Proto3 (Genesis Glass pioneering UFW, a UDF FEC WAL data packet system, originating secure error-less machine speed data transfer), first introduced March 11, 2026, is optional. The core AgDR-AKI crate uses Ed25519 + BLAKE3, which is sufficient for current evidentiary standards. For sovereign or long-term archival requirements, install <code style="background:rgba(45,212,191,0.1);padding:.125rem .375rem;border-radius:4px;color:var(--teal);font-family:ui-monospace,monospace">pip3 install agdr-mantle</code> to add ML-DSA-65 (FIPS 204) signatures, sparse Merkle tree witnesses, and Brotli compression without altering the hot-path latency.</p>
           </div>
         </details>
       </div>
@@ -793,7 +805,7 @@ message ProvenancePacket {
       <li><a href="/eu-ai-act-mapping">EU AI Act</a></li>
       <li><a href="/cbsa-mapping">CBSA Mapping</a></li>
       <li><a href="/ppp-legal-compliance">Legal Compliance</a></li>
-      <li><a href="/ppp-export-control">Export Control</a></li>
+      <li><a href="/ppp-Export-control">Export Control</a></li>
       <li><a href="/foi-formal-definition">FOI Role</a></li>
       <li><a href="/verification-audit-procedure">Verification</a></li>
     </ul>
@@ -817,7 +829,7 @@ message ProvenancePacket {
       <li><a href="/comparison-medical-records">Medical Records</a></li>
       <li><a href="/agi-court-precedents">AGI Court Precedents</a></li>
       <li><a href="/future-agi-court">Court in 2076</a></li>
-      <li><a href="/principles">Principles</a></li>
+      <li><a href="/Principles">Principles</a></li>
       <li><a href="/bills-of-exchange-mapping">Bills of Exchange</a></li>
     </ul>
   </div>
@@ -838,40 +850,19 @@ message ProvenancePacket {
   </footer>
 
 <script>
-  const searchIndex = [
-    {title:"Get Started",url:"/getting-started",desc:"SDK install, PPP definition, first capture"},
-    {title:"Phoenix Demo",url:"/sandbox",desc:"Interactive atomic accountability demo"},
-    {title:"PPP Pillars",url:"/ppp-pillars",desc:"Provenance, Place, Purpose framework"},
-    {title:"AKI Definition",url:"/aki-formal-definition",desc:"Mathematical definition of Atomic Kernel Inference"},
-    {title:"AgDR Protocol",url:"/agdr-spec",desc:"Atomic Genesis Decision Record specification"},
-    {title:"CEA Compliance",url:"/cea-compliance",desc:"Canada Evidence Act s.31.1 mapping"},
-    {title:"CBCA Fiduciary",url:"/cbca-fiduciary-mapping",desc:"Director fiduciary duty accountability"},
-    {title:"EU AI Act",url:"/eu-ai-act-mapping",desc:"High-risk AI system compliance"},
-    {title:"CBSA Mapping",url:"/cbsa-mapping",desc:"Canada Border Services Agency alignment"},
-    {title:"FOI Role",url:"/foi-formal-definition",desc:"Fiduciary Office Intervener definition"},
-    {title:"Verification",url:"/verification-audit-procedure",desc:"Audit and verification procedures"},
-    {title:"TSX Stress Test",url:"/tsx-stress-test",desc:"100M decisions, 620ns latency proof"},
-    {title:"Horizontal Scaling",url:"/horizontal-scaling",desc:"Distributed AgDR deployment"},
-    {title:"Human Delta Chain",url:"/human-delta-chain-spec",desc:"Human-in-the-loop escalation protocol"},
-    {title:"Purpose Framework",url:"/beauty-truth-wisdom",desc:"Beauty, Truth, Wisdom as ethical filters"},
-    {title:"Aviation Black Box",url:"/comparison-aviation-black-box",desc:"Comparison to flight data recorders"},
-    {title:"Medical Records",url:"/comparison-medical-records",desc:"Comparison to healthcare documentation"},
-    {title:"AGI Court Precedents",url:"/agi-court-precedents",desc:"Legal precedents for AI accountability"},
-    {title:"Court in 2076",url:"/future-agi-court",desc:"Long-term judicial stewardship vision"},
-    {title:"Rust Core API",url:"https://crates.io/crates/agdr-aki",desc:"agdr-aki crate reference and build guide"},
-    {title:"Technical Details",url:"/technical-details",desc:"System architecture and design"},
-    {title:"Rust Core",url:"/rust-core",desc:"Rust implementation details"},
-    {title:"Manifesto",url:"/manifesto",desc:"Project mission and values"},
-    {title:"Export Control",url:"/ppp-export-control",desc:"Dual-use technology compliance"},
-    {title:"Legal Compliance",url:"/ppp-legal-compliance",desc:"Statutory compliance framework"},
-    {title:"Coherence Note",url:"/technical-note-coherence",desc:"Technical coherence documentation"},
-    {title:"Bills of Exchange",url:"/bills-of-exchange-mapping",desc:"Commercial instrument alignment"},
-    {title:"GEO Optimization",url:"/geo-optimization",desc:"Generative engine optimization"},
-    {title:"Analytics Consent",url:"/analytics-consent",desc:"Privacy and consent management"},
-    {title:"Contributing",url:"/CONTRIBUTING",desc:"Community contribution guidelines"},
-    {title:"License Update",url:"/LICENSE-UPDATE",desc:"Licensing changes and updates"},
-    {title:"Terms",url:"/terms",desc:"Terms of service"}
-  ];
+  let searchIndex = [];
+  let indexReady = false;
+
+  fetch('/search-index.json')
+    .then(r => r.json())
+    .then(data => {
+      searchIndex = data;
+      indexReady = true;
+    })
+    .catch(() => {
+      searchIndex = [];
+      indexReady = false;
+    });
 
   const searchInput = document.getElementById('site-search');
   const searchResults = document.getElementById('search-results');
@@ -881,6 +872,11 @@ message ProvenancePacket {
     if (q.length < 2) {
       searchResults.classList.remove('show');
       searchResults.innerHTML = '';
+      return;
+    }
+    if (!indexReady) {
+      searchResults.innerHTML = '<div class="no-results">Index loading…</div>';
+      searchResults.classList.add('show');
       return;
     }
     const results = searchIndex.filter(item =>
