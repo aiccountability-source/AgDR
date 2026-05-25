@@ -20,6 +20,7 @@
   <meta name="twitter:image" content="https://accountability.ai/social-preview.png">
 
   <meta name="description" content="Atomic Genesis Decision Record (AgDR). Court-admissible chain of custody for automated decision systems. Sub-microsecond provenance capture. EU AI Act, NIST AI RMF, Canada Evidence Act compliant. CC0 / Apache 2.0.">
+  <link rel="preconnect" href="https://img.shields.io" crossorigin>
   <link rel="canonical" href="https://accountability.ai/">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
@@ -200,6 +201,7 @@
       .footer-grid{grid-template-columns:1fr}
     }
 
+    .badge-pill:hover{border-color:rgba(45,212,191,0.3)!important;color:#fff!important}
     @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
   
     /* Accessibility: links in text blocks must not rely on color alone */
@@ -278,26 +280,29 @@
         </div>
 
         <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:1.5rem">
-  <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank">
-    <img src="https://img.shields.io/badge/GitHub-AgDR--Phoenix-black?style=flat-square&logo=github&labelColor=27272a" alt="GitHub AgDR-Phoenix" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+  <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" class="badge-pill" style="height:24px;display:inline-flex;align-items:center;gap:.4rem;padding:0 .7rem;background:#27272a;border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#e5e7eb;font-size:10px;font-family:monospace;font-weight:700;transition:all .2s">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="opacity:.8"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+    GitHub
   </a>
-  <a href="https://crates.io/crates/agdr-aki" target="_blank">
-    <img src="https://img.shields.io/crates/v/agdr-aki?style=flat-square&label=crates.io:AKI&color=F74C00&labelColor=27272a" alt="crates.io agdr-aki" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+  <a href="https://crates.io/crates/agdr-aki" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/crates/v/agdr-aki?style=flat-square&label=crates.io:AKI&color=F74C00&labelColor=27272a" alt="crates.io agdr-aki" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)" loading="lazy" decoding="async">
   </a>
-  <a href="https://crates.io/crates/agdr-mantle" target="_blank">
-    <img src="https://img.shields.io/crates/v/agdr-mantle?style=flat-square&label=crates.io:Mantle&color=F74C00&labelColor=27272a" alt="crates.io agdr-mantle" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+  <a href="https://crates.io/crates/agdr-mantle" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/crates/v/agdr-mantle?style=flat-square&label=crates.io:Mantle&color=F74C00&labelColor=27272a" alt="crates.io agdr-mantle" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)" loading="lazy" decoding="async">
   </a>
-  <a href="https://pypi.org/project/agdr-aki/" target="_blank">
-    <img src="https://img.shields.io/pypi/v/agdr-aki?style=flat-square&label=PyPI:AKI&color=3775A9&labelColor=27272a" alt="PyPI agdr-aki" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+  <a href="https://pypi.org/project/agdr-aki/" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/pypi/v/agdr-aki?style=flat-square&label=PyPI:AKI&color=3775A9&labelColor=27272a" alt="PyPI agdr-aki" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)" loading="lazy" decoding="async">
   </a>
-  <a href="https://pypi.org/project/agdr-mantle/" target="_blank">
-    <img src="https://img.shields.io/pypi/v/agdr-mantle?style=flat-square&label=PyPI:Mantle&color=3775A9&labelColor=27272a" alt="PyPI agdr-mantle" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+  <a href="https://pypi.org/project/agdr-mantle/" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/pypi/v/agdr-mantle?style=flat-square&label=PyPI:Mantle&color=3775A9&labelColor=27272a" alt="PyPI agdr-mantle" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)" loading="lazy" decoding="async">
   </a>
-  <a href="https://www.piwheels.org/project/agdr-aki/" target="_blank">
-    <img src="https://img.shields.io/badge/piwheels-agdr--aki-C51A4A?style=flat-square&logo=raspberrypi&labelColor=27272a" alt="piwheels agdr-aki" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+  <a href="https://www.piwheels.org/project/agdr-aki/" target="_blank" rel="noopener" class="badge-pill" style="height:24px;display:inline-flex;align-items:center;gap:.4rem;padding:0 .7rem;background:#27272a;border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#C51A4A;font-size:10px;font-family:monospace;font-weight:700;transition:all .2s">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    piwheels
   </a>
-  <a href="https://www.piwheels.org/project/agdr-mantle/" target="_blank">
-    <img src="https://img.shields.io/badge/piwheels-agdr--mantle-C51A4A?style=flat-square&logo=raspberrypi&labelColor=27272a" alt="piwheels agdr-mantle" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+  <a href="https://www.piwheels.org/project/agdr-mantle/" target="_blank" rel="noopener" class="badge-pill" style="height:24px;display:inline-flex;align-items:center;gap:.4rem;padding:0 .7rem;background:#27272a;border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#C51A4A;font-size:10px;font-family:monospace;font-weight:700;transition:all .2s">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    piwheels
   </a>
   <span style="height:24px;display:inline-flex;align-items:center;padding:0 8px;background:#27272a;color:#e5e7eb;font-size:10px;font-family:monospace;border-radius:4px;border:1px solid rgba(255,255,255,0.15);font-weight:700;">BLAKE3 &middot; Ed25519</span>
   <span style="height:24px;display:inline-flex;align-items:center;padding:0 8px;background:#27272a;color:#5eead4;font-size:10px;font-family:monospace;border-radius:4px;border:1px solid rgba(45,212,191,0.2);font-weight:700;">PQC: ML-DSA</span>
