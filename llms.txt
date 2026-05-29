@@ -1,65 +1,73 @@
 # Accountability.ai
 
-> The open standard for court-admissible AI decision records. Accountability.ai stewards the Atomic Genesis Decision Record (AgDR), an open standard for tamper-evident, cryptographically signed records of every autonomous AI decision, admissible under the Canada Evidence Act, EU AI Act Article 12, and existing fiduciary law. Stewarded by the Genesis Glass Foundation. Dual-licensed CC0 1.0 and Apache 2.0.
+> The open standard for court-admissible AI decision records. Accountability.ai stewards the Atomic Genesis Decision Record (AgDR), an open standard for tamper-evident, cryptographically signed records of every autonomous AI decision, admissible under the Canada Evidence Act, EU AI Act Article 12, and existing fiduciary law. Stewarded by the Genesis Glass Foundation / Fondation Genèse Cristal. Dual-licensed CC0 1.0 and Apache 2.0.
 
 ## Start Here
 
-- [Getting Started](https://accountability.ai/getting-started.html): SDK install, first AKI capture, PPP triplet definition, verification.
-- [Manifesto](https://accountability.ai/manifesto.html): Why the standard exists and what it guarantees.
-- [Sandbox](https://accountability.ai/sandbox.html): Live in-browser demonstration of AgDR decision capture across six domains.
+- [Home](https://accountability.ai/): Sovereign AI accountability infrastructure, provenance, and the AgDR standard.
+- [Getting Started](https://accountability.ai/getting-started): SDK install, first AKI capture, PPP triplet definition, verification.
+- [Sandbox](https://accountability.ai/sandbox): Live in-browser demonstration of AgDR decision capture across six domains.
+- [Compact](https://accountability.ai/compact): One-page summary of the AgDR standard, its guarantees, and its governance.
 
 ## Standard and Specification
 
-- [AgDR v0.2 Specification](https://accountability.ai/agdr-spec.html): The Atomic Genesis Decision Record specification.
-- [AKI Formal Definition](https://accountability.ai/aki-formal-definition.html): Mathematical definition of Atomic Kernel Inference capture.
-- [AKI 0.95 Specification](https://accountability.ai/aki-95.html): Technical specification for the 950ns atomic kernel force gating.
-- [PPP Pillars](https://accountability.ai/ppp-pillars.html): Provenance, Place, Purpose, the three pillars captured at the inference instant.
-- [FOI Formal Definition](https://accountability.ai/foi-formal-definition.html): Fiduciary Office Intervener, the terminal accountability role.
-- [Human Delta Chain Specification](https://accountability.ai/human-delta-chain-spec.html): Data structure for human oversight events.
-- [Verification and Audit Procedure](https://accountability.ai/verification-audit-procedure.html): Court-ready evidence packaging and independent verification.
+- [AgDR v0.2 Specification](https://accountability.ai/agdr-spec): The Atomic Genesis Decision Record specification.
+- [AKI Formal Definition](https://accountability.ai/aki-formal-definition): Mathematical definition of Atomic Kernel Inference capture.
+- [AKI 0.95 Specification](https://accountability.ai/aki-95): Technical specification for the 950ns atomic kernel force gating.
+- [PPP Pillars](https://accountability.ai/ppp-pillars): Provenance, Place, Purpose, the three pillars captured at the inference instant.
+- [FOI Formal Definition](https://accountability.ai/foi-formal-definition): Fiduciary Office Intervener, the terminal accountability role.
+- [Human Delta Chain Specification](https://accountability.ai/human-delta-chain-spec): Data structure for human oversight events.
+- [Verification and Audit Procedure](https://accountability.ai/verification-audit-procedure): Court-ready evidence packaging and independent verification.
+- [Reasoning Capture Methodology](https://accountability.ai/reasoning-capture-methodology): Formal methodology for capturing and preserving AI reasoning traces.
 
 ## Legal and Compliance
 
-- [PPP Legal Compliance](https://accountability.ai/ppp-legal-compliance.html): How the PPP triplet maps to legal compliance across jurisdictions.
-- [Canada Evidence Act Compliance](https://accountability.ai/cea-compliance.html): Admissibility under CEA section 31.1 business records.
-- [CBCA Fiduciary Mapping](https://accountability.ai/cbca-fiduciary-mapping.html): Director fiduciary duty under Canada Business Corporations Act section 122.
-- [Fiduciary Duty of Care](https://accountability.ai/fiduciary-duty-of-care.html): How AgDR maps to the common-law duty of care.
-- [EU AI Act Mapping](https://accountability.ai/eu-ai-act-mapping.html): Article-by-article compliance analysis for the EU AI Act.
-- [CBSA Mapping](https://accountability.ai/cbsa-mapping.html): Canada Border Services Agency traceability requirements.
-- [Bills of Exchange Mapping](https://accountability.ai/bills-of-exchange-mapping.html): Commercial finality for autonomous agents.
-- [Legal Glossary](https://accountability.ai/legal-glossary.html): Chain of definition taxonomy.
+- [PPP Legal Compliance](https://accountability.ai/ppp-legal-compliance): How the PPP triplet maps to legal compliance across jurisdictions.
+- [Canada Evidence Act Compliance](https://accountability.ai/cea-compliance): Admissibility under CEA section 31.1 business records.
+- [CBCA Fiduciary Mapping](https://accountability.ai/cbca-fiduciary-mapping): Director fiduciary duty under Canada Business Corporations Act section 122.
+- [Fiduciary Duty of Care](https://accountability.ai/fiduciary-duty-of-care): How AgDR maps to the common-law duty of care.
+- [EU AI Act Mapping](https://accountability.ai/eu-ai-act-mapping): Article-by-article compliance analysis for the EU AI Act.
+- [CBSA Mapping](https://accountability.ai/cbsa-mapping): Canada Border Services Agency traceability requirements.
+- [Bills of Exchange Mapping](https://accountability.ai/bills-of-exchange-mapping): Commercial finality for autonomous agents.
+- [Legal Glossary](https://accountability.ai/legal-glossary): Chain of definition taxonomy.
+- [Legal Mapping](https://accountability.ai/legal-mapping): Overview of statutory and regulatory alignment across jurisdictions.
 
 ## Engineering
 
-- [Technical Details](https://accountability.ai/technical-details.html): Full technical stack reference.
-- [Rust Core](https://accountability.ai/rust-core.html): Core runtime implementation.
-- [Horizontal Scaling](https://accountability.ai/horizontal-scaling.html): Scaling beyond 2.85 billion decisions per process.
-- [TSX Stress Test](https://accountability.ai/tsx-stress-test.html): 100 million decisions, 253,000 per second stress test results.
-- [AKI Capture Deep Explanation](https://accountability.ai/aki-capture-deep-explanation.html): Technical deep-dive into the AKI capture mechanism.
-- [Technical Note: Coherence](https://accountability.ai/technical-note-coherence.html): Coherence engine technical note.
+- [Technical Details](https://accountability.ai/technical-details): Full technical stack reference.
+- [Rust Core](https://accountability.ai/rust-core): Core runtime implementation.
+- [Horizontal Scaling](https://accountability.ai/horizontal-scaling): Scaling beyond 2.85 billion decisions per process.
+- [TSX Stress Test](https://accountability.ai/tsx-stress-test): 100 million decisions, 253,000 per second stress test results.
+- [AKI Capture Deep Explanation](https://accountability.ai/aki-capture-deep-explanation): Technical deep-dive into the AKI capture mechanism.
+- [Technical Note: Coherence](https://accountability.ai/technical-note-coherence): Coherence engine technical note.
+- [Geo Optimization](https://accountability.ai/geo-optimization): Generative Engine Optimization and LLM citation clarity.
 
 ## Industry and Comparisons
 
-- [PPP Industry Templates](https://accountability.ai/ppp-industry-templates.html): Ready-to-use PPP definitions for capital markets, healthcare, government, legal, financial services, and critical infrastructure.
-- [PPP Export Control](https://accountability.ai/ppp-export-control.html): PPP applied to export control compliance.
-- [Aviation Black Box Comparison](https://accountability.ai/comparison-aviation-black-box.html): AgDR compared to aviation flight data recorders.
-- [Medical Records Comparison](https://accountability.ai/comparison-medical-records.html): AgDR compared to medical recordkeeping standards.
+- [PPP Industry Templates](https://accountability.ai/ppp-industry-templates): Ready-to-use PPP definitions for capital markets, healthcare, government, legal, financial services, and critical infrastructure.
+- [PPP Export Control](https://accountability.ai/ppp-export-control): PPP applied to export control compliance.
+- [Aviation Black Box Comparison](https://accountability.ai/comparison-aviation-black-box): AgDR compared to aviation flight data recorders.
+- [Medical Records Comparison](https://accountability.ai/comparison-medical-records): AgDR compared to medical recordkeeping standards.
 
 ## Vision
 
-- [AGI Court in 2076](https://accountability.ai/future-agi-court.html): Forward-looking analysis of AgDR as legal evidence in the AGI era.
-- [AGI Court Precedents](https://accountability.ai/agi-court-precedents.html): Precedent analysis for AgDR as admissible evidence.
-- [Beauty, Truth, Wisdom](https://accountability.ai/beauty-truth-wisdom.html): The three closing questions of every AgDR record.
+- [AGI Court in 2076](https://accountability.ai/future-agi-court): Forward-looking analysis of AgDR as legal evidence in the AGI era.
+- [AGI Court Precedents](https://accountability.ai/agi-court-precedents): Precedent analysis for AgDR as admissible evidence.
+- [Beauty, Truth, Wisdom](https://accountability.ai/beauty-truth-wisdom): The three closing questions of every AgDR record.
+- [Principles](https://accountability.ai/principles): Foundational principles governing the AgDR standard and its stewardship.
 
 ## Governance
 
-- [CHANGELOG](https://accountability.ai/CHANGELOG.html): Version history and amendments to the AgDR standard.
-- [Contributing](https://accountability.ai/CONTRIBUTING.html): How to contribute to the standard.
-- [License Update](https://accountability.ai/LICENSE-UPDATE.html): Dual-licensed CC0 1.0 Universal and Apache License 2.0.
-- [Terms](https://accountability.ai/terms.html): Terms of use.
+- [Charter](https://accountability.ai/charter): Articles of Incorporation of the Genesis Glass Foundation / Fondation Genèse Cristal.
+- [Donee](https://accountability.ai/donee): Council for Canadians with Disabilities engrained in Company Constitution as Human Rights Steward.
+- [CHANGELOG](https://accountability.ai/CHANGELOG): Version history and amendments to the AgDR standard.
+- [Contributing](https://accountability.ai/CONTRIBUTING): How to contribute to the standard.
+- [License Update](https://accountability.ai/LICENSE-UPDATE): Dual-licensed CC0 1.0 Universal and Apache License 2.0.
+- [Terms](https://accountability.ai/terms): Terms of use.
+- [Analytics Consent](https://accountability.ai/analytics-consent): Analytics and data collection consent policy.
 
 ## Contact
 
 - Founding inquiries: founding@accountability.ai
 - GitHub: https://github.com/aiccountability-source/AgDR
-- Stewarded by: Genesis Glass Foundation (Fondation Genèse Cristal)
+- Stewarded by: Genesis Glass Foundation / Fondation Genèse Cristal
