@@ -49,13 +49,13 @@
     <lastmod>2026-05-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>        
+  </url>
   <url>
     <loc>https://accountability.ai/aki-formal-definition</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-  </url>  
+  </url>
   <url>
     <loc>https://accountability.ai/purpose</loc>
     <lastmod>2026-05-24</lastmod>
@@ -239,7 +239,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-<url>
+  <url>
     <loc>https://accountability.ai/reasoning-capture-methodology</loc>
     <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -269,6 +269,14 @@
     <lastmod>2026-04-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.4</priority>
+  </url>
+
+  <!-- Actuarial Safe Harbor Protocol (ASHP) monograph -->
+  <url>
+    <loc>https://accountability.ai/ashp</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
 </urlset>
