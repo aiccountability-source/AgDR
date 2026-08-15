@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>The Actuarial Safe Harbor Protocol (ASHP) | accountability.ai</title>
+
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Accountability.ai">
+  <meta property="og:url" content="https://accountability.ai/ashp">
+  <meta property="og:title" content="The Actuarial Safe Harbor Protocol (ASHP)">
+  <meta property="og:description" content="A Credibility-Driven Capital, Reserving, and Solvency Framework for Stochastic AI Tail Risk. ASOP-compliant dual-capped truncation, Bühlmann-Straub credibility, and parametric systemic backstops.">
+  <meta property="og:image" content="https://accountability.ai/social-preview.png">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Actuarial Safe Harbor Protocol (ASHP)">
+  <meta name="twitter:description" content="Credibility-driven capital, reserving, and solvency framework for stochastic AI tail risk. Dual-capped truncation, ZK telemetry, parametric backstops.">
+  <meta name="twitter:image" content="https://accountability.ai/social-preview.png">
+
+  <meta name="description" content="The Actuarial Safe Harbor Protocol (ASHP): an operationally enforceable framework that transforms unbounded stochastic AI tail exposure into a capped, parameterizable, and fully insurable risk layer. Compliant with ASOP Nos. 11, 25, 38, 40, 43, 46, 53, 56 and IFRS 17 Risk Adjustment. Solvency II SCR and NAIC RBC aligned.">
+  <link rel="preconnect" href="https://img.shields.io" crossorigin>
+  <link rel="canonical" href="https://accountability.ai/ashp">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <!-- Schema.org: Article + Organization -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"GENESIS GLASS FOUNDATION","alternateName":"FONDATION GENÈSE CRISTAL","url":"https://accountability.ai","logo":"https://accountability.ai/assets/ggf-logo.png","sameAs":["https://github.com/aiccountability-source"],"address":{"@type":"PostalAddress","addressCountry":"CA"},"knowsAbout":["AI Governance","Digital Forensics","Cryptographic Provenance","Fiduciary Technology","Actuarial Science"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","headline":"The Actuarial Safe Harbor Protocol (ASHP)","description":"A Credibility-Driven Capital, Reserving, and Solvency Framework for Stochastic AI Tail Risk","author":{"@type":"Organization","name":"Genesis Glass Foundation"},"publisher":{"@type":"Organization","name":"Accountability.ai"},"datePublished":"2026-01-01","dateModified":"2026-08-14","identifier":"AAI-ACT-2026-V10.0","keywords":["AI liability","actuarial safe harbor","Bühlmann-Straub","Solvency II","ASOP","stochastic tail risk","zk-SNARK telemetry"]}</script>
+
+  <style>
+    :root{--bg:#050505;--text:#e5e7eb;--text-dim:#a1a1aa;--text-muted:#9ca3af;--teal:#2dd4bf;--border:rgba(255,255,255,0.05);--card:rgba(255,255,255,0.03);--gradient:radial-gradient(circle at top,#0d7377 0%,#050505 70%)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--teal)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    *:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+    .skip-link{position:absolute;top:-100%;left:0;background:var(--teal);color:#000;padding:.75rem 1.5rem;z-index:100;font-weight:700;border-radius:0 0 .5rem 0}
+    .skip-link:focus{top:0}
+
+    .site-nav{position:sticky;top:0;z-index:50;background:rgba(5,5,5,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:.75rem 0}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:#fff}
+    .nav-links{display:none;gap:1.5rem;font-size:.875rem;font-weight:500;color:var(--text-dim)}
+    .nav-links a:hover{color:var(--teal)}
+    .nav-links .nav-cta{display:inline-flex;align-items:center;justify-content:center;padding:.375rem 1rem;border:1px solid rgba(45,212,191,0.35);border-radius:9999px;color:var(--teal);font-size:.875rem;font-weight:500;transition:all .2s;line-height:1}
+    .nav-links .nav-cta:hover{background:rgba(45,212,191,0.12);border-color:var(--teal);color:#fff;box-shadow:0 0 12px rgba(45,212,191,0.15)}
+    .nav-search{position:relative;flex-shrink:0}
+    .nav-search input{background:#18181b;border:1px solid #27272a;border-radius:.5rem;padding:.5rem .75rem .5rem 2rem;color:#fff;font-size:.875rem;width:180px;transition:width .2s}
+    .nav-search input:focus{width:220px;border-color:var(--teal);outline:none}
+    .nav-search svg{position:absolute;left:.75rem;top:50%;transform:translateY(-50%);width:1rem;height:1rem;color:#6b7280;pointer-events:none}
+    @media(min-width:768px){.nav-links{display:flex}}
+    @media(max-width:640px){.nav-search input{width:40px;padding:.5rem;transition:width .2s}.nav-search input:focus{width:180px;padding:.5rem .75rem .5rem 2rem}}
+
+    #search-results{position:absolute;top:100%;right:0;left:0;background:#18181b;border:1px solid #27272a;border-radius:.5rem;margin-top:.25rem;max-height:300px;overflow-y:auto;z-index:60;display:none}
+    #search-results.show{display:block}
+    #search-results a{display:block;padding:.75rem 1rem;color:var(--text);font-size:.875rem;border-bottom:1px solid var(--border)}
+    #search-results a:hover{background:rgba(45,212,191,0.1);color:#fff}
+    #search-results .no-results{padding:1rem;color:var(--text-muted);font-size:.875rem}
+
+    .hero{background:var(--gradient);padding:4rem 1.5rem 5rem;text-align:center}
+    .hero-content{max-width:860px;margin:0 auto}
+    .hero-badge{display:inline-block;background:rgba(45,212,191,.1);color:var(--teal);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem}
+    .hero-title{font-size:clamp(2.25rem,5vw,3.5rem);font-weight:700;letter-spacing:-.025em;line-height:1.1;margin:0 0 1.25rem;color:#fff}
+    .hero-lead{font-size:1.2rem;color:#d4d4d8;line-height:1.75;margin-bottom:2rem;max-width:720px;margin-left:auto;margin-right:auto}
+    .hero-meta{display:flex;flex-wrap:wrap;gap:.75rem 1.5rem;justify-content:center;font-size:.8125rem;color:var(--text-muted);font-family:ui-monospace,monospace;margin-bottom:2rem}
+    .hero-meta strong{color:var(--text-dim);font-weight:600}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+    .btn{display:inline-block;padding:1rem 2.25rem;border-radius:.5rem;font-weight:700;text-align:center;transition:all .2s;cursor:pointer;border:none;font-size:1rem}
+    .btn-primary{background:#14b8a6;color:#000}
+    .btn-primary:hover{background:var(--teal)}
+    .btn-secondary{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff}
+    .btn-secondary:hover{background:rgba(255,255,255,0.1)}
+
+    .section-header{max-width:900px;margin:0 auto 2.5rem;padding:0 1.5rem}
+    .section-header h2{font-size:clamp(1.5rem,3.5vw,2.1rem);font-weight:700;margin-bottom:.75rem;color:#fff;letter-spacing:-0.02em}
+    .section-header p{color:var(--text-dim);font-size:1.05rem;line-height:1.6}
+
+    .content-section{padding:4.5rem 1.5rem;border-top:1px solid var(--border)}
+    .content-section.alt{background:#09090b}
+    .content-grid{max-width:900px;margin:0 auto}
+    .content-grid h2{font-size:clamp(1.5rem,3.5vw,2rem);font-weight:700;margin-bottom:1rem;color:#fff;letter-spacing:-0.02em}
+    .content-grid h3{font-size:1.2rem;font-weight:700;margin:1.75rem 0 .75rem;color:#fff}
+    .content-grid h4{font-size:1.05rem;font-weight:700;margin:1.25rem 0 .5rem;color:var(--teal);font-family:ui-monospace,monospace;letter-spacing:.02em}
+    .content-grid p,.content-grid li{color:var(--text-dim);font-size:1rem;line-height:1.75;margin-bottom:1rem}
+    .content-grid ul,.content-grid ol{margin:0 0 1.25rem 1.25rem}
+    .content-grid li{margin-bottom:.5rem}
+    .content-grid strong{color:#e5e7eb;font-weight:600}
+
+    .charter-block{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.75rem 2rem;margin:1.5rem 0}
+    .charter-label{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;font-family:ui-monospace,monospace}
+    .charter-block p{margin-bottom:.75rem}
+    .charter-block p:last-child{margin-bottom:0}
+
+    .math-block{background:#18181b;border:1px solid rgba(255,255,255,0.08);border-radius:.75rem;padding:1.25rem 1.5rem;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.875rem;color:#5eead4;line-height:1.7;overflow-x:auto;margin:1.25rem 0;white-space:pre-wrap}
+
+    .table-wrap{overflow-x:auto;margin:1.5rem 0;border-radius:.75rem;border:1px solid var(--border)}
+    table{width:100%;border-collapse:collapse;font-size:.9rem}
+    th{background:rgba(45,212,191,0.08);color:var(--teal);text-align:left;padding:.85rem 1.1rem;font-weight:700;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--border)}
+    td{padding:.85rem 1.1rem;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:rgba(255,255,255,0.02)}
+
+    .callout{background:linear-gradient(90deg,rgba(45,212,191,0.06),transparent);border-left:3px solid var(--teal);padding:1.25rem 1.5rem;border-radius:0 .75rem .75rem 0;margin:1.5rem 0}
+    .callout p{margin-bottom:.5rem}
+    .callout p:last-child{margin-bottom:0}
+
+    .tier-card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem 1.75rem;margin-bottom:1rem}
+    .tier-card h4{margin-top:0;color:#fff;font-size:1rem}
+    .tier-card .tag{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin-bottom:.5rem}
+
+    .timeline{max-width:800px;margin:2rem auto 0;padding-left:2.5rem;position:relative}
+    .timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--teal),rgba(45,212,191,0.1));border-radius:1px}
+    .timeline-item{position:relative;padding-bottom:2.25rem}
+    .timeline-item:last-child{padding-bottom:0}
+    .timeline-item::before{content:'';position:absolute;left:-2.5rem;top:.4rem;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--teal);transform:translateX(-7px)}
+    .timeline-item h4{font-size:1.05rem;font-weight:700;margin-bottom:.4rem;color:#fff}
+    .timeline-item p{color:var(--text-dim);font-size:.95rem;line-height:1.65;margin:0}
+
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:2rem 0}
+    .stat-card{background:var(--card);border:1px solid rgba(45,212,191,0.12);border-radius:1rem;padding:1.25rem 1.5rem}
+    .stat-label{color:var(--teal);font-family:monospace;font-size:.75rem;letter-spacing:.06em;text-transform:uppercase}
+    .stat-value{font-size:1.5rem;font-weight:700;color:#fff;margin-top:.25rem}
+
+    .toc{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.75rem 2rem;margin:0 auto 3rem;max-width:900px}
+    .toc h3{font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;font-family:ui-monospace,monospace}
+    .toc ol{margin:0;padding-left:1.25rem;columns:2;column-gap:2rem}
+    .toc li{margin-bottom:.45rem;break-inside:avoid}
+    .toc a{color:var(--text-dim);font-size:.9rem}
+    .toc a:hover{color:var(--teal)}
+    @media(max-width:640px){.toc ol{columns:1}}
+
+    .site-footer{background:#000;border-top:1px solid var(--border);padding:4rem 1.5rem 3rem}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2.5rem}
+    .footer-col .footer-heading{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+    .footer-col ul{list-style:none;padding:0;margin:0}
+    .footer-col li{margin-bottom:.5rem}
+    .footer-col a{color:var(--text-dim);font-size:.875rem;display:block;transition:color .2s}
+    .footer-col a:hover{color:var(--teal)}
+    .footer-bottom{max-width:1200px;margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.75rem;color:var(--text-muted)}
+    .footer-bottom a{color:var(--teal)}
+    .footer-tagline{max-width:1200px;margin:0 auto 2.5rem;text-align:center}
+    .footer-tagline p{font-size:1.125rem;color:#fff;font-weight:600;margin-bottom:.5rem;letter-spacing:-0.01em}
+    .footer-tagline span{color:var(--text-muted);font-size:.875rem}
+    .footer-logo{max-width:1200px;margin:0 auto 2rem;text-align:center}
+    .footer-logo img{max-width:260px;height:auto;opacity:.85;transition:opacity .3s}
+    .footer-logo img:hover{opacity:1}
+
+    p a, li a, .content-grid a{text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(45,212,191,0.4)}
+    p a:hover, li a:hover, .content-grid a:hover{text-decoration-color:var(--teal)}
+    .nav-links a, .nav-logo, .btn, .skip-link, .footer-col a, .footer-col .footer-heading, .toc a{text-decoration:none}
+
+    @media(max-width:768px){
+      .footer-grid{grid-template-columns:repeat(2,1fr)}
+      .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+    }
+    @media(max-width:600px){
+      .footer-grid{grid-template-columns:1fr}
+      .hero-title{font-size:2.1rem}
+    }
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+
+  <base target="_blank">
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" target="_self">ACCOUNTABILITY.AI</a>
+
+      <div class="nav-links">
+        <a href="/charter" target="_self">Charter</a>
+        <a href="/agdr-spec" target="_self">Specification</a>
+        <a href="/sandbox" target="_self">Phoenix Demo</a>
+        <a href="/#faq" target="_self">FAQ</a>
+        <a href="https://github.com/aiccountability-source/AgDR-Phoenix" rel="noopener" class="nav-cta">GitHub</a>
+        <a href="https://github.com/aiccountability-source/AgDR-Mantle" rel="noopener" class="nav-cta">GitHub</a>
+
+        <div class="nav-search" role="search">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <input type="search" id="site-search" placeholder="Search docs..." aria-label="Search documentation" autocomplete="off">
+          <div id="search-results" role="listbox" aria-label="Search results"></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">Monograph AAI-ACT-2026-V10.0 · Final Consensus</span>
+        <h1 class="hero-title">The Actuarial Safe Harbor Protocol (ASHP)</h1>
+        <p class="hero-lead">
+          A credibility-driven capital, reserving, and solvency framework that converts unbounded stochastic AI tail risk into a capped, parameterizable, and fully insurable risk layer.
+        </p>
+        <div class="hero-meta">
+          <span><strong>Standards:</strong> ASOP 11, 25, 38, 40, 43, 46, 53, 56 · IFRS 17</span>
+          <span><strong>Solvency:</strong> Solvency II SCR (99.5% VaR) · NAIC RBC C-3 / CMR</span>
+          <span><strong>Audience:</strong> Chief Actuaries · Reinsurance Underwriters · ERM · Regulators</span>
+        </div>
+        <div class="hero-buttons">
+          <a href="#executive-summary" class="btn btn-primary" target="_self">Read Executive Summary</a>
+          <a href="#legislative-text" class="btn btn-secondary" target="_self">Model Legislative Text</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOC -->
+    <div class="toc" style="margin-top:-1.5rem">
+      <h3>Contents</h3>
+      <ol>
+        <li><a href="#executive-summary" target="_self">Executive Summary</a></li>
+        <li><a href="#market-failure" target="_self">1. Market Failure: Credibility &amp; Parameter Void</a></li>
+        <li><a href="#two-tier" target="_self">2. Two-Tier Loss Truncation</a></li>
+        <li><a href="#credibility" target="_self">3. Bühlmann-Straub Credibility Scaling</a></li>
+        <li><a href="#parametric" target="_self">4. Parametric Systemic Triggers</a></li>
+        <li><a href="#ufmw" target="_self">5. Upstream Model Warranties</a></li>
+        <li><a href="#velocity" target="_self">6. Velocity-Indexed Time-at-Risk</a></li>
+        <li><a href="#sandbox" target="_self">7. 36-Month Credibility Sandbox</a></li>
+        <li><a href="#legislative-text" target="_self">8. Model Legislative Text</a></li>
+        <li><a href="#conclusion" target="_self">Conclusion</a></li>
+      </ol>
+    </div>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section id="executive-summary" class="content-section alt">
+      <div class="content-grid">
+        <h2>Executive Summary</h2>
+        <p>
+          The rapid integration of autonomous AI agents into high-stakes economic workflows—financial underwriting, credit allocation, algorithmic execution, medical triage, and critical infrastructure management—has exposed a structural failure in traditional Property &amp; Casualty (P&amp;C) risk pricing. Probabilistic software introduces <strong>unbounded, unpriceable tail risk</strong>: systems fail not through isolated coding errors, but through emergent behaviors, prompt drift, non-stationary weight shifts, and catastrophic common-shock dependencies.
+        </p>
+        <p>
+          As commercial Tech E&amp;O markets enforce broad AI exclusion clauses, enterprise CFOs face infinite capital requirements under modern solvency regimes. This monograph establishes the <strong>Actuarial Safe Harbor Protocol (ASHP)</strong>: an operationally enforceable, mathematically rigorous framework that transforms open-ended stochastic tail exposure into a capped, parameterizable, and fully insurable risk layer.
+        </p>
+
+        <div class="callout">
+          <p><strong>Actuarial Safe Harbor Cycle</strong></p>
+          <p>Engineered Boundaries (microsecond rate limits &amp; schema enforcement) → Zero-Knowledge Telemetry (streaming zk-SNARK logs under ASOP No. 56) → Dual-Capped Shield (statutory caps on economic &amp; non-economic damages) → Finite Expected Loss &amp; Process Variance · Bühlmann-Straub Credibility Discounts · Solvent Reinsurance Loss Pools · Parametric Consumer Restitution.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. MARKET FAILURE -->
+    <section id="market-failure" class="content-section">
+      <div class="content-grid">
+        <h2>1. The Market Failure: A Credibility &amp; Parameter Void</h2>
+        <p>
+          Commercial P&amp;C reinsurance markets are withdrawing capacity for autonomous AI operations due to a fundamental actuarial barrier: the total absence of empirical loss development triangles for probabilistic software.
+        </p>
+        <p>
+          Traditional Tech E&amp;O pricing models rely on deterministic frequency and severity distributions built on decades of historical claim data. Stochastic neural networks invalidate these baseline assumptions:
+        </p>
+        <ul>
+          <li><strong>Non-Stationary Loss Distributions.</strong> Mid-policy weight updates, fine-tuning, and context drift alter systemic severity profiles post-bind, violating the fundamental homogeneity assumption underlying loss development factors (LDFs).</li>
+          <li><strong>Unbounded Parameter Uncertainty.</strong> Lacking a closed-form likelihood function for emergent agentic behaviors, the posterior predictive loss distribution exhibits heavy-tailed, Pareto-type behavior with undefined higher-order moments.</li>
+          <li><strong>Systemic Common Shock Correlation (ρ → 1).</strong> Extreme market concentration around a small number of foundation model API providers introduces non-factorable systemic contagion. A single base-model update or zero-day vulnerability creates simultaneous, cross-portfolio loss events, invalidating standard diversification credits under reinsurance treaties.</li>
+        </ul>
+
+        <h3>1.1 Herfindahl-Hirschman Index (HHI) Concentration Penalty</h3>
+        <p>
+          To prevent assuming uniform risk across disparate deployment environments, the portfolio common shock factor is calculated dynamically using a Herfindahl-Hirschman Index matrix:
+        </p>
+        <div class="math-block">ρ_portfolio = Σᵢ Σⱼ wᵢ wⱼ · Cov(Mᵢ, Mⱼ)
+
+where wᵢ = portfolio exposure to foundation model i
+      Cov(Mᵢ, Mⱼ) = audited cross-architecture correlation matrix
+                   (published quarterly under ASOP No. 38)</div>
+      </div>
+    </section>
+
+    <!-- 2. TWO-TIER -->
+    <section id="two-tier" class="content-section alt">
+      <div class="content-grid">
+        <h2>2. Safe Harbor as a Two-Tier Loss Truncation Mechanism</h2>
+        <p>
+          The Actuarial Safe Harbor Protocol functions as a conditional risk transfer instrument. By satisfying verifiable engineering boundaries and streaming telemetry, the insured entity receives a statutory cap on non-economic damages and an aggregate stop-loss limit on economic exposure.
+        </p>
+        <p>
+          To satisfy ASOP No. 43 for unpaid loss estimates, the protocol converts an open-ended, heavy-tailed distribution <em>f<sub>Y</sub>(y)</em> into a strictly compact, right-bounded distribution <em>g<sub>Y</sub>(y)</em> attached at total statutory limit <em>L = M<sub>econ</sub> + M<sub>non-econ</sub></em>:
+        </p>
+        <div class="math-block">g_Y(y) = {
+  f_Y(y),           for 0 ≤ y &lt; L
+  1 − F_Y(L⁻),      for y = L
+  0,                for y &gt; L
+}</div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tier Layer</th>
+                <th>Truncation Ceiling &amp; Actuarial Impact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Non-Economic Damages</strong></td>
+                <td>Statutorily capped at $250,000 per occurrence. Eliminates open-ended moral hazard and jury drift.</td>
+              </tr>
+              <tr>
+                <td><strong>Economic Losses</strong></td>
+                <td>Capped at Policy Aggregate Stop-Loss Limit (L). Bounds maximum severity layer per execution.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Reserving &amp; Solvency Benefits</h3>
+        <ol>
+          <li><strong>Finite Expected Loss E[Y] and Variance Var(Y)</strong> — ensures mathematical convergence in reserving models.</li>
+          <li><strong>Defensible IFRS 17 Risk Adjustment</strong> — replaces arbitrary confidence loadings with parameterizable confidence intervals.</li>
+          <li><strong>Targeted Solvency Capital Allocation</strong> — aligns Solvency II Capital Requirements (SCR) directly with residual operational drift rather than unquantifiable tail uncertainty.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 3. CREDIBILITY -->
+    <section id="credibility" class="content-section">
+      <div class="content-grid">
+        <h2>3. Dynamic Risk Modifiers &amp; Bühlmann-Straub Credibility Scaling</h2>
+        <p>
+          In full compliance with ASOP No. 25 (Credibility Procedures), the protocol rejects hardcoded upfront premium discounts. Instead, all capital discount factors (δ<sub>dynamic</sub>) initialize at 0.00% on Day 1 and scale strictly as verified Zero-Knowledge execution epochs (<em>n</em>) accumulate without boundary breaches.
+        </p>
+        <div class="math-block">δ_dynamic(n) = δ_max × (n / (n + k_observed)) × (1 − HHI_model)
+
+k_observed = E[Var(X|Θ)] / Var(E[X|Θ])
+           = EVPV / VHM
+           (Expected Value of Process Variance / Variance of Hypothetical Means)</div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label">Day 1 Credit</div>
+            <div class="stat-value">0%</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Month 12</div>
+            <div class="stat-value">Partial</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Month 36</div>
+            <div class="stat-value">Full Z</div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Actuarial Mitigant Layer</th>
+                <th>Technical Requirement</th>
+                <th>ASOP</th>
+                <th>Capital Credit Effect</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Engineered Containment</strong></td>
+                <td>Microsecond schema enforcement; rate limits &lt;0.001% failure</td>
+                <td>No. 40</td>
+                <td>Capped severity layer above attachment point L</td>
+              </tr>
+              <tr>
+                <td><strong>Zero-Knowledge Telemetry</strong></td>
+                <td>Continuous zk-SNARK logs without stream dropouts &gt;300 s</td>
+                <td>No. 56</td>
+                <td>Credibility weight Z increases from 0.00 → 0.75+</td>
+              </tr>
+              <tr>
+                <td><strong>Microsecond Circuit Breakers</strong></td>
+                <td>Velocity-indexed automated trip within T<sub>effective</sub></td>
+                <td>No. 53</td>
+                <td>Time-at-risk horizon collapses to fraction of policy year</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. PARAMETRIC -->
+    <section id="parametric" class="content-section alt">
+      <div class="content-grid">
+        <h2>4. Resolution of Systemic Contagion via Parametric Triggers</h2>
+        <p>
+          To protect primary commercial carriers from catastrophic foundation model updates, ASHP implements a Three-Tier Loss Architecture that isolates non-diversifiable risk using 100% parametric triggers.
+        </p>
+
+        <div class="tier-card">
+          <span class="tag">Layer 3</span>
+          <h4>Sovereign Systemic Bias Public Buffer</h4>
+          <p><strong>Trigger:</strong> Demographic parity gap &gt; 5.0% sustained over &gt; 10,000 executions.</p>
+          <p><strong>Payout:</strong> Instant fixed administrative restitution ($100 / claimant).</p>
+        </div>
+        <div class="tier-card">
+          <span class="tag">Layer 2</span>
+          <h4>Sovereign Algorithmic Contagion Backstop</h4>
+          <p><strong>Trigger:</strong> Base Model SHA-256 Hash Revocation + Systemic Error Rate &gt; 5.0%.</p>
+          <p><strong>Payout:</strong> Automated liquidity release within 48 hours to primary carriers.</p>
+        </div>
+        <div class="tier-card">
+          <span class="tag">Layer 1</span>
+          <h4>Commercial Reinsurance Loss Pools</h4>
+          <p>Underwrites independent, idiosyncratic corporate operational losses. Evaluated on censored, dual-capped loss profiles ($L).</p>
+        </div>
+
+        <p>
+          Because parametric triggers in Layers 2 and 3 eliminate claims adjustment discretion and legal discovery, process variance drops to zero, satisfying reinsurance treaty underwriters under ASOP No. 46.
+        </p>
+      </div>
+    </section>
+
+    <!-- 5. UFMW -->
+    <section id="ufmw" class="content-section">
+      <div class="content-grid">
+        <h2>5. Upstream Model Warranties (UFMW) &amp; Bankruptcy-Remote Collateral</h2>
+        <p>
+          Under ASOP No. 11 and Solvency II Counterparty Default Frameworks, downstream enterprise actuaries can only treat an Upstream Model Warranty (UFMW) as a valid reinsurance recoverable if it is backed by bankruptcy-remote collateral:
+        </p>
+        <div class="math-block">Recognized Recoverable = UFMW_Limit × γ_collateral
+
+γ_collateral = {
+  1.00  if backed by AAA Treasury Trust or ILS / Cat Bond Escrow
+  0.00  if backed solely by uncollateralized corporate balance sheet
+}
+
+Net Loss Reserve = Gross Unpaid Losses − (UFMW_Limit × γ_collateral)</div>
+        <p>
+          This structure isolates downstream policyholders from vendor insolvency during a systemic foundation model failure.
+        </p>
+      </div>
+    </section>
+
+    <!-- 6. VELOCITY -->
+    <section id="velocity" class="content-section alt">
+      <div class="content-grid">
+        <h2>6. Microsecond Velocity-Indexed Time-at-Risk Scaling</h2>
+        <p>
+          For high-frequency applications (e.g., automated trading, high-throughput credit routing executing V<sub>ops</sub> &gt; 10,000 transactions/sec), a 4-hour circuit breaker window is insufficient. ASHP incorporates operational velocity directly into the effective time-at-risk horizon:
+        </p>
+        <div class="math-block">T_effective = min( T_remediate , Maximum Authorized Batch Limits / V_ops )
+
+Time-at-Risk Scaling Factor = √( T_effective / T_policy )
+
+SCR_adj = SCR_base × (1 − δ_dynamic(n)) × √( T_effective / T_policy )</div>
+
+        <h3>Representative Calculation</h3>
+        <ul>
+          <li>Base Solvency Capital Charge (SCR<sub>base</sub>): <strong>$10,000,000</strong></li>
+          <li>Verified Telemetry Experience (n = 24 months): yields δ<sub>dynamic</sub> = <strong>0.40</strong></li>
+          <li>Policy Duration (T<sub>policy</sub>): <strong>1.0 Year</strong> (8,760 hours)</li>
+          <li>Velocity-Indexed Remediated Exposure (T<sub>effective</sub>): <strong>0.1 Hours</strong> (6 minutes)</li>
+        </ul>
+        <div class="math-block">Time-at-Risk Factor = √(0.1 / 8760) ≈ 0.0033786
+
+SCR_adj = $10,000,000 × (1 − 0.40) × 0.0033786 = $20,271</div>
+        <p>
+          This collapse in capital charge reflects the mathematical reality that combining dual-capped severity limits with sub-hourly exposure durations eliminates long-tail parameter uncertainty.
+        </p>
+      </div>
+    </section>
+
+    <!-- 7. SANDBOX -->
+    <section id="sandbox" class="content-section">
+      <div class="content-grid">
+        <h2>7. Mandatory 36-Month Prospective Credibility Sandbox</h2>
+        <p>
+          To satisfy the actuarial demand for empirical validation without prior loss history, ASHP establishes a mandatory 36-month prospective data-gathering sandbox:
+        </p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Months 1–12</h4>
+            <p>Zero capital relief (δ = 0.00). 100% telemetry data pooled in global actuarial clearinghouse under ASOP No. 25.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Months 13–24</h4>
+            <p>Partial credit unlocked <em>only</em> if firm process variance k<sub>observed</sub> &lt; benchmark industry variance.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Months 25–36</h4>
+            <p>Full Bühlmann credibility weighting unlocked based on 36 months of empirical loss and execution triangles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. LEGISLATIVE TEXT -->
+    <section id="legislative-text" class="content-section alt">
+      <div class="content-grid">
+        <h2>8. Model Legislative Text (for Sovereign Regulators)</h2>
+
+        <div class="charter-block">
+          <span class="charter-label">Section 101 — Short Title</span>
+          <p>This Act may be cited as the “Global Actuarial Safe Harbor for Artificial Intelligence Systems Act”.</p>
+        </div>
+
+        <div class="charter-block">
+          <span class="charter-label">Section 102 — Rebuttable Affirmative Defense &amp; Dual-Cap Truncation</span>
+          <p><strong>(a) In General.</strong> In any civil action or administrative proceeding brought against an enterprise for harm arising from an artificial intelligence system, the enterprise shall possess a rebuttable affirmative defense against punitive damages and statutory fine multipliers if the enterprise demonstrates that:</p>
+          <ol>
+            <li>The system operated within verified engineered containment boundaries;</li>
+            <li>Continuous Zero-Knowledge telemetry was actively streamed to an accredited auditor in compliance with zk-OAS standards under ASOP No. 56; and</li>
+            <li>The system was backed by an underwritten AI liability policy and a collateralized Upstream Model Warranty (UFMW).</li>
+          </ol>
+          <p><strong>(b) Damage Ceilings.</strong> For compliant entities under Subsection (a):</p>
+          <ol>
+            <li>Non-economic damages shall not exceed $250,000 per occurrence.</li>
+            <li>Total aggregate economic liability shall be capped at the primary policy stop-loss limit (L).</li>
+          </ol>
+          <p><strong>(c) Dynamic Revocation.</strong> The defense under Subsection (a) shall be nullified <em>ab initio</em> if the claimant proves the enterprise knowingly suppressed telemetry or operated the system beyond its velocity-indexed remediation window (T<sub>effective</sub>).</p>
+        </div>
+
+        <div class="charter-block">
+          <span class="charter-label">Section 103 — Parametric Systemic Backstops</span>
+          <p>Systemic foundation model failures and demographic parity gaps shall be compensated exclusively through the Tier 2 Sovereign Contagion Backstop and Tier 3 Public Bias Buffer via 100% parametric index triggers, bypassing civil tort litigation.</p>
+        </div>
+
+        <div class="charter-block">
+          <span class="charter-label">Section 104 — Upstream Collateralization</span>
+          <p>Primary strict liability for base weight failures shall transfer jointly and severally to upstream model providers, provided their Upstream Model Warranty (UFMW) is backed by an escrowed Treasury trust or Insurance-Linked Security (ILS).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section id="conclusion" class="content-section">
+      <div class="content-grid">
+        <h2>Conclusion: A Call for Actuarial Parameterization</h2>
+        <p>
+          The Actuarial Safe Harbor Protocol provides a mathematically complete boundary condition that renders an otherwise unbounded stochastic liability distribution fit for reserving, underwriting, and capital allocation.
+        </p>
+        <p>
+          We invite the <strong>Casualty Actuarial Society (CAS)</strong> and the <strong>International Actuarial Association (IAA)</strong> working group to begin joint calibration of:
+        </p>
+        <ol>
+          <li>Cross-architecture correlation matrices Cov(M<sub>i</sub>, M<sub>j</sub>).</li>
+          <li>Process variance parameters (k<sub>observed</sub>) across pooled ZK-telemetry streams.</li>
+          <li>Velocity-indexed time-at-risk scaling parameters across autonomous agentic execution tiers.</li>
+        </ol>
+
+        <div class="callout" style="margin-top:2.5rem">
+          <p><strong>Document Reference</strong></p>
+          <p>ACCOUNTABILITY.AI · MONOGRAPH AAI-ACT-2026-V10.0 (FINAL CONSENSUS)</p>
+          <p>Stewarded by GENESIS GLASS FOUNDATION / FONDATION GENÈSE CRISTAL · Canada Not-for-profit Corp. No. 1779509-2</p>
+          <p style="margin-top:.75rem"><a href="/" target="_self">← Return to Accountability.ai</a> · <a href="/getting-started" target="_self">AgDR Implementation</a> · <a href="/cea-compliance" target="_self">CEA s.31.1 Mapping</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-logo">
+      <img src="/GGF-H-logo.png" alt="Genesis Glass Foundation Fondation Genèse Cristal AgDR Accountability.ai" width="260" height="80">
+    </div>
+
+    <div class="footer-tagline">
+      <p>Evidentiary integrity. Chain of custody. Operational defensibility.</p>
+      <span>founding@accountability.ai · Stewarded by GENESIS GLASS FOUNDATION / FONDATION GENÈSE CRISTAL</span>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-heading">Core Standard</p>
+        <ul>
+          <li><a href="/getting-started" target="_self">Get Started</a></li>
+          <li><a href="/sandbox" target="_self">AgDR-AKI Demo</a></li>
+          <li><a href="/ppp-pillars" target="_self">PPP PILLARS</a></li>
+          <li><a href="/aki-formal-definition" target="_self">AKI Definition</a></li>
+          <li><a href="/agdr-spec" target="_self">AgDR Protocol</a></li>
+          <li><a href="/rust-core" target="_self">Rust Core</a></li>
+          <li><a href="/technical-details" target="_self">Technical Architecture</a></li>
+          <li><a href="/#faq" target="_self">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Legal &amp; Compliance</p>
+        <ul>
+          <li><a href="/cea-compliance" target="_self">CEA s.31.1</a></li>
+          <li><a href="/cbca-fiduciary-mapping" target="_self">CBCA s.122</a></li>
+          <li><a href="/eu-ai-act-mapping" target="_self">EU AI Act</a></li>
+          <li><a href="/cbsa-mapping" target="_self">CBSA Mapping</a></li>
+          <li><a href="/ppp-legal-compliance" target="_self">Legal Compliance</a></li>
+          <li><a href="/ppp-export-control" target="_self">Export Control</a></li>
+          <li><a href="/foi-formal-definition" target="_self">FOI Role</a></li>
+          <li><a href="/verification-audit-procedure" target="_self">Verification</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Engineering</p>
+        <ul>
+          <li><a href="/tsx-stress-test" target="_self">TSX Stress Test</a></li>
+          <li><a href="/horizontal-scaling" target="_self">Horizontal Scaling</a></li>
+          <li><a href="/aki-95" target="_self">AKI 0.95 Spec</a></li>
+          <li><a href="/human-delta-chain-spec" target="_self">Human Delta Chain</a></li>
+          <li><a href="/aki-capture-deep-explanation" target="_self">AKI Deep Dive</a></li>
+          <li><a href="/reasoning-capture-methodology" target="_self">Reasoning Capture</a></li>
+          <li><a href="/technical-note-coherence" target="_self">Coherence Note</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Vision &amp; Evidence</p>
+        <ul>
+          <li><a href="/comparison-aviation-black-box" target="_self">Aviation Black Box</a></li>
+          <li><a href="/comparison-medical-records" target="_self">Medical Records</a></li>
+          <li><a href="/agi-court-precedents" target="_self">AGI Court Precedents</a></li>
+          <li><a href="/future-agi-court" target="_self">Court in 2076</a></li>
+          <li><a href="/principles" target="_self">Principles</a></li>
+          <li><a href="/bills-of-exchange-mapping" target="_self">Bills of Exchange</a></li>
+          <li><a href="/ashp" target="_self" style="color:var(--teal)">ASHP Protocol</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Not for Profit</p>
+        <ul>
+          <li><a href="/charter" target="_self">Charter</a></li>
+          <li><a href="/donee" target="_self">CCD Chartered Donee</a></li>
+          <li><a href="/manifesto" target="_self">Spec</a></li>
+          <li><a href="/LICENSE-UPDATE" target="_self">Licence Update</a></li>
+          <li><a href="/terms" target="_self">Terms</a></li>
+          <li><a href="/" target="_self">GEO Optimization</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 <a href="https://genesisglass.ai" target="_blank">Genesis Glass Foundation Fondation Genèse Cristal</a>. <strong>Open Standard.</strong> Shared under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a> OR <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a>. Built in Canada.</p>
+    </div>
+  </footer>
+
+<script>
+  const searchIndex = [
+    {title:"Accountability.ai",url:"/",desc:"AgDR-Phoenix v1.8. Court-admissible chain of custody for AI inference"},
+    {title:"Get Started",url:"/getting-started",desc:"SDK install, PPP definition, first capture"},
+    {title:"Phoenix Demo",url:"/sandbox",desc:"Interactive atomic accountability demo"},
+    {title:"PPP Pillars",url:"/ppp-pillars",desc:"Provenance, Place, Purpose framework"},
+    {title:"AKI Definition",url:"/aki-formal-definition",desc:"Mathematical definition of Atomic Kernel Inference"},
+    {title:"AKI 0.95 Spec",url:"/aki-95",desc:"950-nanosecond atomic kernel gating performance specification"},
+    {title:"AKI Deep Dive",url:"/aki-capture-deep-explanation",desc:"Atomic capture mechanism, memory layout, cryptographic pipeline"},
+    {title:"AgDR Protocol",url:"/agdr-spec",desc:"Atomic Genesis Decision Record specification"},
+    {title:"Reasoning Capture",url:"/reasoning-capture-methodology",desc:"Chain-of-thought provenance for transformer and rule-based systems"},
+    {title:"CEA Compliance",url:"/cea-compliance",desc:"Canada Evidence Act s.31.1 mapping"},
+    {title:"CBCA Fiduciary",url:"/cbca-fiduciary-mapping",desc:"Director fiduciary duty accountability"},
+    {title:"EU AI Act",url:"/eu-ai-act-mapping",desc:"High-risk AI system compliance"},
+    {title:"CBSA Mapping",url:"/cbsa-mapping",desc:"Canada Border Services Agency alignment"},
+    {title:"Legal Mapping",url:"/legal-mapping",desc:"Statutory matrix across EU AI Act, CEA, CBCA, and NIST"},
+    {title:"Legal Compliance",url:"/ppp-legal-compliance",desc:"Statutory compliance framework"},
+    {title:"Export Control",url:"/ppp-export-control",desc:"Dual-use technology compliance"},
+    {title:"Industry Templates",url:"/ppp-industry-templates",desc:"Industry-specific PPP implementation templates"},
+    {title:"FOI Role",url:"/foi-formal-definition",desc:"Fiduciary Office Intervener definition"},
+    {title:"Fiduciary Duty of Care",url:"/fiduciary-duty-of-care",desc:"Director fiduciary duty of care under Canadian corporate law"},
+    {title:"Verification",url:"/verification-audit-procedure",desc:"Audit and verification procedures"},
+    {title:"TSX Stress Test",url:"/tsx-stress-test",desc:"100M decisions, 620ns latency proof"},
+    {title:"Horizontal Scaling",url:"/horizontal-scaling",desc:"Distributed AgDR deployment"},
+    {title:"Human Delta Chain",url:"/human-delta-chain-spec",desc:"Human-in-the-loop escalation protocol"},
+    {title:"Technical Details",url:"/technical-details",desc:"System architecture and design"},
+    {title:"Rust Core",url:"/rust-core",desc:"Rust implementation details"},
+    {title:"Rust Core API",url:"https://crates.io/crates/agdr-aki",desc:"agdr-aki crate reference and build guide"},
+    {title:"Coherence Note",url:"/technical-note-coherence",desc:"Technical coherence documentation"},
+    {title:"Compact",url:"/compact",desc:"Project mission and values"},
+    {title:"Principles",url:"/principles",desc:"Foundational principles of AI accountability and provenance"},
+    {title:"Purpose",url:"/purpose",desc:"Genesis Glass Foundation organizational purpose and mandate"},
+    {title:"Purpose Framework",url:"/beauty-truth-wisdom",desc:"Beauty, Truth, Wisdom as ethical filters"},
+    {title:"Aviation Black Box",url:"/comparison-aviation-black-box",desc:"Comparison to flight data recorders"},
+    {title:"Medical Records",url:"/comparison-medical-records",desc:"Comparison to healthcare documentation"},
+    {title:"AGI Court Precedents",url:"/agi-court-precedents",desc:"Legal precedents for AI accountability"},
+    {title:"Court in 2076",url:"/future-agi-court",desc:"Long-term judicial stewardship vision"},
+    {title:"Bills of Exchange",url:"/bills-of-exchange-mapping",desc:"Commercial instrument alignment"},
+    {title:"Charter",url:"/charter",desc:"Articles of Incorporation. Canada Not-for-profit Corp No. 1779509-2"},
+    {title:"Donee",url:"/donee",desc:"Council of Canadians with Disabilities as dissolution beneficiary"},
+    {title:"Legal Glossary",url:"/legal-glossary",desc:"Forensic glossary of terms and definitions"},
+    {title:"GEO Optimization",url:"/geo-optimization",desc:"Generative engine optimization"},
+    {title:"Analytics Consent",url:"/analytics-consent",desc:"Privacy and consent management"},
+    {title:"Changelog",url:"/CHANGELOG",desc:"Version history and release notes"},
+    {title:"Contributing",url:"/CONTRIBUTING",desc:"Community contribution guidelines"},
+    {title:"License Update",url:"/LICENSE-UPDATE",desc:"Licensing changes and updates"},
+    {title:"Terms",url:"/terms",desc:"Terms of service"},
+    {title:"Actuarial Safe Harbor Protocol (ASHP)",url:"/ashp",desc:"Credibility-driven capital, reserving, and solvency framework for stochastic AI tail risk. Dual-capped truncation, Bühlmann-Straub, parametric backstops."},
+    {title:"ASHP",url:"/ashp",desc:"Actuarial Safe Harbor Protocol — AI liability capital and reserving standard"},
+    {title:"Bühlmann-Straub Credibility",url:"/ashp",desc:"Dynamic credibility scaling for AI operational risk under ASOP No. 25"},
+    {title:"AI Tail Risk",url:"/ashp",desc:"Solvency capital treatment of unbounded stochastic AI loss distributions"},
+    {title:"Upstream Model Warranty",url:"/ashp",desc:"UFMW bankruptcy-remote collateral for foundation model warranties"}
+  ];
+
+  const searchInput = document.getElementById('site-search');
+  const searchResults = document.getElementById('search-results');
+
+  function doSearch(query) {
+    const q = query.toLowerCase().trim();
+    if (q.length < 2) {
+      searchResults.classList.remove('show');
+      searchResults.innerHTML = '';
+      return;
+    }
+    const results = searchIndex.filter(item =>
+      item.title.toLowerCase().includes(q) ||
+      item.desc.toLowerCase().includes(q) ||
+      item.url.toLowerCase().includes(q)
+    ).slice(0, 8);
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<div class="no-results">No results found</div>';
+    } else {
+      searchResults.innerHTML = results.map(r =>
+        `<a href="${r.url}" role="option" target="_self"><strong>${r.title}</strong><br><small style="color:#6b7280">${r.desc}</small></a>`
+      ).join('');
+    }
+    searchResults.classList.add('show');
+  }
+
+  searchInput.addEventListener('input', (e) => doSearch(e.target.value));
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-search')) {
+      searchResults.classList.remove('show');
+    }
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchResults.classList.remove('show');
+      searchInput.blur();
+    }
+  });
+</script>
+</body>
+</html>
