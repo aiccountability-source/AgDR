@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Complete Inventory of Advancements | Accountability.ai</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Accountability.ai">
+  <meta property="og:url" content="https://accountability.ai/inventory">
+  <meta property="og:title" content="Complete Inventory of AgDR / AKI / ASHP / Provenance Advancements">
+  <meta property="og:description" content="Methodical single-page inventory of every major open standard, kernel, actuarial protocol, legal mapping and implementation published by the Genesis Glass Foundation. Interactive filtering included.">
+  <meta property="og:image" content="https://accountability.ai/social-preview.png">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Complete Inventory of Advancements — Accountability.ai">
+  <meta name="twitter:description" content="AKI, ASHP, PPP, Provenance Packet, Phoenix, Mantle and the full open Canadian evidentiary stack — filterable.">
+  <meta name="twitter:image" content="https://accountability.ai/social-preview.png">
+
+  <meta name="description" content="Single-page methodical inventory of AgDR, Atomic Kernel Inference (AKI), Actuarial Safe Harbor Protocol (ASHP), PPP Triplet, Provenance Packet work, Phoenix SDK, Mantle post-quantum layer, legal mappings and Foundation governance. Interactive category filters.">
+  <link rel="canonical" href="https://accountability.ai/inventory">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Complete Inventory of Advancements","url":"https://accountability.ai/inventory","isPartOf":{"@type":"WebSite","name":"Accountability.ai","url":"https://accountability.ai"},"publisher":{"@type":"Organization","name":"GENESIS GLASS FOUNDATION","alternateName":"FONDATION GENÈSE CRISTAL","url":"https://accountability.ai","sameAs":["https://github.com/aiccountability-source"]}}
+  </script>
+
+  <style>
+    :root {
+      --teal: #2dd4bf;
+      --bg: #0a0f0f;
+      --card: #111827;
+      --text-dim: #94a3b8;
+      --border: rgba(45,212,191,0.12);
+      --hero-grad: linear-gradient(160deg,#0a1f1c 0%,#0d1a1a 40%,#0a0f0f 100%);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:#e2e8f0;line-height:1.6;-webkit-font-smoothing:antialiased}
+    a{color:var(--teal);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,15,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0.85rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+    .nav-brand{font-weight:700;letter-spacing:0.04em;font-size:0.95rem;color:#fff}
+    .nav-links{display:flex;gap:1.5rem;font-size:0.875rem}
+    .nav-links a{color:var(--text-dim)}
+    .nav-links a:hover{color:var(--teal)}
+
+    .hero{background:var(--hero-grad);padding:6rem 1.5rem 3.5rem;text-align:center;border-bottom:1px solid var(--border)}
+    .hero-badge{display:inline-block;background:rgba(45,212,191,0.12);color:var(--teal);font-family:monospace;font-size:0.75rem;padding:0.35rem 0.9rem;border-radius:999px;margin-bottom:1.5rem;letter-spacing:0.06em}
+    .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;line-height:1.15;letter-spacing:-0.03em;color:#fff;max-width:900px;margin:0 auto 1.25rem}
+    .hero p{color:var(--text-dim);font-size:1.125rem;max-width:640px;margin:0 auto 2rem}
+
+    /* Filter bar */
+    .filter-bar{position:sticky;top:57px;z-index:90;background:rgba(10,15,15,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);padding:1rem 1.5rem;display:flex;flex-wrap:wrap;gap:0.6rem;justify-content:center;align-items:center}
+    .filter-btn{font-family:monospace;font-size:0.75rem;letter-spacing:0.04em;padding:0.45rem 0.95rem;border-radius:999px;border:1px solid var(--border);background:transparent;color:var(--text-dim);cursor:pointer;transition:all .2s;user-select:none}
+    .filter-btn:hover{border-color:rgba(45,212,191,0.4);color:#fff}
+    .filter-btn.active{background:rgba(45,212,191,0.15);border-color:var(--teal);color:var(--teal)}
+    .filter-count{font-size:0.7rem;opacity:0.7;margin-left:0.25rem}
+
+    section{padding:3.5rem 1.5rem 1rem;max-width:1100px;margin:0 auto}
+    .section-label{color:var(--teal);font-family:monospace;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.75rem}
+    h2{font-size:1.75rem;font-weight:700;color:#fff;margin-bottom:1.5rem;letter-spacing:-0.02em}
+    h3{font-size:1.15rem;font-weight:600;color:#fff;margin:1.75rem 0 0.6rem}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:1.5rem}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.75rem;position:relative;transition:border-color .25s,transform .25s,opacity .3s,max-height .3s}
+    .card:hover{border-color:rgba(45,212,191,0.35);transform:translateY(-3px)}
+    .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--teal),#14b8a6);opacity:0;transition:opacity .25s}
+    .card:hover::before{opacity:1}
+    .card h3{margin-top:0;font-size:1.05rem}
+    .card p,.card li{color:var(--text-dim);font-size:0.9375rem}
+    .card ul{margin:0.6rem 0 0 1.1rem}
+    .card li{margin-bottom:0.35rem}
+    .card.hidden{display:none}
+
+    .inventory-list{list-style:none;margin-top:1rem}
+    .inventory-list li{padding:0.9rem 0;border-bottom:1px solid var(--border);display:flex;gap:1rem;align-items:flex-start;transition:opacity .25s}
+    .inventory-list li:last-child{border-bottom:none}
+    .inventory-list li.hidden{display:none}
+    .tag{font-family:monospace;font-size:0.7rem;background:rgba(45,212,191,0.1);color:var(--teal);padding:0.2rem 0.5rem;border-radius:4px;white-space:nowrap;margin-top:0.15rem}
+
+    .section-hidden{display:none}
+
+    .empty-state{text-align:center;padding:3rem 1rem;color:var(--text-dim);display:none}
+    .empty-state.visible{display:block}
+
+    footer{background:#050708;border-top:1px solid var(--border);padding:3.5rem 1.5rem 2rem;margin-top:4rem}
+    .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;max-width:1100px;margin:0 auto 2.5rem}
+    .footer-heading{font-size:0.8rem;font-weight:600;color:#fff;margin-bottom:0.9rem;text-transform:uppercase;letter-spacing:0.06em}
+    .footer-col ul{list-style:none}
+    .footer-col li{margin-bottom:0.45rem}
+    .footer-col a{color:var(--text-dim);font-size:0.875rem}
+    .footer-bottom{text-align:center;color:var(--text-dim);font-size:0.8rem;max-width:1100px;margin:0 auto;padding-top:1.5rem;border-top:1px solid var(--border)}
+    .footer-bottom a{color:var(--teal)}
+
+    @media (max-width:640px){
+      .nav-links{display:none}
+      .filter-bar{top:52px}
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-brand">ACCOUNTABILITY.AI</a>
+    <div class="nav-links">
+      <a href="/donee">Chartered Donee</a>
+      <a href="/charter">Corporate Charter</a>
+      <a href="/sandbox">Phoenix Demo</a>
+      <a href="/faq">FAQ</a>
+      <a href="https://github.com/aiccountability-source" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-badge">GENESIS GLASS FOUNDATION · OPEN INVENTORY</div>
+    <h1>Complete Methodical Inventory of Advancements</h1>
+    <p>Every major open standard, kernel primitive, actuarial protocol, legal mapping and reference implementation published by the not-for-profit — collected on a single page. Use the filters below to focus.</p>
+  </header>
+
+  <!-- Interactive Filter Bar -->
+  <div class="filter-bar" role="group" aria-label="Filter inventory by category">
+    <button class="filter-btn active" data-filter="all">All <span class="filter-count" id="count-all"></span></button>
+    <button class="filter-btn" data-filter="core">Core &amp; Kernel <span class="filter-count" id="count-core"></span></button>
+    <button class="filter-btn" data-filter="crypto">Cryptographic <span class="filter-count" id="count-crypto"></span></button>
+    <button class="filter-btn" data-filter="impl">Implementations <span class="filter-count" id="count-impl"></span></button>
+    <button class="filter-btn" data-filter="actuarial">Actuarial (ASHP) <span class="filter-count" id="count-actuarial"></span></button>
+    <button class="filter-btn" data-filter="legal">Legal &amp; Fiduciary <span class="filter-count" id="count-legal"></span></button>
+    <button class="filter-btn" data-filter="gov">Governance <span class="filter-count" id="count-gov"></span></button>
+    <button class="filter-btn" data-filter="perf">Performance <span class="filter-count" id="count-perf"></span></button>
+  </div>
+
+  <div class="empty-state" id="empty-state">
+    <p>No items match the current filter.</p>
+  </div>
+
+  <!-- 01 Core -->
+  <section data-section="core">
+    <div class="section-label">01 · Core Standard &amp; Kernel</div>
+    <h2>AgDR + Atomic Kernel Inference</h2>
+    <div class="grid">
+      <div class="card" data-cat="core">
+        <h3>AgDR v0.2 / v1.8</h3>
+        <p>Atomic Genesis Decision Record — the open Canadian evidentiary standard. Every autonomous decision is cryptographically bound to its context at the exact instant of inference.</p>
+      </div>
+      <div class="card" data-cat="core">
+        <h3>AKI Formal Invariant</h3>
+        <p><code>AKI(i) = { commit(AgDR(PPP, Trace, Delta)) ⇔ output(Result) }</code>. No sealed commitment → no output. Enforced at the kernel boundary, not as a logging side-effect.</p>
+      </div>
+      <div class="card" data-cat="core">
+        <h3>PPP Triplet</h3>
+        <p>Provenance · Place · Purpose. Mathematically indivisible. Failure of any pillar aborts the inference atomically. Satisfies Canada Evidence Act authentication requirements by construction.</p>
+      </div>
+      <div class="card" data-cat="core">
+        <h3>HumanDeltaChain</h3>
+        <p>Human-in-the-loop escalation protocol that records the chain of accountable human authority alongside every machine decision.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 Crypto -->
+  <section data-section="crypto">
+    <div class="section-label">02 · Cryptographic Substrate</div>
+    <h2>Sealing, Chains &amp; Proofs</h2>
+    <ul class="inventory-list">
+      <li data-cat="crypto"><span class="tag">HASH</span> <div><strong>BLAKE3</strong> — primary cryptographic hash for chain integrity and commitments.</div></li>
+      <li data-cat="crypto"><span class="tag">SIG</span> <div><strong>Ed25519</strong> (with post-quantum path via Mantle) — non-repudiable sealing at the inference instant.</div></li>
+      <li data-cat="crypto"><span class="tag">TREE</span> <div><strong>Forward-secret Merkle / JellyfishSMT</strong> — persistent, verifiable append-only sensory spine.</div></li>
+      <li data-cat="crypto"><span class="tag">ZK</span> <div><strong>NANOZK-style hooks</strong> — zero-knowledge verification paths for court-admissible computation claims.</div></li>
+      <li data-cat="crypto"><span class="tag">ATOMIC</span> <div><strong>Kernel critical section</strong> — true atomic capture (no clocks, interrupt-safe) so the record cannot be decoupled from the decision.</div></li>
+    </ul>
+  </section>
+
+  <!-- 03 Implementations -->
+  <section data-section="impl">
+    <div class="section-label">03 · Reference Implementations</div>
+    <h2>Production &amp; Experimental Code</h2>
+    <div class="grid">
+      <div class="card" data-cat="impl">
+        <h3>AgDR-Phoenix</h3>
+        <p>Primary Rust kernel + PyO3 bindings. Sub-microsecond sealing (documented 0.62–0.95 µs floors). Apache 2.0. Published as <code>agdr-aki</code> on crates.io.</p>
+      </div>
+      <div class="card" data-cat="impl">
+        <h3>AgDR-Mantle</h3>
+        <p>Sovereign post-quantum fortification layer. Three-tier lineage (Core → Implementation → Fortification). Python package <code>agdr-mantle</code>.</p>
+      </div>
+      <div class="card" data-cat="impl">
+        <h3>adr-api / ADR SDK</h3>
+        <p>Earlier bolt-on Python SDK implementing Agent Decision Record Spec v0.1 + Reasoning Capture Methodology v1.0.</p>
+      </div>
+      <div class="card" data-cat="impl">
+        <h3>AgDR-FSv2.1 / Eternal Witness</h3>
+        <p>Archived full-system reference (sensory spine, DeviationCritic, WeightedQuorumBFT, high-throughput validation runs).</p>
+      </div>
+      <div class="card" data-cat="impl">
+        <h3>AgDR-Omega</h3>
+        <p>Archived experimental / theoretical extension exploring the limit case of the standard.</p>
+      </div>
+      <div class="card" data-cat="impl">
+        <h3>ArDR-COMM / agdr-provenance</h3>
+        <p>Provenance Packet work (protobuf). Minimal immutable provenance primitive intended for zero-latency, zero-packet-loss global agent communication; PPP-enforced; FEC 4+1 XOR. The component referred to when speaking of a transport-layer replacement for agentic traffic.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Actuarial -->
+  <section data-section="actuarial">
+    <div class="section-label">04 · Actuarial Layer</div>
+    <h2>Actuarial Safe Harbor Protocol (ASHP)</h2>
+    <p style="color:var(--text-dim);margin-bottom:1.5rem">Monograph AAI-ACT-2026-V10.0. Converts unbounded stochastic AI tail risk into a capped, parameterizable, fully insurable risk layer.</p>
+    <div class="grid">
+      <div class="card" data-cat="actuarial">
+        <h3>Dual-Capped Truncation</h3>
+        <p>Statutory ceilings on economic and non-economic damages that render expected loss and variance finite for reserving.</p>
+      </div>
+      <div class="card" data-cat="actuarial">
+        <h3>Bühlmann-Straub Credibility</h3>
+        <p>Dynamic capital discounts that grow only with verified zero-knowledge telemetry experience (ASOP No. 25).</p>
+      </div>
+      <div class="card" data-cat="actuarial">
+        <h3>Upstream Model Warranty (UFMW)</h3>
+        <p>Bankruptcy-remote collateralized warranties so downstream entities can treat foundation-model risk as a recoverable.</p>
+      </div>
+      <div class="card" data-cat="actuarial">
+        <h3>Velocity-Indexed Time-at-Risk</h3>
+        <p>Capital charges scaled by actual remediation window rather than policy year — critical for high-frequency agents.</p>
+      </div>
+      <div class="card" data-cat="actuarial">
+        <h3>Parametric Systemic Triggers</h3>
+        <p>Three-tier architecture isolating idiosyncratic loss, foundation-model contagion, and demographic-parity failures.</p>
+      </div>
+      <div class="card" data-cat="actuarial">
+        <h3>Model Legislative Text</h3>
+        <p>Ready-to-adapt statutory language creating a rebuttable affirmative defense for compliant systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Legal -->
+  <section data-section="legal">
+    <div class="section-label">05 · Legal &amp; Fiduciary Mappings</div>
+    <h2>Court-Admissible by Design</h2>
+    <ul class="inventory-list">
+      <li data-cat="legal"><span class="tag">CEA</span> <div>Canada Evidence Act s.31.1 / s.31.2 — system integrity &amp; authentication satisfied by PPP + AKI.</div></li>
+      <li data-cat="legal"><span class="tag">CBCA</span> <div>Canada Business Corporations Act s.122 — director fiduciary duty mapped through Purpose + HumanDeltaChain.</div></li>
+      <li data-cat="legal"><span class="tag">EU</span> <div>EU AI Act Arts. 12/13/14 high-risk obligations — formal component mapping published.</div></li>
+      <li data-cat="legal"><span class="tag">COMM</span> <div>Bills of Exchange / commercial instrument alignment for agentic finality.</div></li>
+      <li data-cat="legal"><span class="tag">NIST</span> <div>NIST AI RMF, OECD, UNESCO cross-references.</div></li>
+      <li data-cat="legal"><span class="tag">FOI</span> <div>Fiduciary Office Intervener formal definition + verification/audit procedures.</div></li>
+      <li data-cat="legal"><span class="tag">FUTURE</span> <div>“Court in 2076” / AGI judicial stewardship horizon (15-year evidence persistence commitment).</div></li>
+    </ul>
+  </section>
+
+  <!-- 06 Governance -->
+  <section data-section="gov">
+    <div class="section-label">06 · Governance &amp; Licensing</div>
+    <h2>Genesis Glass Foundation</h2>
+    <div class="grid">
+      <div class="card" data-cat="gov">
+        <h3>Not-for-Profit Status</h3>
+        <p>Canada Not-for-profit Corporations Act · Corp. No. 1779509-2 · ISED. Founding Director: Robert Douglas Muncaster.</p>
+      </div>
+      <div class="card" data-cat="gov">
+        <h3>Chartered Donee</h3>
+        <p>Council of Canadians with Disabilities designated as dissolution beneficiary.</p>
+      </div>
+      <div class="card" data-cat="gov">
+        <h3>Royalty-Free Mandate</h3>
+        <p>Corporate purpose clause requires the AgDR standard and reference implementations to remain permanently free of royalty or restrictive encumbrance.</p>
+      </div>
+      <div class="card" data-cat="gov">
+        <h3>Dual License</h3>
+        <p>Specification text: CC0-1.0. Code: Apache 2.0 (explicit patent grant + retaliation). Choice of either at the user’s option.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 Performance -->
+  <section data-section="perf">
+    <div class="section-label">07 · Performance Anchors</div>
+    <h2>Public Validation Claims</h2>
+    <ul class="inventory-list">
+      <li data-cat="perf"><span class="tag">LATENCY</span> <div>Documented atomic capture floors of 0.62 µs / 950 ns (AKI 0.95 Spec).</div></li>
+      <li data-cat="perf"><span class="tag">SCALE</span> <div>High-volume stress references (100 M decisions lineage on TSX Toronto desk; multi-thousand decisions/sec peaks in full-system runs).</div></li>
+      <li data-cat="perf"><span class="tag">INTEGRITY</span> <div>100 % Merkle-chain verification reported in published Eternal Witness test suites.</div></li>
+      <li data-cat="perf"><span class="tag">DISTRIBUTED</span> <div>Horizontal scaling and multi-node deployment guidance published.</div></li>
+    </ul>
+  </section>
+
+  <section style="text-align:center;padding:3rem 1.5rem 5rem" data-section="all">
+    <div class="section-label">Next Steps</div>
+    <h2>Explore the Living Artifacts</h2>
+    <p style="color:var(--text-dim);max-width:520px;margin:0 auto 2rem">This inventory is a snapshot of public material. The canonical sources remain the GitHub organization and the individual specification pages.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <a href="https://github.com/aiccountability-source" style="background:var(--teal);color:#0a0f0f;padding:0.75rem 1.5rem;border-radius:0.5rem;font-weight:600;text-decoration:none">GitHub Organization</a>
+      <a href="/ashp" style="border:1px solid var(--teal);color:var(--teal);padding:0.75rem 1.5rem;border-radius:0.5rem;font-weight:600;text-decoration:none">ASHP Monograph</a>
+      <a href="/aki-formal-definition" style="border:1px solid var(--teal);color:var(--teal);padding:0.75rem 1.5rem;border-radius:0.5rem;font-weight:600;text-decoration:none">AKI Formal Definition</a>
+      <a href="/sandbox" style="border:1px solid var(--teal);color:var(--teal);padding:0.75rem 1.5rem;border-radius:0.5rem;font-weight:600;text-decoration:none">Phoenix Demo</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-heading">Standards</p>
+        <ul>
+          <li><a href="/agdr-spec">AgDR Protocol</a></li>
+          <li><a href=
