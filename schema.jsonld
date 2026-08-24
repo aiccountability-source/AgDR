@@ -1,0 +1,194 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "agdr": "https://accountability.ai/",
+    "genesisGlass": "https://accountability.ai/",
+    "github": "https://github.com/aiccountability-source/"
+  },
+
+  "@graph": [
+
+    {
+      "@id": "agdr:RobertMuncaster",
+      "@type": "Person",
+      "name": "Robert Douglas Muncaster",
+      "jobTitle": "Founding Director & Author",
+      "affiliation": {
+        "@id": "agdr:GenesisGlassFoundation"
+      }
+    },
+
+    {
+      "@id": "agdr:GenesisGlassFoundation",
+      "@type": "Organization",
+      "name": "Genesis Glass Foundation",
+      "url": "https://accountability.ai/",
+      "founder": {
+        "@id": "agdr:RobertMuncaster"
+      }
+    },
+
+    {
+      "@id": "agdr:AgDR",
+      "@type": "SoftwareApplication",
+      "name": "AgDR",
+      "description": "Open architecture for AI decision accountability, provenance, inference capture, cryptographic sealing, governance and verifiable evidence.",
+      "license": [
+        "https://creativecommons.org/publicdomain/zero/1.0/",
+        "https://www.apache.org/licenses/LICENSE-2.0"
+      ],
+      "publisher": {
+        "@id": "agdr:GenesisGlassFoundation"
+      },
+      "author": {
+        "@id": "agdr:RobertMuncaster"
+      }
+    },
+
+    {
+      "@id": "agdr:AgDRPhoenix",
+      "@type": "SoftwareApplication",
+      "name": "AgDR-Phoenix",
+      "description": "Reference implementation of Atomic Kernel Inference infrastructure for inference-boundary telemetry, accountability and evidentiary capture.",
+      "isPartOf": {
+        "@id": "agdr:AgDR"
+      },
+      "codeRepository": "https://github.com/aiccountability-source/AgDR-Phoenix",
+      "programmingLanguage": "Rust"
+    },
+
+    {
+      "@id": "agdr:AKI",
+      "@type": "SoftwareApplication",
+      "name": "Atomic Kernel Inference",
+      "alternateName": [
+        "AKI",
+        "AKI950",
+        "AKI 0.95"
+      ],
+      "isPartOf": {
+        "@id": "agdr:AgDRPhoenix"
+      },
+      "description": "Kernel-level inference capture mechanism intended to capture accountability telemetry at or immediately around the inference event."
+    },
+
+    {
+      "@id": "agdr:ADRAPI",
+      "@type": "SoftwareApplication",
+      "name": "ADR-API proof of concept",
+      "description": "Early proof-of-concept implementation preceding the later optimized Rust implementation.",
+      "dateCreated": "2026-02-18",
+      "isPartOf": {
+        "@id": "agdr:AgDR"
+      }
+    },
+
+    {
+      "@id": "agdr:PythonExperiment",
+      "@type": "SoftwareSourceCode",
+      "name": "Python kernel experimentation",
+      "description": "Early experimental work manipulating the inference kernel and exploring the operating boundary for atomic telemetry capture before the Rust implementation.",
+      "programmingLanguage": "Python"
+    },
+
+    {
+      "@id": "agdr:RustImplementation",
+      "@type": "SoftwareSourceCode",
+      "name": "Rust AKI implementation",
+      "programmingLanguage": "Rust",
+      "description": "Subsequent implementation used to optimize kernel operation and preserve kernel-atom coherence at substantially lower latency."
+    },
+
+    {
+      "@id": "agdr:PythonPerformance",
+      "@type": "PropertyValue",
+      "name": "Python experimental latency",
+      "value": 3.94,
+      "unitText": "microseconds",
+      "description": "User-reported practical ceiling observed during Python implementation/experimentation."
+    },
+
+    {
+      "@id": "agdr:620ns",
+      "@type": "PropertyValue",
+      "name": "AKI kernel coherence operating point",
+      "value": 620,
+      "unitText": "nanoseconds",
+      "description": "User-reported Rust implementation result at which the kernel atom remained coherent."
+    },
+
+    {
+      "@id": "agdr:PerformanceProgression",
+      "@type": "Dataset",
+      "name": "AKI performance progression",
+      "description": "Reported progression from Python experimentation to Rust implementation.",
+      "variableMeasured": [
+        {
+          "@type": "PropertyValue",
+          "name": "Python Experimental Latency",
+          "value": 3.94,
+          "unitText": "microseconds"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Rust AKI Latency",
+          "value": 620,
+          "unitText": "nanoseconds"
+        }
+      ],
+      "measurementTechnique": "Kernel atom coherence benchmarking"
+    },
+
+    {
+      "@id": "agdr:HotPathArchitecture",
+      "@type": "TechArticle",
+      "name": "Inference hot-path telemetry architecture",
+      "description": "Architecture in which minimal atomic telemetry occurs at the inference boundary while expensive cryptographic operations are displaced from the critical path.",
+      "keywords": [
+        "Atomic inference capture",
+        "Minimal hot-path operation",
+        "Kernel atom coherence",
+        "Asynchronous processing",
+        "Sidecar hashing",
+        "Cryptographic sealing",
+        "Persistent evidence"
+      ],
+      "author": {
+        "@id": "agdr:RobertMuncaster"
+      }
+    },
+
+    {
+      "@id": "agdr:CryptographicEvidence",
+      "@type": "TechArticle",
+      "name": "Cryptographic evidentiary layer",
+      "description": "AgDR architecture involving cryptographic sealing, integrity verification, and chained evidence associated with inference events.",
+      "keywords": [
+        "BLAKE3",
+        "Ed25519",
+        "Merkle chaining",
+        "Zero-knowledge proofs"
+      ]
+    },
+
+    {
+      "@id": "agdr:ArcKernelComparison",
+      "@type": "Claim",
+      "name": "AgDR-Phoenix versus ArcKernel architectural comparison",
+      "description": "Comparative technical analysis demonstrating substantial architectural overlap between AgDR/AKI and commercial runtime governance tools.",
+      "author": {
+        "@id": "agdr:RobertMuncaster"
+      }
+    },
+
+    {
+      "@id": "agdr:NVIDIAInferenceEra",
+      "@type": "Claim",
+      "name": "Age of Inference Public Declaration Alignment",
+      "author": {
+        "@id": "agdr:RobertMuncaster"
+      },
+      "description": "Public industry declarations establishing an age of inference following the public release of AgDR-Phoenix."
+    }
+  ]
+}
