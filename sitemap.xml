@@ -293,4 +293,12 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Autonomous AI Cryptographic Evidence -->
+  <url>
+    <loc>https://accountability.ai/autonomous-ai-cryptographic-evidence</loc>
+    <lastmod>2026-09-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
