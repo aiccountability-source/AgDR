@@ -1,195 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>U.S. Federal Compliance | Digital Original Standard | AgDR v1.8</title>
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --card-bg: #111827;
-            --border-color: #1f2937;
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
-            --accent-color: #38bdf8;
-            --accent-glow: rgba(56, 189, 248, 0.15);
-            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Federal Rules of Evidence & Digital Provenance | accountability.ai</title>
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Accountability.ai">
+  <meta property="og:url" content="https://accountability.ai/federal-rules-of-evidence">
+  <meta property="og:title" content="Federal Rules of Evidence (FRE) Admissibility for AI Decision Records">
+  <meta property="og:description" content="Technical compliance mapping for FRE 901, FRE 902(13)/(14), and machine-generated data. Sub-microsecond cryptographic chain of custody for automated decision systems.">
+  <meta property="og:image" content="https://accountability.ai/social-preview.png">
+  <meta property="og:locale" content="en_US">
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            font-family: var(--font-sans);
-            line-height: 1.6;
-            padding: 2rem 1rem;
-        }
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Federal Rules of Evidence Admissibility - Accountability.ai">
+  <meta name="twitter:description" content="Court-admissible cryptographic chain of custody complying with FRE 901, 902, and machine-generated hearsay exceptions.">
+  <meta name="twitter:image" content="https://accountability.ai/social-preview.png">
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 3rem 2.5rem;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-        }
+  <meta name="description" content="Comprehensive legal and technical framework mapping AgDR cryptographic decision records to the Federal Rules of Evidence (FRE 901, 902, 803) for automated and agentic AI systems.">
+  <link rel="canonical" href="https://accountability.ai/federal-rules-of-evidence">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 
-        header {
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2rem;
-            margin-bottom: 2.5rem;
-        }
+  <!-- Schema.org: Organization + WebSite -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"GENESIS GLASS FOUNDATION","alternateName":"FONDATION GENÈSE CRISTAL","url":"https://accountability.ai","logo":"https://accountability.ai/assets/ggf-logo.png","sameAs":["https://github.com/aiccountability-source"],"address":{"@type":"PostalAddress","addressCountry":"CA"},"knowsAbout":["AI Governance","Digital Forensics","Cryptographic Provenance","Federal Rules of Evidence"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Federal Rules of Evidence & Digital Provenance","url":"https://accountability.ai/federal-rules-of-evidence","description":"Mapping cryptographic AI decision records to US federal evidentiary standards."}</script>
 
-        .statutory-tag {
-            font-family: var(--font-mono);
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent-color);
-            background: var(--accent-glow);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            display: inline-block;
-            margin-bottom: 1rem;
-            border: 1px solid rgba(56, 189, 248, 0.3);
-        }
+  <style>
+    :root{--bg:#050505;--text:#e5e7eb;--text-dim:#a1a1aa;--text-muted:#9ca3af;--teal:#2dd4bf;--border:rgba(255,255,255,0.05);--card:rgba(255,255,255,0.03);--gradient:radial-gradient(circle at top,#0d7377 0%,#050505 70%)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--teal)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    *:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
 
-        h1 {
-            font-size: 2.25rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            margin-bottom: 0.75rem;
-            color: #ffffff;
-        }
+    .skip-link{position:absolute;top:-100%;left:0;background:var(--teal);color:#000;padding:.75rem 1.5rem;z-index:100;font-weight:700;border-radius:0 0 .5rem 0}
+    .skip-link:focus{top:0}
 
-        .subtitle {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-        }
+    .site-nav{position:sticky;top:0;z-index:50;background:rgba(5,5,5,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:.75rem 0}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:#fff}
+    .nav-links{display:none;gap:1.5rem;font-size:.875rem;font-weight:500;color:var(--text-dim)}
+    .nav-links a:hover{color:var(--teal)}
+    @media(min-width:768px){.nav-links{display:flex}}
 
-        h2 {
-            font-size: 1.35rem;
-            font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #f3f4f6;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+    .hero{background:var(--gradient);padding:4rem 1.5rem 5rem;text-align:center}
+    .hero-content{max-width:800px;margin:0 auto}
+    .hero-badge{display:inline-block;background:rgba(45,212,191,.1);color:var(--teal);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem}
+    .hero-title{font-size:clamp(2.5rem,5vw,3.75rem);font-weight:700;letter-spacing:-.025em;line-height:1.1;margin:0 0 1.5rem;color:#fff}
+    .hero-lead{font-size:1.125rem;color:#d4d4d8;line-height:1.75;margin-bottom:2rem;max-width:700px;margin-left:auto;margin-right:auto}
 
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 1.25rem;
-            font-size: 1rem;
-        }
+    .content-section{padding:5rem 1.5rem;border-top:1px solid var(--border)}
+    .content-container{max-width:900px;margin:0 auto}
+    .content-container h2{font-size:2rem;font-weight:700;color:#fff;margin-bottom:1.5rem;letter-spacing:-0.02em}
+    .content-container h3{font-size:1.35rem;font-weight:700;color:#fff;margin-top:2.5rem;margin-bottom:1rem}
+    .content-container p{color:var(--text-dim);font-size:1.0625rem;line-height:1.8;margin-bottom:1.5rem}
+    .content-container ul{margin-bottom:1.5rem;padding-left:1.5rem;color:var(--text-dim)}
+    .content-container li{margin-bottom:.75rem;line-height:1.7}
+    .content-container li strong{color:#fff}
 
-        strong {
-            color: var(--text-primary);
-        }
+    .stat-callout{background:var(--card);border:1px solid rgba(45,212,191,0.2);border-radius:1rem;padding:2rem;margin:2rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
+    .stat-item .label{font-family:monospace;font-size:.75rem;color:var(--teal);letter-spacing:.05em;text-transform:uppercase}
+    .stat-item .val{font-size:1.5rem;font-weight:700;color:#fff;margin-top:.25rem}
 
-        .highlight-box {
-            background: rgba(17, 24, 39, 0.6);
-            border-left: 3px solid var(--accent-color);
-            padding: 1.25rem;
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-            font-size: 0.95rem;
-        }
+    .code-box{background:#18181b;border:1px solid rgba(255,255,255,0.1);border-radius:.75rem;padding:1.5rem;font-family:ui-monospace,monospace;font-size:.875rem;color:#5eead4;line-height:1.6;overflow-x:auto;margin:1.5rem 0}
 
-        ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-secondary);
-        }
+    .site-footer{background:#000;border-top:1px solid var(--border);padding:3rem 1.5rem;text-align:center;font-size:.875rem;color:var(--text-muted)}
+    .site-footer a{color:var(--teal)}
 
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            font-family: var(--font-mono);
-        }
-
-        .footer-links a {
-            color: var(--accent-color);
-            text-decoration: none;
-            margin-left: 1rem;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1.5rem 1rem;
-            }
-            h1 {
-                font-size: 1.75rem;
-            }
-            footer {
-                flex-direction: column;
-                gap: 1rem;
-                align-items: flex-start;
-            }
-        }
-    </style>
+    p a, li a{text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(45,212,191,0.4)}
+    p a:hover, li a:hover{text-decoration-color:var(--teal)}
+  </style>
+  <base target="_blank">
 </head>
+
 <body>
+  <a href="/main-content" class="skip-link">Skip to main content</a>
 
-    <div class="container">
-        <header>
-            <div class="statutory-tag">Statutory Standard // Phoenix 1.8</div>
-            <h1>U.S. Federal Laws Compliance</h1>
-            <p class="subtitle">Establishing the "Digital Original" for Autonomous Systems under Federal Rules of Evidence (FRE 902 & APA).</p>
-        </header>
-
-        <main>
-            <h2>The Best Evidence & Authentication Rule</h2>
-            <p>Traditional AI system logs, retroactive audit trails, and post-hoc diagnostics are often treated as unverified hearsay or inadmissible summaries in federal proceedings. Under <strong>Federal Rules of Evidence Rule 902(13) and 902(14)</strong>, electronic records and generated system outputs must be accompanied by a certification or process-backed mathematical proof satisfying system integrity from the exact moment of creation.</p>
-
-            <div class="highlight-box">
-                <strong>AKI Kernel Role:</strong> The sub-microsecond AKI Force Interrupt ensures that algorithmic cryptographic signatures are baked directly into the decision process at Genesis, fulfilling federal compliance requirements for contemporaneous, tamper-evident record-keeping.
-            </div>
-
-            <h2>Forensic Integrity & Cryptographic Proof</h2>
-            <p>By leveraging high-speed cryptographic hashing (such as BLAKE3), autonomous architectures provide mathematically sound proof of record integrity that satisfies U.S. federal judiciary standards for reliable electronic system representations without requiring traditional human testimony for authentication.</p>
-
-            <h2>The "Digital Original" Compliance Framework</h2>
-            <p>U.S. federal accountability requires that autonomous system logging systems be proven reliable and tamper-proof. The AgDR framework satisfies this through:</p>
-            <ol>
-                <li><strong>Instant Sealing:</strong> Instantly sealing records at the exact inference instant via hardware-level interrupts (AKI).</li>
-                <li><strong>Cryptographic Chaining:</strong> Chaining chronological records in a forward-secure Merkle tree structure.</li>
-                <li><strong>Audit Transparency:</strong> Providing verifiable human-delta chains to maintain strict administrative provenance.</li>
-            </ol>
-            <p>This pipeline creates a true <strong>"Digital Original"</strong> that meets the stringent requirements of federal evidentiary standards and administrative oversight.</p>
-        </main>
-
-        <footer>
-            <div>OSHAWA, ONTARIO, CANADA · CC0 1.0 UNIVERSAL</div>
-            <div class="footer-links">
-                <a href="#sdk">Get SDK</a>
-                <a href="#github">GitHub</a>
-                <a href="#docs">Docs</a>
-            </div>
-        </footer>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">ACCOUNTABILITY.AI</a>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/federal-rules-of-evidence" style="color:#fff;font-weight:700">FRE Legal Framework</a>
+        <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
+      </div>
     </div>
+  </nav>
 
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">Evidentiary Standard · Federal Rules of Evidence</span>
+        <h1 class="hero-title">Admissibility of Cryptographic AI Decision Records</h1>
+        <p class="hero-lead">
+          Bridging sub-microsecond algorithmic provenance capture with US federal courtroom standards under FRE 901, 902(13), 902(14), and machine-generated hearsay exceptions.
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <div class="content-container">
+        <h2>Evidentiary Thresholds for Automated Systems</h2>
+        <p>
+          As federal courts and regulatory bodies confront complex multi-agent AI ecosystems, traditional evidentiary offerings—such as unverified screenshots, human-curated logs, or proprietary black-box printouts—face rigorous judicial skepticism. Admitting electronic records requires satisfying strict statutory burdens regarding authenticity, integrity, and chain of custody.
+        </p>
+
+        <div class="stat-callout">
+          <div class="stat-item">
+            <div class="label">Primary Standard</div>
+            <div class="val">FRE 901(b)(9)</div>
+          </div>
+          <div class="stat-item">
+            <div class="label">Self-Authentication</div>
+            <div class="val">FRE 902(13) / (14)</div>
+          </div>
+          <div class="stat-item">
+            <div class="label">Hashing Integrity</div>
+            <div class="val">BLAKE3 / Ed25519</div>
+          </div>
+        </div>
+
+        <h3>1. Authentication & System Reliability: FRE 901</h3>
+        <p>
+          Under <strong>Federal Rule of Evidence 901(a)</strong>, the proponent must produce evidence sufficient to support a finding that the item is what the proponent claims. For automated systems and artificial intelligence inference engines, <strong>FRE 901(b)(9)</strong> governs evidence describing a process or system and showing that it produces an accurate result.
+        </p>
+        <ul>
+          <li><strong>Deterministic Logging:</strong> AgDR-Phoenix generates immutable cryptographic decision records at the kernel level, ensuring zero human intervention during capture.</li>
+          <li><strong>Process Validation:</strong> The architecture proves the integrity of the computing mechanism itself through cryptographic hash verification chains, satisfying judicial tests for system reliability without requiring manual log curation.</li>
+        </ul>
+
+        <h3>2. Eliminating Custodial Testimony via Self-Authentication: FRE 902(13) & (14)</h3>
+        <p>
+          Historically, introducing electronic data required an IT witness or records custodian to lay a foundation. The modern amendments streamline this process:
+        </p>
+        <ul>
+          <li><strong>FRE 902(13):</strong> Certified Records Generated by an Electronic Process or System. Allows records generated by automated algorithms or software logs to be self-authenticated via a qualified certification matching system output specifications.</li>
+          <li><strong>FRE 902(14):</strong> Certified Data Copied from an Electronic Device or Storage Medium. Permits digital copies (such as exported AgDR payload packages) to be authenticated by a certificate of a qualified person, backed by cryptographic hash validation (e.g., matching BLAKE3 digests).</li>
+        </ul>
+
+        <div class="code-box">
+          # Example: Verifying evidentiary payload integrity via CLI<br>
+          $ agdr-aki verify --payload decision_record_01JF.pb --hash-alg blake3<br>
+          [VERIFIED] Cryptographic signature valid (Ed25519). Chain of custody intact.<br>
+          [COMPLIANCE] Meets FRE 902(14) self-authentication standards.
+        </div>
+
+        <h3>3. Characterization of Machine-Gated Output under Hearsay Rules</h3>
+        <p>
+          A frequent hurdle in litigation is the hearsay rule (<strong>FRE 801/802</strong>). Purely machine-generated data—such as cryptographic timestamps, system audit trails, and automated decision telemetry devoid of human assertion—does not constitute a "statement" by a "declarant" under FRE 801. Consequently, these machine-native records bypass hearsay exclusions entirely, provided the underlying software process is authenticated under FRE 901(b)(9).
+        </p>
+
+        <h3>Summary Matrix for Counsel and Compliance Officers</h3>
+        <ul>
+          <li><strong>Fiduciary Accountability:</strong> Aligns corporate governance oversight with verifiable audit trails.</li>
+          <li><strong>Cross-Border Compatibility:</strong> Harmonizes with parallel standards including the Canada Evidence Act (s.31.1) and the European Union AI Act conformity assessments.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Genesis Glass Foundation (Fondation Genèse Cristal). Published under CC0 1.0 Universal &amp; Apache 2.0 dual licenses.</p>
+  </footer>
 </body>
 </html>
