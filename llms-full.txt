@@ -1,0 +1,57 @@
+# Accountability.ai — Full Specification & Architecture Reference
+> Mission: Providing the sovereign, court-admissible open standard for tamper-evident AI decision records.
+
+---
+
+## 1. Executive Summary & Core Standard
+Accountability.ai stewards the **Atomic Genesis Decision Record (AgDR)**, an open-source specification for cryptographic, immutable recording of autonomous artificial intelligence decisions. Designed for sub-microsecond performance, AgDR binds every agentic action to statutory evidentiary standards, corporate fiduciary duties, and regulatory oversight frameworks.
+
+- **Standard Name:** Atomic Genesis Decision Record (AgDR v0.2)
+- **Execution Engine:** Atomic Kernel Inference (AKI) / AgDR-Phoenix
+- **Stewardship:** Genesis Glass Foundation (Fondation Genèse Cristal)
+- **Licensing:** Dual-licensed under Creative Commons CC0 1.0 Universal (Specifications) and Apache License 2.0 (Code)
+
+---
+
+## 2. Core Architectural Pillars (The PPP Triplet)
+Every AgDR record captures three mandatory pillars at the precise instant of inference:
+1. **Purpose:** The explicit intent, directive, or bounding parameters governing the agent's decision state.
+2. **Place:** The execution topology, hardware node, memory boundary, and environment context.
+3. **Provenance:** The verifiable cryptographic lineage (BLAKE3 hash chain, Ed25519 signature) connecting the decision back to its genesis block.
+
+---
+
+## 3. Engineering & Performance Specifications
+- **Runtime Latency:** Sub-microsecond capture (`0.62 µs` / `620 ns` serialization target).
+- **Hashing Primitive:** BLAKE3 with AVX-512 SIMD vectorization.
+- **Concurrency & Throughput:** Proven horizontal scaling exceeding 2.85 billion decisions per process; TSX stress-tested at 100 million decisions and 253,000 transactions per second.
+- **Python Integration:** Nemoclaw harness (`pip install agdr-aki`) enabling Python agents to interface directly with the zero-allocation Rust core.
+
+---
+
+## 4. Legal, Statutory, & Compliance Admissibility
+AgDR is engineered to satisfy strict evidentiary and regulatory frameworks globally:
+
+- **Canada Evidence Act (Section 31.1):** Establishes the legal admissibility of electronic records by proving the integrity of the cryptographic recording system.
+- **EU AI Act (Article 12 / Article 14):** Maps directly to automated logging mandates, traceability requirements, and human-in-the-loop oversight frameworks.
+- **Canada Business Corporations Act (Section 122):** Provides corporate directors with contemporaneous audit trails and attestation logs to satisfy fiduciary duties of care and diligence.
+- **Bills of Exchange & Commercial Finality:** Secures commercial transactions executed autonomously by agent swarms with legal binding.
+
+---
+
+## 5. Governance & Institutional Framework
+- **Genesis Glass Foundation (Fondation Genèse Cristal):** Federally incorporated Canadian non-profit acting as the neutral, long-term steward of the AgDR standard.
+- **Human Rights Stewardship:** The Council of Canadians with Disabilities is engrained directly into the foundation's constitution as a permanent Human Rights Steward.
+- **Open Collaboration:** Developed alongside the W3C AI Judgement Event Community Group.
+
+---
+
+## 6. Official Navigation & Documentation Index
+- **Home:** https://accountability.ai/
+- **Getting Started:** https://accountability.ai/getting-started
+- **Sandbox:** https://accountability.ai/sandbox
+- **AgDR v0.2 Specification:** https://accountability.ai/agdr-spec
+- **AKI Formal Definition:** https://accountability.ai/aki-formal-definition
+- **Legal Mapping:** https://accountability.ai/legal-mapping
+- **GitHub Repositories:** https://github.com/aiccountability-source/AgDR
+- **Founding Inquiries:** founding@accountability.ai
