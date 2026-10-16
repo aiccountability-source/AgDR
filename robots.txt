@@ -1,33 +1,29 @@
 # robots.txt - Accountability.ai
-# Updated 2026-04-18
-# Full crawl access for all search and AI crawlers
+# Updated 2026-10-15
+# Full crawl access for search engines, AI models, and RAG agents
 
-# Global rules
-User-agent: *
-Disallow: /*?trk=
-Disallow: /archive/
-Allow: /
+# ----------------------------------------------------------------------
+# Specific AI & Search Engine Crawlers
+# ----------------------------------------------------------------------
 
-# Google
+# Google (Search & Gemini / Vertex AI RAG)
 User-agent: Googlebot
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
-# Bing
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 2
-
-# OpenAI
+# OpenAI (Search, Training, & Live User Browsing)
 User-agent: GPTBot
 Allow: /
 
 User-agent: OAI-SearchBot
 Allow: /
 
-# Anthropic
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude Training, Search, & User Retrieval)
 User-agent: ClaudeBot
 Allow: /
 
@@ -47,8 +43,24 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Common Crawl
-User-agent: CCBot
+# Mistral AI
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: MistralAI-Index
+Allow: /
+
+# Cohere (Enterprise RAG)
+User-agent: cohere-ai
+Allow: /
+
+# Bing / Microsoft Copilot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Apple
+User-agent: Applebot
 Allow: /
 
 # Meta
@@ -58,13 +70,35 @@ Allow: /
 User-agent: meta-externalagent
 Allow: /
 
-# Apple
-User-agent: Applebot
+# Common Crawl (Foundational AI Dataset Ingestion)
+User-agent: CCBot
 Allow: /
 
 # DuckDuckGo
 User-agent: DuckDuckBot
 Allow: /
 
-# Sitemap
+# ByteDance
+User-agent: Bytespider
+Allow: /
+
+User-agent: ByteDanceBot
+Allow: /
+
+# Amazon
+User-agent: Amazonbot
+Allow: /
+
+# ----------------------------------------------------------------------
+# Global Fallback Rules (Includes DeepSeek & Unidentified Crawlers)
+# ----------------------------------------------------------------------
+User-agent: *
+Disallow: /*?trk=
+Disallow: /archive/
+Allow: /
+
+# ----------------------------------------------------------------------
+# Sitemaps & Structured LLM Context
+# ----------------------------------------------------------------------
 Sitemap: https://accountability.ai/sitemap.xml
+llms-txt: https://accountability.ai/llms.txt
