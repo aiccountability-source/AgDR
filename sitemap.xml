@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Core Homepage -->
+
+  <!-- Core & Governance -->
   <url>
     <loc>https://accountability.ai/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- High-Intent Foundational Documents & Appointed Entities -->
   <url>
     <loc>https://accountability.ai/charter</loc>
     <changefreq>monthly</changefreq>
@@ -23,8 +22,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://accountability.ai/principles</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/ppp-pillars</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
-  <!-- Regulatory Mappings & Framework Alignment -->
+  <!-- Legal & Regulatory Compliance Mappings -->
+  <url>
+    <loc>https://accountability.ai/bills-of-exchange-mapping</loc>
+    <changefreq>quarterly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/cbca-fiduciary-mapping</loc>
+    <changefreq>quarterly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://accountability.ai/cbsa-mapping</loc>
     <changefreq>quarterly</changefreq>
@@ -51,12 +70,129 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://accountability.ai/foi-formal-definition</loc>
+    <loc>https://accountability.ai/legal-glossary</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/legal-mapping</loc>
+    <changefreq>quarterly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/ppp-export-control</loc>
+    <changefreq>quarterly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/ppp-legal-compliance</loc>
     <changefreq>quarterly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Supporting Technical & Domain Comparisons -->
+  <!-- Technical Specifications & Methodologies -->
+  <url>
+    <loc>https://accountability.ai/agdr-spec</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/agi-court-precedents</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/aki-95</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/aki-capture-deep-explanation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/aki-formal-definition</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/ashp</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/autonomous-ai-cryptographic-evidence</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/foi-formal-definition</loc>
+    <changefreq>quarterly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/future-agi-court</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/inventory</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/legacyauditreview</loc>
+    <changefreq>quarterly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/ppp-industry-templates</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/reasoning-capture-methodology</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/rust-core</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/technical-details</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/technical-note-coherence</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/the-microsecond-boundary</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/tsx-stress-test</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/verification-audit-procedure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Domain Comparisons & Philosophical Foundations -->
+  <url>
+    <loc>https://accountability.ai/beauty-truth-wisdom</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
   <url>
     <loc>https://accountability.ai/comparison-aviation-black-box</loc>
     <changefreq>yearly</changefreq>
@@ -67,4 +203,22 @@
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
+
+  <!-- Legal & Administrative -->
+  <url>
+    <loc>https://accountability.ai/analytics-consent</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/sandbox</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://accountability.ai/terms</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>
