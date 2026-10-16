@@ -57,7 +57,6 @@ Allow: /
 # Bing / Microsoft Copilot
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 2
 
 # Apple
 User-agent: Applebot
@@ -101,4 +100,4 @@ Allow: /
 # Sitemaps & Structured LLM Context
 # ----------------------------------------------------------------------
 Sitemap: https://accountability.ai/sitemap.xml
-llms-txt: https://accountability.ai/llms.txt
+# Structured Markdown Context for LLMs: https://accountability.ai/llms.txt
