@@ -225,4 +225,731 @@
       </div>
 
       <div class="nav-search" role="search">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input type="search" id="site-search" placeholder="Search docs..." aria-label="Search documentation" autocomplete="off">
+        <div id="search-results" role="listbox" aria-label="Search results"></div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">AgDR-Phoenix v1.8 · Operational Standard</span>
+        <h1 class="hero-title">Forensic Data Collection. Flight Recorder Infrastructure for AI Inference.</h1>
+        <p class="hero-lead">
+          AgDR is the Standard for Agentic AI Coherence and Accountability. The ground floor for coherent massive swarms, even in connectivity constrained environments. Sub-microsecond provenance capture with zero operational friction.
+        </p>
+
+        <!-- Goodstack/Google for Nonprofits Signal Block 1 -->
+        <div style="margin:1.5rem auto 2.5rem;padding:1.25rem 1.5rem;background:rgba(45,212,191,0.04);border:1px solid rgba(45,212,191,0.15);border-radius:.75rem;max-width:800px;text-align:left">
+          <p style="font-size:.9rem;color:var(--text);line-height:1.6">
+            <strong style="color:var(--teal)">Public-Benefit Notice:</strong> Accountability.ai is a public-benefit digital property stewarded exclusively by the <strong>Genesis Glass Foundation (Fondation Genèse Cristal)</strong>, a federally incorporated Canadian non-profit corporation (Corp. No. 1779509-2). The Foundation operates solely as a non-profit open-source standards steward. All codebases, SDKs, and forensic protocols are provided royalty-free under CC0 and Apache 2.0 licenses with zero commercial software sales or fees.
+          </p>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="/getting-started" class="btn btn-primary">View Implementation</a>
+          <a href="/sandbox" class="btn btn-secondary">Evaluate in Sandbox</a>
+        </div>
+        <div style="margin-top:2rem;padding:1.25rem 1.5rem;background:rgba(45,212,191,0.05);border:1px solid rgba(45,212,191,0.15);border-radius:.75rem;max-width:700px;margin-left:auto;margin-right:auto;text-align:left">
+          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:.75rem;font-family:ui-monospace,monospace">
+            <span style="color:var(--teal)">$</span> pip3 install agdr-aki &nbsp;&nbsp;<span style="color:var(--text-muted)"># Windows · Linux · macOS · ARM</span>
+          </p>
+          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:.75rem;font-family:ui-monospace,monospace">
+            <span style="color:var(--teal)">$</span> pip3 install agdr-mantle &nbsp;<span style="color:var(--text-muted)"># Post-quantum fortification layer</span>
+          </p>
+          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:0;font-family:ui-monospace,monospace">
+            <span style="color:var(--teal)">$</span> cargo add agdr-aki &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--text-muted)"># Rust core</span>
+          </p>
+          <p style="font-size:.875rem;color:var(--text-muted);margin-bottom:0;font-family:ui-monospace,monospace">
+            <span style="color:var(--teal)">$</span> cargo add agdr-mantle &nbsp;&nbsp;<span style="color:var(--text-muted)"># Rust post-quantum layer</span>
+          </p>
+          <p style="font-size:.75rem;color:var(--text-muted);margin-top:.75rem;margin-bottom:0">
+            Prebuilt wheels for Windows (x64), Linux (x86_64, aarch64), macOS (Intel, Apple Silicon), and ARM via piwheels. Nemoclaw Python harness. No Rust toolchain required for Python install. Royalty-free. CC0 / Apache 2.0.
+          </p>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:1.5rem">
+          <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank">
+            <img src="https://img.shields.io/badge/GitHub-AgDR--Phoenix-black?style=flat-square&logo=github&labelColor=27272a" alt="GitHub AgDR-Phoenix" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>  
+          <a href="https://github.com/aiccountability-source/AgDR-Mantle" target="_blank">
+            <img src="https://img.shields.io/badge/GitHub-AgDR--Mantle-black?style=flat-square&logo=github&labelColor=27272a" alt="GitHub AgDR-Mantle" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <a href="https://crates.io/crates/agdr-aki" target="_blank">
+            <img src="https://img.shields.io/crates/v/agdr-aki?style=flat-square&label=crates.io:AKI&color=F74C00&labelColor=27272a" alt="crates.io agdr-aki" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <a href="https://crates.io/crates/agdr-mantle" target="_blank">
+            <img src="https://img.shields.io/crates/v/agdr-mantle?style=flat-square&label=crates.io:Mantle&color=F74C00&labelColor=27272a" alt="crates.io agdr-mantle" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <a href="https://pypi.org/project/agdr-aki/" target="_blank">
+            <img src="https://img.shields.io/pypi/v/agdr-aki?style=flat-square&label=PyPI:AKI&color=3775A9&labelColor=27272a" alt="PyPI agdr-aki" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <a href="https://pypi.org/project/agdr-mantle/" target="_blank">
+            <img src="https://img.shields.io/pypi/v/agdr-mantle?style=flat-square&label=PyPI:Mantle&color=3775A9&labelColor=27272a" alt="PyPI agdr-mantle" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <a href="https://www.piwheels.org/project/agdr-aki/" target="_blank">
+            <img src="https://img.shields.io/badge/piwheels-agdr--aki-C51A4A?style=flat-square&logo=raspberrypi&labelColor=27272a" alt="piwheels agdr-aki" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <a href="https://www.piwheels.org/project/agdr-mantle/" target="_blank">
+            <img src="https://img.shields.io/badge/piwheels-agdr--mantle-C51A4A?style=flat-square&logo=raspberrypi&labelColor=27272a" alt="piwheels agdr-mantle" style="height:24px;border-radius:4px;border:1px solid rgba(255,255,255,0.1)">
+          </a>
+          <span style="height:24px;display:inline-flex;align-items:center;padding:0 8px;background:#27272a;color:#e5e7eb;font-size:10px;font-family:monospace;border-radius:4px;border:1px solid rgba(255,255,255,0.15);font-weight:700;">BLAKE3 &middot; Ed25519</span>
+          <span style="height:24px;display:inline-flex;align-items:center;padding:0 8px;background:#27272a;color:#5eead4;font-size:10px;font-family:monospace;border-radius:4px;border:1px solid rgba(45,212,191,0.2);font-weight:700;">PQC: ML-DSA</span>
+          <span style="height:24px;display:inline-flex;align-items:center;padding:0 8px;background:#27272a;color:#fbbf24;font-size:10px;font-family:monospace;border-radius:4px;border:1px solid rgba(251,191,36,0.25);font-weight:700;">BROTLI_COMPRESSION</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="role-section" aria-label="Role-based entry points">
+      <div class="section-header" style="padding-bottom:2rem"><h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem;color:#fff;letter-spacing:-0.02em">Role-Based Entry Points</h2><p style="color:var(--text-dim);font-size:1.125rem;max-width:650px;line-height:1.6">Select your organizational function to access relevant accountability controls.</p></div>
+      <div class="role-grid">
+        <div class="role-card">
+          <h3>Chief Information Security Officer</h3>
+          <p>Assess evidentiary substrate, chain-of-custody integrity, and D&O liability exposure under emerging AI fiduciary standards.</p>
+          <a href="/verification-audit-procedure">Audit Procedures <span aria-hidden="true"></span></a>
+        </div>
+        <div class="role-card">
+          <h3>General Counsel & Compliance</h3>
+          <p>Statutory mapping for EU AI Act, Canada Evidence Act, and CBCA fiduciary duty. Court-admissible record formats.</p>
+          <a href="/legal-mapping">Statutory Matrix <span aria-hidden="true"></span></a>
+        </div>
+        <div class="role-card">
+          <h3>Platform Engineering</h3>
+          <p>Prebuilt wheels for Windows, Linux, macOS, and ARM via piwheels. Nemoclaw Python harness. Sub-microsecond latency. No Rust toolchain required for Python install.</p>
+          <a href="/getting-started">Implementation Guide <span aria-hidden="true"></span></a>
+        </div>
+        <div class="role-card">
+          <h3>Risk & Audit Committee</h3>
+          <p>Stress-test evidence: Python only adr-aki 100M decisions at 3.94ms. Current: AgDR-Phoenix: 620ns(620 billionths of a second) TSX-grade throughput. Independent verification protocols.</p>
+          <a href="/tsx-stress-test">Stress Test Report <span aria-hidden="true"></span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="principle-section">
+      <div class="principle-content">
+        <div class="principle-accent"></div>
+        <p class="principle-text">
+          AI accountability is the established legal principle that <strong>human principals retain strict liability</strong> for the decisions, actions, and outcomes of artificial intelligence systems. It ensures that whenever an AI system causes harm or makes an error, there is an <strong>identifiable, liable party</strong> answerable for the consequences.
+        </p>
+        <div class="principle-meta">
+          <span><strong>EU AI Act</strong> — Art. 14 / Art. 52</span>
+          <span><strong>NIST AI RMF</strong> — GOV-1.1 / GOV-5.1</span>
+          <span><strong>Canada Evidence Act</strong> — s.31.1</span>
+        </div>
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+          <p style="font-size:.875rem;color:var(--text-muted)">Federally incorporated under the Canada Not-for-profit Corporations Act, Corp. No. 1779509-2. <a href="/charter" style="color:var(--teal);text-decoration:underline;text-underline-offset:2px">View Articles of Incorporation →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <div class="section-header" style="margin-bottom:3rem"><h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem;color:#fff;letter-spacing:-0.02em">Performance Benchmarks</h2><p style="color:var(--text-dim);font-size:1.125rem;max-width:650px;line-height:1.6">Verified under independent TSX stress test conditions.</p></div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">LATENCY</div>
+          <div class="stat-value">0.62 µs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">THROUGHPUT</div>
+          <div class="stat-value">1.1+M/s</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">INTEGRITY</div>
+          <div class="stat-value">BLAKE3</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">PPP CAPTURE</div>
+          <div class="stat-value">100%</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ledger-section" id="ledger">
+      <div class="ledger-grid">
+        <div class="ledger-column">
+          <h2>Mechanical Floor</h2>
+          <div class="matrix-link"><a href="/principles">Principles</a><span>Roots of Cryptography</span></div>
+          <div class="matrix-link"><a href="/aki-95">AKI 0.95 Spec</a><span>950ns Atomic Kernel Gating</span></div>
+          <div class="matrix-link"><a href="/agdr-spec">AgDR Protocol</a><span>v1.8 Standard</span></div>
+          <div class="matrix-link"><a href="/technical-details">Technical Architecture</a><span>System Design</span></div>
+          <div class="matrix-link"><a href="/rust-core">Rust Core</a><span>Systems Implementation</span></div>
+          <div class="matrix-link"><a href="/aki-capture-deep-explanation">Atomic Kernel Inference</a><span>950ns Atomic Kernel Gating</span></div>
+        </div>
+        <div class="ledger-column">
+          <h2>Statutory Teeth</h2>
+          <div class="matrix-link"><a href="/cea-compliance">CEA s.31.1 Admissibility</a><span>Canada Evidence Act</span></div>
+          <div class="matrix-link"><a href="/cbca-fiduciary-mapping">CBCA s.122 Mapping</a><span>Director Fiduciary Duty</span></div>
+          <div class="matrix-link"><a href="/eu-ai-act-mapping">EU AI Act Mapping</a><span>High-Risk Systems</span></div>
+          <div class="matrix-link"><a href="/cbsa-mapping">CBSA Mapping</a><span>Border &amp; Trade</span></div>
+          <div class="matrix-link"><a href="/ppp-legal-compliance">Legal Compliance</a><span>PPP Framework</span></div>
+          <div class="matrix-link"><a href="/ppp-export-control">Export Control</a><span>Dual-Use Technology</span></div>
+          <div class="matrix-link"><a href="/ashp">ASHP Protocol</a><span>Actuarial Safe Harbor</span></div>
+        </div>
+        <div class="ledger-column">
+          <h2>Forensic Archive</h2>
+          <div class="matrix-link"><a href="/compact">Foundation</a><span>950ns Atomic Kernel Gating</span></div>
+          <div class="matrix-link"><a href="/legal-glossary">Forensic Glossary</a><span>Chain of Definition</span></div>
+          <div class="matrix-link"><a href="/future-agi-court">Judicial Future</a><span>15-Year Stewardship</span></div>
+          <div class="matrix-link"><a href="/agi-court-precedents">AGI Court Precedents</a><span>Emerging Jurisprudence</span></div>
+          <div class="matrix-link"><a href="/comparison-aviation-black-box">Aviation Black Box</a><span>Comparative Standard</span></div>
+          <div class="matrix-link"><a href="/ppp-industry-templates">Industry Templates</a><span>PPP Framework</span></div>
+          <div class="matrix-link"><a href="/ashp">ASHP Monograph</a><span>AI Tail Risk Capital</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="critical-section">
+      <div class="section-header">
+        <h2>Liability Exposure Vectors</h2>
+        <p>Without stringent accountability frameworks, organizations face unquantified risk across regulatory, civil, and criminal domains.</p>
+      </div>
+      <div class="critical-grid">
+        <div class="critical-item">
+          <h3 style="font-size:1.125rem;font-weight:700;margin-bottom:.75rem;color:#fff">Regulatory Enforcement Exposure</h3>
+          <p>Automated AI agents in finance, healthcare, and autonomous systems create jurisdictional overlap. Without provenance records, regulators cannot verify compliance, and organizations cannot demonstrate due diligence.</p>
+        </div>
+        <div class="critical-item">
+          <h3 style="font-size:1.125rem;font-weight:700;margin-bottom:.75rem;color:#fff">Bias &amp; Discrimination Liability</h3>
+          <p>Unaudited systems perpetuate bias at scale. Under the EU AI Act and analogous civil rights frameworks, organizations face strict liability for discriminatory algorithmic outcomes.</p>
+        </div>
+        <div class="critical-item">
+          <h3 style="font-size:1.125rem;font-weight:700;margin-bottom:.75rem;color:#fff">Director &amp; Officer Exposure</h3>
+          <p>Without clear control ownership and evidentiary trails, boards and C-suite executives face personal liability under CBCA s.122, Caremark, and emerging AI-specific fiduciary standards.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="spec-section" id="spec">
+      <div class="spec-grid">
+        <div>
+          <h3 style="font-size:clamp(1.5rem,3vw,2rem);font-weight:700;margin-bottom:1rem;color:#fff">Evidentiary Substrate.</h3>
+          <p style="color:var(--text-dim);margin-bottom:1.5rem">AgDR provides the forensic foundation required for high-risk AI system deployment under EU AI Act Article 14 and NIST AI RMF Govern 1.1. It does not modify model behavior; it captures it.</p>
+          <div style="color:var(--text-dim);line-height:2">
+            <strong style="color:#fff">Provenance:</strong> Who is acting, on whose behalf.<br>
+            <strong style="color:#fff">Place:</strong> Where the decision is headed.<br>
+            <strong style="color:#fff">Purpose:</strong> The explicit intent and ethical anchor.
+          </div>
+        </div>
+        <div class="spec-code">
+syntax = "proto3";
+package agdr.provenance.v1;
+
+import "google/protobuf/timestamp.proto";
+
+message ProvenancePacket {
+  string packet_id = 1;              // adr_01j6q3k8z9x7y5w4
+  uint64 sequence_number = 2;
+  bytes parent_hash = 3;           // BLAKE3 of previous packet
+  google.protobuf.Timestamp emit_timestamp = 4;  // 2026-02-18T14:23:15.123Z
+  bytes provenance_hash = 5;       // origin of decision
+  bytes place_hash = 6;            // execution context
+  bytes purpose_hash = 7;          // alignment manifest
+  bytes decision_hash = 8;         // action fingerprint
+  bytes signature = 9;             // Ed25519 or ECDSA over packet
+  optional bytes fec_parity = 10;    // for UDP dropless recovery
+  map<string, bytes> extensions = 99;
+}</div>
+      </div>
+    </section>
+
+    <section class="ops-section">
+      <div class="section-header">
+        <h2>Control Deployment Roadmap</h2>
+        <p>Operational strategies for ensuring compliance with evolving ethical standards and statutory requirements.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:.75rem;color:#fff;letter-spacing:-0.01em">Establish Governance Boundary</h3>
+          <p>Dedicate oversight teams with the legal and operational authority to monitor AI impact. Define the control perimeter before model deployment.</p>
+        </div>
+        <div class="timeline-item">
+          <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:.75rem;color:#fff;letter-spacing:-0.01em">Pre-Deployment Risk Assessment</h3>
+          <p>Review AI deployments to evaluate risks to privacy, ethics, and human rights. Document attestation before scaling to production.</p>
+        </div>
+        <div class="timeline-item">
+          <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:.75rem;color:#fff;letter-spacing:-0.01em">Assign Control Ownership</h3>
+          <p>Define explicit roles and responsibilities so that a designated human or team always "owns" the AI's actions and outcomes. Maintain evidentiary continuity.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources-section">
+      <div class="section-header">
+        <h2>Regulatory Reference &amp; Implementation</h2>
+        <p>International norms and academic frameworks that inform the AgDR control model.</p>
+      </div>
+      <div class="resources-grid">
+        <a href="https://oecd.ai/en/ai-principles" target="_blank" rel="noopener" class="resource-card">
+          <span class="tag">Regulatory Baseline</span>
+          <h3>OECD AI Principles</h3>
+          <p>The OECD AI Principles provide the intergovernmental baseline for AI governance, risk management, and cross-border regulatory coherence.</p>
+        </a>
+        <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener" class="resource-card">
+          <span class="tag">Strategic Framework</span>
+          <h3>NIST AI Risk Management Framework</h3>
+          <p>The authoritative US standard for AI governance, risk management, and trustworthy AI development. Directly mapped to Export and Medical Care and Privacy Controls.</p>
+        </a>
+      </div>
+    </section>
+
+    <section id="agdr-spec" class="content-section" style="background:#09090b">
+      <div class="content-grid">
+        <h2>AgDR Protocol Specification</h2>
+        <p>The Atomic Genesis Decision Record (AgDR) protocol defines the wire format, cryptographic bindings, and verification procedures for court-admissible AI decision records.</p>
+        <div class="charter-block">
+          <span class="charter-label">Protocol Version 0.2</span>
+          <p>The AgDR protocol specifies the ProvenancePacket message format using Protocol Buffers, BLAKE3 hashing for chain integrity, and ML-DSA quantum-resistant signatures for non-repudiation. All implementations must satisfy the Canada Evidence Act s.31.1 admissibility requirements.</p>
+          <p>Reference implementation: <a href="https://github.com/aiccountability-source/AgDR-Phoenix" style="color:var(--teal)">AgDR-Phoenix on GitHub</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="aki-formal-definition" class="content-section">
+      <div class="content-grid">
+        <h2>AKI Formal Definition</h2>
+        <p>The Atomic Kernel Inference (AKI) is the computational primitive that guarantees sub-microsecond provenance capture without blocking the inference pipeline.</p>
+        <div class="charter-block">
+          <span class="charter-label">Mathematical Specification</span>
+          <p>AKI defines a kernel-level interception mechanism that captures the PPP triplet (Provenance, Place, Purpose) at the exact moment of model inference. The formal definition specifies:</p>
+          <ul>
+            <li>Latency bound: 950ns maximum (AKI 0.95 Spec)</li>
+            <li>Memory footprint: &lt; 4KB per packet</li>
+            <li>Thread safety: lock-free ring buffer with seqlock</li>
+            <li>Atomicity: all-or-nothing capture with rollback</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="aki-95" class="content-section" style="background:#09090b">
+      <div class="content-grid">
+        <h2>AKI 0.95 Specification</h2>
+        <p>The 950-nanosecond atomic kernel gating specification defines the performance envelope for court-admissible provenance capture.</p>
+        <div class="charter-block">
+          <span class="charter-label">Performance Benchmarks</span>
+          <p>AKI 0.95 achieves 620ns mean latency on x86_64 with TSX instructions enabled. The specification covers:</p>
+          <ul>
+            <li>CPU affinity and cache-line optimization</li>
+            <li>RDPMC cycle counting for nanosecond precision</li>
+            <li>BLAKE3 hardware acceleration via AVX-512</li>
+            <li>Ring buffer sizing for zero-allocation capture</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="aki-capture-deep-explanation" class="content-section">
+      <div class="content-grid">
+        <h2>AKI Capture Deep Explanation</h2>
+        <p>Technical deep-dive into the atomic capture mechanism, memory layout, and cryptographic pipeline.</p>
+        <div class="charter-block">
+          <span class="charter-label">Implementation Details</span>
+          <p>The AKI capture pipeline operates in three phases: (1) Interception via eBPF or kernel module, (2) PPP triplet extraction from model context, and (3) Cryptographic sealing with BLAKE3 + Ed25519. Each phase is instrumented with rdtsc timestamps for forensic reconstruction.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="reasoning-capture-methodology" class="content-section" style="background:#09090b">
+      <div class="content-grid">
+        <h2>Reasoning Capture Methodology</h2>
+        <p>How AgDR captures not just the decision, but the reasoning chain that produced it.</p>
+        <div class="charter-block">
+          <span class="charter-label">Chain-of-Thought Provenance</span>
+          <p>For transformer-based systems, AgDR captures attention weights and layer activations as a compressed fingerprint. For rule-based systems, the entire decision tree is serialized. The methodology ensures that any decision can be reconstructed forensically without storing the full model state.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="technical-details" class="content-section">
+      <div class="content-grid">
+        <h2>Technical Architecture</h2>
+        <p>System design, deployment patterns, and integration guides for production environments.</p>
+        <div class="charter-block">
+          <span class="charter-label">System Design</span>
+          <p>AgDR deploys as a sidecar, library, or kernel module depending on threat model and latency requirements. The architecture separates capture (hot path) from storage (cold path) via lock-free queues. Horizontal scaling uses consistent hashing to maintain chain integrity across shards.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="technical-note-coherence" class="content-section" style="background:#09090b">
+      <div class="content-grid">
+        <h2>Technical Note: Coherence</h2>
+        <p>Ensuring causal consistency across distributed AgDR nodes.</p>
+        <div class="charter-block">
+          <span class="charter-label">Distributed Consistency</span>
+          <p>AgDR uses vector clocks and Merkle forests to maintain causal ordering across distributed capture agents. The coherence protocol guarantees that any two packets in the same Merkle root share a consistent view of provenance history.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="horizontal-scaling" class="content-section">
+      <div class="content-grid">
+        <h2>Horizontal Scaling</h2>
+        <p>Distributed deployment patterns for high-throughput environments.</p>
+        <div class="charter-block">
+          <span class="charter-label">Scale-Out Architecture</span>
+          <p>AgDR shards by agent_id using consistent hashing. Each shard maintains an independent Merkle tree; cross-shard consistency is verified via periodic root hash exchange. Benchmarks demonstrate 1.1M packets/second per node with linear scaling to 100+ nodes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="human-delta-chain-spec" class="content-section" style="background:#09090b">
+      <div class="content-grid">
+        <h2>Human Delta Chain Specification</h2>
+        <p>Human-in-the-loop escalation protocol for contested decisions.</p>
+        <div class="charter-block">
+          <span class="charter-label">Escalation Protocol</span>
+          <p>When a decision exceeds risk thresholds or triggers bias detectors, the Human Delta Chain initiates. The original packet is sealed, a delta packet captures the human override, and both are linked via parent_hash. This creates an immutable audit trail of human intervention.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="tsx-stress-test" class="content-section">
+      <div class="content-grid">
+        <h2>TSX Stress Test</h2>
+        <p>100 million decisions, 620 nanoseconds each. Independent verification results.</p>
+        <div class="charter-block">
+          <span class="charter-label">Benchmark Results</span>
+          <p>Conducted on Intel Xeon Sapphire Rapids with TSX enabled. 100M sequential inferences with full provenance capture. Mean latency: 620ns. P99: 840ns. Zero packet loss. Memory overhead: 3.2MB resident. Full report available on request.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cea-compliance" class="content-section" style="background:#09090b">
+      <div class="content-grid">
+        <h2>Canada Evidence Act Compliance</h2>
+        <p>Section 31.1 admissibility requirements for electronic records.</p>
+        <div class="charter-block">
+          <span class="charter-label">Statutory Mapping</span>
+          <p>AgDR satisfies CEA s.31.1 by providing: (a) system integrity via BLAKE3 chains, (b) user identification via Ed25519 signatures, (c) data entry procedures via PPP triplet validation, and (d) output accuracy via Merkle root verification.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="cbca-fiduciary-mapping" class="content-section">
+      <div class="content-grid">
+        <h2>CBCA Fiduciary Mapping</h2>
+        <p>Director fiduciary duty under Canada Business Corporations Act s.122.</p>
+        <div class="charter-block">
+          <span class="charter-label">Corporate Governance</span>
+          <p>AgDR enables directors to discharge their fiduciary duty of care by providing contemporaneous evidence of AI oversight. The PPP triplet's Purpose field captures the director's explicit authorization, while the Place field records the governance boundary.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="eu-ai-act-mapping" class="content-section" style="background:#09090b">
+      <div class="content-grid">
+        <h2>EU AI Act Mapping</h2>
+        <p>High-risk AI system compliance under Regulation (EU) 2024/1689.</p>
+        <div class="charter-block">
+          <span class="charter-label">Article 14 Compliance</span>
+          <p>AgDR directly satisfies Article 14 (Human Oversight) by recording the human operator identity in the provenance_hash. Article 52 (Transparency) is satisfied by the decision_hash which enables post-hoc explanation. The emit_timestamp provides the Article 12 (Record-Keeping) temporal anchor.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="foi-formal-definition" class="content-section">
+      <div class="content-grid">
+        <h2>Fiduciary Office Intervener (FOI) Definition</h2>
+        <p>The FOI role in AgDR governance and dispute resolution.</p>
+        <div class="charter-block">
+          <span class="charter-label">Role Definition</span>
+          <p>The Fiduciary Office Intervener is an independent third party with read-only access to the Merkle forest. In disputes, the FOI can verify chain integrity without accessing plaintext decision content. This role is analogous to a court-appointed expert under the Canada Evidence Act.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="bills-of-exchange-mapping" class="content-section" style="background:#09090b">
+      <div class="content-grid">
+        <h2>Bills of Exchange Mapping</h2>
+        <p>Commercial instrument alignment for AI-mediated transactions.</p>
+        <div class="charter-block">
+          <span class="charter-label">Commercial Law</span>
+          <p>AgDR packets satisfy the Bills of Exchange Act requirements for signed writing by encoding the decision as a cryptographically signed record. The provenance_hash identifies the drawer, the place_hash identifies the drawee, and the decision_hash constitutes the unconditional order.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparison-aviation-black-box" class="content-section">
+      <div class="content-grid">
+        <h2>Aviation Black Box Comparison</h2>
+        <p>AgDR as the flight data recorder for AI systems.</p>
+        <div class="charter-block">
+          <span class="charter-label">Regulatory Parallel</span>
+          <p>Like aviation FDRs under ICAO Annex 6, AgDR provides tamper-evident recording of operational parameters. The key difference: AgDR captures intent (Purpose) and authority (Provenance) in addition to state (Place), creating a three-dimensional accountability record.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="comparison-medical-records" class="content-section" style="background:#09090b">
+      <div class="content-grid">
+        <h2>Medical Records Comparison</h2>
+        <p>Healthcare documentation standards applied to AI provenance.</p>
+        <div class="charter-block">
+          <span class="charter-label">HIPAA / PIPEDA Alignment</span>
+          <p>Medical records require attribution, timestamp, and tamper-evidence. AgDR exceeds these requirements by adding cryptographic binding and distributed verification. The provenance_hash serves as the attending physician; the decision_hash as the diagnosis; the place_hash as the facility.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="agi-court-precedents" class="content-section">
+      <div class="content-grid">
+        <h2>AGI Court Precedents</h2>
+        <p>Emerging jurisprudence on AI accountability and liability.</p>
+        <div class="charter-block">
+          <span class="charter-label">Judicial Trends</span>
+          <p>Early cases in the EU, UK, and Canada establish that AI systems must produce explainable records for tort liability. AgDR's decision_hash and reasoning capture satisfy the emerging "algorithmic accountability" standard articulated in Loomis v. Wisconsin and subsequent rulings.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="future-agi-court" class="content-section" style="background:#09090b">
+      <div class="content-grid">
+        <h2>Court in 2076</h2>
+        <p>Long-term judicial stewardship vision for AI accountability.</p>
+        <div class="charter-block">
+          <span class="charter-label">15-Year Stewardship</span>
+          <p>The Genesis Glass Foundation Fondation Genèse Cristal maintains AgDR records in perpetual trust. By 2076, we anticipate courts will routinely examine 50-year provenance chains. The Merkle forest and PQC AgDR-Mantle architecture ensures that records created today remain verifiable for centuries, assuming SHA-3/BLAKE3 preimage resistance.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" id="faq" style="padding:5rem 1.5rem;background:#09090b;border-top:1px solid var(--border)">
+      <div style="max-width:900px;margin:0 auto" itemscope itemtype="https://schema.org/FAQPage">
+        <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;margin-bottom:1rem;color:#fff;letter-spacing:-0.02em">Frequently Asked Questions</h2>
+        <p style="color:var(--text-dim);font-size:1.125rem;max-width:650px;line-height:1.6;margin-bottom:3rem">Answers for institutional stewards, regulators, and technical auditors.</p>
+
+        <details style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem;margin-bottom:1rem" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="font-weight:700;color:#fff;cursor:pointer;list-style:none;font-size:1.125rem" itemprop="name">What is the Atomic Genesis Decision Record (AgDR)?</summary>
+          <div style="margin-top:1rem;color:var(--text-dim);line-height:1.7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">AgDR is a forensic protocol that creates a cryptographically sealed record of every AI inference. The PPP Triplet captures the Provenance (who), Place (where), and Purpose (why) at sub-microsecond or one millionth of a second latency, producing court-admissible evidence under the Canada Evidence Act and EU AI Act.</p>
+          </div>
+        </details>
+
+        <details style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem;margin-bottom:1rem" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="font-weight:700;color:#fff;cursor:pointer;list-style:none;font-size:1.125rem" itemprop="name">How do I install AgDR in a production environment?</summary>
+          <div style="margin-top:1rem;color:var(--text-dim);line-height:1.7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">For Python environments: <code style="background:rgba(45,212,191,0.1);padding:.125rem .375rem;border-radius:4px;color:var(--teal);font-family:ui-monospace,monospace">pip3 install agdr-aki</code>. Prebuilt wheels cover Windows, Linux (x86_64, aarch64), macOS (Intel, Apple Silicon), and ARM via piwheels. No Rust toolchain is required. For Rust projects: <code style="background:rgba(45,212,191,0.1);padding:.125rem .375rem;border-radius:4px;color:var(--teal);font-family:ui-monospace,monospace">cargo add agdr-aki</code>. The Nemoclaw Python harness provides idiomatic bindings.</p>
+          </div>
+        </details>
+
+        <details style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem;margin-bottom:1rem" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="font-weight:700;color:#fff;cursor:pointer;list-style:none;font-size:1.125rem" itemprop="name">Is AgDR compliant with the EU AI Act and Canada Evidence Act?</summary>
+          <div style="margin-top:1rem;color:var(--text-dim);line-height:1.7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Yes. AgDR satisfies EU AI Act Article 14 (Human Oversight) via the provenance_hash, Article 52 (Transparency) via the decision_hash, and Article 12 (Record-Keeping) via emit_timestamp. Under Canada Evidence Act s.31.1, AgDR provides system integrity (BLAKE3 chains), user identification (Ed25519 signatures), data entry procedures (PPP triplet validation), and output accuracy (Merkle root verification).</p>
+          </div>
+        </details>
+
+        <details style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem;margin-bottom:1rem" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="font-weight:700;color:#fff;cursor:pointer;list-style:none;font-size:1.125rem" itemprop="name">What is the Genesis Glass Foundation?</summary>
+          <div style="margin-top:1rem;color:var(--text-dim);line-height:1.7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">The Genesis Glass Foundation (Fondation Genèse Cristal) is a federally incorporated Canada Not-for-profit Corporation (No. 1779509-2) stewarding the AgDR open standard. The Foundation holds the protocol in perpetual trust under a royalty-free, CC0 / Apache 2.0 dual license, ensuring no single entity can privatize or restrict its use.</p>
+          </div>
+        </details>
+
+        <details style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem;margin-bottom:1rem" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="font-weight:700;color:#fff;cursor:pointer;list-style:none;font-size:1.125rem" itemprop="name">What platforms and architectures are supported?</summary>
+          <div style="margin-top:1rem;color:var(--text-dim);line-height:1.7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">AgDR-AKI and AgDR-Mantle ship prebuilt wheels for Windows x64, Linux x86_64 and aarch64, macOS Intel and Apple Silicon, plus ARMv6l/ARMv7l via piwheels.org. The Rust crate compiles on any platform supported by the Rust compiler (MSRV 1.75.0). All Python wheels use the stable abi3-py39 ABI for forward compatibility across Python 3.9–3.14.</p>
+          </div>
+        </details>
+
+        <details style="background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:1.5rem;margin-bottom:1rem" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <summary style="font-weight:700;color:#fff;cursor:pointer;list-style:none;font-size:1.125rem" itemprop="name">Does AgDR require post-quantum cryptography?</summary>
+          <div style="margin-top:1rem;color:var(--text-dim);line-height:1.7" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">Post-quantum fortification is optional. The core AgDR-AKI crate uses Ed25519 + BLAKE3, which is sufficient for current evidentiary standards. For sovereign or long-term archival requirements, install <code style="background:rgba(45,212,191,0.1);padding:.125rem .375rem;border-radius:4px;color:var(--teal);font-family:ui-monospace,monospace">pip3 install agdr-mantle</code> to add ML-DSA-65 (FIPS 204) signatures, sparse Merkle tree witnesses, and Brotli compression without altering the hot-path latency.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-logo">
+      <img src="/GGF-H-logo.png" alt="Genesis Glass Foundation Fondation Genèse Cristal AgDR Accountability.ai" width="260" height="80">
+    </div>
+
+    <div class="footer-tagline">
+      <p>Evidentiary integrity. Chain of custody. Operational defensibility.</p>
+      <span>founding@accountability.ai · Stewarded by GENESIS GLASS FOUNDATION / FONDATION GENÈSE CRISTAL</span>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-heading">Core Standard</p>
+        <ul>
+          <li><a href="/getting-started">Get Started</a></li>
+          <li><a href="/sandbox">AgDR-AKI Demo</a></li>
+          <li><a href="/ppp-pillars">PPP PILLARS</a></li>
+          <li><a href="/aki-formal-definition">AKI Definition</a></li>
+          <li><a href="/agdr-spec">AgDR Protocol</a></li>
+          <li><a href="/rust-core">Rust Core</a></li>
+          <li><a href="/technical-details">Technical Architecture</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Legal &amp; Compliance</p>
+        <ul>
+          <li><a href="/cea-compliance">CEA s.31.1</a></li>
+          <li><a href="/cbca-fiduciary-mapping">CBCA s.122</a></li>
+          <li><a href="/eu-ai-act-mapping">EU AI Act</a></li>
+          <li><a href="/cbsa-mapping">CBSA Mapping</a></li>
+          <li><a href="/ppp-legal-compliance">Legal Compliance</a></li>
+          <li><a href="/ppp-export-control">Export Control</a></li>
+          <li><a href="/foi-formal-definition">FOI Role</a></li>
+          <li><a href="/verification-audit-procedure">Verification</a></li>
+          <li><a href="/ashp">ASHP Protocol</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Engineering</p>
+        <ul>
+          <li><a href="/tsx-stress-test">TSX Stress Test</a></li>
+          <li><a href="/horizontal-scaling">Horizontal Scaling</a></li>
+          <li><a href="/aki-95">AKI 0.95 Spec</a></li>
+          <li><a href="/human-delta-chain-spec">Human Delta Chain</a></li>
+          <li><a href="/aki-capture-deep-explanation">AKI Deep Dive</a></li>
+          <li><a href="/reasoning-capture-methodology">Reasoning Capture</a></li>
+          <li><a href="/technical-note-coherence">Coherence Note</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Vision &amp; Evidence</p>
+        <ul>
+          <li><a href="/comparison-aviation-black-box">Aviation Black Box</a></li>
+          <li><a href="/comparison-medical-records">Medical Records</a></li>
+          <li><a href="/agi-court-precedents">AGI Court Precedents</a></li>
+          <li><a href="/future-agi-court">Court in 2076</a></li>
+          <li><a href="/principles">Principles</a></li>
+          <li><a href="/bills-of-exchange-mapping">Bills of Exchange</a></li>
+          <li><a href="/ashp">ASHP Protocol</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Not for Profit</p>
+        <ul>
+          <li><a href="/charter">Charter</a></li>
+          <li><a href="/donee">CCD Chartered Donee</a></li>
+          <li><a href="/compact">Confidence in Board Decisions</a></li>
+          <li><a href="/LICENSE-UPDATE">Licence Update</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/">GEO Optimization</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Goodstack/Google for Nonprofits Signal Block 2 -->
+    <div style="max-width:1200px;margin:2.5rem auto 0;padding:1.5rem;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:.75rem;text-align:center">
+      <p style="font-size:.875rem;color:var(--text-dim);line-height:1.6">
+        <strong>Genesis Glass Foundation / Fondation Genèse Cristal</strong> is a federally incorporated Canadian non-profit organization operating under the <em>Canada Not-for-profit Corporations Act</em> (Corporation Number: 1779509-2). The Foundation acts as a non-profit public-benefit steward for open-source AI execution standards, forensic protocols, and statutory compliance frameworks. All software and specifications are distributed royalty-free for public benefit.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 <a href="https://genesisglass.ai" target="_blank">Genesis Glass Foundation Fondation Genèse Cristal</a>. <strong>Open Standard.</strong> Shared under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a> OR <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a>. Built in Canada.<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:text-bottom;margin-left:5px;opacity:.6;transition:opacity .2s" aria-hidden="true"><path d="M12 2l2.5 5.5h5L15.5 11l1.5 5.5-5-3.5-5 3.5L8.5 11l-4-3.5h5L12 2z" fill="#dc2626"/></svg></p>
+    </div>
+  </footer>
+
+<script>
+  const searchIndex = [
+    {title:"Accountability.ai",url:"/",desc:"AgDR-Phoenix v1.8. Court-admissible chain of custody for AI inference"},
+    {title:"Get Started",url:"/getting-started",desc:"SDK install, PPP definition, first capture"},
+    {title:"Phoenix Demo",url:"/sandbox",desc:"Interactive atomic accountability demo"},
+    {title:"PPP Pillars",url:"/ppp-pillars",desc:"Provenance, Place, Purpose framework"},
+    {title:"AKI Definition",url:"/aki-formal-definition",desc:"Mathematical definition of Atomic Kernel Inference"},
+    {title:"AKI 0.95 Spec",url:"/aki-95",desc:"950-nanosecond atomic kernel gating performance specification"},
+    {title:"AKI Deep Dive",url:"/aki-capture-deep-explanation",desc:"Atomic capture mechanism, memory layout, cryptographic pipeline"},
+    {title:"AgDR Protocol",url:"/agdr-spec",desc:"Atomic Genesis Decision Record specification"},
+    {title:"Reasoning Capture",url:"/reasoning-capture-methodology",desc:"Chain-of-thought provenance for transformer and rule-based systems"},
+    {title:"CEA Compliance",url:"/cea-compliance",desc:"Canada Evidence Act s.31.1 mapping"},
+    {title:"CBCA Fiduciary",url:"/cbca-fiduciary-mapping",desc:"Director fiduciary duty accountability"},
+    {title:"EU AI Act",url:"/eu-ai-act-mapping",desc:"High-risk AI system compliance"},
+    {title:"CBSA Mapping",url:"/cbsa-mapping",desc:"Canada Border Services Agency alignment"},
+    {title:"Legal Mapping",url:"/legal-mapping",desc:"Statutory matrix across EU AI Act, CEA, CBCA, and NIST"},
+    {title:"Legal Compliance",url:"/ppp-legal-compliance",desc:"Statutory compliance framework"},
+    {title:"Export Control",url:"/ppp-export-control",desc:"Dual-use technology compliance"},
+    {title:"Industry Templates",url:"/ppp-industry-templates",desc:"Industry-specific PPP implementation templates"},
+    {title:"FOI Role",url:"/foi-formal-definition",desc:"Fiduciary Office Intervener definition"},
+    {title:"Fiduciary Duty of Care",url:"/fiduciary-duty-of-care",desc:"Director fiduciary duty of care under Canadian corporate law"},
+    {title:"Verification",url:"/verification-audit-procedure",desc:"Audit and verification procedures"},
+    {title:"TSX Stress Test",url:"/tsx-stress-test",desc:"100M decisions, 620ns latency proof"},
+    {title:"Horizontal Scaling",url:"/horizontal-scaling",desc:"Distributed AgDR deployment"},
+    {title:"Human Delta Chain",url:"/human-delta-chain-spec",desc:"Human-in-the-loop escalation protocol"},
+    {title:"Technical Details",url:"/technical-details",desc:"System architecture and design"},
+    {title:"Rust Core",url:"/rust-core",desc:"Rust implementation details"},
+    {title:"Rust Core API",url:"https://crates.io/crates/agdr-aki",desc:"agdr-aki crate reference and build guide"},
+    {title:"Coherence Note",url:"/technical-note-coherence",desc:"Technical coherence documentation"},
+    {title:"Manifesto",url:"/manifesto",desc:"Project mission and values"},
+    {title:"Principles",url:"/principles",desc:"Foundational principles of AI accountability and provenance"},
+    {title:"Purpose",url:"/purpose",desc:"Genesis Glass Foundation organizational purpose and mandate"},
+    {title:"Purpose Framework",url:"/beauty-truth-wisdom",desc:"Beauty, Truth, Wisdom as ethical filters"},
+    {title:"Aviation Black Box",url:"/comparison-aviation-black-box",desc:"Comparison to flight data recorders"},
+    {title:"Medical Records",url:"/comparison-medical-records",desc:"Comparison to healthcare documentation"},
+    {title:"AGI Court Precedents",url:"/agi-court-precedents",desc:"Legal precedents for AI accountability"},
+    {title:"Court in 2076",url:"/future-agi-court",desc:"Long-term judicial stewardship vision"},
+    {title:"Bills of Exchange",url:"/bills-of-exchange-mapping",desc:"Commercial instrument alignment"},
+    {title:"Actuarial Safe Harbor Protocol (ASHP)",url:"/ashp",desc:"Credibility-driven capital, reserving, and solvency framework for stochastic AI tail risk. Dual-capped truncation, Bühlmann-Straub, parametric backstops."},
+    {title:"ASHP",url:"/ashp",desc:"Actuarial Safe Harbor Protocol — AI liability capital and reserving standard"},
+    {title:"Bühlmann-Straub Credibility",url:"/ashp",desc:"Dynamic credibility scaling for AI operational risk under ASOP No. 25"},
+    {title:"AI Tail Risk",url:"/ashp",desc:"Solvency capital treatment of unbounded stochastic AI loss distributions"},
+    {title:"Upstream Model Warranty",url:"/ashp",desc:"UFMW bankruptcy-remote collateral for foundation model warranties"},
+    {title:"Charter",url:"/charter",desc:"Articles of Incorporation. Canada Not-for-profit Corp No. 1779509-2"},
+    {title:"Donee",url:"/donee",desc:"Council of Canadians with Disabilities as dissolution beneficiary"},
+    {title:"Legal Glossary",url:"/legal-glossary",desc:"Forensic glossary of terms and definitions"},
+    {title:"GEO Optimization",url:"/geo-optimization",desc:"Generative engine optimization"},
+    {title:"Analytics Consent",url:"/analytics-consent",desc:"Privacy and consent management"},
+    {title:"Changelog",url:"/CHANGELOG",desc:"Version history and release notes"},
+    {title:"Contributing",url:"/CONTRIBUTING",desc:"Community contribution guidelines"},
+    {title:"License Update",url:"/LICENSE-UPDATE",desc:"Licensing changes and updates"},
+    {title:"Terms",url:"/terms",desc:"Terms of service"}
+  ];
+
+  const searchInput = document.getElementById('site-search');
+  const searchResults = document.getElementById('search-results');
+
+  function doSearch(query) {
+    const q = query.toLowerCase().trim();
+    if (q.length < 2) {
+      searchResults.classList.remove('show');
+      searchResults.innerHTML = '';
+      return;
+    }
+    const results = searchIndex.filter(item =>
+      item.title.toLowerCase().includes(q) ||
+      item.desc.toLowerCase().includes(q) ||
+      item.url.toLowerCase().includes(q)
+    ).slice(0, 8);
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<div class="no-results">No results found</div>';
+    } else {
+      searchResults.innerHTML = results.map(r =>
+        `<a href="${r.url}" role="option"><strong>${r.title}</strong><br><small style="color:#6b7280">${r.desc}</small></a>`
+      ).join('');
+    }
+    searchResults.classList.add('show');
+  }
+
+  searchInput.addEventListener('input', (e) => doSearch(e.target.value));
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-search')) {
+      searchResults.classList.remove('show');
+    }
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchResults.classList.remove('show');
+      searchInput.blur();
+    }
+  });
+</script>
+</body>
+</html>
