@@ -220,5 +220,10 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+<loc>https://accountability.ai/privacy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
 
 </urlset>
