@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>adr-spec-v0.1 — Agent Decision Record | accountability.ai</title>
+  <meta name="description" content="Open Technical Specification: Agent Decision Record (ADR), Version 0.1 Founding Draft. An open specification for creating, storing, and verifying tamper-evident records of AI system decisions. CC-BY 4.0, February 2026. ISBN 978-1-7389042-0-4.">
+
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Accountability.ai">
+  <meta property="og:url" content="https://accountability.ai/adr-spec-v0.1">
+  <meta property="og:title" content="adr-spec-v0.1 — Agent Decision Record | accountability.ai">
+  <meta property="og:description" content="Open Technical Specification: Agent Decision Record, Open Specification, Version 0.1. CC-BY 4.0, February 2026. ISBN 978-1-7389042-0-4.">
+  <meta property="og:image" content="https://accountability.ai/social-preview.png">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="adr-spec-v0.1 — Agent Decision Record | accountability.ai">
+  <meta name="twitter:description" content="Open Technical Specification: Agent Decision Record, Open Specification, Version 0.1. CC-BY 4.0, February 2026. ISBN 978-1-7389042-0-4.">
+  <meta name="twitter:image" content="https://accountability.ai/social-preview.png">
+
+  <link rel="alternate" hreflang="en" href="https://accountability.ai/adr-spec-v0.1"/>
+  <link rel="alternate" hreflang="x-default" href="https://accountability.ai/adr-spec-v0.1"/>
+  <link rel="canonical" href="https://accountability.ai/adr-spec-v0.1"/>
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <!-- Schema.org: TechArticle + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "name": "Agent Decision Record: Open Specification, Version 0.1",
+    "url": "https://accountability.ai/adr-spec-v0.1",
+    "datePublished": "2026-02",
+    "author": { "@type": "Organization", "name": "Accountability.ai" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Genesis Glass Foundation / Fondation Genèse Cristal",
+      "url": "https://accountability.ai"
+    },
+    "about": {
+      "@type": "DefinedTerm",
+      "name": "Agent Decision Record",
+      "description": "An open specification for creating, storing, and verifying tamper-evident records of AI system decisions"
+    },
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "isPartOf": { "@type": "WebSite", "name": "Accountability.ai", "url": "https://accountability.ai" },
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "ISBN",
+      "value": "978-1-7389042-0-4"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://accountability.ai/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "adr-spec-v0.1",
+      "item": "https://accountability.ai/adr-spec-v0.1"
+    }]
+  }
+  </script>
+
+  <style>
+    :root{--bg:#050505;--text:#e5e7eb;--text-dim:#a1a1aa;--text-muted:#9ca3af;--teal:#2dd4bf;--border:rgba(255,255,255,0.05);--card:rgba(255,255,255,0.03);--gradient:radial-gradient(circle at top,#0d7377 0%,#050505 70%)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--teal)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    *:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+    .skip-link{position:absolute;top:-100%;left:0;background:var(--teal);color:#000;padding:.75rem 1.5rem;z-index:100;font-weight:700;border-radius:0 0 .5rem 0}
+    .skip-link:focus{top:0}
+
+    /* Nav — mirrors index.html exactly */
+    .site-nav{position:sticky;top:0;z-index:50;background:rgba(5,5,5,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:.75rem 0}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:#fff}
+    .nav-links{display:none;gap:1.5rem;font-size:.875rem;font-weight:500;color:var(--text-dim)}
+    .nav-links a:hover{color:var(--teal)}
+    .nav-search{position:relative;flex-shrink:0}
+    .nav-search input{background:#18181b;border:1px solid #27272a;border-radius:.5rem;padding:.5rem .75rem .5rem 2rem;color:#fff;font-size:.875rem;width:180px;transition:width .2s}
+    .nav-search input:focus{width:220px;border-color:var(--teal);outline:none}
+    .nav-search svg{position:absolute;left:.75rem;top:50%;transform:translateY(-50%);width:1rem;height:1rem;color:#6b7280;pointer-events:none}
+    @media(min-width:768px){.nav-links{display:flex}}
+    @media(max-width:640px){.nav-search input{width:40px;padding:.5rem;transition:width .2s}.nav-search input:focus{width:180px;padding:.5rem .75rem .5rem 2rem}}
+
+    #search-results{position:absolute;top:100%;right:0;left:0;background:#18181b;border:1px solid #27272a;border-radius:.5rem;margin-top:.25rem;max-height:300px;overflow-y:auto;z-index:60;display:none}
+    #search-results.show{display:block}
+    #search-results a{display:block;padding:.75rem 1rem;color:var(--text);font-size:.875rem;border-bottom:1px solid var(--border)}
+    #search-results a:hover{background:rgba(45,212,191,0.1);color:#fff}
+    #search-results .no-results{padding:1rem;color:var(--text-muted);font-size:.875rem}
+
+    .breadcrumb{max-width:1200px;margin:0 auto;padding:.75rem 1.5rem;font-size:.75rem;color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--teal)}
+    .breadcrumb ol{display:flex;gap:.25rem;list-style:none}
+
+    .hero{background:var(--gradient);padding:4rem 1.5rem 6rem;text-align:center}
+    .hero-content{max-width:800px;margin:0 auto}
+    .hero-badge{display:inline-block;background:rgba(45,212,191,.1);color:var(--teal);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1rem}
+    .hero-eyebrow{font-family:ui-monospace,monospace;font-size:.875rem;color:var(--text-muted);margin-bottom:.5rem;letter-spacing:.02em}
+    .hero-title{font-size:clamp(2.75rem,6vw,4.25rem);font-weight:700;letter-spacing:-.025em;line-height:1.05;margin:0 0 1rem;color:#fff}
+    .hero-subtitle{font-size:1.125rem;color:var(--teal);font-weight:600;margin-bottom:1.5rem}
+    .hero-lead{font-size:1.25rem;color:#d4d4d8;line-height:1.75;margin-bottom:2.5rem;max-width:620px;margin-left:auto;margin-right:auto}
+    .hero-buttons{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+    .btn{display:inline-block;padding:1rem 2.5rem;border-radius:.5rem;font-weight:700;text-align:center;transition:all .2s;cursor:pointer;border:none;font-size:1rem}
+    .btn-primary{background:#14b8a6;color:#000}
+    .btn-primary:hover{background:var(--teal)}
+    .btn-secondary{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#fff}
+    .btn-secondary:hover{background:rgba(255,255,255,0.1)}
+
+    .content-section{padding:4rem 1.5rem;border-top:1px solid var(--border)}
+    .content-narrow{max-width:900px;margin:0 auto}
+    .content-section h2{font-size:clamp(1.5rem,3.5vw,2rem);font-weight:700;margin-bottom:1.25rem;color:#fff;letter-spacing:-.02em}
+    .content-section h3{font-size:1.25rem;font-weight:700;margin:2rem 0 .75rem;color:#fff;letter-spacing:-.01em}
+    .content-section p{color:var(--text-dim);line-height:1.75;margin-bottom:1rem}
+    .content-section ul, .content-section ol{margin:0 0 1rem 1.5rem;color:var(--text-dim);line-height:1.8}
+    .content-section li{margin-bottom:.4rem}
+    .content-section code{font-family:ui-monospace,monospace;color:#5eead4;background:#18181b;padding:.125rem .375rem;border-radius:4px;font-size:.85em}
+
+    .content-card{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:2rem;margin-bottom:1.5rem}
+
+    .version-badge{display:inline-block;background:rgba(45,212,191,0.15);color:var(--teal);padding:0.25rem 0.75rem;border-radius:9999px;font-size:0.75rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;margin:0.5rem 0}
+
+    .quote-block{border-left:3px solid var(--teal);padding:1rem 1.5rem;margin:2rem 0;background:rgba(45,212,191,0.05);font-style:italic;color:var(--text-dim)}
+
+    .deprecation-notice{background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.25);border-radius:1rem;padding:1.5rem;margin:0 auto 3rem;max-width:900px}
+    .deprecation-notice h4{color:#f87171;font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+    .deprecation-notice p{color:#fca5a5;font-size:0.9rem;line-height:1.6;margin-bottom:0}
+    .deprecation-notice a{color:#f87171;text-decoration:underline}
+
+    .core-principle{background:rgba(45,212,191,0.05);border:1px solid rgba(45,212,191,0.2);border-radius:.75rem;padding:1.5rem;margin:1.5rem 0}
+    .core-principle .label{color:var(--teal);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem;display:block}
+    .core-principle strong{color:#fff;display:block;margin-bottom:.5rem;font-size:1.0625rem}
+    .core-principle p{margin-bottom:0}
+
+    /* Spec tables */
+    .table-wrap{overflow-x:auto;margin:1.25rem 0 1.75rem;border:1px solid var(--border);border-radius:.75rem}
+    table.spec-table{width:100%;border-collapse:collapse;font-size:.875rem;background:var(--card)}
+    .spec-table th{background:rgba(45,212,191,0.07);color:var(--teal);text-align:left;padding:.75rem 1rem;font-weight:700;border-bottom:1px solid var(--border);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
+    .spec-table td{padding:.75rem 1rem;border-bottom:1px solid var(--border);color:var(--text-dim);vertical-align:top}
+    .spec-table tr:last-child td{border-bottom:none}
+    .spec-table strong{color:#fff}
+
+    .req-tag{display:inline-block;padding:.15rem .5rem;border-radius:4px;font-size:.65rem;font-weight:700;letter-spacing:.03em;white-space:nowrap}
+    .req-required{background:rgba(220,38,38,0.12);color:#f87171}
+    .req-conditional{background:rgba(251,191,36,0.12);color:#fbbf24}
+    .req-optional{background:rgba(45,212,191,0.12);color:var(--teal)}
+
+    .code-block{background:#18181b;border:1px solid rgba(255,255,255,0.1);border-radius:1rem;padding:1.5rem;font-family:ui-monospace,monospace;font-size:0.875rem;color:#5eead4;line-height:1.7;overflow-x:auto;margin:1.25rem 0}
+    .formula-block{background:#18181b;border:1px solid rgba(255,255,255,0.1);border-radius:1rem;padding:1.5rem;font-family:ui-monospace,monospace;font-size:1rem;color:#5eead4;text-align:center;margin:1.25rem 0;overflow-x:auto}
+
+    .section-nav-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin:1.5rem 0 2.5rem}
+    .section-nav-item{display:flex;gap:.75rem;align-items:baseline;background:var(--card);border:1px solid var(--border);border-radius:.5rem;padding:.75rem 1rem;transition:border-color .2s}
+    .section-nav-item:hover{border-color:rgba(45,212,191,0.25)}
+    .section-nav-item .num{color:var(--teal);font-family:monospace;font-weight:700;font-size:.8125rem}
+    .section-nav-item span.label{color:var(--text-dim);font-size:.875rem;font-weight:600}
+
+    .meta-table-wrap{max-width:700px;margin:0 auto 2rem}
+
+    /* Footer — mirrors index.html exactly */
+    .site-footer{background:#000;border-top:1px solid var(--border);padding:4rem 1.5rem 3rem}
+    .footer-logo{max-width:1200px;margin:0 auto 2rem;text-align:center}
+    .footer-logo img{max-width:260px;height:auto;opacity:.85;transition:opacity .3s}
+    .footer-logo img:hover{opacity:1}
+    .footer-tagline{max-width:1200px;margin:0 auto 2.5rem;text-align:center}
+    .footer-tagline p{font-size:1.125rem;color:#fff;font-weight:600;margin-bottom:.5rem;letter-spacing:-0.01em}
+    .footer-tagline span{color:var(--text-muted);font-size:.875rem}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2.5rem}
+    .footer-col .footer-heading{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+    .footer-col ul{list-style:none;padding:0;margin:0}
+    .footer-col li{margin-bottom:.5rem}
+    .footer-col a{color:var(--text-dim);font-size:.875rem;display:block;transition:color .2s}
+    .footer-col a:hover{color:var(--teal)}
+    .footer-bottom{max-width:1200px;margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.75rem;color:var(--text-muted)}
+    .footer-bottom a{color:var(--teal)}
+
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+    /* Accessibility: links in text blocks must not rely on color alone */
+    p a, li a, .content-card a, .deprecation-notice a, td a{text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(45,212,191,0.4)}
+    p a:hover, li a:hover, .content-card a:hover, .deprecation-notice a:hover, td a:hover{text-decoration-color:var(--teal)}
+    .nav-links a, .nav-logo, .footer-col a, .footer-col .footer-heading, .btn, .skip-link, .hero-buttons a{text-decoration:none}
+
+    @media(max-width:768px){.footer-grid{grid-template-columns:repeat(2,1fr)}.footer-bottom{flex-direction:column;align-items:center;text-align:center}}
+    @media(max-width:600px){.hero-title{font-size:2.25rem}.footer-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+
+<body>
+  <p class="sr-only">Agent Decision Record, ADR specification, open technical specification, tamper-evident AI decision records, cryptographic integrity, chain of custody, reasoning capture, human oversight, jurisdiction mapping, Pax Silica Coalition, EU AI Act, Canada Evidence Act, CC BY 4.0, archived specification</p>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">ACCOUNTABILITY.AI</a>
+
+      <div class="nav-links">
+        <a href="/getting-started">Get Started</a>
+        <a href="/agdr-spec">AgDR Protocol</a>
+        <a href="/sandbox" style="color:#fff;font-weight:700">Phoenix Demo</a>
+        <a href="/faq">FAQ</a>
+        <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
+      </div>
+
+      <div class="nav-search" role="search">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input type="search" id="site-search" placeholder="Search docs..." aria-label="Search documentation" autocomplete="off">
+        <div id="search-results" role="listbox" aria-label="Search results"></div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <li>&nbsp;/&nbsp;</li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">adr-spec-v0.1</span>
+        <meta itemprop="position" content="2">
+      </li>
+    </ol>
+  </nav>
+
+  <main id="main-content">
+    <section class="hero">
+      <div class="hero-content">
+        <p class="hero-eyebrow">adr-spec-v0.1 · Open Technical Specification</p>
+        <h1 class="hero-title">Agent Decision Record</h1>
+        <p class="hero-subtitle">Open Specification, Version 0.1</p>
+        <span class="hero-badge">0.1 Founding Draft · February 2026 · ISBN 978-1-7389042-0-4</span>
+        <div class="hero-buttons" style="margin-top:1.5rem">
+          <a href="/agdr-spec" class="btn btn-secondary">AgDR-Phoenix v1.8 →</a>
+          <a href="/reasoning-methodology-v1.0" class="btn btn-secondary">Reasoning Capture Methodology →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section" style="border-top:none">
+      <div class="content-narrow meta-table-wrap">
+        <div class="table-wrap">
+          <table class="spec-table">
+            <tbody>
+              <tr><th>Document Type</th><td>Open Technical Specification</td></tr>
+              <tr><th>Version</th><td>0.1 Founding Draft</td></tr>
+              <tr><th>Date</th><td>February 2026</td></tr>
+              <tr><th>Status</th><td>Public Review — Seeking Comment</td></tr>
+              <tr><th>Canonical URL</th><td>accountability.ai/adr-spec-v0.1</td></tr>
+              <tr><th>License</th><td>Creative Commons CC-BY 4.0</td></tr>
+              <tr><th>Jurisdiction</th><td>Pax Silica Coalition / EU AI Act / US Federal</td></tr>
+              <tr><th>ISBN</th><td>978-1-7389042-0-4</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quote-block">
+          "Every AI governance tool gives you a dashboard. None give you proof. The ADR is the missing evidentiary layer."
+        </div>
+
+        <p>The Agent Decision Record is an open specification for creating, storing, and verifying tamper-evident records of AI system decisions. It defines the minimum required fields, cryptographic integrity requirements, chain of custody standards, and evidentiary metadata needed for an AI decision record to function as audit-ready evidence before regulators, courts, and coalition compliance bodies.</p>
+        <p>This specification forms the foundation of the accountability.ai measurement infrastructure. It is published as an open standard that any organization may implement.</p>
+
+        <div class="table-wrap" style="max-width:500px">
+          <table class="spec-table">
+            <tbody>
+              <tr><td><a href="mailto:founding@accountability.ai">founding@accountability.ai</a></td><td>accountability.ai</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:2.5rem">Table of Contents</h3>
+        <div class="section-nav-grid">
+          <a class="section-nav-item" href="#sec01"><span class="num">01</span><span class="label">Executive Summary</span></a>
+          <a class="section-nav-item" href="#sec02"><span class="num">02</span><span class="label">Background and Motivation</span></a>
+          <a class="section-nav-item" href="#sec03"><span class="num">03</span><span class="label">Specification Scope</span></a>
+          <a class="section-nav-item" href="#sec04"><span class="num">04</span><span class="label">Core Field Definitions</span></a>
+          <a class="section-nav-item" href="#sec05"><span class="num">05</span><span class="label">Cryptographic Integrity Requirements</span></a>
+          <a class="section-nav-item" href="#sec06"><span class="num">06</span><span class="label">Chain of Custody</span></a>
+          <a class="section-nav-item" href="#sec07"><span class="num">07</span><span class="label">Reasoning Capture Standards</span></a>
+          <a class="section-nav-item" href="#sec08"><span class="num">08</span><span class="label">Human Oversight Record</span></a>
+          <a class="section-nav-item" href="#sec09"><span class="num">09</span><span class="label">Jurisdiction Mapping</span></a>
+          <a class="section-nav-item" href="#sec10"><span class="num">10</span><span class="label">Versioning and Governance</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 Executive Summary -->
+    <section class="content-section" id="sec01">
+      <div class="content-narrow">
+        <h2>01 Executive Summary</h2>
+        <h3>1.1 The ADR in Plain Language</h3>
+        <p>The Agent Decision Record (ADR) is a structured and cryptographically verifiable record generated at the moment an AI system produces a consequential output. It captures what the system decided, who authorized the decision, under what policy, on what evidence, and with what reasoning. All elements are bound into a tamper-evident chain that any party can independently verify.</p>
+        <p>The ADR addresses a gap that existing AI governance tools have not closed. There is a difference between a system that <em>appears</em> accountable and one that can <em>prove</em> accountability to a regulator, a court, or a coalition partner. Appearances are not evidence. The ADR is.</p>
+        <p>This specification defines the minimum fields, cryptographic requirements, and evidentiary standards that an ADR implementation must satisfy. It is intentionally scoped to what is necessary, not what is convenient. The purpose is to produce records that withstand adversarial scrutiny, not records that are merely easy to generate.</p>
+
+        <h3>1.2 Core Principle</h3>
+        <div class="core-principle">
+          <span class="label">📌 Core Principle</span>
+          <strong>The ADR is not a logging format. It is an evidentiary artifact.</strong>
+          <p>The distinction matters. Logs capture what happened for operational purposes. An evidentiary artifact is constructed to survive challenge. Every design decision in this specification reflects that requirement.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Background and Motivation -->
+    <section class="content-section" id="sec02" style="background:#09090b">
+      <div class="content-narrow">
+        <h2>02 Background and Motivation</h2>
+        <h3>2.1 The Evidentiary Gap</h3>
+        <p>AI systems now make consequential decisions at scale: credit approvals, medical triage, export control screening, hiring shortlists, bail recommendations, and content moderation.</p>
+        <p>In each domain, decisions may be challenged. Challenges come from regulators investigating disparate impact, from plaintiffs alleging discrimination, from coalition partners requiring compliance verification, and from boards demanding accountability after adverse outcomes.</p>
+        <p>When a challenge arrives, the question is consistent: <em>Can you prove what your system decided, why it decided it, and that the record has not been altered since?</em> At most organizations today, the answer is no.</p>
+        <p>This is not necessarily due to wrongdoing. It is because the infrastructure required to produce that proof does not exist. Logs exist. Dashboards exist. Audit reports exist. None of these constitute evidentiary proof.</p>
+
+        <h3>2.2 Regulatory Landscape</h3>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Regulation</th><th>Obligation</th><th>ADR Relevance</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EU AI Act Article 12</strong></td><td>High-risk AI systems must maintain automatic logs enabling post-market monitoring and traceability.</td><td>The ADR provides the logging artifact required by Article 12.</td></tr>
+              <tr><td><strong>EU AI Act Article 13</strong></td><td>Transparency requirements require AI outputs to be interpretable by deployers and affected persons.</td><td>The reasoning field directly supports the interpretability obligation.</td></tr>
+              <tr><td><strong>Pax Silica Coalition</strong></td><td>Trust but verify. Coalition members must demonstrate AI system integrity to partners.</td><td>The ADR hash chain enables independent verification without sharing underlying data.</td></tr>
+              <tr><td><strong>US SEC / FINRA Rule 17a-4</strong></td><td>Broker-dealers must preserve records in non-rewriteable format for examination.</td><td>The ADR hash chain architecture supports WORM-style record requirements.</td></tr>
+              <tr><td><strong>Colorado AI Act (2026)</strong></td><td>High-risk AI deployers must conduct impact assessments and maintain decision records.</td><td>The ADR provides the required decision record infrastructure.</td></tr>
+              <tr><td><strong>HIPAA / FDA AI Guidance</strong></td><td>AI-assisted clinical decisions must be auditable and traceable to their evidence basis.</td><td>The <code>evidence_basis</code> and <code>model_version</code> fields support clinical traceability.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Specification Scope -->
+    <section class="content-section" id="sec03">
+      <div class="content-narrow">
+        <h2>03 Specification Scope</h2>
+        <p>This specification defines the minimum required structure for a compliant ADR. It does not prescribe implementation technology, storage architecture, or programming language. Any system that produces records conforming to the field definitions, cryptographic requirements, and evidentiary standards defined herein is a conformant ADR implementation.</p>
+        <ul>
+          <li>What fields an ADR must contain (Core Field Definitions, Section 04)</li>
+          <li>How cryptographic integrity must be established and verified (Section 05)</li>
+          <li>How chain of custody must be maintained across sequential decisions (Section 06)</li>
+          <li>What constitutes compliant reasoning capture (Section 07)</li>
+          <li>How human oversight must be recorded when it occurs (Section 08)</li>
+          <li>How the specification maps to specific regulatory obligations (Section 09)</li>
+        </ul>
+        <p>This specification intentionally does <strong>not</strong> define how AI systems make decisions, what decisions are permissible, or what outcomes are acceptable. Those questions are for regulators, ethics bodies, and the organizations deploying AI systems. The ADR records what happened. It does not judge it.</p>
+      </div>
+    </section>
+
+    <!-- 04 Core Field Definitions -->
+    <section class="content-section" id="sec04" style="background:#09090b">
+      <div class="content-narrow">
+        <h2>04 Core Field Definitions</h2>
+        <p>The following fields are required in every conformant ADR. Fields marked <span class="req-tag req-required">REQUIRED</span> must be present and non-null. Fields marked <span class="req-tag req-conditional">CONDITIONAL</span> are required when the specified condition is met.</p>
+
+        <h3>4.1 Identity Fields</h3>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>adr_id</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Globally unique identifier. Time-ordered (ULID recommended). Format: <code>adr_{26-char-ulid}</code>. Immutable after generation.</td></tr>
+              <tr><td><code>timestamp</code></td><td>ISO 8601</td><td><span class="req-tag req-required">REQUIRED</span></td><td>UTC timestamp of decision generation at inference time. Must reflect when the decision was produced, not when the record was written.</td></tr>
+              <tr><td><code>agent_id</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Stable identifier of the AI system or model instance. Must correspond to a registered system in the agent registry.</td></tr>
+              <tr><td><code>agent_version</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Exact version string of the deployed model. Must be sufficient to reproduce the model state at decision time.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>4.2 Decision Fields</h3>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>decision_type</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Classification of the decision domain. Examples: <code>credit_approval</code>, <code>clinical_triage</code>, <code>export_screen</code>, <code>hiring_screen</code>.</td></tr>
+              <tr><td><code>input_summary</code></td><td>object</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Pseudonymized summary of inputs. Must not contain raw PII. Must contain sufficient context to reconstruct the decision.</td></tr>
+              <tr><td><code>output</code></td><td>object</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Exact output produced by the AI system, verbatim. No post-processing or summarization. Includes decision, confidence, and structured metadata.</td></tr>
+              <tr><td><code>confidence</code></td><td>number</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Confidence score as a percentage (0–100). Must reflect the system's internal certainty metric, not a post-hoc assignment.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>4.3 Reasoning Fields</h3>
+        <p>The reasoning field is the most legally significant field in the ADR. It must be captured at inference time. Post-hoc reconstruction of reasoning is <strong>not compliant</strong> with this specification and is insufficient as evidentiary documentation.</p>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>reasoning</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Human-readable explanation of why the AI system produced this output. Minimum 20 characters. Must be captured at inference, not reconstructed after the fact.</td></tr>
+              <tr><td><code>reasoning_method</code></td><td>string</td><td><span class="req-tag req-conditional">CONDITIONAL</span></td><td>Method used to generate the reasoning explanation. Values: <code>chain_of_thought</code>, <code>shap</code>, <code>lime</code>, <code>rule_trace</code>, <code>attention</code>. Required when confidence &lt; 80%.</td></tr>
+              <tr><td><code>feature_attribution</code></td><td>object</td><td><span class="req-tag req-conditional">CONDITIONAL</span></td><td>Feature-level weights contributing to the decision. Required for high-risk AI systems. Format: <code>{feature_name: weight}</code>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>4.4 Policy and Authority Fields</h3>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>policy_version</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Version identifier of the governing policy at inference time. Immutable. Policy changes require a new version string.</td></tr>
+              <tr><td><code>jurisdiction</code></td><td>string[]</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Array of jurisdiction identifiers. Examples: <code>US-ECOA</code>, <code>EU-AIAct-HighRisk</code>, <code>Pax-Silica-v1</code>.</td></tr>
+              <tr><td><code>human_review_required</code></td><td>boolean</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Whether this decision requires human review before action. Determined by policy at inference time, not assigned after the decision.</td></tr>
+              <tr><td><code>risk_classification</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Risk tier of this decision. Values: <code>unacceptable</code>, <code>high</code>, <code>limited</code>, <code>minimal</code>.</td></tr>
+              <tr><td><code>affected_party_id</code></td><td>string</td><td><span class="req-tag req-conditional">CONDITIONAL</span></td><td>Pseudonymized identifier of the affected party. Required for decisions affecting identifiable individuals. Never store raw PII.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>4.5 Extension Fields</h3>
+        <p>Optional but strongly recommended for high-risk AI systems.</p>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>data_quality_flags</code></td><td>object</td><td><span class="req-tag req-optional">OPTIONAL</span></td><td>Flags indicating data quality issues at decision time. Example: <code>{source_stale: true, freshness_hours: 31, threshold_hours: 24}</code>.</td></tr>
+              <tr><td><code>agent_chain</code></td><td>string[]</td><td><span class="req-tag req-optional">OPTIONAL</span></td><td>Array of <code>adr_id</code>s from upstream AI agents. Required for multi-agent pipeline traceability.</td></tr>
+              <tr><td><code>evidence_basis</code></td><td>object</td><td><span class="req-tag req-optional">OPTIONAL</span></td><td>Documentation of evidence or knowledge sources used. For RAG systems: document IDs, retrieval timestamps, relevance scores.</td></tr>
+              <tr><td><code>coalition_compliance</code></td><td>object</td><td><span class="req-tag req-optional">OPTIONAL</span></td><td>Pax Silica coalition compliance metadata. Enables cross-border verification without sharing underlying decision data.</td></tr>
+              <tr><td><code>remediation_flag</code></td><td>boolean</td><td><span class="req-tag req-optional">OPTIONAL</span></td><td>Indicates this decision has been flagged for remediation review. Once set to <code>true</code>, immutable.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Cryptographic Integrity Requirements -->
+    <section class="content-section" id="sec05">
+      <div class="content-narrow">
+        <h2>05 Cryptographic Integrity Requirements</h2>
+        <p>Every ADR must include three cryptographic elements: a record hash, a previous hash linking it to the prior record in the chain, and a signature binding it to the generating infrastructure. Together these make the record tamper-evident and independently verifiable.</p>
+
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>record_hash</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>SHA-256 hash of the canonical serialization of this ADR. Exact field ordering specified to ensure deterministic reproduction.</td></tr>
+              <tr><td><code>previous_hash</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>The <code>record_hash</code> of the preceding ADR in this <code>agent_id</code> chain. Genesis record uses <code>SHA256("ADR-GENESIS-{agent_id}-{date}")</code>.</td></tr>
+              <tr><td><code>signature</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Ed25519 digital signature of the <code>record_hash</code>, produced by the infrastructure key registered for this agent. Enables third-party verification.</td></tr>
+              <tr><td><code>chain_sequence</code></td><td>integer</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Monotonically increasing integer per <code>agent_id</code>. Gaps in sequence indicate deleted records. Combined with <code>previous_hash</code> for dual tamper evidence.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>5.1 Hash Chain Integrity</h3>
+        <div class="formula-block">H(n) = SHA256( Payload(n) ‖ H(n − 1) )</div>
+        <p>Where H(n) is the record hash, Payload(n) is the canonical serialization, and ‖ denotes concatenation.</p>
+
+        <h3>5.2 Canonical Serialization</h3>
+        <p>The canonical form serializes fields in the order defined in Section 04, with no whitespace, using UTF-8 encoding. Fields included in the canonical hash are: <code>adr_id</code>, <code>timestamp</code>, <code>agent_id</code>, <code>agent_version</code>, <code>decision_type</code>, <code>output</code>, <code>confidence</code>, <code>reasoning</code>, <code>policy_version</code>, <code>jurisdiction</code>, <code>previous_hash</code>, <code>chain_sequence</code>. Extension fields are excluded to preserve forward compatibility.</p>
+
+        <h3>5.3 Key Management</h3>
+        <p>Production implementations <strong>must</strong> use Ed25519 key pairs managed by a hardware security module (HSM) or equivalent. The public key must be published at a well-known endpoint to enable third-party verification. Key rotation must produce a new genesis record in the chain.</p>
+      </div>
+    </section>
+
+    <!-- 06 Chain of Custody -->
+    <section class="content-section" id="sec06" style="background:#09090b">
+      <div class="content-narrow">
+        <h2>06 Chain of Custody</h2>
+        <p>The ADR chain of custody is established through the combination of sequential <code>chain_sequence</code> integers and cryptographic hash linkage. Every record references the hash of its predecessor, making any alteration or deletion detectable.</p>
+
+        <h3>6.1 Chain Structure</h3>
+        <div class="formula-block">ADR(n−1) → ADR(n) → ADR(n+1)<br>seq: n−1&nbsp;&nbsp;&nbsp;&nbsp;seq: n&nbsp;&nbsp;&nbsp;&nbsp;seq: n+1<br>prev_hash → prev_hash → …</div>
+
+        <h3>6.2 Tamper Detection</h3>
+        <ul>
+          <li><strong>Deletion of a record:</strong> creates a gap in <code>chain_sequence</code>. Detectable by any verifier.</li>
+          <li><strong>Alteration of a record:</strong> changes <code>record_hash</code>, breaking the hash link to the successor. Detectable by any verifier.</li>
+          <li><strong>Insertion of a fabricated record:</strong> requires re-signing with the infrastructure key. Detectable if the public key is registered.</li>
+          <li><strong>Alteration of reasoning after the fact:</strong> changes <code>record_hash</code>. This is the primary protection against post-hoc rationalization.</li>
+        </ul>
+
+        <h3>6.3 Immutability Requirements</h3>
+        <p>Conformant ADR storage must enforce append-only behavior. No <code>UPDATE</code> or <code>DELETE</code> operations are permitted on ledger records after insertion. This must be enforced at the storage layer, not the application layer. Row-level security policies, WORM storage, or equivalent controls satisfy this requirement.</p>
+        <p>The immutability requirement is not a technical preference. It is the foundation of the evidentiary standard. A record that can be altered is not evidence. The absence of update and delete permissions must be verifiable by auditors.</p>
+      </div>
+    </section>
+
+    <!-- 07 Reasoning Capture Standards -->
+    <section class="content-section" id="sec07">
+      <div class="content-narrow">
+        <h2>07 Reasoning Capture Standards</h2>
+        <p>The reasoning field is the most frequently challenged field in an adversarial examination. The following standards govern what constitutes compliant reasoning capture.</p>
+
+        <h3>7.1 Contemporaneous Requirement</h3>
+        <p>Reasoning must be captured at the moment of inference, as part of the same transaction that produces the decision output. Reasoning generated after the fact—even if accurate—does not satisfy this requirement. The timestamp of the reasoning must match the timestamp of the decision.</p>
+
+        <h3>7.2 Minimum Content Standard</h3>
+        <p>A compliant reasoning field <strong>must</strong>:</p>
+        <ul>
+          <li>State what the AI system decided and at what confidence level.</li>
+          <li>Identify the primary factors that drove the decision, with direction (supporting or opposing).</li>
+          <li>Flag any data quality issues present at decision time.</li>
+          <li>Identify whether a near-miss condition existed (decision within threshold of an alternative outcome).</li>
+          <li>State the policy basis for the decision and any human review requirement.</li>
+        </ul>
+        <p>A reasoning field that states only "approved" or "denied" is not compliant. A reasoning field that reconstructs a plausible explanation after the fact is not compliant and constitutes a falsification of the evidentiary record.</p>
+      </div>
+    </section>
+
+    <!-- 08 Human Oversight Record -->
+    <section class="content-section" id="sec08" style="background:#09090b">
+      <div class="content-narrow">
+        <h2>08 Human Oversight Record</h2>
+        <p>When a human reviewer intervenes in an AI decision, that intervention must be recorded as a separate artifact linked to the originating ADR. The human oversight record preserves the original AI output even when the human modifies or overrides it.</p>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Field</th><th>Type</th><th>Req.</th><th>Description</th></tr></thead>
+            <tbody>
+              <tr><td><code>ledger_event_id</code></td><td>uuid</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Reference to the ADR that triggered this human review.</td></tr>
+              <tr><td><code>reviewer_id</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Pseudonymized identifier of the human reviewer. Must be traceable to a named individual in a separate, access-controlled registry.</td></tr>
+              <tr><td><code>outcome</code></td><td>string</td><td><span class="req-tag req-required">REQUIRED</span></td><td>Result of human review. Values: <code>approved</code>, <code>denied</code>, <code>modified</code>, <code>escalated</code>.</td></tr>
+              <tr><td><code>original_output</code></td><td>object</td><td><span class="req-tag req-required">REQUIRED</span></td><td>The AI system's original output before human modification. Must be preserved verbatim even when overridden.</td></tr>
+              <tr><td><code>modified_output</code></td><td>object</td><td><span class="req-tag req-conditional">CONDITIONAL</span></td><td>The human-modified output. Required when outcome is <code>modified</code>. Records the human's intervention verbatim.</td></tr>
+              <tr><td><code>human_override_delta</code></td><td>object</td><td><span class="req-tag req-conditional">CONDITIONAL</span></td><td>Structured diff between <code>original_output</code> and <code>modified_output</code>. Captures direction and magnitude of human correction. Required when outcome is <code>modified</code>.</td></tr>
+              <tr><td><code>reviewer_notes</code></td><td>string</td><td><span class="req-tag req-optional">OPTIONAL</span></td><td>Free-text notes documenting the basis for the reviewer's decision. Strongly recommended for <code>modified</code> and <code>escalated</code> outcomes.</td></tr>
+              <tr><td><code>reviewed_at</code></td><td>ISO 8601</td><td><span class="req-tag req-required">REQUIRED</span></td><td>UTC timestamp of human review completion. This is the legal timestamp of the human intervention.</td></tr>
+              <tr><td><code>review_duration_secs</code></td><td>integer</td><td><span class="req-tag req-optional">OPTIONAL</span></td><td>Time elapsed between assignment and completion of review. Used to detect rubber-stamping patterns in compliance audits.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 Jurisdiction Mapping -->
+    <section class="content-section" id="sec09">
+      <div class="content-narrow">
+        <h2>09 Jurisdiction Mapping</h2>
+        <p>The ADR specification is jurisdiction-agnostic at the core field level. The <code>jurisdiction</code> field and <code>coalition_compliance</code> extension enable jurisdiction-specific metadata without breaking the core standard.</p>
+        <div class="table-wrap">
+          <table class="spec-table">
+            <thead><tr><th>Regulatory Obligation</th><th>ADR Field(s)</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><strong>EU AI Act Art. 12 – Logging</strong></td><td><code>adr_id</code>, <code>timestamp</code>, <code>agent_id</code>, <code>decision_type</code>, <code>output</code></td><td>All high-risk systems</td></tr>
+              <tr><td><strong>EU AI Act Art. 13 – Transparency</strong></td><td><code>reasoning</code>, <code>feature_attribution</code>, <code>confidence</code></td><td>Interpretability requirement</td></tr>
+              <tr><td><strong>Reg BI – Best Interest</strong></td><td><code>reasoning</code>, <code>policy_version</code>, <code>human_review_required</code></td><td>Wealth management suitability</td></tr>
+              <tr><td><strong>FINRA Rule 2111 – Suitability</strong></td><td><code>reasoning</code>, <code>data_quality_flags</code>, <code>confidence</code></td><td>Risk assessment freshness</td></tr>
+              <tr><td><strong>ECOA / Fair Housing</strong></td><td><code>feature_attribution</code>, <code>reasoning</code>, <code>affected_party_id</code></td><td>Disparate impact analysis</td></tr>
+              <tr><td><strong>Pax Silica Verification</strong></td><td><code>record_hash</code>, <code>signature</code>, <code>chain_sequence</code></td><td>Cross-border verification</td></tr>
+              <tr><td><strong>HIPAA / FDA AI</strong></td><td><code>evidence_basis</code>, <code>agent_version</code>, <code>reasoning_method</code></td><td>Clinical traceability</td></tr>
+              <tr><td><strong>Colorado AI Act (2026)</strong></td><td>All core fields + <code>risk_classification</code></td><td>High-risk deployers</td></tr>
+              <tr><td><strong>SEC Rule 17a-4 / WORM</strong></td><td>Append-only storage + <code>record_hash</code> chain</td><td>Storage architecture</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 Versioning and Governance -->
+    <section class="content-section" id="sec10" style="background:#09090b">
+      <div class="content-narrow">
+        <h2>10 Versioning and Governance</h2>
+        <p>The ADR specification uses <strong>semantic versioning</strong>.</p>
+        <ul>
+          <li><strong>Major</strong> version increments indicate breaking changes to field structure or cryptographic requirements.</li>
+          <li><strong>Minor</strong> version increments add new fields or clarify existing ones in a backward-compatible manner.</li>
+          <li><strong>Patch</strong> version increments are editorial corrections.</li>
+        </ul>
+        <p>This document is version <strong>0.1</strong>, a founding draft released for public comment. Transition to version 1.0 will occur only after:</p>
+        <ul>
+          <li>A public comment period of no less than 90 days.</li>
+          <li>Review by at least three independent regulatory experts.</li>
+          <li>Pilot implementation by at least three organizations across different sectors.</li>
+        </ul>
+
+        <h3>10.1 Governance Structure</h3>
+        <p>Governance of the specification will transition to a <strong>multi-stakeholder body</strong> prior to version 1.0. The structure will ensure that no single organization, including <code>accountability.ai</code>, controls the standard. The standard must be owned by the ecosystem it serves.</p>
+
+        <h3>10.2 How to Engage</h3>
+        <p>This specification is published for public comment. Input is sought from:</p>
+        <ul>
+          <li>Regulatory practitioners and former examiners who can stress-test the evidentiary standards.</li>
+          <li>Technical implementers who can identify gaps in the cryptographic and systems design.</li>
+          <li>Organizations planning to implement the ADR who can identify practical barriers.</li>
+          <li>Legal practitioners who can evaluate the admissibility framework.</li>
+        </ul>
+
+        <div class="table-wrap" style="max-width:500px">
+          <table class="spec-table">
+            <tbody>
+              <tr><th>General enquiries</th><td><a href="mailto:founding@accountability.ai">founding@accountability.ai</a></td></tr>
+              <tr><th>Technical comment</th><td><a href="mailto:spec@accountability.ai">spec@accountability.ai</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="quote-block">
+          "The standard that defines AI accountability must itself be accountable. Submit your challenge. We will answer it on the record."
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing document metadata -->
+    <section class="content-section">
+      <div class="content-narrow">
+        <div class="content-card">
+          <h3 style="margin-top:0">Agent Decision Record — Open Specification v0.1</h3>
+          <div class="table-wrap">
+            <table class="spec-table">
+              <tbody>
+                <tr><th>Published</th><td>February 2026</td></tr>
+                <tr><th>Canonical URL</th><td>accountability.ai/adr-spec-v0.1</td></tr>
+                <tr><th>ISBN</th><td>978-1-7389042-0-4</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Copyright © 2026 Accountability.ai. This work is licensed under <strong>Creative Commons Attribution 4.0 International (CC-BY 4.0)</strong>.</p>
+          <p>You are free to share and adapt this specification for any purpose, including commercial use, provided appropriate credit is given and a link to the license is included.</p>
+          <p><strong>Attribution:</strong> <em>"Agent Decision Record Specification v0.1, Accountability.ai, February 2026, accountability.ai/adr-spec-v0.1"</em></p>
+          <p>The <code>accountability.ai</code> name and infrastructure are the reference implementation. The standard belongs to the ecosystem it serves.</p>
+          <p><strong>Pax Silica Coalition · EU AI Act · US Federal</strong></p>
+          <p style="margin-bottom:0"><em>Status: Public Review, Seeking Comment</em></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-logo">
+      <img src="/GGF-H-logo.png" alt="Genesis Glass Foundation Fondation Genèse Cristal AgDR Accountability.ai" width="260" height="80">
+    </div>
+
+    <div class="footer-tagline">
+      <p>Evidentiary integrity. Chain of custody. Operational defensibility.</p>
+      <span>founding@accountability.ai · Stewarded by GENESIS GLASS FOUNDATION / FONDATION GENÈSE CRISTAL</span>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-heading">Core Standard</p>
+        <ul>
+          <li><a href="/getting-started">Get Started</a></li>
+          <li><a href="/sandbox">AgDR-AKI Demo</a></li>
+          <li><a href="/ppp-pillars">PPP PILLARS</a></li>
+          <li><a href="/aki-formal-definition">AKI Definition</a></li>
+          <li><a href="/agdr-spec">AgDR Protocol</a></li>
+          <li><a href="/rust-core">Rust Core</a></li>
+          <li><a href="/technical-details">Technical Architecture</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Legal &amp; Compliance</p>
+        <ul>
+          <li><a href="/cea-compliance">CEA s.31.1</a></li>
+          <li><a href="/cbca-fiduciary-mapping">CBCA s.122</a></li>
+          <li><a href="/eu-ai-act-mapping">EU AI Act</a></li>
+          <li><a href="/cbsa-mapping">CBSA Mapping</a></li>
+          <li><a href="/ppp-legal-compliance">Legal Compliance</a></li>
+          <li><a href="/ppp-export-control">Export Control</a></li>
+          <li><a href="/foi-formal-definition">FOI Role</a></li>
+          <li><a href="/verification-audit-procedure">Verification</a></li>
+          <li><a href="/ashp">ASHP Protocol</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Engineering</p>
+        <ul>
+          <li><a href="/tsx-stress-test">TSX Stress Test</a></li>
+          <li><a href="/horizontal-scaling">Horizontal Scaling</a></li>
+          <li><a href="/aki-95">AKI 0.95 Spec</a></li>
+          <li><a href="/human-delta-chain-spec">Human Delta Chain</a></li>
+          <li><a href="/aki-capture-deep-explanation">AKI Deep Dive</a></li>
+          <li><a href="/reasoning-capture-methodology">Reasoning Capture</a></li>
+          <li><a href="/technical-note-coherence">Coherence Note</a></li>
+          <li><a href="/adr-spec-v0.1" style="color:var(--teal);font-weight:700">ADR Spec v0.1</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Vision &amp; Evidence</p>
+        <ul>
+          <li><a href="/comparison-aviation-black-box">Aviation Black Box</a></li>
+          <li><a href="/comparison-medical-records">Medical Records</a></li>
+          <li><a href="/agi-court-precedents">AGI Court Precedents</a></li>
+          <li><a href="/future-agi-court">Court in 2076</a></li>
+          <li><a href="/principles">Principles</a></li>
+          <li><a href="/bills-of-exchange-mapping">Bills of Exchange</a></li>
+          <li><a href="/ashp">ASHP Protocol</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Not for Profit</p>
+        <ul>
+          <li><a href="/charter">Charter</a></li>
+          <li><a href="/donee">CCD Chartered Donee</a></li>
+          <li><a href="/compact">Confidence in Board Decisions</a></li>
+          <li><a href="/LICENSE-UPDATE">Licence Update</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/">GEO Optimization</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Goodstack/Google for Nonprofits Signal Block -->
+    <div style="max-width:1200px;margin:2.5rem auto 0;padding:1.5rem;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:.75rem;text-align:center">
+      <p style="font-size:.875rem;color:var(--text-dim);line-height:1.6">
+        <strong>Genesis Glass Foundation / Fondation Genèse Cristal</strong> is a federally incorporated Canadian non-profit organization operating under the <em>Canada Not-for-profit Corporations Act</em> (Corporation Number: 1779509-2). The Foundation acts as a non-profit public-benefit steward for open-source AI execution standards, forensic protocols, and statutory compliance frameworks. All software and specifications are distributed royalty-free for public benefit.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 <a href="https://genesisglass.ai" target="_blank">Genesis Glass Foundation Fondation Genèse Cristal</a>. <strong>Open Standard.</strong> Shared under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a> OR <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a>. Built in Canada.<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:text-bottom;margin-left:5px;opacity:.6;transition:opacity .2s" aria-hidden="true"><path d="M12 2l2.5 5.5h5L15.5 11l1.5 5.5-5-3.5-5 3.5L8.5 11l-4-3.5h5L12 2z" fill="#dc2626"/></svg></p>
+      <p>This page: <strong>CC BY 4.0</strong>, independent of the site-wide CC0/Apache 2.0 code license. ISBN 978-1-7389042-0-4.</p>
+    </div>
+  </footer>
+
+<script>
+  const searchIndex = [
+    {title:"Accountability.ai",url:"/",desc:"AgDR-Phoenix v1.8. Court-admissible chain of custody for AI inference"},
+    {title:"Get Started",url:"/getting-started",desc:"SDK install, PPP definition, first capture"},
+    {title:"Phoenix Demo",url:"/sandbox",desc:"Interactive atomic accountability demo"},
+    {title:"PPP Pillars",url:"/ppp-pillars",desc:"Provenance, Place, Purpose framework"},
+    {title:"AKI Definition",url:"/aki-formal-definition",desc:"Mathematical definition of Atomic Kernel Inference"},
+    {title:"AKI 0.95 Spec",url:"/aki-95",desc:"950-nanosecond atomic kernel gating performance specification"},
+    {title:"AKI Deep Dive",url:"/aki-capture-deep-explanation",desc:"Atomic capture mechanism, memory layout, cryptographic pipeline"},
+    {title:"AgDR Protocol",url:"/agdr-spec",desc:"Atomic Genesis Decision Record specification"},
+    {title:"Reasoning Capture",url:"/reasoning-capture-methodology",desc:"Chain-of-thought provenance for transformer and rule-based systems"},
+    {title:"ADR Spec v0.1",url:"/adr-spec-v0.1",desc:"Agent Decision Record — Open Specification, Version 0.1 Founding Draft, February 2026."},
+    {title:"CEA Compliance",url:"/cea-compliance",desc:"Canada Evidence Act s.31.1 mapping"},
+    {title:"CBCA Fiduciary",url:"/cbca-fiduciary-mapping",desc:"Director fiduciary duty accountability"},
+    {title:"EU AI Act",url:"/eu-ai-act-mapping",desc:"High-risk AI system compliance"},
+    {title:"CBSA Mapping",url:"/cbsa-mapping",desc:"Canada Border Services Agency alignment"},
+    {title:"Legal Mapping",url:"/legal-mapping",desc:"Statutory matrix across EU AI Act, CEA, CBCA, and NIST"},
+    {title:"Legal Compliance",url:"/ppp-legal-compliance",desc:"Statutory compliance framework"},
+    {title:"Export Control",url:"/ppp-export-control",desc:"Dual-use technology compliance"},
+    {title:"Industry Templates",url:"/ppp-industry-templates",desc:"Industry-specific PPP implementation templates"},
+    {title:"FOI Role",url:"/foi-formal-definition",desc:"Fiduciary Office Intervener definition"},
+    {title:"Fiduciary Duty of Care",url:"/fiduciary-duty-of-care",desc:"Director fiduciary duty of care under Canadian corporate law"},
+    {title:"Verification",url:"/verification-audit-procedure",desc:"Audit and verification procedures"},
+    {title:"TSX Stress Test",url:"/tsx-stress-test",desc:"100M decisions, 620ns latency proof"},
+    {title:"Horizontal Scaling",url:"/horizontal-scaling",desc:"Distributed AgDR deployment"},
+    {title:"Human Delta Chain",url:"/human-delta-chain-spec",desc:"Human-in-the-loop escalation protocol"},
+    {title:"Technical Details",url:"/technical-details",desc:"System architecture and design"},
+    {title:"Rust Core",url:"/rust-core",desc:"Rust implementation details"},
+    {title:"Rust Core API",url:"https://crates.io/crates/agdr-aki",desc:"agdr-aki crate reference and build guide"},
+    {title:"Coherence Note",url:"/technical-note-coherence",desc:"Technical coherence documentation"},
+    {title:"Manifesto",url:"/manifesto",desc:"Project mission and values"},
+    {title:"Principles",url:"/principles",desc:"Foundational principles of AI accountability and provenance"},
+    {title:"Purpose",url:"/purpose",desc:"Genesis Glass Foundation organizational purpose and mandate"},
+    {title:"Purpose Framework",url:"/beauty-truth-wisdom",desc:"Beauty, Truth, Wisdom as ethical filters"},
+    {title:"Aviation Black Box",url:"/comparison-aviation-black-box",desc:"Comparison to flight data recorders"},
+    {title:"Medical Records",url:"/comparison-medical-records",desc:"Comparison to healthcare documentation"},
+    {title:"AGI Court Precedents",url:"/agi-court-precedents",desc:"Legal precedents for AI accountability"},
+    {title:"Court in 2076",url:"/future-agi-court",desc:"Long-term judicial stewardship vision"},
+    {title:"Bills of Exchange",url:"/bills-of-exchange-mapping",desc:"Commercial instrument alignment"},
+    {title:"Actuarial Safe Harbor Protocol (ASHP)",url:"/ashp",desc:"Credibility-driven capital, reserving, and solvency framework for stochastic AI tail risk. Dual-capped truncation, Bühlmann-Straub, parametric backstops."},
+    {title:"ASHP",url:"/ashp",desc:"Actuarial Safe Harbor Protocol — AI liability capital and reserving standard"},
+    {title:"Bühlmann-Straub Credibility",url:"/ashp",desc:"Dynamic credibility scaling for AI operational risk under ASOP No. 25"},
+    {title:"AI Tail Risk",url:"/ashp",desc:"Solvency capital treatment of unbounded stochastic AI loss distributions"},
+    {title:"Upstream Model Warranty",url:"/ashp",desc:"UFMW bankruptcy-remote collateral for foundation model warranties"},
+    {title:"Charter",url:"/charter",desc:"Articles of Incorporation. Canada Not-for-profit Corp No. 1779509-2"},
+    {title:"Donee",url:"/donee",desc:"Council of Canadians with Disabilities as dissolution beneficiary"},
+    {title:"Legal Glossary",url:"/legal-glossary",desc:"Forensic glossary of terms and definitions"},
+    {title:"GEO Optimization",url:"/geo-optimization",desc:"Generative engine optimization"},
+    {title:"Analytics Consent",url:"/analytics-consent",desc:"Privacy and consent management"},
+    {title:"Changelog",url:"/CHANGELOG",desc:"Version history and release notes"},
+    {title:"Contributing",url:"/CONTRIBUTING",desc:"Community contribution guidelines"},
+    {title:"License Update",url:"/LICENSE-UPDATE",desc:"Licensing changes and updates"},
+    {title:"Terms",url:"/terms",desc:"Terms of service"}
+  ];
+
+  const searchInput = document.getElementById('site-search');
+  const searchResults = document.getElementById('search-results');
+
+  function doSearch(query) {
+    const q = query.toLowerCase().trim();
+    if (q.length < 2) {
+      searchResults.classList.remove('show');
+      searchResults.innerHTML = '';
+      return;
+    }
+    const results = searchIndex.filter(item =>
+      item.title.toLowerCase().includes(q) ||
+      item.desc.toLowerCase().includes(q) ||
+      item.url.toLowerCase().includes(q)
+    ).slice(0, 8);
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<div class="no-results">No results found</div>';
+    } else {
+      searchResults.innerHTML = results.map(r =>
+        `<a href="${r.url}" role="option"><strong>${r.title}</strong><br><small style="color:#6b7280">${r.desc}</small></a>`
+      ).join('');
+    }
+    searchResults.classList.add('show');
+  }
+
+  searchInput.addEventListener('input', (e) => doSearch(e.target.value));
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-search')) {
+      searchResults.classList.remove('show');
+    }
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchResults.classList.remove('show');
+      searchInput.blur();
+    }
+  });
+</script>
+</body>
+</html>
