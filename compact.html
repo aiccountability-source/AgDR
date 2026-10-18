@@ -1,74 +1,421 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" itemscope itemtype="https://schema.org/WebPage">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">`n    <link rel="canonical" href="https://accountability.ai/compact">
-    <title>The Phoenix Compact | Accountability.ai</title>
-    <style>
-        :root { --teal: #2dd4bf; --bg: #050505; --text: #d4d4d8; --border: #1a1a1a; }
-        body { margin: 0; background: var(--bg); color: var(--text); font-family: -apple-system, sans-serif; line-height: 1.6; }
-        
-        /* Typography */
-        h1 { color: #fff; font-size: clamp(3rem, 10vw, 6rem); letter-spacing: -4px; line-height: 0.9; margin: 0; }
-        .hero { padding: 12rem 2rem 6rem; max-width: 1100px; margin: 0 auto; }
-        .sub { color: var(--teal); font-family: monospace; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 2rem; display: block; }
-        
-        /* Content Sections */
-        article { max-width: 800px; margin: 0 auto; padding: 4rem 2rem 10rem; }
-        p { font-size: 1.4rem; color: #eee; margin-bottom: 2.5rem; font-weight: 300; }
-        strong { color: #fff; font-weight: 700; }
-        
-        .manifesto-point { margin: 6rem 0; border-top: 1px solid var(--border); padding-top: 2rem; }
-        .point-num { color: var(--teal); font-family: monospace; font-weight: 900; font-size: 1rem; display: block; margin-bottom: 1rem; }
-        h2 { color: #fff; font-size: 2.5rem; letter-spacing: -1.5px; margin: 0 0 1.5rem; }
+  <title>The Phoenix Compact | accountability.ai</title>
+  <meta name="description" content="Finality. Not Explanation. The governing statement of AgDR-Phoenix: accountability is a mechanical constraint, not a policy.">
 
-        .call-to-action { background: #111; padding: 4rem; border-radius: 12px; border: 1px solid var(--border); text-align: center; }
-        .btn { display: inline-block; padding: 1rem 2rem; background: var(--teal); color: #000; text-decoration: none; font-weight: 900; border-radius: 4px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+  <!-- Open Graph / Twitter Card -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Accountability.ai">
+  <meta property="og:url" content="https://accountability.ai/compact">
+  <meta property="og:title" content="The Phoenix Compact | accountability.ai">
+  <meta property="og:description" content="Finality. Not Explanation. The governing statement of AgDR-Phoenix: accountability is a mechanical constraint, not a policy.">
+  <meta property="og:image" content="https://accountability.ai/social-preview.png">
+  <meta property="og:locale" content="en_US">
 
-        footer { text-align: center; padding: 4rem; font-size: 0.7rem; color: #333; }
-    </style>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Phoenix Compact | accountability.ai">
+  <meta name="twitter:description" content="Finality. Not Explanation. The governing statement of AgDR-Phoenix.">
+  <meta name="twitter:image" content="https://accountability.ai/social-preview.png">
+
+  <link rel="alternate" hreflang="en" href="https://accountability.ai/compact"/>
+  <link rel="alternate" hreflang="x-default" href="https://accountability.ai/compact"/>
+  <link rel="canonical" href="https://accountability.ai/compact"/>
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://accountability.ai/#website",
+        "url": "https://accountability.ai",
+        "name": "Accountability.ai",
+        "publisher": { "@id": "https://accountability.ai/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://accountability.ai/#organization",
+        "name": "Genesis Glass Foundation / Fondation Genèse Cristal",
+        "url": "https://accountability.ai",
+        "email": "founding@accountability.ai"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://accountability.ai/compact#webpage",
+        "url": "https://accountability.ai/compact",
+        "name": "The Phoenix Compact",
+        "description": "Finality. Not Explanation. The governing statement of AgDR-Phoenix: accountability is a mechanical constraint, not a policy.",
+        "isPartOf": { "@id": "https://accountability.ai/#website" },
+        "publisher": { "@id": "https://accountability.ai/#organization" },
+        "inLanguage": "en",
+        "datePublished": "2026-03-01",
+        "dateModified": "2026-10-18"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://accountability.ai/" },
+          { "@type": "ListItem", "position": 2, "name": "The Phoenix Compact", "item": "https://accountability.ai/compact" }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root{--bg:#050505;--text:#e5e7eb;--text-dim:#a1a1aa;--text-muted:#9ca3af;--teal:#2dd4bf;--border:rgba(255,255,255,0.05);--card:rgba(255,255,255,0.03);--gradient:radial-gradient(circle at top,#0d7377 0%,#050505 70%)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none;transition:color .2s}
+    a:hover{color:var(--teal)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    *:focus-visible{outline:3px solid var(--teal);outline-offset:2px;border-radius:4px}
+
+    .skip-link{position:absolute;top:-100%;left:0;background:var(--teal);color:#000;padding:.75rem 1.5rem;z-index:100;font-weight:700;border-radius:0 0 .5rem 0}
+    .skip-link:focus{top:0}
+
+    /* Nav */
+    .site-nav{position:sticky;top:0;z-index:50;background:rgba(5,5,5,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:.75rem 0}
+    .nav-inner{max-width:1200px;margin:0 auto;padding:0 1.5rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+    .nav-logo{font-size:1.25rem;font-weight:700;letter-spacing:-.025em;color:#fff}
+    .nav-links{display:none;gap:1.5rem;font-size:.875rem;font-weight:500;color:var(--text-dim)}
+    .nav-links a:hover{color:var(--teal)}
+    .nav-search{position:relative;flex-shrink:0}
+    .nav-search input{background:#18181b;border:1px solid #27272a;border-radius:.5rem;padding:.5rem .75rem .5rem 2rem;color:#fff;font-size:.875rem;width:180px;transition:width .2s}
+    .nav-search input:focus{width:220px;border-color:var(--teal);outline:none}
+    .nav-search svg{position:absolute;left:.75rem;top:50%;transform:translateY(-50%);width:1rem;height:1rem;color:#6b7280;pointer-events:none}
+    @media(min-width:768px){.nav-links{display:flex}}
+    @media(max-width:640px){.nav-search input{width:40px;padding:.5rem;transition:width .2s}.nav-search input:focus{width:180px;padding:.5rem .75rem .5rem 2rem}}
+
+    #search-results{position:absolute;top:100%;right:0;left:0;background:#18181b;border:1px solid #27272a;border-radius:.5rem;margin-top:.25rem;max-height:300px;overflow-y:auto;z-index:60;display:none}
+    #search-results.show{display:block}
+    #search-results a{display:block;padding:.75rem 1rem;color:var(--text);font-size:.875rem;border-bottom:1px solid var(--border)}
+    #search-results a:hover{background:rgba(45,212,191,0.1);color:#fff}
+    #search-results .no-results{padding:1rem;color:var(--text-muted);font-size:.875rem}
+
+    .breadcrumb{max-width:1200px;margin:0 auto;padding:.75rem 1.5rem;font-size:.75rem;color:var(--text-muted)}
+    .breadcrumb a:hover{color:var(--teal)}
+    .breadcrumb ol{display:flex;gap:.25rem;list-style:none}
+
+    /* Hero */
+    .hero{background:var(--gradient);padding:5rem 1.5rem 6rem;text-align:center}
+    .hero-content{max-width:900px;margin:0 auto}
+    .hero-badge{display:inline-block;background:rgba(45,212,191,.1);color:var(--teal);padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:1.5rem}
+    .hero-title{font-size:clamp(2.75rem,7vw,5rem);font-weight:700;letter-spacing:-.03em;line-height:1.05;margin:0 0 1.5rem;color:#fff}
+    .hero-lead{font-size:1.25rem;color:#d4d4d8;line-height:1.75;margin-bottom:0;max-width:620px;margin-left:auto;margin-right:auto}
+
+    /* Content */
+    .content-section{padding:4rem 1.5rem 6rem;border-top:1px solid var(--border)}
+    .content-inner{max-width:800px;margin:0 auto}
+    .intro{font-size:1.25rem;color:var(--text-dim);line-height:1.8;margin-bottom:4rem}
+    .intro strong{color:#fff}
+
+    .manifesto-point{border-top:1px solid var(--border);padding-top:2.5rem;margin-top:3.5rem}
+    .point-num{display:inline-block;color:var(--teal);font-family:ui-monospace,monospace;font-weight:700;font-size:.875rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+    .manifesto-point h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:#fff;margin:0 0 1rem;letter-spacing:-.02em}
+    .manifesto-point p{color:var(--text-dim);font-size:1.125rem;line-height:1.8;margin:0}
+    .manifesto-point p strong{color:#fff}
+    .manifesto-point a{color:var(--teal);text-decoration:underline;text-underline-offset:2px}
+
+    .cta-block{background:var(--card);border:1px solid var(--border);border-radius:1rem;padding:3rem 2rem;text-align:center;margin-top:5rem}
+    .cta-block h2{font-size:1.75rem;font-weight:700;color:#fff;margin:0 0 1rem}
+    .cta-block p{color:var(--text-muted);font-size:1.05rem;margin-bottom:2rem}
+    .btn{display:inline-block;padding:1rem 2.5rem;border-radius:.5rem;font-weight:700;text-align:center;transition:all .2s;cursor:pointer;border:none;font-size:1rem}
+    .btn-primary{background:#14b8a6;color:#000}
+    .btn-primary:hover{background:var(--teal)}
+
+    /* Footer */
+    .site-footer{background:#000;border-top:1px solid var(--border);padding:4rem 1.5rem 3rem}
+    .footer-logo{max-width:1200px;margin:0 auto 2rem;text-align:center}
+    .footer-logo img{max-width:260px;height:auto;opacity:.85;transition:opacity .3s}
+    .footer-logo img:hover{opacity:1}
+    .footer-tagline{max-width:1200px;margin:0 auto 2.5rem;text-align:center}
+    .footer-tagline p{font-size:1.125rem;color:#fff;font-weight:600;margin-bottom:.5rem;letter-spacing:-0.01em}
+    .footer-tagline span{color:var(--text-muted);font-size:.875rem}
+    .footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2.5rem}
+    .footer-col .footer-heading{color:var(--teal);font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+    .footer-col ul{list-style:none;padding:0;margin:0}
+    .footer-col li{margin-bottom:.5rem}
+    .footer-col a{color:var(--text-dim);font-size:.875rem;display:block;transition:color .2s}
+    .footer-col a:hover{color:var(--teal)}
+    .footer-bottom{max-width:1200px;margin:2.5rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.75rem;color:var(--text-muted)}
+    .footer-bottom a{color:var(--teal)}
+
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    p a, li a{text-decoration:underline;text-underline-offset:2px;text-decoration-color:rgba(45,212,191,0.4)}
+    p a:hover, li a:hover{text-decoration-color:var(--teal)}
+    .nav-links a, .nav-logo, .footer-col a, .footer-col .footer-heading, .btn, .skip-link{text-decoration:none}
+
+    @media(max-width:768px){.footer-grid{grid-template-columns:repeat(2,1fr)}.footer-bottom{flex-direction:column;align-items:center;text-align:center}}
+    @media(max-width:600px){.hero-title{font-size:2.5rem}.footer-grid{grid-template-columns:1fr}}
+  </style>
 </head>
+
 <body>
+  <p class="sr-only">The Phoenix Compact, Finality Not Explanation, AgDR-Phoenix, Force Interrupt, T-0 Separation, Instruction-Level Duty, CBCA s.122, Deterministic Finality</p>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav class="site-nav" aria-label="Primary">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">ACCOUNTABILITY.AI</a>
+
+      <div class="nav-links">
+        <a href="/getting-started">Get Started</a>
+        <a href="/agdr-spec">AgDR Protocol</a>
+        <a href="/sandbox" style="color:#fff;font-weight:700">Phoenix Demo</a>
+        <a href="/faq">FAQ</a>
+        <a href="https://github.com/aiccountability-source/AgDR-Phoenix" target="_blank" rel="noopener" style="color:var(--teal)">GitHub</a>
+      </div>
+
+      <div class="nav-search" role="search">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+        </svg>
+        <input type="search" id="site-search" placeholder="Search docs..." aria-label="Search documentation" autocomplete="off">
+        <div id="search-results" role="listbox" aria-label="Search results"></div>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+        <meta itemprop="position" content="1">
+      </li>
+      <li>&nbsp;/&nbsp;</li>
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">The Phoenix Compact</span>
+        <meta itemprop="position" content="2">
+      </li>
+    </ol>
+  </nav>
+
+  <main id="main-content">
     <section class="hero">
-        <span class="sub">Accountability.ai Compact</span>
-        <h1>Finality. <br>Not Explanation.</h1>
-    </header>
+      <div class="hero-content">
+        <span class="hero-badge">Phoenix Compact · AgDR v1.8</span>
+        <h1 class="hero-title">Finality.<br>Not Explanation.</h1>
+        <p class="hero-lead">
+          The era of “Explainable AI” has failed. We do not need a machine to tell us <em>why</em> it failed after the damage is done. We need a machine that <strong>cannot act</strong> until its intent is sealed as a forensic fact.
+        </p>
+      </div>
+    </section>
 
-    <article>
-        <p>The era of "Explainable AI" has failed. We do not need a machine to tell us <em>why</em> it failed after the damage is done. We need a machine that <strong>cannot act</strong> until its intent is sealed as a forensic fact.</p>
-
-        <div class="manifesto-point">
-            <span class="point-num">01.</span>
-            <h2>The Force Interrupt.</h2>
-            <p>Accountability is not a policy; it is a mechanical constraint. In Phoenix 1.8, every inference is caught in a <strong>950-nanosecond gate</strong>. If the intent is not hermetically sealed, the execution terminates. This is the only way to govern at the speed of intelligence.</p>
-        </div>
-
-        <div class="manifesto-point">
-            <span class="point-num">02.</span>
-            <h2>The T-0 Separation.</h2>
-            <p>Monitoring is a conflict of interest. A system cannot grade its own homework. We enforce a <strong>Hard Partition</strong> between the T-1 Execution clock and the T-0 Forensic clock. The record is born outside the reach of the model, ensuring it remains unalterable by the very intelligence it governs.</p>
-        </div>
+    <section class="content-section">
+      <div class="content-inner">
 
         <div class="manifesto-point">
-            <span class="point-num">03.</span>
-            <h2>Instruction-Level Duty.</h2>
-            <p>We move corporate governance from the boardroom to the silicon. Under <strong>CBCA s.122</strong>, a Director's Duty of Care under the CBCA is met not by quarterly audits, but by the implementation of <strong>Deterministic Finality</strong>. We turn "Good Faith" into a cryptographic invariant. Enhancing confidence in the Boards intention.</p>
+          <span class="point-num">01</span>
+          <h2>The Force Interrupt</h2>
+          <p>
+            Accountability is not a policy; it is a mechanical constraint. In Phoenix 1.8, every inference is caught in a <strong>950-nanosecond gate</strong>. If the intent is not hermetically sealed, the execution terminates. This is the only way to govern at the speed of intelligence.
+            <br><br>
+            <a href="/aki-95">AKI 0.95 Spec →</a>
+          </p>
         </div>
 
-        <div class="call-to-action">
-            <h2 style="margin-top:0;">Join the Phoenix Release.</h2>
-            <p style="font-size:1.1rem; color:#888;">Stop monitoring. Start enforcing. Implement the AgDR v1.8 standard today.</p>
-            <a href="/getting-started"" class="btn">Initialize the Kernel</a>
+        <div class="manifesto-point">
+          <span class="point-num">02</span>
+          <h2>The T-0 Separation</h2>
+          <p>
+            Monitoring is a conflict of interest. A system cannot grade its own homework. We enforce a <strong>Hard Partition</strong> between the T-1 Execution clock and the T-0 Forensic clock. The record is born outside the reach of the model, ensuring it remains unalterable by the very intelligence it governs.
+            <br><br>
+            <a href="/technical-note-coherence">Technical Note on Coherence →</a>
+          </p>
         </div>
-    </article>
 
-    <footer>
-        OSHAWA, ONTARIO · CC0 1.0 UNIVERSAL · FLIGHT RECORDER FOR AGENTIC AI
-    </footer>
+        <div class="manifesto-point">
+          <span class="point-num">03</span>
+          <h2>Instruction-Level Duty</h2>
+          <p>
+            We move corporate governance from the boardroom to the silicon. Under <strong>CBCA s.122</strong>, a Director’s Duty of Care is met not by quarterly audits, but by the implementation of <strong>Deterministic Finality</strong>. We turn “Good Faith” into a cryptographic invariant—enhancing confidence in the Board’s intention.
+            <br><br>
+            <a href="/cbca-fiduciary-mapping">CBCA s.122 Mapping →</a>
+          </p>
+        </div>
 
+        <div class="cta-block">
+          <h2>Join the Phoenix Release</h2>
+          <p>Stop monitoring. Start enforcing. Implement the AgDR v1.8 standard today.</p>
+          <a href="/getting-started" class="btn btn-primary">Initialize the Kernel</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-logo">
+      <img src="/GGF-H-logo.png" alt="Genesis Glass Foundation Fondation Genèse Cristal AgDR Accountability.ai" width="260" height="80">
+    </div>
+
+    <div class="footer-tagline">
+      <p>Evidentiary integrity. Chain of custody. Operational defensibility.</p>
+      <span>founding@accountability.ai · Stewarded by GENESIS GLASS FOUNDATION / FONDATION GENÈSE CRISTAL</span>
+    </div>
+
+    <div class="footer-grid">
+      <div class="footer-col">
+        <p class="footer-heading">Core Standard</p>
+        <ul>
+          <li><a href="/getting-started">Get Started</a></li>
+          <li><a href="/sandbox">AgDR-AKI Demo</a></li>
+          <li><a href="/ppp-pillars">PPP PILLARS</a></li>
+          <li><a href="/aki-formal-definition">AKI Definition</a></li>
+          <li><a href="/agdr-spec">AgDR Protocol</a></li>
+          <li><a href="/rust-core">Rust Core</a></li>
+          <li><a href="/technical-details">Technical Architecture</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Legal &amp; Compliance</p>
+        <ul>
+          <li><a href="/cea-compliance">CEA s.31.1</a></li>
+          <li><a href="/cbca-fiduciary-mapping">CBCA s.122</a></li>
+          <li><a href="/eu-ai-act-mapping">EU AI Act</a></li>
+          <li><a href="/ppp-export-control">CBSA / Export Control</a></li>
+          <li><a href="/ppp-legal-compliance">Legal Compliance</a></li>
+          <li><a href="/foi-formal-definition">FOI Role</a></li>
+          <li><a href="/verification-audit-procedure">Verification</a></li>
+          <li><a href="/ashp">ASHP Protocol</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Engineering</p>
+        <ul>
+          <li><a href="/tsx-stress-test">TSX Stress Test</a></li>
+          <li><a href="/horizontal-scaling">Horizontal Scaling</a></li>
+          <li><a href="/aki-95">AKI 0.95 Spec</a></li>
+          <li><a href="/human-delta-chain-spec">Human Delta Chain</a></li>
+          <li><a href="/aki-capture-deep-explanation">AKI Deep Dive</a></li>
+          <li><a href="/reasoning-capture-methodology">Reasoning Capture</a></li>
+          <li><a href="/technical-note-coherence">Coherence Note</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Vision &amp; Evidence</p>
+        <ul>
+          <li><a href="/comparison-aviation-black-box">Aviation Black Box</a></li>
+          <li><a href="/comparison-medical-records">Medical Records</a></li>
+          <li><a href="/agi-court-precedents">AGI Court Precedents</a></li>
+          <li><a href="/principles">Principles</a></li>
+          <li><a href="/bills-of-exchange-mapping">Bills of Exchange</a></li>
+          <li><a href="/compact" style="color:var(--teal);font-weight:700">Phoenix Compact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Not for Profit</p>
+        <ul>
+          <li><a href="/charter">Charter</a></li>
+          <li><a href="/donee">CCD Chartered Donee</a></li>
+          <li><a href="/LICENSE-UPDATE">Licence Update</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="max-width:1200px;margin:2.5rem auto 0;padding:1.5rem;background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:.75rem;text-align:center">
+      <p style="font-size:.875rem;color:var(--text-dim);line-height:1.6">
+        <strong>Genesis Glass Foundation / Fondation Genèse Cristal</strong> is a federally incorporated Canadian non-profit organization operating under the <em>Canada Not-for-profit Corporations Act</em> (Corporation Number: 1779509-2). The Foundation acts as a non-profit public-benefit steward for open-source AI execution standards, forensic protocols, and statutory compliance frameworks. All software and specifications are distributed royalty-free for public benefit.
+      </p>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 <a href="https://genesisglass.ai" target="_blank">Genesis Glass Foundation Fondation Genèse Cristal</a>. <strong>Open Standard.</strong> Shared under <a href="https://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0</a> OR <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache 2.0</a>. Built in Canada.</p>
+      <p>Oshawa, Ontario · Flight Recorder for Agentic AI</p>
+    </div>
+  </footer>
+
+<script>
+  const searchIndex = [
+    {title:"Accountability.ai",url:"/",desc:"AgDR-Phoenix v1.8. Court-admissible chain of custody for AI inference"},
+    {title:"Get Started",url:"/getting-started",desc:"SDK install, PPP definition, first capture"},
+    {title:"Phoenix Demo",url:"/sandbox",desc:"Interactive atomic accountability demo"},
+    {title:"PPP Pillars",url:"/ppp-pillars",desc:"Provenance, Place, Purpose framework"},
+    {title:"AKI Definition",url:"/aki-formal-definition",desc:"Mathematical definition of Atomic Kernel Inference"},
+    {title:"AKI 0.95 Spec",url:"/aki-95",desc:"950-nanosecond atomic kernel gating performance specification"},
+    {title:"AKI Deep Dive",url:"/aki-capture-deep-explanation",desc:"Atomic capture mechanism, memory layout, cryptographic pipeline"},
+    {title:"AgDR Protocol",url:"/agdr-spec",desc:"Atomic Genesis Decision Record specification"},
+    {title:"Reasoning Capture",url:"/reasoning-capture-methodology",desc:"Chain-of-thought provenance for transformer and rule-based systems"},
+    {title:"CEA Compliance",url:"/cea-compliance",desc:"Canada Evidence Act s.31.1 mapping"},
+    {title:"CBCA Fiduciary",url:"/cbca-fiduciary-mapping",desc:"Director fiduciary duty accountability under Canada Business Corporations Act s.122"},
+    {title:"EU AI Act",url:"/eu-ai-act-mapping",desc:"High-risk AI system compliance"},
+    {title:"CBSA / Export Control",url:"/ppp-export-control",desc:"Canada Border Services Agency alignment — export control, sanctions screening, controlled goods"},
+    {title:"Legal Mapping",url:"/legal-mapping",desc:"Statutory matrix across EU AI Act, CEA, CBCA, and NIST"},
+    {title:"Legal Compliance",url:"/ppp-legal-compliance",desc:"Statutory compliance framework"},
+    {title:"FOI Role",url:"/foi-formal-definition",desc:"Fiduciary Office Intervener definition"},
+    {title:"Verification",url:"/verification-audit-procedure",desc:"Audit and verification procedures"},
+    {title:"TSX Stress Test",url:"/tsx-stress-test",desc:"100M decisions, 620ns latency proof"},
+    {title:"Horizontal Scaling",url:"/horizontal-scaling",desc:"Distributed AgDR deployment"},
+    {title:"Human Delta Chain",url:"/human-delta-chain-spec",desc:"Human-in-the-loop escalation protocol"},
+    {title:"Technical Details",url:"/technical-details",desc:"System architecture and design"},
+    {title:"Rust Core",url:"/rust-core",desc:"Rust implementation details"},
+    {title:"Coherence Note",url:"/technical-note-coherence",desc:"Technical coherence documentation"},
+    {title:"Principles",url:"/principles",desc:"Foundational principles of AI accountability and provenance"},
+    {title:"Purpose Framework",url:"/beauty-truth-wisdom",desc:"Beauty, Truth, Wisdom as ethical filters"},
+    {title:"Aviation Black Box",url:"/comparison-aviation-black-box",desc:"Comparison to flight data recorders"},
+    {title:"Medical Records",url:"/comparison-medical-records",desc:"Comparison to healthcare documentation"},
+    {title:"AGI Court Precedents",url:"/agi-court-precedents",desc:"Legal precedents for AI accountability"},
+    {title:"Bills of Exchange",url:"/bills-of-exchange-mapping",desc:"Commercial instrument alignment"},
+    {title:"ASHP",url:"/ashp",desc:"Actuarial Safe Harbor Protocol — AI liability capital and reserving standard"},
+    {title:"Charter",url:"/charter",desc:"Articles of Incorporation. Canada Not-for-profit Corp No. 1779509-2"},
+    {title:"Donee",url:"/donee",desc:"Council of Canadians with Disabilities as dissolution beneficiary"},
+    {title:"Phoenix Compact",url:"/compact",desc:"Finality. Not Explanation. The governing statement of AgDR-Phoenix"},
+    {title:"Terms",url:"/terms",desc:"Terms of service"},
+    {title:"Privacy",url:"/privacy",desc:"Privacy policy"}
+  ];
+
+  const searchInput = document.getElementById('site-search');
+  const searchResults = document.getElementById('search-results');
+
+  function doSearch(query) {
+    const q = query.toLowerCase().trim();
+    if (q.length < 2) {
+      searchResults.classList.remove('show');
+      searchResults.innerHTML = '';
+      return;
+    }
+    const results = searchIndex.filter(item =>
+      item.title.toLowerCase().includes(q) ||
+      item.desc.toLowerCase().includes(q) ||
+      item.url.toLowerCase().includes(q)
+    ).slice(0, 8);
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<div class="no-results">No results found</div>';
+    } else {
+      searchResults.innerHTML = results.map(r =>
+        `<a href="${r.url}" role="option"><strong>${r.title}</strong><br><small style="color:#6b7280">${r.desc}</small></a>`
+      ).join('');
+    }
+    searchResults.classList.add('show');
+  }
+
+  searchInput.addEventListener('input', (e) => doSearch(e.target.value));
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-search')) {
+      searchResults.classList.remove('show');
+    }
+  });
+
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchResults.classList.remove('show');
+      searchInput.blur();
+    }
+  });
+</script>
 </body>
 </html>
-
-
-
