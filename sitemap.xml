@@ -45,11 +45,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://accountability.ai/cbsa-mapping</loc>
-    <changefreq>quarterly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://accountability.ai/cea-compliance</loc>
     <changefreq>quarterly</changefreq>
     <priority>0.8</priority>
