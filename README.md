@@ -174,7 +174,6 @@ Failure to meet conformance requirements invalidates AgDR compliance claims.
 | AKI Formal Definition | https://accountability.ai/aki-formal-definition |
 | PPP Pillars | https://accountability.ai/ppp-pillars.html |
 | Phoenix Demo & Sandbox | https://accountability.ai/sandbox.html |
-| Compliance Guides | https://accountability.ai/compliance |
 | Changelog (Spec) | [CHANGELOG.md](CHANGELOG.md) |
 | AgDR-Phoenix Repo | https://github.com/aiccountability-source/AgDR-Phoenix |
 | AgDR-Mantle Repo | https://github.com/aiccountability-source/AgDR-Mantle |
