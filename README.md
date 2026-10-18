@@ -159,7 +159,7 @@ Alternative implementations are welcome. To claim AgDR-conformant status:
 3. Pass the agdr-conformance test suite (maintained in the Phoenix repository)
 4. Submit conformance results via PR to `/conformance/v0.2/` in this repository
 
-> **Test Suite Location:** https://github.com/aiccountability-source/AgDR-Phoenix/tree/main/conformance
+> **Test Suite Location:** https://github.com/aiccountability-source/AgDR-Phoenix/tree/main/test
 
 Failure to meet conformance requirements invalidates AgDR compliance claims.
 
